@@ -1,0 +1,7 @@
+exclude: [_assets, LICENSE, .gitignore]
+defaults:
+  -
+    scope:
+      path: ""  # all files if empty
+    values:
+      layout: default

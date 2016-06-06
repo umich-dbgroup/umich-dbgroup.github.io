@@ -1,0 +1,15 @@
+---
+permalink: /publications
+---
+
+<div id="publications">
+  {% for yeardata in site.data.publications %}
+    <h2>{{ yeardata[0] }}</h2>
+
+    <ul>
+      {% for p in yeardata[1] %}
+        <li><b>{{ p.name }}.</b> {{ p.authors }}. <i>{{ p.venue }}.</i></li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</div>

@@ -1,0 +1,51 @@
+2013:
+  -
+    name: Provenance in a Modifiable Data Set
+    authors: Jing Zhang, H. V. Jagadish
+    venue: In Search of Elegance in the Theory and Practice of Computation 2013
+  -
+    name: Revision provenance in text documents of asynchronous collaboration
+    authors: Jing Zhang, H. V. Jagadish
+    venue: ICDE 2013
+  -
+    name: Automatic Web Spreadsheet Data Extraction
+    authors: Zhe Chen, Michael Cafarella
+    venue: SSW workshop on VLDB 2013
+  -
+    name: "Senbazuru: A Prototype Spreadsheet Database Management System"
+    authors: Zhe Chen, Michael Cafarella, Jun Chen, Daniel Prevo, Junfeng Zhuang
+    venue: VLDB 2013 demo
+  -
+    name: "Ringtail: A Generalized Nowcasting System"
+    authors: Dolan Antenucci, Erdong Li, Shaobo Liu, Michael J. Cafarella, Chistopher Re
+    venue: VLDB 2013 demo
+  -
+    name: "Ringtail: Feature Selection for Easier Nowcasting"
+    authors: Dolan Antenucci, Michael J. Cafarella, Margaret C. Levenstein, Christopher Re, Matthew D. Shapiro
+    venue: WebDB 2013
+  -
+    name: Machine Learning-based Anomaly Detection for Post-silicon Bug Diagnosis
+    authors: Andrew DeOrio, Qingkun Li, Matthew Burgess and Valeria Bertacco
+    venue: Design Automation and Test in Europe (DATE) 2013
+  -
+    name: Leveraging Noisy Lists for Social Feed Ranking
+    authors: Matthew Burgess, Alessandra Mazzia, Eytan Adar, Michael Cafarella
+    venue: ICWSM 2013
+  -
+    name: "Brainwash: A Data System for Feature Engineering"
+    authors: Michael Anderson, Dolan Antenucci, Victor Bittorf, Matthew Burgess, Michael Cafarella, Arun Kumar, Feng Niu, Yongjoo Park, Christopher Re, Ce Zhang
+    venue: CIDR 2013
+  -
+    name: SELECT Triggers For Data Auditing
+    authors: Daniel Fabbri, Ravi Ramamurthy, Raghav Kaushik
+    venue: ICDE 2013
+
+2012:
+  -
+    name: Explaining Accesses To Electronic Medical Records Using Diagnosis Information
+    authors: Daniel Fabbri, Kristen LeFevre
+    venue: Journal of the American Medical Informatics Association, Special Focus Issue on Biomedical Data Privacy, 2012
+  -
+    name: "Look Who I Found: Understanding the Effects of Sharing Curated Friend Groups"
+    authors: Lujun Fang, Alex Fabrikant, Kristen LeFevre
+    venue: Web Science, 2012

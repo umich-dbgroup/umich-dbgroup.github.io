@@ -1,0 +1,27 @@
+---
+permalink: /people
+---
+<div id="people">
+  <h2>Faculty</h2>
+  {% for p in site.data.people.faculty %}
+    <li>
+      {% if p.url %}
+        <a href="{{ p.url }}">{{ p.name }}</a>
+      {% else %}
+        {{ p.name }}
+      {% endif %}
+    </li>
+  {% endfor %}
+
+
+  <h2>Graduate Students</h2>
+  {% for p in site.data.people.grad_students %}
+    <li>
+      {% if p.url %}
+        <a href="{{ p.url }}">{{ p.name }}</a>
+      {% else %}
+        {{ p.name }}
+      {% endif %}
+    </li>
+  {% endfor %}
+</div>

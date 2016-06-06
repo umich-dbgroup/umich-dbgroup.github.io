@@ -1,0 +1,38 @@
+faculty:
+  -
+    name: Michael J. Cafarella
+    url: https://web.eecs.umich.edu/~michjc/
+  -
+    name: H V Jagadish
+    url: https://web.eecs.umich.edu/~jag/
+  -
+    name: Barzan Mozafari
+    url: https://web.eecs.umich.edu/~mozafari/
+
+grad_students:
+  -
+    name: Mike Anderson
+    url: https://web.eecs.umich.edu/~mrander/
+  -
+    name: Dolan Antenucci
+    url: https://web.eecs.umich.edu/~dol/
+  -
+    name: Chris Baik
+  -
+    name: Nikita Bhutani
+  -
+    name: Chun-Hung Hsiao
+  -
+    name: Fei Li
+    url: https://web.eecs.umich.edu/~lifei/
+  -
+    name: Yongjoo Park
+  -
+    name: Shahab Tajik
+  -
+    name: Dong Young Yoon
+
+alumni:
+  -
+    name: Daniel Fabbri
+    

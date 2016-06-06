@@ -1,0 +1,16 @@
+---
+permalink: /projects
+---
+
+<div id="projects">
+  <h2>Current Projects</h2>
+  {% for p in site.data.projects.active %}
+    <li>{{ p.name }}</li>
+  {% endfor %}
+
+
+  <h2>Past Projects</h2>
+  {% for p in site.data.projects.inactive %}
+    <li>{{ p.name }}</li>
+  {% endfor %}
+</div>

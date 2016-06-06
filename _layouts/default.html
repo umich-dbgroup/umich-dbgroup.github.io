@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <title>{% if page.title %}{{ page.title }} - {% endif %}Database Research Group - University of Michigan</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="top-header">
+      <div class="container">
+        <a class="top-header-brand" href="/"> </a>
+      </div>
+    </div>
+
+    <nav id="top-nav" class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="collapse navbar-collapse main-navbar-collapse">
+          <ul id="main-nav" class="nav navbar-nav">
+            <li id="nav-about"><a href="/about">About</a></li>
+            <li id="nav-people"><a href="/people">People</a></li>
+            <li id="nav-publications"><a href="/publications">Publications</a></li>
+            <li id="nav-projects"><a href="/projects">Projects</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- main content -->
+    <div id="main-content" class="container">{{ content }}</div><!-- /.container -->
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -1,1 +1,31 @@
-test
+---
+permalink: /
+---
+<h2>University of Michigan Database Research Group</h2>
+
+<p>The database group at Michigan has a long and illustrious history. Some of our better known graduates include E.F. Codd, Mike Stonebraker, David J. DeWitt, and more.</p>
+
+<p>Our current work is focused on building the data management infrastructure for the twenty-first century, with particular emphasis on issues surrounding the internet (including XML, text mining, database design, data integration, security), main memory databases, object-relational databases, mobile databases, on issues of data warehousing and data mining, and on the effective integration and efficient querying of biological data. In particular, we have a very strong bioinformatics effort.</p>
+
+<h2>Faculty</h2>
+{% for p in site.data.people.faculty %}
+  <li>
+    {% if p.url %}
+      <a href="{{ p.url }}">{{ p.name }}</a>
+    {% else %}
+      {{ p.name }}
+    {% endif %}
+  </li>
+{% endfor %}
+
+
+<h2>Graduate Students</h2>
+{% for p in site.data.people.grad_students %}
+  <li>
+    {% if p.url %}
+      <a href="{{ p.url }}">{{ p.name }}</a>
+    {% else %}
+      {{ p.name }}
+    {% endif %}
+  </li>
+{% endfor %}
