@@ -9,6 +9,7 @@
     authors: Jags Ramnarayan, Barzan Mozafari, Sumedh Wale, Sudhir Menon, Neeraj Kumar, Hemant Bhanawat, Soubhik Chakraborty, Yogesh Mahajan, Rishitesh Mishra, Kishor Bachhav
     venue: SIGMOD 2016
     url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/sigmod_2016_demo.pdf
+    questionable: true
   -
     name: "Database Learning: Toward a Database that Becomes Smarter Every Time"
     authors: Yongjoo Park, Ahmad Shahab Tajik, Michael Cafarella, and Barzan Mozafari
@@ -19,6 +20,7 @@
     authors: Jags Ramnarayan, Barzan Mozafari, Sudhir Menon, Sumedh Wale, Neeraj Kumar, Hemant Bhanawat, Soubhik Chakraborty, Yogesh Mahajan, Rishitesh Mishra, and Kishor Bachhav
     venue: Technical Report
     url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/snappy.pdf
+    questionable: true
   -
     name: Neighbor-Sensitive Hashing
     authors: Yongjoo Park, Michael Cafarella, Barzan Mozafari
@@ -29,6 +31,26 @@
     authors: Yongjoo Park, Michael Cafarella, Barzan Mozafari
     venue: ICDE 2016
     url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/icde_2016.pdf​
+  -
+    name: "DBExplorer: Exploratory Search in Databases"
+    authors: Manish Singh, Michael Cafarella, H.V. Jagadish
+    venue: EDBT 2016
+  -
+    name: "HAWK: Hardware Support for Unstructured Log Processing"
+    authors: Prateek Tandon, Faissal M. Sleiman, Michael Cafarella, Thomas F. Wenisch
+    venue: ICDE 2016
+  -
+    name: "Long-tail Vocabulary Dictionary Extraction from the Web"
+    authors: Zhe Chen, Michael Cafarella, H.V. Jagadish
+    venue: WSDM 2016
+  -
+    name: "A Query System for Social Media Signals"
+    authors: Dolan Antenucci, Michael R. Anderson, Penghua Zhao, Michael Cafarella
+    venue: Demonstration system, ICDE 2016
+  -
+    name: Input Selection for Fast Feature Engineering
+    authors: Michael R. Anderson, Michael Cafarella
+    venue: ICDE 2016
 
 2015:
   -
@@ -56,6 +78,25 @@
     authors: Barzan Mozafari, Purna Sarkar, Michael Franklin, Michael Jordan, and Samuel Madden
     venue: VLDB 2015
     url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/vldb_2015_crowd.pdf
+  -
+    name: "Machine Learning and Databases: The Sound of Things to Come or a Cacophony of Hype?"
+    authors: Christopher Re, Divy Agarwal, Magdalena Balazinska, Michael Cafarella, Michael Jordan, Tim Kraska, Raghu Ramakrishnan
+    venue: SIGMOD 2015 Panel Discussion
+    url: https://web.eecs.umich.edu/~michjc/papers/ml_db_hype.pdf
+  -
+    name: "Raccoon: A Query System for Social Media Signals"
+    authors: Dolan Antenucci, Michael Anderson, Michael Cafarella
+    venue: Symposium on Cloud Computing (SoCC) Poster, 2015
+  -
+    name: "DiagramFlyer: A Search Engine for Data-Driven Diagrams"
+    authors: Zhe Chen, Michael Cafarella, Eytan Adar
+    venue: World Wide Web (WWW) Conference Demonstration, 2015
+    url: https://web.eecs.umich.edu/~michjc/papers/shirley_wwwdemo.pdf
+  -
+    name: "A Demonstration of Data Labeling in Knowledge Base Construction"
+    authors: Jaeho Shin, Christopher Re, Michael Cafarella
+    venue: VLDB Demo, 2015
+    url: https://web.eecs.umich.edu/~michjc/papers/p2148-shin-vldb-demo.pdf
 
 2014:
   -
@@ -73,6 +114,26 @@
     authors: Kai Zeng, Shi Gao, Jiaqi Gu, Barzan Mozafari and Carlo Zaniolo
     venue: SIGMOD 2014
     url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/sigmod_2014_demo.pdf
+  -
+    name: "Using Web Corpus Statistics for Program Analysis"
+    authors: Chun-Hung Hsiao, Michael Cafarella, Satish Narayanasamy
+    venue: OOPSLA 2014
+    url: https://web.eecs.umich.edu/~michjc/papers/oopsla14_chunhung.pdf
+  -
+    name: An Integrated Development Environment for Faster Feature Engineering
+    authors: Michael R. Anderson, Michael Cafarella, Yixing Jiang, Guan Wang, and Bochun Zhang
+    venue: VLDB Demo 2014
+    url: https://web.eecs.umich.edu/~michjc/papers/ZombieDemo.pdf
+  -
+    name: "Integrating Spreadsheet Data via Accurate and Low-Effort Extraction"
+    authors: Zhe Shirley Chen and Michael Cafarella
+    venue: KDD 2014
+    url: https://web.eecs.umich.edu/~michjc/papers/shirley_kdd14.pdf
+  -
+    name: "Using Social Media to Measure Labor Market Flows"
+    authors: Dolan Antenucci, Michael Cafarella, Margaret C. Levenstein, Christopher Re, and Matthew D. Shapiro
+    venue: NBER Working Paper No. 20010.
+    url: https://web.eecs.umich.edu/~michjc/papers/w20010.pdf
 
 2013:
   -
@@ -116,6 +177,12 @@
     name: "Brainwash: A Data System for Feature Engineering"
     authors: Michael Anderson, Dolan Antenucci, Victor Bittorf, Matthew Burgess, Michael Cafarella, Arun Kumar, Feng Niu, Yongjoo Park, Christopher Re, Ce Zhang
     venue: CIDR 2013
+    url: https://web.eecs.umich.edu/~michjc/papers/mythical_man.pdf
+  -
+    name: Minimizing Remote Accesses in MapReduce Clusters
+    authors: Prateek Tandon, Michael J. Cafarella, Thomas Wenisch
+    venue: International Workshop on High Performance Data Intensive Computing (HPDIC) 2013
+    url: https://web.eecs.umich.edu/~michjc/papers/tandon_hpdic_minimizeRemoteAccess.pdf
   -
     name: SELECT Triggers For Data Auditing
     authors: Daniel Fabbri, Ravi Ramamurthy, Raghav Kaushik
@@ -150,6 +217,7 @@
     name: Sample-driven schema mapping.
     authors: Li Qian, Michael J. Cafarella, H. V. Jagadish.
     venue: SIGMOD 2012
+    url: https://web.eecs.umich.edu/~michjc/papers/qian_sigmod12.pdf
   -
     name: "Skimmer: rapid scrolling of relational query results."
     authors: Manish Singh, Arnab Nandi, H. V. Jagadish.
@@ -184,6 +252,16 @@
     name: Distributed Cube Materialization on Holistic Measures.
     authors: Arnab Nandi, Cong Yu, Philip Bohannon and Raghu Ramakrishnan.
     venue: ICDE 2011
+  -
+    name: Web Data Management (tutorial)
+    authors: Michael J. Cafarella, Alon Y. Halevy
+    venue: SIGMOD 2011
+    url: https://web.eecs.umich.edu/~michjc/papers/sigmod902t-cafarella.pdf
+  -
+    name: Structured Data on the Web
+    authors: Michael J. Cafarella, Alon Y. Halevy, Jayant Madhavan
+    venue: Communications of the ACM 54(2): 72-79.
+    url: https://web.eecs.umich.edu/~michjc/papers/cacm-cafarella-2011.pdf
 
 2010:
   -
@@ -213,6 +291,11 @@
     name: Lost Source Provenance
     authors: Jing Zhang and H. V. Jagadish.
     venue: EDBT 2010
+  -
+    name: Relational Optimization for Data-Intensive Programs
+    authors: Michael J. Cafarella, Christopher Re
+    venue: WebDB 2010
+    url: https://web.eecs.umich.edu/~michjc/papers/WebDB-Manimal.pdf
 
 2009:
   -
