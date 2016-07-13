@@ -23,6 +23,9 @@ grad_students:
   -
     name: Chun-Hung Hsiao
   -
+    name: Zhongjun "Mark" Jin
+    url: https://sites.google.com/site/umichjin/
+  -
     name: Fei Li
     url: https://web.eecs.umich.edu/~lifei/
   -
@@ -32,7 +35,219 @@ grad_students:
   -
     name: Dong Young Yoon
 
-alumni:
+recognized_alumni:
+  -
+    name: Wesley Chu
+    degree: MS'61
+    url: http://kmed-www.cs.ucla.edu/bios/chu.html
+  -
+    name: E.F. Codd
+    degree: PhD'65
+    url: http://en.wikipedia.org/wiki/Edgar_F._Codd
+  -
+    name: Michael Stonebraker
+    degree: PhD'71
+    url: http://www.csail.mit.edu/biographies/PI/bioprint.php?PeopleID=883
+  -
+    name: S. Bing Yao
+    degree: PhD'74
+  -
+    name: David DeWitt
+    degree: PhD'76
+    url: http://www.cs.wisc.edu/~dewitt/
+  -
+    name: Sham Navathe
+    degree: PhD'76
+    url: http://www.cc.gatech.edu/computing/Database/faculty/sham/
+  -
+    name: Francois Bancilhon
+    degree: PhD'76
+  -
+    name: Kevin O'Connor
+    degree: BSE'83
+    url: http://www.oconnorventures.com/5273.html
+  -
+    name: Chin-Wan Chung
+    degree: PhD'83
+    url: http://islab.kaist.ac.kr/chungcw/
+  -
+    name: Usama Fayyad
+    degree: PhD'91
+    url: http://research.yahoo.com/Usama_Fayyad
+  -
+    name: Larry Page
+    degree: BSE'95
+    url: http://www.google.com/corporate/execs.html#larry
+
+recent_alumni:
+  -
+    name: Shirley Zhe Chen
+    degree: PhD'16
+    where: Two Sigma Investments
+    url: http://chenzheruc.github.io/
+  -
+    name: Manish Singh
+    degree: PhD'14
+    where: IIT Hyderabad
+    url: http://www.iith.ac.in/~msingh/
+  -
+    name: Alex Roper
+    degree: MS'14
+    where: Google
   -
     name: Daniel Fabbri
-    
+    degree: PhD'13
+    where: Vanderbilt University
+    url: https://medschool.vanderbilt.edu/dbmi/people/fabbri
+  -
+    name: Li Qian
+    degree: PhD'13
+    where: Facebook
+    url: http://web.eecs.umich.edu/~eql/
+  -
+    name: Lujun Fang
+    degree: PhD'13
+    where: Google
+    url: http://web.eecs.umich.edu/~ljfang/
+  -
+    name: Allie Mazzia
+    degree: MS'13
+    where: Google
+  -
+    name: Rajesh Bejugam
+    degree: MS'12
+    where: Amazon Hyderabad
+  -
+    name: Anna Shaverdian
+    degree: PhD'12
+    where: IBM
+  -
+    name: Jing Zhang
+    degree: PhD'12
+    where: Twitter
+  -
+    name: Bin Liu
+    degree: PhD'11
+    where: NEC Laboratories America
+    url: http://binliu.org/
+  -
+    name: Arnab Nandi
+    degree: PhD'11
+    where: Ohio State University
+    url: http://arnab.org/
+  -
+    name: Jun Ma
+    degree: MS'10
+    where: Baylor College of Medicine
+  -
+    name: Vaibhav Aggarwal
+    degree: MS'09
+    where: Amazon.com
+  -
+    name: You Jung Kim
+    degree: PhD'08
+    where: Oracle Inc.
+  -
+    name: Yuanyuan Tian
+    degree: PhD'08
+    where: IBM Almaden Research Center
+    url: https://researcher.ibm.com/researcher/view.php?person=us-ytian
+  -
+    name: Adriane Chapman
+    degree: PhD'08
+    where: MITRE, Arlington
+    url: http://www.ageworld.net/
+  -
+    name: Willis Lang
+    degree: MS'08
+    where: University of Wisconsin, Madison
+    url: http://pages.cs.wisc.edu/~wlang/
+  -
+    name: Magesh Jayapandian
+    degree: PhD'08
+    where: IBM Silicon Valley Laboratory
+  -
+    name: Yun Chen
+    degree: PhD'07
+    where: eBay Inc.
+  -
+    name: Yunyao Li
+    degree: PhD'07
+    where: IBM Almaden Research Center
+    url: http://www.almaden.ibm.com/cs/people/yunyaoli/index.html
+  -
+    name: Michael Morse
+    degree: PhD'07
+    where: MITRE, Arlington
+  -
+    name: Sandeep Tata
+    degree: PhD'07
+    where: IBM Almaden Research Center
+    url: https://researcher.ibm.com/researcher/view.php?person=us-stata
+  -
+    name: Nuwee Wiwatwattana
+    degree: PhD'07
+    where: PCD, Ministry of NRE, Thailand
+  -
+    name: Cong Yu
+    degree: PhD'07
+    where: Google Research, previously at Yahoo! Research
+    url: http://research.google.com/pubs/CongYu.html
+  -
+    name: Stelios Paparizos
+    degree: PhD'06
+    where: Microsoft Research
+    url: http://research.microsoft.com/~steliosp/
+  -
+    name: Shurug Al-Khalifa
+    degree: PhD'05
+    where: King Saud University, Saudi Arabia
+    url: http://faculty.ksu.edu.sa/shurug/
+  -
+    name: Andrew Nierman
+    where: University of Puget Sound
+    url: http://math.ups.edu/%7Eanierman/
+  -
+    name: Yuqing Wu
+    degree: PhD'04
+    where: Indiana University
+    url: http://www.cs.indiana.edu/%7Eyuqwu/
+  -
+    name: Richard Hankins
+    degree: PhD'04
+    where: Nokia Research Center, previously at Intel Research
+    url: http://research.nokia.com/people/rich_hankins/index.html
+  -
+    name: Kanda Runapongsa
+    degree: PhD'03
+    where: Khon Kaen University, Thailand
+    url: http://gear.kku.ac.th/%7Ekrunapon/
+  -
+    name: Thomas P. Nadeau
+    degree: PhD'03
+    where: American Chemical Society
+  -
+    name: Prasad Chakka
+    degree: MS'03
+    where: Informatica, now at Facebook
+  -
+    name: Prof. Jignesh Patel
+    where: University of Wisconsin, Madison
+    url: http://pages.cs.wisc.edu/~jignesh/
+  -
+    name: Viviane Jensen
+    degree: PhD'01
+    where: University of Michigan
+  -
+    name: Murali Annavaram
+    degree: PhD'01
+    where: University of Southern California, Los Angeles
+    url: http://ee.usc.edu/faculty_staff/faculty_directory/annavaram.htm
+  -
+    name: Prof. Nandit Soparkar
+    where: Ubiquiti Inc.
+    url: http://www.ubiquiti.net/index.html
+  -
+    name: Prof. Elke Rundensteiner
+    where: Worcester Polytechnic Institute
+    url: http://davis.wpi.edu/dsrg/MEMBERS/rundenst/

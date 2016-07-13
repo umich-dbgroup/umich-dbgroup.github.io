@@ -1,0 +1,24 @@
+---
+permalink: /alumni
+---
+<div id="alumni">
+  <h2>Most Recognized Alumni</h2>
+  <p>
+    {% for p in site.data.people.recognized_alumni %}
+      {% if p.url %}<a href="{{ p.url }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}{% if p.degree %} ({{ p.degree }}){% endif %};
+    {% endfor %}
+  </p>
+
+  <h2>Recent Alumni</h2>
+  <ul>
+    {% for p in site.data.people.recent_alumni %}
+      <li>
+        {% if p.url %}
+          <a href="{{ p.url }}">{{ p.name }}</a>
+        {% else %}
+          {{ p.name }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

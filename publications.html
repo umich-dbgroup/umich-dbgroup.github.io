@@ -8,7 +8,7 @@ permalink: /publications
 
     <ul>
       {% for p in yeardata[1] %}
-        <li><b>{{ p.name }}.</b> {{ p.authors }}. <i>{{ p.venue }}.</i></li>
+        <li><b>{% if p.url %}<a href="{{ p.url }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}.</b> {{ p.authors }}. <i>{{ p.venue }}.</i></li>
       {% endfor %}
     </ul>
   {% endfor %}

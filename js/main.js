@@ -11,4 +11,10 @@ $(document).ready(function() {
   if ($('#publications').length) {
     $('#nav-publications').addClass('active');
   }
+  if ($('#alumni').length) {
+    $('#nav-alumni').addClass('active');
+  }
+  if ($('#courses').length) {
+    $('#nav-courses').addClass('active');
+  }
 });
