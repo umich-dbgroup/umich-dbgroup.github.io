@@ -1,4 +1,85 @@
+2016:
+  -
+    name: "DBSherlock: A Performance Diagnostic Tool for Transactional Databases"
+    authors: Dong Young Yoon, Ning Niu, and Barzan Mozafari
+    venue: SIGMOD 2016
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/sigmod_2016.pdf
+  -
+    name: "SnappyData: A Hybrid Transactional Analytical Store Built On Spark"
+    authors: Jags Ramnarayan, Barzan Mozafari, Sumedh Wale, Sudhir Menon, Neeraj Kumar, Hemant Bhanawat, Soubhik Chakraborty, Yogesh Mahajan, Rishitesh Mishra, Kishor Bachhav
+    venue: SIGMOD 2016
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/sigmod_2016_demo.pdf
+  -
+    name: "Database Learning: Toward a Database that Becomes Smarter Every Time"
+    authors: Yongjoo Park, Ahmad Shahab Tajik, Michael Cafarella, and Barzan Mozafari
+    venue: Technical Report
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/dbl_techreport.pdf
+  -
+    name: "SnappyData: Streaming, Transactions, and Interactive Analytics in a Unified Engine"
+    authors: Jags Ramnarayan, Barzan Mozafari, Sudhir Menon, Sumedh Wale, Neeraj Kumar, Hemant Bhanawat, Soubhik Chakraborty, Yogesh Mahajan, Rishitesh Mishra, and Kishor Bachhav
+    venue: Technical Report
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/snappy.pdf
+  -
+    name: Neighbor-Sensitive Hashing
+    authors: Yongjoo Park, Michael Cafarella, Barzan Mozafari
+    venue: VLDB 2016
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/vldb_2016_nsh.pdf
+  -
+    name: Visualization-Aware Sampling for Very Large Databases
+    authors: Yongjoo Park, Michael Cafarella, Barzan Mozafari
+    venue: ICDE 2016
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/icde_2016.pdf​
+
+2015:
+  -
+    name: A Handbook for Building an Approximate Query Engine
+    authors: Barzan Mozafari and Ning Niu
+    venue: IEEE Data Engineering Bulletin
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/approx_chapter.pdf
+  -
+    name: "DBSeer: Pain-free Database Administration through Workload Intelligence"
+    authors: Dong Young Yoon, Barzan Mozafari, and Douglas P. Brown
+    venue: VLDB 2015
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/vldb_2016_nsh.pdf
+  -
+    name: "CliffGuard: A Principled Framework for Finding Robust Database Designs"
+    authors: Barzan Mozafari, Eugene Zhen Ye Goh, and Dong Young Yoon
+    venue: SIGMOD 2015
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/sigmod_2015.pdf
+  -
+    name: "Verdict: A System for Stochastic Query Planning"
+    authors: Barzan Mozafari
+    venue: CIDR 2015
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/cidr_2015.pdf
+  -
+    name: "Scaling Up Crowd-Sourcing to Very Large Datasets: A Case for Active Learning"
+    authors: Barzan Mozafari, Purna Sarkar, Michael Franklin, Michael Jordan, and Samuel Madden
+    venue: VLDB 2015
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/vldb_2015_crowd.pdf
+
+2014:
+  -
+    name: "The Analytical Bootstrap: a New Method for Fast Error Estimation in Approximate Query Processing"
+    authors: Kai Zeng, Shi Gao, Barzan Mozafari and Carlo Zaniolo
+    venue: SIGMOD 2014
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/sigmod_2014_abm.pdf
+  -
+    name: "Knowing When You're Wrong: Building Fast and Reliable Approximate Query Processing Systems"
+    authors: Sameer Agarwal, Henry Milner, Ariel Kleiner, Ameet Talwalkar, Michael Jordan, Samuel Madden, Barzan Mozafari and Ion Stoica
+    venue: SIGMOD 2014
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/sigmod_2014_diagnosis.pdf
+  -
+    name: "ABS: a System for Scalable Approximate Queries with Accuracy Guarantees"
+    authors: Kai Zeng, Shi Gao, Jiaqi Gu, Barzan Mozafari and Carlo Zaniolo
+    venue: SIGMOD 2014
+    url: https://web.eecs.umich.edu/~mozafari/php/data/uploads/sigmod_2014_demo.pdf
+
 2013:
+  -
+    name: Active Learning for Crowd-Sourced Databases
+    authors: Barzan Mozafari, Purnamrita Sarkar, Michael J. Franklin, Michael I. Jordan, and Samuel Madden
+    venue: Technical Report
+    url: http://arxiv.org/abs/1209.3686
   -
     name: Provenance in a Modifiable Data Set
     authors: Jing Zhang, H. V. Jagadish
@@ -49,3 +130,818 @@
     name: "Look Who I Found: Understanding the Effects of Sharing Curated Friend Groups"
     authors: Lujun Fang, Alex Fabrikant, Kristen LeFevre
     venue: Web Science, 2012
+  -
+    name: "REX: Explaining Relationships between Entities Pairs."
+    authors: Lujun Fang, Anish Das Sarma, Cong Yu, Philip Bohannon.
+    venue:  PVLDB 2012
+  -
+    name: A Graph Algebra for Scalable Visual Analytics.
+    authors: Anna A. Shaverdian, Hao Zhou, George Michailidis, H. V. Jagadish.
+    venue: IEEE Computer Graphics and Applications, 2012
+  -
+    name: Usability, Databases, and HCI.
+    authors: Fei Li, H. V. Jagadish.
+    venue: IEEE Data Eng. Bull. 2012
+  -
+    name: "SWST: A Disk Based Index for Sliding Window Spatio-Temporal Data."
+    authors: Manish Singh, Qiang Zhu, H. V. Jagadish.
+    venue: ICDE 2012
+  -
+    name: Sample-driven schema mapping.
+    authors: Li Qian, Michael J. Cafarella, H. V. Jagadish.
+    venue: SIGMOD 2012
+  -
+    name: "Skimmer: rapid scrolling of relational query results."
+    authors: Manish Singh, Arnab Nandi, H. V. Jagadish.
+    venue: SIGMOD 2012
+
+2011:
+  -
+    name: Explanation-Based Auditing
+    authors: Daniel Fabbri, Kristen LeFevre
+    venue: PVLDB 2011
+  -
+    name: Automatic Optimization for MapReduce Programs.
+    authors: Eaman Jahani, Michael J. Cafarella, Christopher Re.
+    venue:  PVLDB 2011
+  -
+    name: Appearance frequency modulated gene set enrichment testing.
+    authors: Jun Ma, Maureen A. Sartor, H. V. Jagadish.
+    venue:  BMC Bioinformatics 2011
+  -
+    name: "Guided Interaction: Rethinking the Query-Result Paradigm."
+    authors: Arnab Nandi, H. V. Jagadish.
+    venue: PVLDB 2011 (Challenges & Visions Track)
+  -
+    name: Organic Databases.
+    authors: H. V. Jagadish, Arnab Nandi, Li Qian.
+    venue: DNIS 2011
+  -
+    name: "The SystemT IDE: An Integrated Development Environment for Information Extraction Rules."
+    authors: Chieh-Feng Chiang, Laura Chiticariu, Vivian Chu, Sajib Dasgupta,Thilo Goetz, Howard Ho, Rajasekar Krishnamurthy, Alexander Lang, Yunyao Li, Bin Liu, Sriram Raghavan, Frederick Reiss, Shivakumar Vaithyanathan, Huaiyu Zhu.
+    venue: SIGMOD 2011 (Demo)
+  -
+    name: Distributed Cube Materialization on Holistic Measures.
+    authors: Arnab Nandi, Cong Yu, Philip Bohannon and Raghu Ramakrishnan.
+    venue: ICDE 2011
+
+2010:
+  -
+    url: http://www.eecs.umich.edu/~dfabbri/new_site/docs/policy-replay.pdf
+    name: "PolicyReplay: Misconfiguration-Response Queries for Data Breach Reporting"
+    authors: Daniel Fabbri, Kristen LeFevre, Qiang Zhu.
+    venue: VLDB 2010
+  -
+    url: http://www.eecs.umich.edu/~binliu/pub/vldb10.pdf
+    name: Automatic Rule Refinement for Information Extraction
+    authors: Bin Liu, Laura Chiticariu, Vivian Chu, H. V. Jagadish, and Frederick R. Reiss.
+    venue: VLDB 2010
+  -
+    url: http://www.eecs.umich.edu/~binliu/pub/ieee-deb2010.pdf
+    name: Refining Information Extraction Rules Using Data Provenance
+    authors: Bin Liu, Laura Chiticariu, Vivian Chu, H. V. Jagadish, and Frederick R. Reiss.
+    venue: IEEE Data Engineering Bulletin
+  -
+    name: Privacy Wizards for Social Networking Sites
+    authors: Lujun Fang, Kristen LeFevre.
+    venue: WWW 2010 (Best Student Paper Award)
+  -
+    name: "Splash: Integrated Ad-Hoc Querying of Data and Statistical Models"
+    authors: Lujun Fang, Kristen LeFevre.
+    venue: EDBT 2010
+  -
+    name: Lost Source Provenance
+    authors: Jing Zhang and H. V. Jagadish.
+    venue: EDBT 2010
+
+2009:
+  -
+    url: http://www.eecs.umich.edu/~klefevre/Publications_files/sec-prov.pdf
+    name: Do You Know where Your Data's Been? -- Tamper-Evident Database Provenance
+    authors: Jing Zhang, Adriane Chapman, and Kristen LeFevre.
+    venue: VLDB Workshop on Secure Data Management
+  -
+    url: http://www.eecs.umich.edu/~klefevre/Publications_files/HotSec09.pdf
+    name: "SPAN: A Unified Framework and Toolkit for Querying Heterogeneous Access Policies"
+    authors: Swati Gupta, Kristen LeFevre, and Atul Prakash.
+    venue: Hot Topics in Security
+  -
+    url: http://www.eecs.umich.edu/~klefevre/Publications_files/QRASA09_Duong.pdf
+    name: Strategic Modeling of Information Sharing among Data Privacy Attackers
+    authors: Quang Duong, Kristen LeFevre, and Michael Wellman.
+    venue: Quantitative Risk Analysis for Security Applications Workshop
+  -
+    url: http://www.nowpublishers.com/product.aspx?product=DBS
+    name: Privacy-Preserving Data Publishing
+    authors: Bee-Chung Chen, Daniel Kifer, Kristen LeFevre, and Ashwin Machanavajjhala.
+    venue: Privacy-Preserving Data Publishing. Foundations and Trends in Databases 2(1-2)
+  -
+    url: http://www.eecs.umich.edu/~klefevre/Publications_files/VLDBJ_09.pdf
+    name: Adversarial-Knowledge Dimensions in Data Privacy
+    authors: Bee-Chung Chen, Kristen LeFevre, and Raghu Ramakrishnan.
+    venue: VLDB Journal 18(2):429-467
+  -
+    url: www.springerlink.com/index/d80386141g147453.pdf
+    name: "BPI-TWIG: XML Twig Query Evaluation"
+    authors: Neamat El-Tazi, H.V. Jagadish
+    venue: XML Database Symposium at VLDB
+    address: Lyon, France
+  -
+    url: http://www.eecs.umich.edu/~binliu/pub/vldb09.pdf
+    name: Using Trees to Depict a Forest
+    authors: Bin Liu, H.V. Jagadish
+    venue: VLDB
+    address: Lyon, France
+  -
+    url: http://arnab.org/files/hamster_nandi_bernstein_124.pdf
+    name: "HAMSTER: Using Search Clicklogs for Schema and Taxonomy Matching"
+    authors: Arnab Nandi, Phil Bernstein
+    venue: VLDB
+    address: Lyon, France
+  -
+    url: http://www.springerlink.com/index/d80386141g147453.pdf
+    name: "BPI: XML Query Evaluation using Bitmapped Path Indices"
+    authors: Neamat El-Tazi, H.V. Jagadish
+    venue: DATAX
+    address: Saint-Petersburg, Russia
+  -
+    url: http://webdb09.cse.buffalo.edu/papers/Paper38/outsource.pdf
+    name: "PrivatePond: Outsourced Management of Web Corpuses"
+    authors: Daniel Fabbri, Arnab Nandi, Kristen LeFevre, H. V. Jagadish
+    venue: WebDB
+    address: Providence, Rhode Island, USA
+  -
+    url: http://www.eecs.umich.edu/db/files/ChapmanSIGMOD09.pdf
+    name: Why NOT?
+    authors: Adriane Chapman, H.V. Jagadish
+    venue: SIGMOD
+    address: Providence, Rhode Island, USA
+  -
+    url: http://www.eecs.umich.edu/~binliu/pub/sigmod09.pdf
+    name: "DataLens: Making a Good First Impression"
+    authors: Bin Liu, H.V. Jagadish
+    venue: SIGMOD (demo)
+    address: Providence, Rhode Island, USA
+  -
+    url: http://www.eecs.umich.edu/db/files/NandiCIDR09.pdf
+    name: "Qunits: queried units in database search"
+    authors: Arnab Nandi, H.V. Jagadish.
+    venue: CIDR
+    address: California, USA
+  -
+    url: http://www.eecs.umich.edu/~binliu/pub/icde09.pdf
+    name: A Spreadsheet Algebra for a Direct Data Manipulation Query Interface
+    authors: Bin Liu, H.V. Jagadish.
+    venue: ICDE
+    address: Shanghai, China
+
+2008:
+  -
+    url: http://www.eecs.umich.edu/db/files/Timber08.pdf
+    name: Querying XML in Timber
+    authors: Yuqing Wu, Stelios Paparizos, H. V. Jagadish
+    venue: IEEE Data Engineering Bulletin
+  -
+    url: http://www.eecs.umich.edu/~ytian/toolkit.pdf
+    name: "Periscope/GQ: A Graph Querying Toolkit"
+    authors: Yuanyuan Tian, Jignesh M. Patel, Viji Nair, Sebastian Martini, Matthias Kretzler
+    venue: VLDB (demo)
+    address: Auckland, New Zealand
+  -
+    url: http://www.eecs.umich.edu/db/files/p695-jayapandian.pdf
+    name: Automated Creation of a Forms-based Database Query Interface
+    authors: Magesh Jayapandian and H. V. Jagadish
+    venue: VLDB
+    address: Auckland, New Zealand
+  -
+    url: http://www.eecs.umich.edu/db/files/a17lefevre.pdf
+    name: Workload-Aware Anonymization Techniques for Large-Scale Datasets
+    authors: Kristen LeFevre, David J. DeWitt, Raghu Ramakrishnan
+    venue: ACM TODS Volume 33, No 3
+  -
+    url: http://www.eecs.umich.edu/~ytian/summarization.pdf
+    name: Efficient Aggregation for Graph Summarization
+    authors: Yuanyuan Tian, Richard A. Hankins, Jignesh M. Patel
+    venue: SIGMOD
+    address: Vancouver, Canada
+  -
+    url: http://www.eecs.umich.edu/db/files/ipaw08.pdf
+    name: Provenance and the Price of Identity
+    authors: Adriane Chapman and H.V. Jagadish
+    venue: IPAW
+    address: Salt Lake City, UT
+  -
+    url: http://www.eecs.umich.edu/db/files/chapman-efficient.pdf
+    name: Efficient Provenance Storage
+    authors: Adriane Chapman, H .V. Jagadish and Prakash Ramanan
+    venue: SIGMOD
+    address: Vancouver, Canada
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/tale.pdf
+    name: "TALE: A Tool for Approximate Large Graph Matching"
+    authors: Yuanyuan Tian and Jignesh M. Patel
+    venue: ICDE
+    address: Cancun, Mexico
+  -
+    url: http://www.eecs.umich.edu/db/files/vldbj08.pdf
+    name: XML Schema Refinement through Redundancy Detection and Normalization
+    authors: Cong Yu and H. V. Jagadish
+    venue: VLDB Journal
+  -
+    url: http://www.eecs.umich.edu/db/files/edbt08.pdf
+    name: Expressive Query Specification through Form Customization
+    authors: Magesh Jayapandian and H. V. Jagadish
+    venue: EDBT
+    address: Nantes, France
+
+2007:
+  -
+    url: http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btl571?ijkey=LYOIJKHFdMzZKaf
+    name: "SAGA: A Subgraph Matching Tool for Biological Graphs"
+    authors: Yuanyuan Tian, Richard C. McEachin, Carlos Santos, David J. States and Jignesh M. Patel
+    venue: "Bioinformatics 23(2): 232-239"
+  -
+    url: http://www.eecs.umich.edu/db/files/NaLIX_TODS.pdf
+    name: "NaLIX: A Generic Natural Language Search Environment for XML Data"
+    authors: Yunyao Li, Huahai Yang and H. V. Jagadish
+    venue: ACM TODS, Volume 32, Number 4
+  -
+    url: http://www.eecs.umich.edu/db/files/tkde07.pdf
+    name: Evaluating Universal Quantification in XML
+    authors: Shurug Al-Khalifa, Bin Liu and H. V. Jagadish
+    venue: IEEE TKDE, Volume 19, Issue 11, 1494-1507
+  -
+    url: http://www.eecs.umich.edu/db/files/chapman07.pdf
+    name: Issues in Building Practical Provenance Systems
+    authors: Adriane Chapman and H. V. Jagadish
+    venue: IEEE Data Engineering Bulletin 30(4), 38-43
+  -
+    url: http://www.eecs.umich.edu/db/files/cidr07p32.pdf
+    name: "Rethinking Choices for Multi-dimensional Point Indexing: Making the Case for the Often Ignored Quadtree"
+    authors: You Jung Kim and Jignesh M. Patel
+    venue: CIDR
+    address: Asilomar, CA
+  -
+    url: http://www.eecs.umich.edu/db/files/cidr07p40.pdf
+    name: "Web-scale Data Integration: You Can Only Afford to Pay As You Go"
+    authors: Jayant Madhavan, Shawn Jeffery, Shirley Cohen, Xin Dong, David Ko, Cong Yu and Alon Halevy
+    venue: CIDR
+    address: Asilomar, CA
+  -
+    url: http://www.eecs.umich.edu/db/files/AAAI07LiY.pdf
+    name: Enabling Domain-Awareness for a Generic Natural Language Interface
+    authors: Yunyao Li, Ishan Chaudhuri, Huahai Yang, Satinder Singh and H. V. Jagadish
+    venue: AAAI
+    address: Vancouver, British Columbia, Canada
+  -
+    url: http://www.eecs.umich.edu/db/files/icde07ann.pdf
+    name: Efficient Evaluation of All-Nearest-Neighbor Queries
+    authors: Yun Chen and Jignesh M. Patel
+    venue: ICDE
+    address: Istanbul, Turkey
+  -
+    url: http://www.eecs.umich.edu/db/files/icde07x3.pdf
+    name: "X3: A Cube Operator for XML OLAP"
+    authors: Nuwee Wiwatwattana, H. V. Jagadish, Laks V. S. Lakshmanan and Divesh Srivastava
+    venue: ICDE
+    address: Istanbul, Turkey
+  -
+    url: http://www.eecs.umich.edu/db/files/ann-CC.pdf
+    name: Efficient Evaluation of All-Nearest-Neighbor Queries
+    authors: Yun Chen and Jignesh M. Patel
+    venue: ICDE
+    address: Istanbul, Turkey
+  -
+    url: http://www.eecs.umich.edu/db/files/icde07sigopt.pdf
+    name: "SIGOPT: Using Schema to Optimize XML Query Processing"
+    authors: Stelios Paparizos, Jignesh M. Patel and H. V. Jagadish
+    venue: ICDE
+    address: Istanbul, Turkey
+  -
+    name: Efficient Continuous Skyline Computation
+    authors: Michael Morse, Jignesh M. Patel and William I. Grosky
+    venue: IJBRA, Volume 3, Number 1, 24-41
+  -
+    url: http://www.eecs.umich.edu/db/files/infosci07.pdf
+    name: Efficient Evaluation of Radial Queries using the Target Tree
+    authors: Michael Morse, Jignesh M. Patel and William I. Grosky
+    venue: Information Systems Journal, Volume 31, Issue 2, 73-97
+  -
+    url: http://www.eecs.umich.edu/db/files/ssdbm07.pdf
+    name: Some Challenges in Integrating Information on Protein Interactions and a Partial Solution
+    authors: H. V. Jagadish
+    venue: SSDBM
+    address: Banff, Canada
+  -
+    url: http://www.eecs.umich.edu/db/files/sigmod07timeseries.pdf
+    name: An Efficient and Accurate Method for Evaluating Time Series Similarity
+    authors: Michael Morse and Jignesh M. Patel
+    venue: SIGMOD
+    address: Beijing, China
+  -
+    url: http://www.eecs.umich.edu/db/files/p13-jagadish.pdf
+    name: Making Database Systems Usable
+    authors: H. V. Jagadish, Adriane Chapman, Aaron Elkiss, Magesh Jayapandian, Yunyao Li, Arnab Nandi and Cong Yu
+    venue: SIGMOD (keynote)
+    address: Beijing, China
+  -
+    url: http://www.eecs.umich.edu/db/files/p1156-nandi.pdf
+    name: Assisted Querying using Instant-response Interfaces
+    authors: Arnab Nandi and H. V. Jagadish
+    venue: SIGMOD (demo)
+    address: Beijing, China
+  -
+    url: http://www.eecs.umich.edu/db/files/p1165-li.pdf
+    name: "DaNaLIX: a Domain-adaptive Natural Language Interface for Querying XML"
+    authors: Yunyao Li, Ishan Chaudhuri, Huahai Yang, Satinder Singh and H. V. Jagadish
+    venue: SIGMOD (demo)
+    address: Beijing, China
+  -
+    url: http://www.eecs.umich.edu/db/files/p219-nandi.pdf
+    name: Effective Phrase Prediction
+    authors: Arnab Nandi and H. V. Jagadish
+    venue: VLDB
+    address: Vienna, Austria
+  -
+    url: http://www.eecs.umich.edu/db/files/p267-morse.pdf
+    name: Efficient Skyline Computation over Low-Cardinality Domains
+    authors: Michael Morse, Jignesh M. Patel and H. V. Jagadish
+    venue: VLDB
+    address: Vienna, Austria
+  -
+    url: http://www.eecs.umich.edu/db/files/p1010-yu.pdf
+    name: Querying Complex Structured Databases
+    authors: Cong Yu and H. V. Jagadish
+    venue: VLDB
+    address: Vienna, Austria
+  -
+    url: http://www.eecs.umich.edu/db/files/p687-dong.pdf
+    name: Data Integration with Uncertainty
+    authors: Xin Luna Dong, Alon Y. Halevy and Cong Yu
+    venue: VLDB
+    address: Vienna, Austria
+  -
+    url: http://www.eecs.umich.edu/db/files/p1406-tata.pdf
+    name: "Periscope/SQ: Interactive Exploration of Biological Sequence Databases"
+    authors: Sandeep Tata, Willis Lang and Jignesh M. Patel
+    venue: VLDB (demo)
+    address: Vienna, Austria
+  -
+    url: http://nar.oxfordjournals.org/cgi/content/full/35/suppl_1/D566
+    name: "Michigan Molecular Interactions (MiMI): Putting the Jigsaw Puzzle Together"
+    authors: Magesh Jayapandian, Adriane Chapman, V. Glenn Tarcea, Cong Yu, Aaron Elkiss, Angela Ianni, Bin Liu, Arnab Nandi, Carlos Santos, Philip Andrews, Brian Athey, David States and H. V. Jagadish
+    venue: Nucleic Acids Research 35(Database Issue), D566-71
+
+2006:
+  -
+    url: http://www.eecs.umich.edu/db/files/algebralncs06.pdf
+    name: The Importance of Algebra for XML Query Processing
+    authors: Stelios Paparizos and H.V. Jagadish
+    venue: EDBT Workshop on XML Data Management
+  -
+    url: http://www.pubmedcentral.nih.gov/articlerender.fcgi?&pubmedid=17042958
+    name: A Framework for Protein Structure Classification and Identification of Novel Protein Structures
+    authors: You Jung Kim and Jignesh M. Patel
+    venue: BMC Bioinformatics, 7:456
+  -
+    url: http://www.eecs.umich.edu/db/files/mbench.pdf
+    name: "The Michigan Benchmark: Towards XML Query Performance Diagnostics"
+    authors: Kanda Runapongsa, Jignesh M. Patel, H. V. Jagadish, Yun Chen and Shurug Al-Khalifa
+    venue: Information Systems Journal, Volume 31, Issue 2, 73-97
+  -
+    url: http://www.eecs.umich.edu/db/files/vldb06b.pdf
+    name: Efficient Discovery of XML Data Redundancies
+    authors: Cong Yu and H. V. Jagadish
+    venue: VLDB
+    address: Seoul, Korea
+  -
+    url: http://www.eecs.umich.edu/db/files/vldb06a.pdf
+    name: Schema Summarization
+    authors: Cong Yu and H. V. Jagadish
+    venue: VLDB
+    address: Seoul, Korea
+  -
+    url: http://www.eecs.umich.edu/db/files/k_dominant.pdf
+    name: Finding k-Dominant Skylines in High Dimensional Space
+    authors: Chee-Yong Chan, H. V. Jagadish, Kian Lee Tan, Anthony K. H. Tung and Zhenjie Zhang
+    venue: SIGMOD
+    address: Chicago, IL
+  -
+    url: http://www.eecs.umich.edu/db/files/mwaytree.pdf
+    name: Speeding up Search in Peer-to-Peer Networks with A Multi-way Tree Structure
+    authors: Quang Hieu Vu, H. V. Jagadish, Beng Chin Ooi, Kian Lee Tan, Quang Hieu Vu and Rong Zhang
+    venue: SIGMOD
+    address: Chicago, IL
+  -
+    url: http://www.eecs.umich.edu/db/files/SupportTransactionalSearch-SIGIR06.pdf
+    name: "Getting Work Done on the Web: Supporting Transactional Queries"
+    authors: Yunyao Li, Rajasekar Krishnamurthy, Shivakumar Vaithyanathan and H. V. Jagadish
+    venue: SIGIR
+    address: Seattle, WA
+  -
+    url: http://www.eecs.umich.edu/db/files/fqas06.pdf
+    name: Term Disambiguation in Natural Language Query for XML
+    authors: Yunyao Li, Huahai Yang and H. V. Jagadish
+    venue: FQAS (Invited Submission)
+    address: Milano, Italy
+  -
+    url: http://www.eecs.umich.edu/db/files/ipaw06.pdf
+    name: A Provenance Model for Manually Curated Data
+    authors: Peter Buneman, Adriane Chapman, James Cheney and Stijn Vansummeren
+    venue: IPAW
+    address: Chicago, IL
+  -
+    url: http://www.eecs.umich.edu/db/files/p539-buneman.pdf
+    name: Provenance Management in Curated Databases
+    authors: Peter Buneman, Adriane Chapman and James Cheney
+    venue: SIGMOD
+    address: Chicago, IL
+  -
+    url: http://www.eecs.umich.edu/db/files/NaLIX_EDBT.pdf
+    name: Constructing a Generic Natural Language Interface for an XML Database
+    authors: Yunyao Li, Huahai Yang and H. V. Jagadish
+    venue: EDBT
+    address: Munich, Germany
+  -
+    url: http://www.eecs.umich.edu/db/files/MQF_VLDBJ.pdf
+    name: Enabling Schema-Free XQuery with Meaningful Query Focus
+    authors: Yunyao Li, Cong Yu and H. V. Jagadish
+    venue: VLDB Journal
+  -
+    url: http://www.eecs.umich.edu/db/files/icde06mct.pdf
+    name: Making Designer Schemas with Colors
+    authors: Nuwee Wiwatwattana, H. V. Jagadish, Laks Lakshmanan and Divesh Srivastava
+    venue: ICDE
+    address: Atlanta, GA
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/SEQ.pdf
+    name: Declarative Querying for Biological Sequences
+    authors: Sandeep Tata, Jignesh Patel, James Friedman and Anand Swaroop
+    venue: ICDE
+    address: Atlanta, GA
+  -
+    url: http://www.comp.nus.edu.sg/~ooibc/vbi.pdf
+    name: "VBI-Tree: A Peer-to-Peer Framework for Supporting Multi-Dimensional Indexing Schemes"
+    authors: H. V. Jagadish, Beng Chin Ooi, Quang Hieu Vu, Zhang Rong and Aoying Zhou
+    venue: ICDE
+    address: Atlanta, GA
+  -
+    url: http://www.eecs.umich.edu/db/files/icde06skyline.pdf
+    name: Efficient Continuous Skyline Computation
+    authors: Michael Morse, Jignesh Patel and William Grosky
+    venue: ICDE
+    address: Atlanta, GA
+  -
+    url: http://www.eecs.umich.edu/db/files/icde06form.pdf
+    name: Automating the Design and Construction of Query Forms
+    authors: Magesh Jayapandian and H. V. Jagadish
+    venue: ICDE
+    address: Atlanta, GA
+
+2005:
+  -
+    url: http://www.vldb2005.org/program/paper/wed/p349-paparizos.pdf
+    name: "Pattern Tree Algebras: Sets or Sequences?"
+    authors: Stelios Paparizos and H. V. Jagadish
+    venue: VLDB
+    address: Trondheim, Norway
+  -
+    url: http://www.eecs.umich.edu/~congy/work/vldb05.pdf
+    name: Semantic Adaptation of Schema Mappings when Schemas Evolve
+    authors: Cong Yu and Lucian Popa
+    venue: VLDB
+    address: Trondheim, Norway
+  -
+    url: http://www.eecs.umich.edu/db/files/p661-jagadish.pdf
+    name: "BATON: A Balanced Tree Structure for Peer-to-Peer Networks"
+    authors: H. V. Jagadish, Beng Chin Ooi and Quang Hieu Vu
+    venue: VLDB
+    address: Trondheim, Norway
+  -
+    url: http://www.iscb.org/ismb2005/demos/35.pdf
+    name: "MiMI: Michigan Molecular Interactions"
+    authors: Adriane Chapman, Magesh Jayapandian, Cong Yu and H. V. Jagadish
+    venue: ISMB (demo)
+    address: Detroit, MI
+  -
+    url: http://www.eecs.umich.edu/db/files/miblast.pdf
+    name: " miBLAST: Scalable Evaluation of a Batch of Nucleotide Sequence Queries with BLAST"
+    authors: You Jung Kim, Andrew Boyd, Brian D. Athey and Jignesh M. Patel
+    venue: Nucleic Acids Research 33(13):4335-4344
+  -
+    url: http://www.eecs.umich.edu/db/files/130NaLIX.pdf
+    name: "NaLIX: An Interactive Natural Language Interface for Querying XML"
+    authors: Yunyao Li, Huahai Yang and H. V. Jagadish
+    venue: SIGMOD (best demo)
+    address: Baltimore, Maryland
+  -
+    url: http://www.eecs.umich.edu/db/files/dmb05patel.pdf
+    name: Declarative and Efficient Querying on Protein Secondary Structures
+    authors: Jignesh M. Patel, Donald P. Huddler and Laurie Hammel
+    venue: "Data Mining in Bioinformatics: 243-273"
+  -
+    url: http://portal.acm.org/citation.cfm?id=1089844.1089846
+    name: Practical Methods for Constructing Suffix Trees
+    authors: Yuanyuan Tian, Sandeep Tata, Richard A. Hankins and Jignesh M. Patel
+    venue: VLDB Journal, Volume 14, Number 3, 281 - 299
+  -
+    url: http://www.eecs.umich.edu/db/files/bmde05_short.pdf
+    name: Efficient Evaluation of Radial Queries Using the Target Tree
+    authors: Michael D. Morse, Jignesh Patel and William Grosky
+    venue: BMDE
+    address: Tokyo, Japan
+  -
+    url: http://www.eecs.umich.edu/db/files/organelleDB.pdf
+    name: "Organelle DB: a Cross-species Database of Protein Localization and Function"
+    authors: Nuwee Wiwatwattana and Anuj Kumar
+    venue: Nucleic Acids Research 33:D598-604
+
+2004:
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/stc.pdf
+    name: Practical Suffix Tree Construction
+    authors: Sandeep Tata, Richard A. Hankins and Jignesh M.Patel
+    venue: VLDB
+    address: Toronto, Canada
+  -
+    url: http://www.eecs.umich.edu/db/files/mlcas.pdf
+    name: Schema-Free XQuery
+    authors: Yunyao Li, Cong Yu and H. V. Jagadish
+    venue: VLDB
+    address: Toronto, Canada
+  -
+    url: http://www.eecs.umich.edu/db/files/sdm04.pdf
+    name: Using Delay to Defend Against Database Extraction
+    authors: Magesh Jayapandian, Brian Noble, James Mickens and H. V. Jagadish
+    venue: Secure Data Management
+    address: Toronto, Canada
+  -
+    url: http://www.eecs.umich.edu/db/files/xist.pdf
+    name: "XIST: An XML Index Selection Tool"
+    authors: Kanda Runapongsa, Jignesh M. Patel, Rajesh Bordawekar and Sriram Padmanabhan
+    venue: XSym
+    address: Toronto, Canada
+  -
+    url: http://www.eecs.umich.edu/db/files/jlssw2004-mct.pdf
+    name: "Colorful XML: One Hierarchy Isn't Enough"
+    authors: H. V. Jagadish, Laks Lakshmanan V.S., Monica Scannapieco, Divesh Srivastava and Nuwee Wiwatwattana
+    venue: SIGMOD
+    address: Paris, France
+  -
+    url: http://www.eecs.umich.edu/~congy/work/sigmod04.pdf
+    name: Constraint-Based XML Query Rewriting For Data Integration
+    authors: Cong Yu and Lucian Popa
+    venue: SIGMOD
+    address: Paris, France
+  -
+    url: http://www.eecs.umich.edu/db/timber/files/tlc.pdf
+    name: Tree Logical Classes for Efficient Evaluation of XQuery
+    authors: Stelios Paparizos, Yuqing Wu, Laks V. S. Lakshmanan and H. V. Jagadish
+    venue: SIGMOD
+    address: Paris, France
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/stripes.pdf
+    name: "STRIPES: An Efficient Index for Predicted Trajectories"
+    authors: Jignesh M. Patel, Yun Chen, and V. Prasad Chakka
+    venue: SIGMOD
+    address: Paris, France
+  -
+    url: http://www.eecs.umich.edu/db/files/itcompress-an-iterative-semantic.pdf
+    name: "ItCompress: An Iterative Semantic Compression Algorithm"
+    authors: H. V. Jagadish, Raymond Ng, Beng Chin Ooi and Anthony K. H. Tung
+    venue: ICDE
+    address: Boston, MA
+  -
+    url: http://www.eecs.umich.edu/db/files/yslj2004-xmlcam-journal.pdf
+    name: A Compressed Accessibility Map for XML
+    authors: Ting Yu, Divesh Srivastava, Laks V. S. Lakshmanan and H. V. Jagadish
+    venue: ACM TODS 29(2):363-402
+  -
+    url: http://www.eecs.umich.edu/db/files/p15-jagadish.pdf
+    name: Database Management for Life Sciences Research
+    authors: H. V. Jagadish and Frank Olken
+    venue: SIGMOD Record 33(2):15-20
+
+2003:
+  -
+    url: http://www.eecs.umich.edu/db/files/CompatibilityDeterminination.pdf
+    name: Compatibility Determination in Web Services
+    authors: Yunyao Li and H. V. Jagadish
+    venue: ICEC eGovernment Services Workshop
+  -
+    url: http://www.eecs.umich.edu/~jignesh/quickstep/publ/dmg.pdf
+    name: "Data Morphing: An Adaptive, Cache-Conscious Storage Technique"
+    authors: Richard A. Hankins and Jignesh M. Patel
+    venue: VLDB
+    address: Berlin, Germany
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/oasis.pdf
+    name: "OASIS: An Online and Accurate Technique for Local-alignment Searches on Biological Sequences"
+    authors: Colin Meek, Jignesh M. Patel, and Shruti Kasetty
+    venue: VLDB
+    address: Berlin, Germany
+  -
+    url: http://www.eecs.umich.edu/db/timber/files/gtpvldb.pdf
+    name: "From Tree Patterns to Generalized Tree Patterns: On Efficient Evaluation of XQuery"
+    authors: Zhimin Chen, H. V. Jagadish, Laks V.S. Lakshmanan and Stelios Paparizos
+    venue: VLDB
+    address: Berlin, Germany
+  -
+    url: http://www.eecs.umich.edu/db/files/omics.pdf
+    name: Effective Integration of Protein Data through Better Data Modeling
+    authors: Adriane Chapman, Cong Yu and H. V. Jagadish
+    venue: "OMICS: A Journal of Integrative Biology 7(1):101-102"
+  -
+    url: http://www.eecs.umich.edu/db/files/piqa.pdf
+    name: "PiQA: An Algebra for Querying Protein Data Sets"
+    authors: Sandeep Tata and Jignesh M. Patel
+    venue: SSDBM
+    address: Cambridge, MA
+  -
+    url: http://www.eecs.umich.edu/~congy/work/si03demo.pdf
+    name: Querying XML Using Structures and Keywords in Timber
+    authors: Cong Yu, H. V. Jagadish and Dragomir Radev
+    venue: SIGIR (demo)
+    address: Toronto, Canada
+  -
+    url: http://www.eecs.umich.edu/~jignesh/quickstep/publ/cci.pdf
+    name: Effect of Node Size on the Performance of Cache-Conscious B+-trees
+    authors: Richard A. Hankins and Jignesh M. Patel
+    venue: SIGMETRICS
+    address: San Diego, CA
+  -
+    url: http://www.eecs.umich.edu/~congy/work/sigmod03.pdf
+    name: Querying Structured Text in an XML Database
+    authors: Shurug Al-Khalifa, Cong Yu and H. V. Jagadish
+    venue: SIGMOD
+    address: San Diego, CA
+  -
+    url: http://www.eecs.umich.edu/db/timber/files/timberdemo.pdf
+    name: "TIMBER: A Native System for Quering XML"
+    authors: S. Paparizos, S. Al-Khalifa, A. Chapman, H. V. Jagadish, L. V.S. Lakshmanan, A. Nierman, J. M. Patel, D. Srivastava, N. Wiwatwattana, Y. Wu, and C. Yu
+    venue: SIGMOD (demo)
+    address: San Diego, CA
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/XML-opt.pdf
+    name: Structural Join Order Selection for XML Query Optimization
+    authors: Yuqing Wu, Jignesh Patel and H. V. Jagadish
+    venue: ICDE
+    address: Bangalore, India
+  -
+    url: http://www.eecs.umich.edu/~jag/wdmbio/wdmb_rpt.pdf
+    name: Workshop on Data Management for Molecular and Cell Biology
+    authors: H. V. Jagadish
+    venue: NSF
+    address: Bethesda, MD
+  -
+    url: http://www.eecs.umich.edu/db/files/IS03-histogram.pdf
+    name: Using Histograms to Estimate the Answer Size for XML Queries
+    authors: Yuqing Wu, Jignesh Patel and H. V. Jagadish
+    venue: "Information Systems 28(1-2): 33-59"
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/seti.pdf
+    name: Indexing Large Trajectory Data Sets with SETI
+    authors: V. Prasad Chakka, Adam Everspaugh and Jignesh M. Patel
+    venue: CIDR
+    address: Asilomar, CA
+
+2002:
+  -
+    name: Practical Debugging in C++
+    authors: A.R. Ford and T.J. Teorey
+    venue: Prentice Hall
+  -
+    url: http://www.eecs.umich.edu/~congy/work/inex02.pdf
+    name: Integration of IR into an XML Database
+    authors: Cong Yu, Hong Qi and H. V. Jagadish
+    venue: 1st Annual Workshop of the Initiative for the Evaluation of XML Retrieval (INEX)
+  -
+    url: http://www.eecs.umich.edu/db/timber/files/timber.pdf
+    name: "TIMBER: A Native XML Database"
+    authors: H. V. Jagadish, S. Al-Khalifa, A. Chapman, L. V.S. Lakshmanan, A. Nierman, S. Paparizos, J. Patel, D. Srivastava, N. Wiwatwattana, Y. Wu and C. Yu
+    venue: "VLDB Journal 11(4): 274-291"
+  -
+    name: "The Michigan Benchmark: A Microbenchmark for XML Query Processing Systems"
+    authors: Kanda Runapongsa, Jignesh M. Patel, H. V. Jagadish and Shurug Al-Khalifa
+    venue: EEXTT
+  -
+    name: Multi-level Operator Combination in XML Query Processing
+    authors: Shurug Al-Khalifa and H. V. Jagadish
+    venue: CIKM
+    address: McLean, VA
+  -
+    name: Achieving Scalability in OLAP Materialized View Selection
+    authors: Thomas P. Nadeau and Toby J. Teorey
+    venue: DOLAP
+    address: McLean, VA
+  -
+    name: Indexing Hidden Markov Models for Music Retrieval
+    authors: Hui Jin and H. V. Jagadish
+    venue: International Conference on Music Information Retrieval
+    address: Paris, France
+  -
+    name: "ProTDB: Probabilistic Data in XML"
+    authors: Andrew Nierman and H. V. Jagadish
+    venue: VLDB
+    address: Hong Kong, China
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/periscope-PSSS.pdf
+    name: Searching on the Secondary Structure of Protein Sequences
+    authors: Laurie Hammel and Jignesh M. Patel
+    venue: VLDB
+    address: Hong Kong, China
+  -
+    name: Estimating Structural Similarity in XML Documents
+    authors: Andrew Nierman and H. V. Jagadish
+    venue: WebDB
+    address: Madison, WI
+  -
+    name: Estimating Answer Sizes for XML Queries
+    authors: Yuqing Wu, Jignesh Patel and H. V. Jagadish
+    venue: EDBT
+    address: Prague, Czech Republic
+  -
+    name: Grouping in XML
+    authors: S. Paparizos, S. Al-Khalifa, H. V. Jagadish, L. Lakshmanan, A. Nierman, D. Srivastava and Y. Wu
+    venue: XMLDM Workshop
+  -
+    name: Storing and Querying XML Data in Object-Relational DBMSs
+    authors: Kanda Runapongsa and Jignesh M. Patel
+    venue: XMLDM Workshop
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/xmljoin-ICDE.pdf
+    name: "Structural Joins: A Primitive for Efficient XML Query Pattern Matching"
+    authors: Shurug Al-Khalifa, H. V. Jagadish, N. Koudas, Jignesh. Patel, D. Srivastava and Yuqing Wu
+    venue: ICDE
+    address: San Jose, CA
+
+2001:
+  -
+    name: Information Warfare and Security - Book Review
+    authors: H. V. Jagadish
+    venue: "SIGMOD Record 30(4): 69-70"
+  -
+    name: Analysis of the Clustering Properties of the Hilbert Space-Filling Curve
+    authors: Bongki Moon, H. V. Jagadish, Christos Faloutsos and Joel H. Saltz
+    venue: "IEEE TKDE 13(1): 124-141"
+  -
+    name: Using q-grams in a DBMS for Approximate String Processing
+    authors: Luis Gravano, Panagiotis G. Ipeirotis, H. V. Jagadish, Nick Koudas, S. Muthukrishnan, Lauri Pietarinen and Divesh Srivastava
+    venue: "IEEE Data Engineering Bulletin 24(4): 28-34"
+  -
+    name: Heuristic Optimization for Decentralized Frequent Itemset Counting
+    authors: Viviane Crestana-Jensen and Nandit Soparkar
+    venue: ICDM (Poster)
+    address: San Jose, CA
+  -
+    name: A Pareto Model for OLAP View Size Estimation
+    authors: Thomas P. Nadeau and Toby J. Teorey
+    venue: CASCON (best paper)
+    address: Toronto, Canada
+  -
+    name: "TAX: A Tree Algebra for XML"
+    authors: H. V. Jagadish, Laks V.S. Lakshmanan, Divesh Srivastava and K. Thompson
+    venue: DBPL
+    address: Rome, Italy
+  -
+    name: "Indexing the Distance: An Efficient Method to KNN Processing"
+    authors: Cui Yu, Beng Chin Ooi, Kian-Lee Tan and H. V. Jagadish
+    venue: VLDB
+    address: Rome, Italy
+  -
+    name: Approximate String Joins in a Database (Almost) for Free
+    authors: Luis Gravano, Panagiotis Ipeirotis, H. V. Jagadish, Nick Koudas, S. Muthukrishnan and Divesh Srivastava
+    venue: VLDB
+    address: Rome, Italy
+  -
+    name: Binomial Multifractal Curve Fitting for View Size Estimation in OLAP
+    authors: Thomas P. Nadeau, Kanda Runapongsa and Toby J. Teorey
+    venue: SCI (best paper)
+    address: Orlando, FL
+  -
+    name: Incompleteness in Data Mining
+    authors: H. V. Jagadish
+    venue: PAKDD
+    address: Hong Kong, China
+  -
+    name: Global Optimization of Histograms
+    authors: H. V. Jagadish, Hui Jin, Beng Chin Ooi and Kian-Lee Tan
+    venue: SIGMOD
+    address: Santa Barbara, CA
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/precomp-ISCA.pdf
+    name: Data Prefetching by Dependence Graph Precomputation
+    authors: M. Annavaram, Jignesh.Patel and E. Davidson
+    venue: ISCA
+    address: Göteborg, Sweden
+  -
+    name: Counting Twig Matches in a Tree
+    authors: Z. Chen, H. V. Jagadish, F. Korn, N. Koudas, S. Muthukrishnan, R. Ng and D. Srivastava
+    venue: ICDE
+    address: Heidelberg, Germany
+  -
+    url: http://www.eecs.umich.edu/~jignesh/publ/cgp-HPCA.pdf
+    name: Call Graph Prefetching for Database Applications
+    authors: M. Annavaram, Jignesh M. Patel and E. Davidson
+    venue: HPCA
+    address: Nuevo Leone, Mexico
