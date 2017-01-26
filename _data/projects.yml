@@ -7,11 +7,11 @@ active:
 inactive:
   -
     name: Timber
-    url: "/timber"
+    url: "/project/timber"
     description: ""
   -
     name: Intranet Transactional Search
-    url: "/transactionalSearch"
+    url: "/project/transactionalSearch"
     description: ""
   -
     name: SAGA
@@ -19,9 +19,9 @@ inactive:
     description: ""
   -
     name: Natural Language &amp; XML Query Logs
-    url: "/nlxmlQueryLogs"
+    url: "/project/nlxmlQueryLogs"
     description: ""
   -
     name: Regular Expression Learning
-    url: "/regexLearning"
+    url: "/project/regexLearning"
     description: ""
