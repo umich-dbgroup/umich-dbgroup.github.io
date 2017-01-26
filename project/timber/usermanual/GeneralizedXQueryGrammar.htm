@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+	<HEAD>
+		<TITLE>Personal Web Page 2</TITLE>
+			<LINK href="./Personal%20Web%20Page%20%202_files/filelist.xml" rel="File-List"> 
+        <STYLE>@page Section1 {size: 8.5in 11.0in; margin: 1.0in 1.25in 1.0in 1.25in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; }
+	P.MsoNormal { FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt; COLOR: black; FONT-FAMILY: Arial; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman" }
+	LI.MsoNormal { FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt; COLOR: black; FONT-FAMILY: Arial; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman" }
+	DIV.MsoNormal { FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt; COLOR: black; FONT-FAMILY: Arial; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman" }
+	H1 { FONT-WEIGHT: normal; FONT-SIZE: 24pt; MARGIN: 12pt 0in 3pt; COLOR: black; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 1; mso-font-kerning: 16.0pt; mso-bidi-font-weight: bold }
+	H2 { FONT-WEIGHT: normal; FONT-SIZE: 18pt; MARGIN: 12pt 0in 3pt; COLOR: black; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 2; mso-bidi-font-weight: bold; mso-bidi-font-style: italic }
+	H3 { FONT-WEIGHT: normal; FONT-SIZE: 14pt; MARGIN: 12pt 0in 3pt; COLOR: black; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 3; mso-bidi-font-weight: bold }
+	H4 { FONT-WEIGHT: normal; FONT-SIZE: 12pt; MARGIN: 12pt 0in 3pt; COLOR: black; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 4; mso-bidi-font-weight: bold }
+	H5 { FONT-WEIGHT: normal; FONT-SIZE: 10pt; MARGIN: 12pt 0in 3pt; COLOR: black; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 5; mso-bidi-font-weight: bold; mso-bidi-font-style: italic }
+	H6 { FONT-WEIGHT: normal; FONT-SIZE: 8pt; MARGIN: 12pt 0in 3pt; COLOR: black; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 6; mso-bidi-font-weight: bold }
+	A:link { COLOR: #660000; TEXT-DECORATION: underline; text-underline: single }
+	SPAN.MsoHyperlink { COLOR: #660000; TEXT-DECORATION: underline; text-underline: single }
+	A:visited { COLOR: #003399; TEXT-DECORATION: underline; text-underline: single }
+	SPAN.MsoHyperlinkFollowed { COLOR: #003399; TEXT-DECORATION: underline; text-underline: single }
+	DIV.Section1 { page: Section1 }
+	</STYLE>
+</HEAD>
+	<BODY lang="EN-US" style="tab-interval: .5in" vLink="#003399" link="#660000" bgColor="#FFFFFF" background="strbkgde.gif" text="#000000" alink="#999933">
+<font face="Arial, Helvetica" color="#000000"><SPAN style="mso-bookmark: _Ref68354279"><SPAN style="FONT-SIZE: 18pt; mso-bidi-font-size: 24.0pt">XQuery 
+Fragment Supported</SPAN> </SPAN></font></H1> <font face="Arial, Helvetica"> </font> 
+<H1 style="MARGIN-TOP: 0in"><font face="Arial, Helvetica" color="#000000"><SPAN style="mso-bookmark: _Ref68354279"><SPAN style="FONT-SIZE: 18pt; mso-bidi-font-size: 24.0pt"><FONT size="3"></FONT></SPAN> 
+  </SPAN>&nbsp;</font></H1>
+    
+<H1 style="MARGIN-TOP: 0in"><font face="Arial, Helvetica" color="#000000"><SPAN style="mso-bookmark: _Ref68354279"><SPAN style="FONT-SIZE: 18pt; mso-bidi-font-size: 24.0pt"><FONT size="3">Timber 
+  currently&nbsp;support most part of&nbsp;XQuery. The following simplified yet 
+  substantially expressive grammar represent the XQuery fragment supported by 
+  Timber.</FONT></SPAN> </SPAN> </font></H1>
+    
+<font face="Arial, Helvetica"> 
+<P class="MsoNormal"> &nbsp;</P>
+		</DIV>
+    <p><font size="2">&lt;FLWOR&gt; ::= &lt;ForLetClause> &lt;WhereClause>? &lt;OrderByClause>? &lt;ReturnClause><br>
+    <br>
+    &lt;ForLetClause> ::= ( &lt;ForClause> | &lt;LetCLause> ) +<br>
+    &lt;ForClause> ::= "for" $var "in" &lt;FLE><br>
+    &lt;LetClause> ::= "let" $var ":=" &lt;FLE><br>
+    &lt;FLE> ::= &lt;SP> | &lt;MLCA> | &lt;FLWOR><br>
+    $var ::= $variable<br>
+    &lt;SP> ::= Simple Path (includes attributes but no branching predicates)<br>
+    &lt;MLCA> ::= "timber-mlca"($var, &lt;SP>, $var, &lt;SP>, ... , $var, &lt;SP>)<br>
+    <br>
+    <br>
+    &lt;WhereClause> ::= "where" &lt;WE><br>
+    &lt;WE> ::= &lt;SimplePredicateExpr><br>
+    | &lt;AggrPredExpr><br>
+    | &lt;ValueJoin><br>
+    | &lt;EveryExpr><br>
+    | &lt;SomeExpr><br>
+    | &lt;ANDExp><br>
+    | &lt;ORExp><br>
+    &lt;SimplePredicateExpr> ::= &lt;SP> &lt;Predicate> &lt;Value><br>
+    &lt;AggrPredExpr> ::= Aggregate(&lt;SP>) &lt;Predicate> &lt;Value><br>
+    Aggregate(&lt;SP>) ::= "count("&lt;SP>")" | "avg("&lt;SP>")" | "min("&lt;SP>")" | "max("&lt;SP>")" | "sum("&lt;SP>")"&nbsp;<br>
+    &lt;ValueJoin> ::= &lt;SP> &lt;Predicate> &lt;SP><br>
+    &lt;EveryExpr> ::= "every" $var "in" &lt;SP> "satisfies" &lt;SimplePredicateExpr><br>
+    &lt;SomeExpr> ::= "some" $var "in" &lt;SP> "satisfies" &lt;SimplePredicateExpr><br>
+    &lt;ANDExp> ::= &lt;WE> "and" &lt;WE><br>
+    &lt;ORExp> ::= &lt;orin> "or" &lt;orin> ("or" &lt;orin>)*<br>
+    &lt;orin> ::= (&lt;SimplePredicateExpr> | &lt;AggrPredExpr> | &lt;EveryExpr> | &lt;SomeExpr>)<br>
+    <br>
+    &lt;OrderByClause> ::= "order by" &lt;OrderList><br>
+    &lt;OrderList> ::= &lt;OrderSpec> ("," &lt;OrderList>)*<br>
+    &lt;OrderSpec> ::= &lt;SP> &lt;SORTMODE>? &lt;EMPTYMODe>?<br>
+    &lt;SORTMODE> ::= "ascending" | "descending"<br>
+    &lt;EMPTYMODE> ::= "empty least" | "empty greatest"<br>
+    <br>
+    &lt;ReturnClause> ::= "return" &lt;RE><br>
+    &lt;RE> ::= &lt;SP>&nbsp;<br>
+	| Aggregate(&lt;SP>)&nbsp;<br>
+	| ( "&lt;"tagname &lt;ATTRLIST>?">" RE "&lt;/"tagname">" )<br>
+	| &lt;UpdateExpr><br>
+	| &lt;FLWOR><br>
+    ATTRLIST ::= tagname "=" &lt;SP> &lt;ATTRLIST>*<br>
+    <br>
+    &lt;UpdateExpr> ::=&nbsp;<br>
+	  "timber-delete"( &lt;SP> | &lt;SP>"/text()" )<br>
+	| "timber-update"( &lt;SP>, &lt;Value> | &lt;SP> | Aggregate(&lt;SP>) )<br>
+	| "timber-insertfile"( &lt;SP>, &lt;filename> )<br>
+	| "timber-insertelement"( &lt;SP>, ElementTag, &lt;Value> | &lt;SP> | Aggregate(&lt;SP>), &lt;AttrCont>*)<br>
+	| "timber-insertattribute"( &lt;SP>, AttributeTag, &lt;Value> | &lt;SP> | Aggregate(&lt;SP>))<br>
+    &lt;AttrCont> ::= AttributeTag ( &lt;Value> | &lt;SP> | Aggregate(&lt;SP>) )<br>
+    <br>
+    &lt;filename> ::= A string that points to a file name eg "bib.xml"<br>
+    &lt;Value> :: = string or number<br>
+    <br>
+    <br>
+    // <b>IMPORTANT NOTE</b>: Nested FLWOR statements require a join, either structural or value with a node bound to an outer variable.<br>
+    // If a variable binds to a nested FLWOR, then on the outer where part we cannot have a value join referencing this variable.</font></p>
+    
+</font> 
+</BODY>
+</HTML>

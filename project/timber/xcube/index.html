@@ -1,0 +1,44 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>X^3: A Cube Operator for XML OLAP - Web Supplement</title>
+</head>
+
+<body>
+<center><h2>X^3: A Cube Operator for XML OLAP - Web Supplement</h2><BR>Nuwee Wiwatwattana
+, H. V. Jagadish
+, Laks V. S. Lakshmanan
+, and Divesh Srivastava</center>
+<center><img src="table1.jpg"></center>
+<hr>
+<font size="+1">Counter-Based Algorithm</font><br>
+<center><img src="counteralgo.jpg"></center>
+<hr>
+<font size="+1">Bottom-Up Based Algorithm</font><br>
+<p>In Figure 2, +,* in front of the lines indicate
+differences from the original BUC Algorithm corresponding to the
+adaptation to support the two properties of XML data mentioned
+before. In (1*), all duplicate facts are eliminated before the
+aggregation is computed from the fact attributes. In (4.1+) and
+(4.2+), we ignore witness trees that have missing dimensions.
+Ancestors that contain missing dimensions are ignored in (2.1+).
+Only (1*), which is a support for the non-disjointness property,
+creates an overhead. We can see that if each grouping tree
+comprises a large number of individual witness trees, i.e. if the
+cube is sparse, duplicate elimination can be a bottleneck for this
+algorithm.</p>
+<center><img src="bucalgo.jpg"></center>
+<hr>
+<font size="+1">Top-Down Based Algorithm</font><br>
+<p>+,* in front of the lines indicate
+differences from the original Memory-Cube Algorithm corresponding to the adaptation previously mentioned. In Figure 3, we do not
+aggregate trees that have one or more axes that do not comply to
+the pattern of the accumulator in Line 2.3.3.1+*. For line 2.1*,
+the accumulators are initialized to contain the fact items. Due to
+the non-disjointness of grouped partition, in Line 2.3.3.1+* and
+2.3.4*, the fact identifiers are retained, to ignore duplicates.</p>
+<center><img src="tdalgo.jpg"></center>
+</body>
+</html>

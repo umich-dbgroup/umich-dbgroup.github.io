@@ -1,0 +1,2639 @@
+give me the cities in Virginia.
+for $c in document("geobase.xml")//city where $c/state = "Virginia" return <result> {$c/text()} </result>
+
+what are the high points of states surrounding Mississippi?
+for $b in document("geobase.xml")//border for $h in document("geobase.xml")//highlow where $b/state = $h/state and $b = "Mississippi" return $h/highest_point
+
+name the rivers in Arkansas.
+for $r in document("geobase.xml")//river where $r/state = "Arkansas" return <result> {$r/text()} </result>
+
+name all the rivers in Colorado.
+for $r in document("geobase.xml")//river where $r/state = "Colorado" return <result> {$r/text()} </result>
+
+can you tell me the capital of Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/capital
+
+could you tell me what is the highest point in the state of Oregon?
+for $h in document("geobase.xml")//highlow where $h/state = "Oregon" return $h/highest_point
+
+count the states which have elevations lower than what Alabama has?
+for $h in document("geobase.xml")//highlow let $lh := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l/state where $h/state = "Alabama" return <result> {count($lh)} </result>
+
+give me all the states of USA?
+for $s in document("geobase.xml")//state return <result> {$s/text()} </result>
+
+give me the cities in Texas?
+for $c in document("geobase.xml")//city where $c/state = "Texas" return <result> {$c/text()} </result>
+
+give me the cities in USA?
+for $c in document("geobase.xml")//city return <result> {$c/text()} </result>
+
+give me the cities in Virginia?
+for $c in document("geobase.xml")//city where $c/state = "Virginia" return <result> {$c/text()} </result>
+
+give me the cities which are in Texas?
+for $c in document("geobase.xml")//city where $c/state = "Texas" return <result> {$c/text()} </result>
+
+give me the lakes in California?
+for $l in document("geobase.xml")//lake where $l/state = "California" return <result> {$l/text()} </result>
+
+give me the largest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+give me the longest river that passes through the US?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+give me the number of rivers in California?
+let $r := document("geobase.xml")//river where $r/state = "California" return <result> {count($r)} </result>
+
+give me the states that border Utah?
+for $b in document("geobase.xml")//border where $b = "Utah" return $b/state
+
+how big is Alaska?
+for $s in document("geobase.xml")//state where $s = "Alaska" return $s/area
+
+how big is Massachusetts?
+for $s in document("geobase.xml")//state where $s = "Massachusetts" return $s/area
+
+how big is New Mexico?
+for $s in document("geobase.xml")//state where $s = "New Mexico" return $s/area
+
+how big is North Dakota?
+for $s in document("geobase.xml")//state where $s = "North Dakota" return $s/area
+
+how big is Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/area
+
+what is the population of the city of New York? (how big is the city of New York?)
+for $c in document("geobase.xml")//city where $c = "New York" return $c/population
+
+how high are the highest points of all the states?
+for $h in document("geobase.xml")//highlow return $h/highest_point
+
+how high is Guadalupe Peak?
+for $h in document("geobase.xml")//highlow where $h/highest_point = "Guadalupe Peak" return $h/highest_point/elevation
+
+how high is Mount McKinley?
+for $h in document("geobase.xml")//highlow where $h/highest_point = "Mount McKinley" return $h/highest_point/elevation
+
+how high is the highest point in America?
+let $e := document("geobase.xml")//highest_point/elevation return <result> {max($e)} </result>
+
+how high is the highest point in Montana?
+for $h in document("geobase.xml")//highlow where $h/state = "Montana" return $h/highest_point/elevation
+
+how high is the highest point in the largest state?
+for $h in document("geobase.xml")//highlow for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 and $s = $h/state return $h/highest_point/elevation
+
+how high is the highest point of Alabama?
+for $h in document("geobase.xml")//highlow where $h/state = "Alabama" return $h/highest_point/elevation
+
+how high is the highest point of Delaware?
+for $h in document("geobase.xml")//highlow where $h/state = "Delaware" return $h/highest_point/elevation
+
+how high is the highest point of Florida?
+for $h in document("geobase.xml")//highlow where $h/state = "Florida" return $h/highest_point/elevation
+
+how high is the highest point of Louisiana?
+for $h in document("geobase.xml")//highlow where $h/state = "Louisiana" return $h/highest_point/elevation
+
+how large is Alaska?
+for $s in document("geobase.xml")//state where $s = "Alaska" return $s/area
+
+how large is Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/area
+
+how many people live in the most populated city in Alaska? (how large is the largest city in Alaska?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Alaska" and $p/population > $c/population return $p where $c/state = "Alaska" and count($cp) = 0 return $c/population
+
+how long is Rio Grande?
+for $r in document("geobase.xml")//river where $r = "Rio Grande" return $r/length
+
+how long is the Colorado river?
+for $r in document("geobase.xml")//river where $r = "Colorado" return $r/length
+
+how long is the Delaware river?
+for $r in document("geobase.xml")//river where $r = "Delaware" return $r/length
+
+how long is the longest river in California?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "California" and $l/length > $r/length return $l where count($lr) = 0 and $r/state = "California" return $r/length
+
+how long is the longest river in the USA?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return $r/length
+
+how long is the Mississippi?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/length
+
+how long is the Mississippi river?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/length
+
+how long is the Mississippi river in miles?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/length
+
+how long is the Missouri river?
+for $r in document("geobase.xml")//river where $r = "Missouri" return $r/length
+
+how long is the North Platte river?
+for $r in document("geobase.xml")//river where $r = "North Platte" return $r/length
+
+how long is the Ohio river?
+for $r in document("geobase.xml")//river where $r = "Ohio" return $r/length
+
+how long is the Rio Grande river?
+for $r in document("geobase.xml")//river where $r = "Rio Grande" return $r/length
+
+how long is the shortest river in the USA?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/length < $r/length return $s where count($sr) = 0 return $r/length
+
+how many major cities are in Pennsylvania? (how many big cities are in Pennsylvania?)
+for $s in document("geobase.xml")//state where $s = "Pennsylvania" return <result> {count($s/major_city)} </result>
+
+how many capitals does Rhode Island have?
+for $s in document("geobase.xml")//state where $s = "Rhode Island" return <result> {count($s/capital)} </result>
+
+how many cities are in Louisiana?
+let $c := document("geobase.xml")//city where $c/state = "Louisiana" return <result> {count($c)} </result>
+
+how many cities are in Montana?
+let $c := document("geobase.xml")//city where $c/state = "Montana" return <result> {count($c)} </result>
+
+how many cities are there in the United States?
+let $c := document("geobase.xml")//city return <result> {count($c)} </result>
+
+how many cities are there in the US?
+let $c := document("geobase.xml")//city return <result> {count($c)} </result>
+
+how many cities are there in US?
+let $c := document("geobase.xml")//city return <result> {count($c)} </result>
+
+how many cities are there in USA?
+let $c := document("geobase.xml")//city return <result> {count($c)} </result>
+
+how many cities does Texas have?
+let $c := document("geobase.xml")//city where $c/state = "Texas" return <result> {count($c)} </result>
+
+how many cities does the USA have?
+let $c := document("geobase.xml")//city return <result> {count($c)} </result>
+
+how many cities named Austin are there in the USA?
+let $c := document("geobase.xml")//city where $c = "Austin" return <result> {count($c)} </result>
+
+how many citizens does the biggest city have in the USA?
+for $c in document("geobase.xml")//city let $lc := for $l in document("geobase.xml")//city where $l/population > $c/population return $l where count($lc) = 0 return $c/population
+
+how many citizens in Alabama?
+for $s in document("geobase.xml")//state where $s = "Alabama" return $s/population
+
+how many citizens in Boulder?
+for $c in document("geobase.xml")//city where $c = "Boulder" return $c/population
+
+how many citizens live in California?
+for $s in document("geobase.xml")//state where $s = "California" return $s/population
+
+how many Colorado rivers are there?
+let $r := document("geobase.xml")//river where $r/state = "Colorado" return <result> {count($r)} </result>
+
+how many inhabitants does Montgomery have?
+for $c in document("geobase.xml")//city where $c = "Montgomery" return $c/population
+
+how many major cities are in Arizona?
+for $s in document("geobase.xml")//state where $s = "Arizona" return <result> {count($s/major_city)} </result>
+
+how many major cities are in Florida?
+for $s in document("geobase.xml")//state where $s = "Florida" return <result> {count($s/major_city)} </result>
+
+how many major cities are in states bordering Nebraska?
+for $b in document("geobase.xml")//border let $bc := for $s in document("geobase.xml")//state where $s = $b/state return $s/major_city where $b = "Nebraska" return <result> {count($bc)} </result>
+
+how many major cities are in states bordering Utah?
+for $b in document("geobase.xml")//border let $bc := for $s in document("geobase.xml")//state where $s = $b/state return $s/major_city where $b = "Utah" return <result> {count($bc)} </result>
+
+how many major cities are in Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return <result> {count($s/major_city)} </result>
+
+how many major cities are there?
+let $m := document("geobase.xml")//major_city return <result> {count($m)} </result>
+
+how many major cities are there in Oregon?
+for $s in document("geobase.xml")//state where $s = "Oregon" return <result> {count($s/major_city)} </result>
+
+how many major rivers cross Ohio?
+let $mr := for $m in document("geobase.xml")//river where return $m/length for $r in document("geobase.xml")//river where $r/state = "Ohio" and $r/length > avg($mr) return <result> {count($r)} </result>
+
+how many people are in the state of Nevada?
+for $s in document("geobase.xml")//state where $s = "Nevada" return $s/population
+
+how many people are there in Iowa?
+for $s in document("geobase.xml")//state where $s = "Iowa" return $s/population
+
+how many people are there in New York?
+for $s in document("geobase.xml")//state where $s = "New York" return $s/population
+
+how many people in Boulder?
+for $c in document("geobase.xml")//city where $c = "Boulder" return $c/population
+
+how many people live in Austin?
+for $c in document("geobase.xml")//city where $c = "Austin" return $c/population
+
+how many people live in Austin Texas?
+for $c in document("geobase.xml")//city where $c = "Austin" and $c/state = "Texas" return $c/population
+
+how many people live in California?
+for $s in document("geobase.xml")//state where $s = "California" return $s/population
+
+how many people live in Chicago?
+for $c in document("geobase.xml")//city where $c = "Chicago" return $c/population
+
+how many people live in Detroit?
+for $c in document("geobase.xml")//city where $c = "Detroit" return $c/population
+
+how many people live in Hawaii?
+for $s in document("geobase.xml")//state where $s = "Hawaii" return $s/population
+
+how many people live in Houston?
+for $c in document("geobase.xml")//city where $c = "Houston" return $c/population
+
+how many people live in Kalamazoo?
+for $c in document("geobase.xml")//city where $c = "Kalamazoo" return $c/population
+
+how many people live in Kansas?
+for $s in document("geobase.xml")//state where $s = "Kansas" return $s/population
+
+how many people live in Minneapolis Minnesota?
+for $c in document("geobase.xml")//city where $c = "Minneapolis" and $c/state = "Minnesota" return $c/population
+
+how many people live in Mississippi?
+for $s in document("geobase.xml")//state where $s = "Mississippi" return $s/population
+
+how many people live in Montana?
+for $s in document("geobase.xml")//state where $s = "Montana" return $s/population
+
+how many people live in New Hampshire?
+for $s in document("geobase.xml")//state where $s = "New Hampshire" return $s/population
+
+how many people live in New Mexico?
+for $s in document("geobase.xml")//state where $s = "New Mexico" return $s/population
+
+how many people live in New York?
+for $s in document("geobase.xml")//state where $s = "New York" return $s/population
+
+how many people live in Rhode Island?
+for $s in document("geobase.xml")//state where $s = "Rhode Island" return $s/population
+
+how many people live in Riverside?
+for $c in document("geobase.xml")//city where $c = "Riverside" return $c/population
+
+how many people live in San Francisco?
+for $c in document("geobase.xml")//city where $c = "San Francisco" return $c/population
+
+how many people live in South Dakota?
+for $s in document("geobase.xml")//state where $s = "South Dakota" return $s/population
+
+how many people live in Spokane Washington?
+for $c in document("geobase.xml")//city where $c = "Spokane" and $c/state = "Washington" return $c/population
+
+how many people live in Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/population
+
+how many people live in the biggest city in New York state?
+for $c in document("geobase.xml")//city let $cp := for $n in document("geobase.xml")//city where $n/state = "New York" and $n/population > $c/population return $n where $c/state = "New York" and count($cp) = 0 return $c/population
+
+how many people live in the capital of Georgia?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city where $c = $s/capital and $s = "Georgia" return $c/population
+
+how many people live in the capital of Texas?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city where $c = $s/capital and $s = "Texas" return $c/population
+
+how many people live in the smallest state bordering Wyoming?
+for $s in document("geobase.xml")//state for $b in document("geobase.xml")//border let $sa := for $w in document("geobase.xml")//state where $w = $b/state and $w/area < $s/area return $w where $b = "Wyoming" and $s = $b/state and count($sa) = 0 return $s/population
+
+how many people live in the state with the largest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return $s/population
+
+how many people live in the United States?
+let $p := document("geobase.xml")//state/population return <result> {sum($p)} </result>
+
+how many people live in Washington?
+for $s in document("geobase.xml")//state where $s = "Washington" return $s/population
+
+how many people live in Washington DC?
+for $c in document("geobase.xml")//city where $c = "Washington DC" return $c/population
+
+how many people lived in Austin?
+for $c in document("geobase.xml")//city where $c = "Austin" return $c/population
+
+how many people reside in Utah?
+for $s in document("geobase.xml")//state where $s = "Utah" return $s/population
+
+how many people stay in Utah?
+for $s in document("geobase.xml")//state where $s = "Utah" return $s/population
+
+how many residents live in Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/population
+
+how many rivers are called Colorado?
+let $r := document("geobase.xml")//river where $r = "Colorado" return <result> {count($r)} </result>
+
+how many rivers are found in Colorado?
+let $r := document("geobase.xml")//river where $r/state = "Colorado" return <result> {count($r)} </result>
+
+how many rivers are in Colorado?
+let $r := document("geobase.xml")//river where $r/state = "Colorado" return <result> {count($r)} </result>
+
+how many rivers are in Iowa?
+let $r := document("geobase.xml")//river where $r/state = "Iowa" return <result> {count($r)} </result>
+
+how many rivers are in Missouri?
+let $r := document("geobase.xml")//river where $r/state = "Missouri" return <result> {count($r)} </result>
+
+how many rivers are in New York?
+let $r := document("geobase.xml")//river where $r/state = "New York" return <result> {count($r)} </result>
+
+how many rivers are in the state that has the most rivers?
+let $cr := for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r return count($sr) return <result> {max($cr)} </result>
+
+how many rivers are in the state with the highest point?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l let $hr := for $r in document("geobase.xml")//river where $r/state = $h/state return $r where count($hl) = 0 return <result> {count($hr)} </result>
+
+how many rivers are in the state with the largest population?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where count($sp) = 0 return <result> {count($sr)} </result>
+
+how many rivers are there in Idaho?
+let $r := document("geobase.xml")//river where $r/state = "Idaho" return <result> {count($r)} </result>
+
+how many rivers are there in Texas?
+let $r := document("geobase.xml")//river where $r/state = "Texas" return <result> {count($r)} </result>
+
+how many rivers are there in US?
+let $r := document("geobase.xml")//river return <result> {count($r)} </result>
+
+how many rivers do not traverse the state with the capital Albany?
+let $ar := for $r in document("geobase.xml")//river let $rs := for $s in document("geobase.xml")//state where $r/state = $s and $s/capital = "Albany" return $s where count($rs) = 0 return $r return <result> {count($ar)} </result>
+
+how many rivers does Alaska have?
+let $r := document("geobase.xml")//river where $r/state = "Alaska" return <result> {count($r)} </result>
+
+how many rivers does Colorado have?
+let $r := document("geobase.xml")//river where $r/state = "Colorado" return <result> {count($r)} </result>
+
+how many rivers in Texas are longer than the Red?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Texas" and $l/length > $r/length return $l where $r = "Red" return <result> {count($lr)} </result>
+
+how many rivers in Washington?
+let $r := document("geobase.xml")//river where $r/state = "Washington" return <result> {count($r)} </result>
+
+how many rivers run through Texas?
+let $r := document("geobase.xml")//river where $r/state = "Texas" return <result> {count($r)} </result>
+
+how many rivers run through the states bordering Colorado?
+for $b in document("geobase.xml")//border let $br := for $r in document("geobase.xml")//river where $r/state = $b/state return $r where $b = "Colorado" return <result> {count($br)} </result>
+
+how many square miles in the US? (how many square kilometers in the US?)
+let $a := document("geobase.xml")//state/area return <result> {sum($a)} </result>
+
+how many states are in the United States?
+let $s := document("geobase.xml")//state return <result> {count($s)} </result>
+
+how many states are in the USA?
+let $s := document("geobase.xml")//state return <result> {count($s)} </result>
+
+how many states are next to major rivers?
+let $l := document("geobase.xml")//river/length let $sr := for $r in document("geobase.xml")//river where $r/length > avg($l) return $r/state return <result> {count($sr)} </result>
+
+how many states are there?
+let $s := document("geobase.xml")//state return <result> {count($s)} </result>
+
+how many states are there in the USA?
+let $s := document("geobase.xml")//state return <result> {count($s)} </result>
+
+how many states are there in United States?
+let $s := document("geobase.xml")//state return <result> {count($s)} </result>
+
+how many states border Alaska?
+for $b in document("geobase.xml")//border where $b = "Alaska" return <result> {count($b/state)} </result>
+
+how many states border at least one other state?
+let $b := document("geobase.xml")//border where count($b/state) > 1 return <result> {count($b)} </result>
+
+how many states border Colorado and border New Mexico?
+let $b := document("geobase.xml")//border where $b/state = "Colorado" and $b/state = "New Mexico" return <result> {count($b)} </result>
+
+how many states border Hawaii?
+for $b in document("geobase.xml")//border where $b = "Hawaii" return <result> {count($b/state)} </result>
+
+how many states border Iowa?
+for $b in document("geobase.xml")//border where $b = "Iowa" return <result> {count($b/state)} </result>
+
+how many states border on the state whose capital is Boston?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $b = $s and $s/capital = "Boston" return <result> {count($b/state)} </result>
+
+how many states border Tennessee?
+for $b in document("geobase.xml")//border where $b = "Tennessee" return <result> {count($b/state)} </result>
+
+how many states border Texas?
+for $b in document("geobase.xml")//border where $b = "Texas" return <result> {count($b/state)} </result>
+
+how many states border the largest state?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where $b = $s and count($sa) = 0 return <result> {count($b/state)} </result>
+
+how many states border the Mississippi river?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return <result> {count($r/state)} </result>
+
+how many states border the state that borders the most states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border where count($b/state) = max($bs) return <result> {count($b/state)} </result>
+
+how many states border the state with the largest population?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where $b = $s and count($sp) = 0 return <result> {count($b/state)} </result>
+
+how many states do not have rivers?
+let $rs := for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where count($sr) = 0 return $s return <result> {count($rs)} </result>
+
+how many states does Iowa border?
+for $b in document("geobase.xml")//border where $b = "Iowa" return <result> {count($b/state)} </result>
+
+how many states does Missouri border?
+for $b in document("geobase.xml")//border where $b = "Missouri" return <result> {count($b/state)} </result>
+
+how many states does Tennessee border?
+for $b in document("geobase.xml")//border where $b = "Tennessee" return <result> {count($b/state)} </result>
+
+how many states does the Colorado river flow through?
+for $r in document("geobase.xml")//river where $r = "Colorado" return <result> {count($r/state)} </result>
+
+how many states does the Colorado river run through?
+for $r in document("geobase.xml")//river where $r = "Colorado" return <result> {count($r/state)} </result>
+
+how many states does the Mississippi river run through?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return <result> {count($r/state)} </result>
+
+how many states does the Mississippi run through?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return <result> {count($r/state)} </result>
+
+how many states does the Missouri river run through?
+for $r in document("geobase.xml")//river where $r = "Missouri" return <result> {count($r/state)} </result>
+
+how many states does USA have?
+let $s := document("geobase.xml")//state return <result> {count($s)} </result>
+
+how many states have a city called Rochester?
+for $c in document("geobase.xml")//city where $c = "Rochester" return <result> {count($c/state)} </result>
+
+how many states have a city named Springfield?
+for $c in document("geobase.xml")//city where $c = "Springfield" return <result> {count($c/state)} </result>
+
+how many states have a higher point than the highest point of the state with the largest capital city in the US?
+for $h in document("geobase.xml")//highlow for $c in document("geobase.xml")//city for $s in document("geobase.xml")//state let $cp :=  for $p in document("geobase.xml")//city for $t in document("geobase.xml")//state where $p = $t/capital and $p/population > $c/population return $p let $hs := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l/state where $c = $s/capital and $c/state = $h/state and count($cp) = 0 return <result> {count($hs)} </result>
+
+how many states have cites named Austin?
+for $c in document("geobase.xml")//city where $c = "Austin" return <result> {count($c/state)} </result>
+
+how many states have cities or towns named Springfield?
+for $c in document("geobase.xml")//city where $c = "Springfield" return <result> {count($c/state)} </result>
+
+how many states have major rivers?
+let $l := document("geobase.xml")//river/length let $sr := for $r in document("geobase.xml")//river where $r/length > avg($l) return $r/state return <result> {count($sr)} </result>
+
+how many states in the US does the shortest river run through?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/length < $r/length return $s where count($sr) = 0 return <result> {count($r/state)} </result>
+
+how much population does Texas have?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/population
+
+how tall is Mount McKinley?
+for $h in document("geobase.xml")//highest_point where $h = "Mount McKinley" return $h/elevation
+
+how tall is the highest point in Montana?
+for $h in document("geobase.xml")//highlow where $h/state = "Montana" return $h/highest_point/elevation
+
+in what state is Mount McKinley?
+for $m in document("geobase.xml")//mountain where $m = "McKinley" return $m/state
+
+in which state does the highest point in USA exist?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/state
+
+in which state is Rochester?
+for $c in document("geobase.xml")//city where $c = "Rochester" return $c/state
+
+Iowa borders how many states?
+for $b in document("geobase.xml")//border where $b = "Iowa" return <result> {count($b/state)} </result>
+
+list the states?
+for $s in document("geobase.xml")//state return <result> {$s/text()} </result>
+
+name all the lakes of US?
+for $l in document("geobase.xml")//lake return <result> {$l/text()} </result>
+
+name all the rivers in Colorado?
+for $r in document("geobase.xml")//river where $r/state = "Colorado" return <result> {$r/text()} </result>
+
+name the 50 capitals in the USA?
+for $s in document("geobase.xml")//state return $s/capital
+
+name the longest river in US?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+name the major lakes in Michigan?
+let $la := for $a in document("geobase.xml")//lake where $a/state = "Michigan" return $a/area for $l in document("geobase.xml")//lake where $l/state = "Michigan" and $l/area > avg($la) return <result> {$l/text()} </result>
+
+name the major rivers in Florida?
+let $fr := for $f in document("geobase.xml")//river where $f/state = "Florida" return $f/length for $r in document("geobase.xml")//river where $r/state = "Florida" and $r/length > avg($fr) return <result> {$r/text()} </result>
+
+name the rivers in Arkansas?
+for $r in document("geobase.xml")//river where $r/state = "Arkansas" return <result> {$r/text()} </result>
+
+name the states which have no surrounding states?
+for $b in document("geobase.xml")//border where count($b/state) = 0 return <result> {$b/text()} </result>
+
+number of citizens in Boulder?
+for $c in document("geobase.xml")//city where $c = "Boulder" return $c/population
+
+number of people in Boulder?
+for $c in document("geobase.xml")//city where $c = "Boulder" return $c/population
+
+number of states bordering Iowa?
+for $b in document("geobase.xml")//border where $b = "Iowa" return <result> {count($b/state)} </result>
+
+of the states washed by the Mississippi river which has the lowest point?
+for $r in document("geobase.xml")//river for $h in document("geobase.xml")//highlow let $lp := for $l in document("geobase.xml")//highlow where $l/state = $r/state and $l/lowest_point/elevation < $h/lowest_point/elevation return $l where $r = "Mississippi" and $h/state = $r/state and count($lp) = 0 return $h/state
+
+people in Boulder?
+for $c in document("geobase.xml")//city where $c = "Boulder" return $c/population
+
+population of Boulder?
+for $c in document("geobase.xml")//city where $c = "Boulder" return $c/population
+
+rivers in New York?
+for $r in document("geobase.xml")//river where $r/state = "New York" return <result> {$r/text()} </result>
+
+Sacramento is the capital of which state?
+for $s in document("geobase.xml")//state where $s/capital = "Sacramento" return <result> {$s/text()} </result>
+
+San Antonio is in what state?
+for $c in document("geobase.xml")//city where $c = "San Antonio" return $c/state
+
+show major cities in Colorado?
+for $s in document("geobase.xml")//state where $s = "Colorado" return $s/major_city
+
+show me all the major lakes in the US?
+let $a := document("geobase.xml")//lake/area for $l in document("geobase.xml")//lake where $l/area > avg($a) return <result> {$l/text()} </result>
+
+state the state with the largest area?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+states bordering Iowa?
+for $b in document("geobase.xml")//border where $b = "Iowa" return $b/state
+
+tell me what cities are in Texas?
+for $c in document("geobase.xml")//city where $c/state = "Texas" return <result> {$c/text()} </result>
+
+through which states does the longest river in Texas run?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Texas" and $l/length > $r/length return $l where $r/state = "Texas" and count($lr) = 0 return $r/state
+
+through which states does the Mississippi flow?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/state
+
+through which states does the Mississippi run?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/state
+
+what are all the rivers in Texas?
+for $r in document("geobase.xml")//river where $r/state = "Texas" return <result> {$r/text()} </result>
+
+what are major rivers in Texas?
+let $tr := for $t in document("geobase.xml")//river where $t/state = "Texas" return $t/length for $r in document("geobase.xml")//river where $r/state = "Texas" and $r/length > avg($tr) return <result> {$r/text()} </result>
+
+what are the biggest rivers in Texas?
+let $tr := for $t in document("geobase.xml")//river where $t/state = "Texas" return $t/length for $r in document("geobase.xml")//river where $r/state = "Texas" and $r/length > avg($tr) return <result> {$r/text()} </result>
+
+what are the capital cities of the states which border Texas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $b/state = $s and $b = "Texas" return $s/capital
+
+what are the capital city in Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/capital
+
+what are the capitals of states that border Missouri?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $b/state = $s and $b = "Missouri" return $s/capital
+
+what are the capitals of the states that border Texas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $b/state = $s and $b = "Texas" return $s/capital
+
+what are the cities in California?
+for $c in document("geobase.xml")//city where $c/state = "California" return <result> {$c/text()} </result>
+
+what are the cities in states through which the Mississippi runs?
+for $r in document("geobase.xml")//river for $c in document("geobase.xml")//city where $r/state = $c/state and $r = "Mississippi" return <result> {$c/text()} </result>
+
+what are the cities of the state with the highest point?
+for $h in document("geobase.xml")//highlow for $c in document("geobase.xml")//city let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where $h/state = $c/state and count($hl) = 0 return <result> {$c/text()} </result>
+
+what are the highest points of all the states?
+for $h in document("geobase.xml")//highlow return $h/highest_point
+
+what are the highest points of states surrounding Mississippi?
+for $b in document("geobase.xml")//border for $h in document("geobase.xml")//highlow where $b/state = $h/state and $b = "Mississippi" return $h/highest_point
+
+what are the lakes in states bordering Texas?
+for $b in document("geobase.xml")//border for $l in document("geobase.xml")//lake where $b/state = $l/state and $b = "Texas" return <result> {$l/text()} </result>
+
+what are the largest cities in the states that border the largest state?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a for $bs in $b/state let $bc := for $c in document("geobase.xml")//city let $lc := for $p in document("geobase.xml")//city where $p/state = $bs and $p/population > $c/population return $p where $c/state = $bs and count($lc) = 0 return <result> {$c/text()} </result> where $b = $s and count($sa) = 0 return $bc
+
+what are the major cities in Alabama?
+for $s in document("geobase.xml")//state where $s = "Alabama" return $s/major_city
+
+what are the major cities in Alaska?
+for $s in document("geobase.xml")//state where $s = "Alaska" return $s/major_city
+
+what are the major cities in California?
+for $s in document("geobase.xml")//state where $s = "California" return $s/major_city
+
+what are the major cities in Delaware?
+for $s in document("geobase.xml")//state where $s = "Delaware" return $s/major_city
+
+what are the major cities in Kansas?
+for $s in document("geobase.xml")//state where $s = "Kansas" return $s/major_city
+
+what are the major cities in Missouri?
+for $s in document("geobase.xml")//state where $s = "Missouri" return $s/major_city
+
+what are the major cities in New Mexico?
+for $s in document("geobase.xml")//state where $s = "New Mexico" return $s/major_city
+
+what are the major cities in New York?
+for $s in document("geobase.xml")//state where $s = "New York" return $s/major_city
+
+what are the major cities in North Carolina?
+for $s in document("geobase.xml")//state where $s = "North Carolina" return $s/major_city
+
+what are the major cities in Ohio?
+for $s in document("geobase.xml")//state where $s = "Ohio" return $s/major_city
+
+what are the major cities in Oklahoma?
+for $s in document("geobase.xml")//state where $s = "Oklahoma" return $s/major_city
+
+what are the major cities in Rhode Island?
+for $s in document("geobase.xml")//state where $s = "Rhode Island" return $s/major_city
+
+what are the major cities in states through which the Mississippi runs?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state where $s = $r/state and $r = "Mississippi" return $s/major_city
+
+what are the major cities in Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/major_city
+
+what are the major cities in the largest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return $s/major_city
+
+what are the major cities in the smallest state in the US?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return $s/major_city
+
+what are the major cities in the state of California?
+for $s in document("geobase.xml")//state where $s = "California" return $s/major_city
+
+what are the major cities in the states through which the major river in Virginia runs?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state ="Virginia" and $l/length > $r/length return $l for $s in $r/state where $r/state = "Virginia" and count($lr) = 0 return $s/major_city
+
+what are the major cities in the USA?
+for $m in document("geobase.xml")//major_city return $m
+
+what are the major cities in Vermont?
+for $s in document("geobase.xml")//state where $s = "Vermont" return $s/major_city
+
+what are the major cities in Wyoming?
+for $s in document("geobase.xml")//state where $s = "Wyoming" return $s/major_city
+
+what are the major cities of Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/major_city
+
+what are the major cities of the United States?
+for $m in document("geobase.xml")//major_city return $m
+
+what are the major cities of the US?
+for $m in document("geobase.xml")//major_city return $m
+
+what are the major lakes in United States?
+let $a := document("geobase.xml")//lake/area for $l in document("geobase.xml")//lake where $l/area > avg($a) return <result> {$l/text()} </result>
+
+what are the major rivers in Ohio?
+let $lo := for $o in document("geobase.xml")//river where $o/state = "Ohio" return $o/length for $r in document("geobase.xml")//river where $r/state = "Ohio" and $r/length > avg($lo) return <result> {$r/text()} </result>
+
+what are the major rivers in the US?
+let $l := document("geobase.xml")//river/length for $r in document("geobase.xml")//river where $r/length > avg($l) return <result> {$r/text()} </result>
+
+what are the names of the major cities in Illinois?
+for $s in document("geobase.xml")//state where $s = "Illinois" return $s/major_city
+
+what are the neighboring states for Michigan?
+for $b in document("geobase.xml")//border where $b = "Michigan" return $b/state
+
+what are the population densities of each US state?
+for $s in document("geobase.xml")//state return <result> {$s/population ÷ $s/area} </result>
+
+what are the population of Mississippi?
+for $s in document("geobase.xml")//state where $s = "Mississippi" return $s/population
+
+what are the populations of all the major cities in Montana?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city where $c = $s/major_city and $s = "Montana" return $c/population
+
+what are the populations of states through which the Mississippi river run?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state where $s = $r/state and $r = "Mississippi" return $s/population
+
+what are the populations of states through which the Mississippi river runs?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state where $s = $r/state and $r = "Mississippi" return $s/population
+
+what are the populations of states through which the Mississippi run?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state where $s = $r/state and $r = "Mississippi" return $s/population
+
+what are the populations of states through which the Mississippi runs?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state where $s = $r/state and $r = "Mississippi" return $s/population
+
+what are the populations of states which border Texas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $s = $b/state and $b = "Texas" return $s/population
+
+what are the populations of the major cities of Texas?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city where $c = $s/major_city and $s = "Texas" return $c/population
+
+what are the populations of the states through which the Mississippi river run?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state where $s = $r/state and $r = "Mississippi" return $s/population
+
+what are the populations of the states through which the Mississippi river runs?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state where $s = $r/state and $r = "Mississippi" return $s/population
+
+what are the populations of the states through which the Mississippi run?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state where $s = $r/state and $r = "Mississippi" return $s/population
+
+what are the populations of the states through which the Mississippi runs?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state where $s = $r/state and $r = "Mississippi" return $s/population
+
+what are the rivers in Alaska?
+for $r in document("geobase.xml")//river where $r/state = "Alaska" return <result> {$r/text()} </result>
+
+what are the rivers in the state of Indiana?
+for $r in document("geobase.xml")//river where $r/state = "Indiana" return <result> {$r/text()} </result>
+
+what are the rivers in the state of Texas?
+for $r in document("geobase.xml")//river where $r/state = "Texas" return <result> {$r/text()} </result>
+
+what are the rivers of Montana?
+for $r in document("geobase.xml")//river where $r/state = "Montana" return <result> {$r/text()} </result>
+
+what are the states?
+for $s in document("geobase.xml")//state return <result> {$s/text()} </result>
+
+what are the states that border the state with the greatest population?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($ps) = 0 and $b = $s return $b/state
+
+what are the states that the potomac run through?
+for $r in document("geobase.xml")//river where $r = "potomac" return $r/state
+
+what are the states through which the longest river runs?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return $r/state
+
+what can you tell me about the population of Missouri?
+for $s in document("geobase.xml")//state where $s = "Missouri" return $s/population
+
+what capital has the largest population?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$c/text()} </result>
+
+what capital in the US has the largest population? (what capital is the largest in the US?)
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$c/text()} </result>
+
+what cities are located in Pennsylvania?
+for $c in document("geobase.xml")//city where $c/state = "Pennsylvania" return <result> {$c/text()} </result>
+
+what cities in California?
+for $c in document("geobase.xml")//city where $c/state = "California" return <result> {$c/text()} </result>
+
+what cities in Texas have the highest number of citizens?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Texas" and $p/population > $c/population return $p where $c/state = "Texas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what cities in Texas have the highest populations?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Texas" and $p/population > $c/population return $p where $c/state = "Texas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what city has the largest population?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what city has the least population?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population < $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what city has the most people?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what city in the United States has the highest population? (what city in the United States has the highest population density?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what is capital of Iowa?
+for $s in document("geobase.xml")//state where $s = "Iowa" return $s/capital
+
+what is capital of the state with the lowest point?
+for $s in document("geobase.xml")//state for $h in document("geobase.xml")//highlow let $lh := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l where count($lh) = 0 and $s = $h/state return $s/capital
+
+what is largest capital by population? (what is largest capital?)
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the adjacent state of California?
+for $b in document("geobase.xml")//border where $b = "California" return $b/state
+
+what is the area of Alaska?
+for $s in document("geobase.xml")//state where $s = "Alaska" return $s/area
+
+what is the area of all the states combined?
+let $a := document("geobase.xml")//state/area return <result> {sum($a)} </result>
+
+what is the area of California?
+for $s in document("geobase.xml")//state where $s = "California" return $s/area
+
+what is the area of Florida?
+for $s in document("geobase.xml")//state where $s = "Florida" return $s/area
+
+what is the area of Idaho?
+for $s in document("geobase.xml")//state where $s = "Idaho" return $s/area
+
+what is the area of Maine?
+for $s in document("geobase.xml")//state where $s = "Maine" return $s/area
+
+what is the area of Maryland in square miles? (what is the area of Maryland in square kilometers?)
+for $s in document("geobase.xml")//state where $s = "Maryland" return $s/area
+
+what is the area of New Mexico?
+for $s in document("geobase.xml")//state where $s = "New Mexico" return $s/area
+
+what is the area of Ohio?
+for $s in document("geobase.xml")//state where $s = "Ohio" return $s/area
+
+what is the population of Seattle? (what is the area of Seattle?)
+for $c in document("geobase.xml")//city where $c = "Seattle" return $c/population
+
+what is the area of South Carolina?
+for $s in document("geobase.xml")//state where $s = "South Carolina" return $s/area
+
+what is the area of Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/area
+
+what is the area of the largest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return $s/area
+
+what is the area of the smallest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return $s/area
+
+what is the area of the state with the capital Albany?
+for $s in document("geobase.xml")//state where $s/capital = "Albany" return $s/area
+
+what is the area of the state with the smallest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return $s/area
+
+what is the area of the states?
+let $a := document("geobase.xml")//state/area return <result> {sum($a)} </result>
+
+what is the area of the Texas state?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/area
+
+what is the area of Wisconsin?
+for $s in document("geobase.xml")//state where $s = "Wisconsin" return $s/area
+
+what is the average population of the US by state?
+let $p := document("geobase.xml")//state/population return <result> {avg($p)} </result>
+
+what is the average population per square mile in Pennsylvania? (what is the average population per square km in Pennsylvania?)
+for $s in document("geobase.xml")//state where $s = "Pennsylvania" return <result> {$s/population ÷ $s/area} </result>
+
+what is the average population per square mile in the US? (what is the average population per square km in the US?)
+let $s := document("geobase.xml")//state return <result> {sum($s/population) ÷ sum($s/area)} </result>
+
+what is the biggest American city in a state with a river?
+for $c in document("geobase.xml")//city for $r in document("geobase.xml")//river let $lc := for $c2 in document("geobase.xml")//city for $r2 in document("geobase.xml")//river where $c2/state = $r2/state and $c2/population > $c/population return $c2 where $c/state = $r/state and count($lc) = 0 return <result> {$c/text()} </result>
+
+what is the most populated capital city in the US? (what is the biggest capital city in the US?)
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the biggest city in Arizona?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Arizona" and $p/population > $c/population return $p where $c/state = "Arizona" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the biggest city in Georgia?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Georgia" and $p/population > $c/population return $p where $c/state = "Georgia" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the biggest city in Kansas?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Kansas" and $p/population > $c/population return $p where $c/state = "Kansas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the biggest city in Louisiana?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Louisiana" and $p/population > $c/population return $p where $c/state = "Louisiana" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the biggest city in Nebraska?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Nebraska" and $p/population > $c/population return $p where $c/state = "Nebraska" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the biggest city in Oregon?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Oregon" and $p/population > $c/population return $p where $c/state = "Oregon" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in Texas? (what is the biggest city in Texas?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Texas" and $p/population > $c/population return $p where $c/state = "Texas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in the smallest state? (what is the biggest city in the smallest state?)
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a for $c in document("geobase.xml")//city let $lc := for $l in document("geobase.xml")//city where $l/state = $s and $l/population > $c/population return $l where $c/state = $s and count($sa) = 0 and count($lc) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in the US? (what is the biggest city in the US?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in the US? (what is the biggest city in the USA?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in the US? (what is the biggest city in USA?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in Wyoming? (what is the biggest city in Wyoming?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Wyoming" and $p/population > $c/population return $p where $c/state = "Wyoming" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the biggest river in Illinois?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Illinois" and $l/length > $r/length return $l where $r/state = "Illinois" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the biggest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the biggest state in continental US?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a != "Alaska" and $a != "Hawaii" and $a/area > $s/area return $a where $s != "Alaska" and $s != "Hawaii" and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the biggest state in the USA?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the capital city of the largest state in the US?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return $s/capital
+
+what is the capital of California?
+for $s in document("geobase.xml")//state where $s = "California" return $s/capital
+
+what is the capital of Colorado?
+for $s in document("geobase.xml")//state where $s = "Colorado" return $s/capital
+
+what is the capital of Georgia?
+for $s in document("geobase.xml")//state where $s = "Georgia" return $s/capital
+
+what is the capital of Hawaii?
+for $s in document("geobase.xml")//state where $s = "Hawaii" return $s/capital
+
+what is the capital of Illinois?
+for $s in document("geobase.xml")//state where $s = "Illinois" return $s/capital
+
+what is the capital of Indiana?
+for $s in document("geobase.xml")//state where $s = "Indiana" return $s/capital
+
+what is the capital of Iowa?
+for $s in document("geobase.xml")//state where $s = "Iowa" return $s/capital
+
+what is the capital of Maine?
+for $s in document("geobase.xml")//state where $s = "Maine" return $s/capital
+
+what is the capital of Maryland?
+for $s in document("geobase.xml")//state where $s = "Maryland" return $s/capital
+
+what is the capital of Massachusetts?
+for $s in document("geobase.xml")//state where $s = "Massachusetts" return $s/capital
+
+what is the capital of Michigan?
+for $s in document("geobase.xml")//state where $s = "Michigan" return $s/capital
+
+what is the capital of New Hampshire?
+for $s in document("geobase.xml")//state where $s = "New Hampshire" return $s/capital
+
+what is the capital of New Jersey?
+for $s in document("geobase.xml")//state where $s = "New Jersey" return $s/capital
+
+what is the capital of New York?
+for $s in document("geobase.xml")//state where $s = "New York" return $s/capital
+
+what is the capital of North Dakota?
+for $s in document("geobase.xml")//state where $s = "North Dakota" return $s/capital
+
+what is the capital of Ohio?
+for $s in document("geobase.xml")//state where $s = "Ohio" return $s/capital
+
+what is the capital of Pennsylvania?
+for $s in document("geobase.xml")//state where $s = "Pennsylvania" return $s/capital
+
+what is the capital of states that have cities named Durham?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city where $c = "Durham" and $c/state = $s return $s/capital
+
+what is the capital of Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/capital
+
+what is the capital of the Alabama state?
+for $s in document("geobase.xml")//state where $s = "Alabama" return $s/capital
+
+what is the capital of the Florida state?
+for $s in document("geobase.xml")//state where $s = "Florida" return $s/capital
+
+what is the capital of the largest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return $s/capital
+
+what is the capital of the smallest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return $s/capital
+
+what is the capital of the state Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/capital
+
+what is the capital of the state that borders the most states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $b = $s and count($b/state) = max($bs) return $s/capital
+
+what is the capital of the state that borders the state that borders Texas?
+for $b in document("geobase.xml")//border for $tb in document("geobase.xml")//border for $ts in document("geobase.xml")//state where $b = "Texas" and $tb = $b/state and $tb/state = $ts return $ts/capital
+
+what is the capital of the state with the highest elevation?
+for $s in document("geobase.xml")//state for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 and $h/state = $s return $s/capital
+
+what is the capital of the state with the highest point?
+for $s in document("geobase.xml")//state for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 and $h/state = $s return $s/capital
+
+what is the capital of the state with the largest population?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return $s/capital
+
+what is the capital of the state with the largest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return $s/capital
+
+what is the capital of the state with the longest river?
+for $s in document("geobase.xml")//state for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 and $r/state = $s return $s/capital
+
+what is the capital of the state with the most inhabitants?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return $s/capital
+
+what is the capital of Utah?
+for $s in document("geobase.xml")//state where $s = "Utah" return $s/capital
+
+what is the capital of Vermont?
+for $s in document("geobase.xml")//state where $s = "Vermont" return $s/capital
+
+what is the capital of Washington?
+for $s in document("geobase.xml")//state where $s = "Washington" return $s/capital
+
+what is the city in Texas with the largest population?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Texas" and $p/population > $c/population return $p where $c/state = "Texas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the city with the smallest population?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population < $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the combined area of all 50 states?
+let $a := document("geobase.xml")//state/area return <result> {sum($a)} </result>
+
+what is the combined population of all 50 states?
+let $p := document("geobase.xml")//state/population return <result> {sum($p)} </result>
+
+what is the density of Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return <result> {$s/population ÷ $s/area} </result>
+
+what is the density of the New York?
+for $s in document("geobase.xml")//state where $s = "New York" return <result> {$s/population ÷ $s/area} </result>
+
+what is the elevation of Death Valley?
+for $l in document("geobase.xml")//lowest_point where $l = "Death Valley" return $l/elevation
+
+what is the elevation of the highest point in the USA?
+let $e := document("geobase.xml")//highest_point/elevation return <result> {max($e)} </result>
+
+what is the height of Mount McKinley?
+for $m in document("geobase.xml")//mountain where $m = "McKinley" return $m/elevation
+
+what is the height of the highest mountain in Texas?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/state = "Texas" and $h/elevation > $m/elevation return $h where $m/state = "Texas" and count($hm) = 0 return <result> {$m/text()} </result>
+
+what is the height of the highest point in the USA?
+let $e := document("geobase.xml")//highest_point/elevation return <result> {max($e)} </result>
+
+what is the high point of Wyoming?
+for $h in document("geobase.xml")//highlow where $h/state = "Wyoming" return $h/highest_point
+
+what is the highest elevation in New Mexico?
+for $h in document("geobase.xml")//highlow where $h/state = "New Mexico" return $h/highest_point/elevation
+
+what is the highest elevation in South Carolina?
+for $h in document("geobase.xml")//highlow where $h/state = "South Carolina" return $h/highest_point/elevation
+
+what is the highest elevation in Texas?
+for $h in document("geobase.xml")//highlow where $h/state = "Texas" return $h/highest_point/elevation
+
+what is the highest elevation in the United States?
+let $e := document("geobase.xml")//highest_point/elevation return <result> {max($e)} </result>
+
+what is the highest mountain in Alaska?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/state = "Alaska" and $h/elevation > $m/elevation return $h where $m/state = "Alaska" and count($hm) = 0 return <result> {$m/text()} </result>
+
+what is the highest mountain in Texas?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/state = "Texas" and $h/elevation > $m/elevation return $h where $m/state = "Texas" and count($hm) = 0 return <result> {$m/text()} </result>
+
+what is the highest mountain in the US?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/elevation > $m/elevation return $h where count($hm) = 0 return <result> {$m/text()} </result>
+
+what is the highest mountain in US?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/elevation > $m/elevation return $h where count($hm) = 0 return <result> {$m/text()} </result>
+
+what is the highest point in Colorado?
+for $h in document("geobase.xml")//highlow where $h/state = "Colorado" return $h/highest_point
+
+what is the highest point in Delaware?
+for $h in document("geobase.xml")//highlow where $h/state = "Delaware" return $h/highest_point
+
+what is the highest point in each state whose lowest point is sea level?
+for $h in document("geobase.xml")//highlow where $h/lowest_point/elevation = 0 return $h/highest_point
+
+what is the highest point in Florida?
+for $h in document("geobase.xml")//highlow where $h/state = "flordia" return $h/highest_point
+
+what is the highest point in Iowa?
+for $h in document("geobase.xml")//highlow where $h/state = "Iowa" return $h/highest_point
+
+what is the highest point in Kansas?
+for $h in document("geobase.xml")//highlow where $h/state = "Kansas" return $h/highest_point
+
+what is the highest point in Maine?
+for $h in document("geobase.xml")//highlow where $h/state = "Maine" return $h/highest_point
+
+what is the highest point in Montana?
+for $h in document("geobase.xml")//highlow where $h/state = "Montana" return $h/highest_point
+
+what is the highest point in Nevada in meters?
+for $h in document("geobase.xml")//highlow where $h/state = "Nevada" return $h/highest_point
+
+what is the highest point in New Mexico?
+for $h in document("geobase.xml")//highlow where $h/state = "New Mexico" return $h/highest_point
+
+what is the highest point in Ohio?
+for $h in document("geobase.xml")//highlow where $h/state = "Ohio" return $h/highest_point
+
+what is the highest point in Rhode Island?
+for $h in document("geobase.xml")//highlow where $h/state = "Rhode Island" return $h/highest_point
+
+what is the highest point in states bordering Georgia?
+for $b in document("geobase.xml")//border for $h in document("geobase.xml")//highlow where $h/state = $b and $b = "Georgia" return $h/highest_point
+
+what is the highest point in Texas?
+for $h in document("geobase.xml")//highlow where $h/state = "Texas" return $h/highest_point
+
+what is the highest point in the country?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/highest_point
+
+what is the highest point in the smallest state?
+for $h in document("geobase.xml")//highlow for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 and $s = $h/state return $h/highest_point
+
+what is the highest point in the state with capital Austin?
+for $h in document("geobase.xml")//highlow for $s in document("geobase.xml")//state where $h/state = $s and $s/capital = "Austin" return $h/highest_point
+
+what is the highest point in the state with capital Des Moines?
+for $h in document("geobase.xml")//highlow for $s in document("geobase.xml")//state where $h/state = $s and $s/capital = "Des Moines" return $h/highest_point
+
+what is the highest point in the state with the capital Des Moines?
+for $h in document("geobase.xml")//highlow for $s in document("geobase.xml")//state where $h/state = $s and $s/capital = "Des Moines" return $h/highest_point
+
+what is the highest point in the state with the most rivers?
+let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs return $c return count($rc) for $h in document("geobase.xml")//highlow for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where $h/state = $s and count($sr) = max($mc) return $h/highest_point
+
+what is the highest point in the state with the smallest population?
+for $h in document("geobase.xml")//highlow for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population < $s/population return $p where count($sp) = 0 and $h/state = $s return $h/highest_point
+
+what is the highest point in the states bordering Colorado?
+for $h in document("geobase.xml")//highlow for $b in document("geobase.xml")//border where $h/state = $b/state and $b = "Colorado" return $h/highest_point
+
+what is the highest point in the United States?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/highest_point
+
+what is the highest point in the US?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/highest_point
+
+what is the highest point in the USA?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/highest_point
+
+what is the highest point in Virginia?
+for $h in document("geobase.xml")//highlow where $h/state = "Virginia" return $h/highest_point
+
+what is the highest point in Wyoming?
+for $h in document("geobase.xml")//highlow where $h/state = "Wyoming" return $h/highest_point
+
+what is the highest point of the state with the largest area?
+for $h in document("geobase.xml")//highlow for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 and $h/state = $s return $h/highest_point
+
+what is the highest point of the state with the smallest population density?
+for $h in document("geobase.xml")//highlow for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 and $h/state = $s return $h/highest_point
+
+what is the highest point of the USA?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/highest_point
+
+what is the most populated capital? (what is the largest capital?)
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated capital city in the USA? (what is the largest capital city in the USA?)
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in a state that borders Texas? (what is the largest city in a state that borders Texas?)
+for $b in document("geobase.xml")//border for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = $b/state and $p/population > $c/population return $p where count($cp) = 0 and $c/state = $b/state and $b = "Texas" return <result> {$c/text()} </result>
+
+what is the largest city in Alabama by population? (what is the largest city in Alabama?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Alabama" and $p/population > $c/population return $p where $c/state = "Alabama" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the largest city in California by population? (what is the largest city in California?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "California" and $p/population > $c/population return $p where $c/state = "California" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the largest city in Michigan by population? (what is the largest city in Michigan?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Michigan" and $p/population > $c/population return $p where $c/state = "Michigan" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the largest city in Minnesota by population?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Minnesota" and $p/population > $c/population return $p where $c/state = "Minnesota" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the largest city in Missouri by population? (what is the largest city in Missouri?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Missouri" and $p/population > $c/population return $p where $c/state = "Missouri" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the largest city in Rhode Island by population? (what is the largest city in Rhode Island?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Rhode Island" and $p/population > $c/population return $p where $c/state = "Rhode Island" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in smallest state through which the Mississippi runs? (what is the largest city in smallest state through which the Mississippi runs?)
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $r/state and $a/area < $s/area return $a for $c in document("geobase.xml")//city let $lc := for $l in document("geobase.xml")//city where $l/state = $s and $l/population > $c/population return $l where $c/state = $s and $s = $r/state and count($sa) = 0 and count($lc) = 0 and $r = "Mississippi" return <result> {$c/text()} </result>
+
+what is the most populated city in states that border California? (what is the largest city in states that border California?)
+for $b in document("geobase.xml")//border for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = $b/state and $p/population > $c/population return $p where count($cp) = 0 and $c/state = $b/state and $b = "California" return <result> {$c/text()} </result>
+
+what is the most populated city in Texas? (what is the largest city in Texas?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Texas" and $p/population > $c/population return $p where $c/state = "Texas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in the smallest state in the USA? (what is the largest city in the smallest state in the USA?)
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a for $c in document("geobase.xml")//city let $lc := for $l in document("geobase.xml")//city where $l/state = $s and $l/population > $c/population return $l where $c/state = $s and count($sa) = 0 and count($lc) = 0 return <result> {$c/text()} </result>
+
+what is the most populated city in Wisconsin? (what is the largest city in Wisconsin?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Wisconsin" and $p/population > $c/population return $p where count($cp) = 0 and $c/state = "Wisconsin" return <result> {$c/text()} </result>
+
+what is the most populated city in Kansas? (what is the largest city of Kansas?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Kansas" and $p/population > $c/population return $p where $c/state = "Kansas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the largest of the state that the Rio Grande runs through?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $r/state and $a/area > $s/area return $a where $s = $r/state and count($sa) = 0 and $r = "Rio Grande" return <result> {$s/text()} </result>
+
+what is the largest river in Washington state?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Washington" and $l/length > $r/length return $l where $r/state = "Washington" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the largest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the largest state bordering Arkansas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area > $s/area return $a where $b = "Arkansas" and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the largest state bordering Texas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area > $s/area return $a where $b = "Texas" and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the largest state capital in population?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the largest state in the US?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the largest state in USA?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the largest state that borders California?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area > $s/area return $a where $b = "California" and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the largest state that borders Texas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area > $s/area return $a where $b = "Texas" and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the largest state that borders the state with the highest population?
+for $t in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p/population > $t/population return $p for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area > $s/area return $a where count($ps) = 0 and $b = $t and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the largest state that borders the state with the lowest point in the USA?
+for $h in document("geobase.xml")//highlow let $lh := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area > $s/area return $a where count($lh) = 0 and $b = $h/state and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the largest state traversed by the Mississippi river?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $r/state and $a/area > $s/area return $a where $s = $r/state and count($sa) = 0 and $r = "Mississippi" return <result> {$s/text()} </result>
+
+what is the least populous state?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population < $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+what is the length of the Colorado river?
+for $r in document("geobase.xml")//river where $r = "Colorado" return $r/length
+
+what is the length of the Colorado river? (what is the length of the Colorado river in Texas?)
+for $r in document("geobase.xml")//river where $r = "Colorado" return $r/length
+
+what is the length of the longest river in the USA?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return $r/length
+
+what is the length of the longest river that runs through Texas?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Texas" and $l/length > $r/length return $l where $r/state = "Texas" and count($lr) = 0 return $r/length
+
+what is the length of the Mississippi river?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/length
+
+what is the length of the river that flows through the most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return $r/length
+
+what is the length of the river that runs through the most number of states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return $r/length
+
+what is the length of the river that runs through the most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return $r/length
+
+what is the length of the river that traverses the most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return $r/length
+
+what is the longest river?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river flowing through New York?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "New York" and $l/length > $r/length return $l where $r/state = "New York" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in America?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in California?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "California" and $l/length > $r/length return $l where $r/state = "California" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in Florida?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Florida" and $l/length > $r/length return $l where $r/state = "Florida" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in Mississippi?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Mississippi" and $l/length > $r/length return $l where $r/state = "Mississippi" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in New York?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "New York" and $l/length > $r/length return $l where $r/state = "New York" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in Pennsylvania?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Pennsylvania" and $l/length > $r/length return $l where $r/state = "Pennsylvania" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in Texas?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Texas" and $l/length > $r/length return $l where $r/state = "Texas" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in the largest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = $s and $l/length > $r/length return $l where $r/state = $s and count($sa) = 0 and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in the smallest state in the USA?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = $s and $l/length > $r/length return $l where $r/state = $s and count($sa) = 0 and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in the state with the highest point?
+for $h in document("geobase.xml")//highlow let $hl := for $i in document("geobase.xml")//highlow where $i/highest_point/elevation > $h/highest_point/elevation return $i for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = $h/state and $l/length > $h/length return $l where $r/state = $h/state and count($hl) = 0 and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in the state with the most major cities?
+let $mc := for $ms in document("geobase.xml")//state return count($ms/major_city) for $s in document("geobase.xml")//state for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = $s and $l/length > $r/length return $l where count($s/major_city) = max($mc) and $r/state = $s and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in the states that border Nebraska?
+for $b in document("geobase.xml")//border for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = $b/state and $l/length > $r/length return $l where $r/state = $b/state and $b = "Nebraska" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in the United States?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river in the US?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river that does not run through Texas?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length  and every $t in $l/state satisfies $t != "Texas" return $l where count($lr) = 0 and every $s in $r/state satisfies $s != "Texas" return <result> {$r/text()} </result>
+
+what is the longest river that flows through a state that borders Indiana?
+for $b in document("geobase.xml")//border for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = $b/state and $l/length > $r/length return $l where $r/state = $b/state and $b = "Indiana" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river that flows through Colorado?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = "Colorado" and $l/length > $r/length return $l where $r/state = "Colorado" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river that passes the states that border the state that borders the most states?
+let $bs := for $s in document("geobase.xml")//border return count($s/state) for $b in document("geobase.xml")//border for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = $b/state and $l/length > $r/length return $l where $r/state = $b/state and count($b/state) = max($bs) and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the longest river that runs through a state that borders Tennessee?
+for $b in document("geobase.xml")//border for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/state = $b/state and $l/length > $r/length return $l where $r/state = $b/state and $b = "Tennessee" and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the lowest elevation in Pennsylvania?
+for $h in document("geobase.xml")//highlow where $h/state = "Pennsylvania" return $h/lowest_point/elevation
+
+what is the lowest point in Arkansas?
+for $h in document("geobase.xml")//highlow where $h/state = "Arkansas" return $h/lowest_point
+
+what is the lowest point in California?
+for $h in document("geobase.xml")//highlow where $h/state = "California" return $h/lowest_point
+
+what is the lowest point in Louisiana?
+for $h in document("geobase.xml")//highlow where $h/state = "Louisiana" return $h/lowest_point
+
+what is the lowest point in Massachusetts?
+for $h in document("geobase.xml")//highlow where $h/state = "Massachusetts" return $h/lowest_point
+
+what is the lowest point in Mississippi?
+for $h in document("geobase.xml")//highlow where $h/state = "Mississippi" return $h/lowest_point
+
+what is the lowest point in Nebraska in meters?
+for $h in document("geobase.xml")//highlow where $h/state = "Nebraska" return $h/lowest_point
+
+what is the lowest point in Oregon?
+for $h in document("geobase.xml")//highlow where $h/state = "Oregon" return $h/lowest_point
+
+what is the lowest point in Texas?
+for $h in document("geobase.xml")//highlow where $h/state = "Texas" return $h/lowest_point
+
+what is the lowest point in the state of California?
+for $h in document("geobase.xml")//highlow where $h/state = "California" return $h/lowest_point
+
+what is the lowest point in the state of Texas?
+for $h in document("geobase.xml")//highlow where $h/state = "Texas" return $h/lowest_point
+
+what is the lowest point in the United States?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l where count($hl) = 0 return $h/lowest_point
+
+what is the lowest point in USA?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l where count($hl) = 0 return $h/lowest_point
+
+what is the lowest point in Wisconsin?
+for $h in document("geobase.xml")//highlow where $h/state = "Wisconsin" return $h/lowest_point
+
+what is the lowest point of all states through which the Colorado river runs through?
+for $r in document("geobase.xml")//river for $h in document("geobase.xml")//highlow let $lp := for $l in document("geobase.xml")//highlow where $l/state = $r/state and $l/lowest_point/elevation < $h/lowest_point/elevation return $l where $h/state = $r/state and count($lp) = 0 and $r = "Colorado" return $h/lowest_point
+
+what is the lowest point of Colorado?
+for $h in document("geobase.xml")//highlow where $h/state = "Colorado" return $h/lowest_point
+
+what is the lowest point of the state with the largest area?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a for $h in document("geobase.xml")//highlow where $h/state = $s return $h/lowest_point
+
+what is the lowest point of the US?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l where count($hl) = 0 return $h/lowest_point
+
+what is the major cities in Montana?
+for $s in document("geobase.xml")//state where $s = "Montana" return $s/major_city
+
+what is the maximum elevation of California? (what is the maximum elevation of San Francisco?)
+for $h in document("geobase.xml")//highlow where $h/state = "California" return $h/highest_point/elevation
+
+what is the most dense state in the USA?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what is the most populated capital in the USA?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populated state bordering Oklahoma?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p = $b/state and $p/population > $s/population return $p where $b = "Oklahoma" and $s = $b/state and count($ps) = 0 return <result> {$s/text()} </result>
+
+what is the most populous city?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populous city in Texas?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Texas" and $p/population > $c/population return $p where $c/state = "Texas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populous city in Wyoming?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Wyoming" and $p/population > $c/population return $p where $c/state = "Wyoming" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the most populous state?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+what is the most populous state in the US?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+what is the most populous state through which the Mississippi runs?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p = $r/state and $p/population > $s/population return $p where $s = $r/state and $r = "Mississippi" and count($sp) = 0 return <result> {$s/text()} </result>
+
+what is the name of the state with the lowest point?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l where count($hl) = 0 return $h/state
+
+what is the number of neighboring states for Kentucky?
+for $b in document("geobase.xml")//border where $b = "Kentucky" return <result> {count($b/state)} </result>
+
+what is the population density in the state with capital Austin?
+for $s in document("geobase.xml")//state where $s/capital = "Austin" return <result> {$s/population ÷ $s/area} </result>
+
+what is the population density of Maine?
+for $s in document("geobase.xml")//state where $s = "Maine" return <result> {$s/population ÷ $s/area} </result>
+
+what is the population density of South Dakota?
+for $s in document("geobase.xml")//state where $s = "South Dakota" return <result> {$s/population ÷ $s/area} </result>
+
+what is the population density of Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return <result> {$s/population ÷ $s/area} </result>
+
+what is the population density of the largest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/population ÷ $s/area} </result>
+
+what is the population density of the smallest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return <result> {$s/population ÷ $s/area} </result>
+
+what is the population density of the state with the smallest area?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return <result> {$s/population ÷ $s/area} </result>
+
+what is the population density of the state with the smallest population?
+for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p/population < $s/population return $p where count($ps) = 0 return <result> {$s/population ÷ $s/area} </result>
+
+what is the population density of Wyoming?
+for $s in document("geobase.xml")//state where $s = "Wyoming" return <result> {$s/population ÷ $s/area} </result>
+
+what is the population in Boston?
+for $c in document("geobase.xml")//city where $c = "Boston" return $c/population
+
+what is the population of Alaska?
+for $s in document("geobase.xml")//state where $s = "Alaska" return $s/population
+
+what is the population of Arizona?
+for $s in document("geobase.xml")//state where $s = "Arizona" return $s/population
+
+what is the population of Atlanta?
+for $c in document("geobase.xml")//city where $c = "Atlanta" return $c/population
+
+what is the population of Atlanta GA?
+for $c in document("geobase.xml")//city where $c = "Atlanta" and $c/state = "Georgia" return $c/population
+
+what is the population of Austin?
+for $c in document("geobase.xml")//city where $c = "Austin" return $c/population
+
+what is the population of Austin Texas?
+for $c in document("geobase.xml")//city where $c = "Austin" and $c/state = "Texas" return $c/population
+
+what is the population of Boston Massachusetts?
+for $c in document("geobase.xml")//city where $c = "Boston" and $c/state = "Massachusetts" return $c/population
+
+what is the population of Boulder?
+for $c in document("geobase.xml")//city where $c = "Boulder" return $c/population
+
+what is the population of California?
+for $s in document("geobase.xml")//state where $s = "California" return $s/population
+
+what is the population of Dallas?
+for $c in document("geobase.xml")//city where $c = "Dallas" return $c/population
+
+what is the population of Denver?
+for $c in document("geobase.xml")//city where $c = "Denver" return $c/population
+
+what is the population of erie Pennsylvania?
+for $c in document("geobase.xml")//city where $c = "erie" and $c/state = "Pennsylvania" return $c/population
+
+what is the population of Hawaii?
+for $s in document("geobase.xml")//state where $s = "Hawaii" return $s/population
+
+what is the population of Houston?
+for $c in document("geobase.xml")//city where $c = "Houston" return $c/population
+
+what is the population of Idaho?
+for $s in document("geobase.xml")//state where $s = "Idaho" return $s/population
+
+what is the population of Illinois?
+for $s in document("geobase.xml")//state where $s = "Illinois" return $s/population
+
+what is the population of Maine?
+for $s in document("geobase.xml")//state where $s = "Maine" return $s/population
+
+what is the population of Maryland?
+for $s in document("geobase.xml")//state where $s = "Maryland" return $s/population
+
+what is the population of Minnesota?
+for $s in document("geobase.xml")//state where $s = "Minnesota" return $s/population
+
+what is the population of Montana?
+for $s in document("geobase.xml")//state where $s = "Montana" return $s/population
+
+what is the population of New Mexico?
+for $s in document("geobase.xml")//state where $s = "New Mexico" return $s/population
+
+what is the population of New York?
+for $s in document("geobase.xml")//state where $s = "New York" return $s/population
+
+what is the population of New York city?
+for $c in document("geobase.xml")//city where $c = "New York" return $c/population
+
+what is the population of Oregon?
+for $s in document("geobase.xml")//state where $s = "Oregon" return $s/population
+
+what is the population of Portland Maine?
+for $c in document("geobase.xml")//city where $c = "Portland" and $c/state = "Maine" return $c/population
+
+what is the population of Rhode Island?
+for $s in document("geobase.xml")//state where $s = "Rhode Island" return $s/population
+
+what is the population of Sacramento?
+for $c in document("geobase.xml")//city where $c = "Sacramento" return $c/population
+
+what is the population of San Antonio?
+for $c in document("geobase.xml")//city where $c = "San Antonio" return $c/population
+
+what is the population of Seattle?
+for $c in document("geobase.xml")//city where $c = "Seattle" return $c/population
+
+what is the population of Seattle Washington?
+for $c in document("geobase.xml")//city where $c = "Seattle" and $c/state = "Washington" return $c/population
+
+what is the population of South Dakota?
+for $s in document("geobase.xml")//state where $s = "South Dakota" return $s/population
+
+what is the population of Springfield Missouri?
+for $c in document("geobase.xml")//city where $c = "Springfield" and $c/state = "Missouri" return $c/population
+
+what is the population of Springfield South Dakota?
+for $c in document("geobase.xml")//city where $c = "Springfield" and $c/state = "South Dakota" return $c/population
+
+what is the population of Tempe Arizona?
+for $c in document("geobase.xml")//city where $c = "Tempe" and $c/state = "Arizona" return $c/population
+
+what is the population of Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/population
+
+what is the population of the capital of the largest state?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 and $c = $s/capital return $c/population
+
+what is the population of the capital of the largest state through which the Mississippi runs?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $sa := for $a in document("geobase.xml")//state where $a = $r/state and $a/area > $s/area return $a where $s = $r/state and $r = "Mississippi" and count($sa) = 0 and $c = $s/captial return $c/population
+
+what is the population of the capital of the smallest state?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 and $c = $s/capital return $c/population
+
+what is the population of the most populated city in the state with the largest area? (what is the population of the largest city in the state with the largest area?)
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a for $c in document("geobase.xml")//city let $lc := for $t in document("geobase.xml")//city where $t/state = $s and $t/population > $c/population return $t where $c/state = $s and count($sa) = 0 and count($lc) = 0 return $c/population
+
+what is the population of the largest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return $s/population
+
+what is the population of the largest state that borders Texas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area > $s/area return $a where $b = "Texas" and $s = $b/state and count($sa) = 0 return $s/population
+
+what is the population of the major cities in Wisconsin?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city where $s = "Wisconsin" and $c = $s/major_city return $c/population
+
+what is the population of the smallest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return $s/population
+
+what is the population of the state that borders the most states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where count($b/state) = max($bs) and $s = $b return $s/population
+
+what is the population of the state with the highest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return $s/population
+
+what is the population of the state with the largest area?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return $s/population
+
+what is the population of Tucson?
+for $c in document("geobase.xml")//city where $c = "Tucson" return $c/population
+
+what is the population of Utah?
+for $s in document("geobase.xml")//state where $s = "Utah" return $s/population
+
+what is the population of Washington?
+for $s in document("geobase.xml")//state where $s = "Washington" return $s/population
+
+what is the population of Washington DC?
+for $c in document("geobase.xml")//city where $c = "Washington DC" return $c/population
+
+what is the river that cross over Ohio?
+for $r in document("geobase.xml")//river where $r/state = "Ohio" return <result> {$r/text()} </result>
+
+what is the shortest river?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/length < $r/length return $s where count($sr) = 0 return <result> {$r/text()} </result>
+
+what is the shortest river in Alaska?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/state = "Alaska" and $s/length < $r/length return $s where $r/state = "Alaska" and count($sr) = 0 return <result> {$r/text()} </result>
+
+what is the shortest river in Iowa?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/state = "Iowa" and $s/length < $r/length return $s where $r/state = "Iowa" and count($sr) = 0 return <result> {$r/text()} </result>
+
+what is the shortest river in Nebraska?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/state = "Nebraska" and $s/length < $r/length return $s where $r/state = "Nebraska" and count($sr) = 0 return <result> {$r/text()} </result>
+
+what is the shortest river in Texas?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/state = "Texas" and $s/length < $r/length return $s where $r/state = "Texas" and count($sr) = 0 return <result> {$r/text()} </result>
+
+what is the shortest river in the United States?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/length < $r/length return $s where count($sr) = 0 return <result> {$r/text()} </result>
+
+what is the shortest river in the US?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/length < $r/length return $s where count($sr) = 0 return <result> {$r/text()} </result>
+
+what is the shortest river in the USA?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/length < $r/length return $s where count($sr) = 0 return <result> {$r/text()} </result>
+
+what is the size of California?
+for $s in document("geobase.xml")//state where $s = "California" return $s/area
+
+what is the size of Florida?
+for $s in document("geobase.xml")//state where $s = "Florida" return $s/area
+
+what is the size of Texas?
+for $s in document("geobase.xml")//state where $s = "Texas" return $s/area
+
+what is the population of the capital of Texas? (what is the size of the capital of Texas?)
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city where $c = $s/capital and $s = "Texas" return $c/population
+
+what is the size of the largest state in the USA?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return $s/area
+
+what is the smallest city in Alaska by population? (what is the smallest city in Alaska?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Alaska" and $p/population < $c/population return $p where $c/state = "Alaska" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the smallest city in Arkansas by population? (what is the smallest city in Arkansas?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Arkansas" and $p/population < $c/population return $p where $c/state = "Arkansas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the smallest city in Hawaii by population? (what is the smallest city in Hawaii?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Hawaii" and $p/population < $c/population return $p where $c/state = "Hawaii" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the least populated city in the largest state? (what is the smallest city in the largest state?)
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a for $c in document("geobase.xml")//city let $tc := for $t in document("geobase.xml")//city where $t/state = $s and $t/population < $c/population return $t where $c/state = $s and count($sa) = 0 and count($tc) = 0 return <result> {$c/text()} </result>
+
+what is the smallest city in the US by population? (what is the smallest city in the US?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population < $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the smallest city in the USA by population? (what is the smallest city in the USA?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population < $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the smallest city in Washington by population? (what is the smallest city in Washington?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Washington" and $p/population < $c/population return $p where $c/state = "Washington" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what is the least populated city of the smallest state in the US? (what is the smallest city of the smallest state in the US?)
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a for $c in document("geobase.xml")//city let $tc := for $t in document("geobase.xml")//city where $t/state = $s and $t/population < $c/population return $t where $c/state = $s and count($sa) = 0 and count($tc) = 0 return <result> {$c/text()} </result>
+
+what is the smallest state bordering Ohio?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area < $s/area return $a where $b = "Ohio" and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the smallest state bordering Wyoming?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area < $s/area return $a where $b = "Wyoming" and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the smallest state by area?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the smallest state in the USA?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the smallest state that borders Texas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area < $s/area return $a where $b = "Texas" and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the smallest state that borders the most states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border let $sa := for $a in document("geobase.xml")//state where $a = $b return $a/area for $s in document("geobase.xml")//state where count($b/state) = max($bs) and $s = $b and $s/area = min($sa) return <result> {$s/text()} </result>
+
+what is the smallest state that the Mississippi river runs through?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $r/state and $a/area < $s/area return $a where $s = $r/state and count($sa) = 0 and $r = "Mississippi" return <result> {$s/text()} </result>
+
+what is the smallest state through which the longest river runs?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $r/state and $a/area < $s/area return $a where $s = $r/state and count($sa) = 0 and count($lr) = 0 return <result> {$r/text()} </result>
+
+what is the state that contains the highest point?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/state
+
+what is the state with the highest elevation in the United States?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/state
+
+what is the state with the largest area?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the state with the largest density in USA?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what is the state with the largest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what is the state with the lowest point?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l where count($hl) = 0 return $h/state
+
+what is the state with the lowest population?
+for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p/population < $s/population return $p where count($ps) = 0 return <result> {$s/text()} </result>
+
+what is the state with the lowest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what is the state with the smallest area?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what is the tallest mountain in America?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/elevation > $m/elevation return $h where count($hm) = 0 return <result> {$m/text()} </result>
+
+what is the tallest mountain in the United States?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/elevation > $m/elevation return $h where count($hm) = 0 return <result> {$m/text()} </result>
+
+what is the total area of the USA?
+let $a := document("geobase.xml")//state/area return <result> {sum($a)} </result>
+
+what is the total length of all rivers in the USA?
+let $l := document("geobase.xml")//river/length return <result> {sum($l)} </result>
+
+what is the total population of the states that border Texas?
+for $b in document("geobase.xml")//border let $bs := for $s in document("geobase.xml")//state where $s = $b/state return $s/population where $b = "Texas" return <result> {sum($bs)} </result>
+
+what length is the Mississippi?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/length
+
+what major cities are located in Pennsylvania?
+for $s in document("geobase.xml")//state where $s = "Pennsylvania" return $s/major_city
+
+what major rivers run through Illinois?
+let $l := document("geobase.xml")//river/length for $r in document("geobase.xml")//river where $r/state = "Illinois" and $r/length > avg($l) return <result> {$r/text()} </result>
+
+what mountains are in Alaska?
+for $m in document("geobase.xml")//mountain where $m/state = "Alaska" return <result> {$m/text()} </result>
+
+what river flows through Kansas?
+for $r in document("geobase.xml")//river where $r/state = "Kansas" return <result> {$r/text()} </result>
+
+what river flows through Texas?
+for $r in document("geobase.xml")//river where $r/state = "Texas" return <result> {$r/text()} </result>
+
+what river flows through the most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+what river is the longest one in the United States?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+what river runs through Illinois?
+for $r in document("geobase.xml")//river where $r/state = "Illinois" return <result> {$r/text()} </result>
+
+what river runs through the most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+what river runs through the state with the most cities?
+let $mc := for $cs in document("geobase.xml")//state let $cc := for $t in document("geobase.xml")//city where $t/state = $cs return $t return count($cc) for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sc := for $c in document("geobase.xml")//city where $c/state = $s return $c where $s = $r/state and count($sc) = max($mc) return <result> {$r/text()} </result>
+
+what river runs through Virginia?
+for $r in document("geobase.xml")//river where $r/state = "Virginia" return <result> {$r/text()} </result>
+
+what river traverses the most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+what river traverses the state which borders the most states?
+let $bs := for $s in document("geobase.xml")//border return count($s/state) for $r in document("geobase.xml")//river for $b in document("geobase.xml")//border where $b = $r/state and count($b/state) = max($bs) return <result> {$r/text()} </result>
+
+what rivers are in Nevada?
+for $r in document("geobase.xml")//river where $r/state = "Nevada" return <result> {$r/text()} </result>
+
+what rivers are in New Mexico?
+for $r in document("geobase.xml")//river where $r/state = "New Mexico" return <result> {$r/text()} </result>
+
+what rivers are in Oregon?
+for $r in document("geobase.xml")//river where $r/state = "Oregon" return <result> {$r/text()} </result>
+
+what rivers are in states that border Texas?
+for $r in document("geobase.xml")//river for $b in document("geobase.xml")//border where $r/state = $b/state and $b = "Texas" return <result> {$r/text()} </result>
+
+what rivers are in Texas?
+for $r in document("geobase.xml")//river where $r/state = "Texas" return <result> {$r/text()} </result>
+
+what rivers are in Utah?
+for $r in document("geobase.xml")//river where $r/state = "Utah" return <result> {$r/text()} </result>
+
+what rivers are there in Texas?
+for $r in document("geobase.xml")//river where $r/state = "Texas" return <result> {$r/text()} </result>
+
+what rivers do not run through Tennessee?
+for $r in document("geobase.xml")//river where every $s in $r/state satisfies $s != "Tennessee" return <result> {$r/text()} </result>
+
+what rivers flow though Colorado?
+for $r in document("geobase.xml")//river where $r/state = "Colorado" return <result> {$r/text()} </result>
+
+what rivers flow through Missouri?
+for $r in document("geobase.xml")//river where $r/state = "Missouri" return <result> {$r/text()} </result>
+
+what rivers flow through states that Alabama borders?
+for $r in document("geobase.xml")//river for $b in document("geobase.xml")//border where $r/state = $b/state and $b = "Alabama" return <result> {$r/text()} </result>
+
+what rivers flow through states that border the state with the largest population?
+for $r in document("geobase.xml")//river for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 and $s = $b and $b/state = $r/state return <result> {$r/text()} </result>
+
+what rivers flow through the largest state?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 and $s = $r/state return <result> {$r/text()} </result>
+
+what rivers flow through the state with the largest population?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 and $s = $r/state return <result> {$r/text()} </result>
+
+what rivers run through Arizona?
+for $r in document("geobase.xml")//river where $r/state = "Arizona" return <result> {$r/text()} </result>
+
+what rivers run through Texas? (what rivers run through Austin Texas?)
+for $r in document("geobase.xml")//river where $r/state = "Texas" return <result> {$r/text()} </result>
+
+what rivers run through Colorado?
+for $r in document("geobase.xml")//river where $r/state = "Colorado" return <result> {$r/text()} </result>
+
+what rivers run through Louisiana?
+for $r in document("geobase.xml")//river where $r/state = "Louisiana" return <result> {$r/text()} </result>
+
+what rivers run through Maine?
+for $r in document("geobase.xml")//river where $r/state = "Maine" return <result> {$r/text()} </result>
+
+what rivers run through New York?
+for $r in document("geobase.xml")//river where $r/state = "New York" return <result> {$r/text()} </result>
+
+what rivers run through the state with the lowest point in the USA?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l for $r in document("geobase.xml")//river where $r/state = $h/state and count($hl) = 0 return <result> {$r/text()} </result>
+
+what rivers run through the states that border the state with the capital Atlanta?
+for $r in document("geobase.xml")//river for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $r/state = $b/state and $b = $s and $s/capital = "Atlanta" return <result> {$r/text()} </result>
+
+what rivers run through west Virginia?
+for $r in document("geobase.xml")//river where $r/state = "west Virginia" return <result> {$r/text()} </result>
+
+what rivers traverses the state which borders the most states?
+let $bs := for $s in document("geobase.xml")//border return count($s/state) for $r in document("geobase.xml")//river for $b in document("geobase.xml")//border where $b = $r/state and count($b/state) = max($bs) return <result> {$r/text()} </result>
+
+what state bordering Nevada has the largest population?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p = $b/state and $p/population > $s/population return $p where $b = "Nevada" and $s = $b/state and count($ps) = 0 return <result> {$s/text()} </result>
+
+what state borders Michigan?
+for $b in document("geobase.xml")//border where $b = "Michigan" return $b/state
+
+what state borders most other states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border where count($b/state) = max($bs) return <result> {$b/text()} </result>
+
+what state borders New York?
+for $b in document("geobase.xml")//border where $b = "New York" return $b/state
+
+what state borders the least states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border where count($b/state) = min($bs) return <result> {$b/text()} </result>
+
+what state borders the least states excluding Alaska and excluding Hawaii?
+let $bs := for $m in document("geobase.xml")//border where $m != "Alaska" and m != "Hawaii" return count($m/state) for $b in document("geobase.xml")//border where $b != "Alaska" and b != "Hawaii" and count($b/state) = min($bs) return <result> {$b/text()} </result>
+
+what state borders the most states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border where count($b/state) = max($bs) return <result> {$b/text()} </result>
+
+what state borders the state with the smallest population?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p/population < $s/population return $p where count($ps) = 0 and $b = $s return $b/state
+
+what state contains the highest point in the US?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/state
+
+what state contains the highest point of those the Colorado river traverses?
+for $r in document("geobase.xml")//river for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/state = $r/state and $l/highest_point/elevation > $h/highest_point/elevation return $l where $h/state = $r/state and $r = "Colorado" and count($hl) = 0 return $h/state
+
+what state has highest elevation?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/state
+
+what state has no rivers?
+for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where count($sr) = 0 return <result> {$s/text()} </result>
+
+what state has the capital Salem?
+for $s in document("geobase.xml")//state where $s/capital = "Salem" return $s
+
+what state has the city Flint?
+for $c in document("geobase.xml")//city where $c = "Flint" return $c/state
+
+what state has the city with the largest population?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return $c/state
+
+what state has the city with the most population?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return $c/state
+
+what state has the greatest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what state has the highest elevation?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/state
+
+what state has the highest population?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+what state has the highest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what state has the largest area?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what state has the largest capital?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$s/text()} </result>
+
+what state has the largest city by population? (what state has the largest city?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return $c/state
+
+what state has the largest population?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+what state has the largest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what state has the largest urban population?
+let $up := for $t in document("geobase.xml")//state let $p := for $u in document("geobase.xml")//city where $u/state = $t return $u/population return sum($p) for $s in document("geobase.xml")//state let $sp := for $c in document("geobase.xml")//city where $c/state = $s return $c/population where sum($sp) = max($up) return <result> {$s/text()} </result>
+
+what state has the least population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what state has the longest river?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return $r/state
+
+what state has the lowest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what state has the most cities?
+let $mc := for $cs in document("geobase.xml")//state let $cc := for $t in document("geobase.xml")//city where $t/state = $cs return $t return count($cc) for $s in document("geobase.xml")//state let $sc := for $c in document("geobase.xml")//city where $c/state = $s return $c where count($sc) = max($mc) return <result> {$s/text()} </result>
+
+what state has the most major cities?
+let $mc := for $m in document("geobase.xml")//state return count($m/major_city) for $s in document("geobase.xml")//state where count($s/major_city) = max($mc) return <result> {$s/text()} </result>
+
+what state has the most major rivers running through it?
+let $l := document("geobase.xml")//river/length let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs and $c/length > avg($l) return $c return count($rc) for $s in document("geobase.xml")//state let $mr := for $r in document("geobase.xml")//river where $r/state = $s and $r/length > avg($l) return $r where count($mr) = max($mc) return <result> {$s/text()} </result>
+
+what state has the most people?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+what state has the most rivers?
+let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs return $c return count($rc) for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where count($sr) = max($mc) return <result> {$s/text()} </result>
+
+what state has the most rivers running through it?
+let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs return $c return count($rc) for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where count($sr) = max($mc) return <result> {$s/text()} </result>
+
+what state has the shortest river?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/length < $r/length return $s where count($sr) = 0 return $r/state
+
+what state has the smallest area?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what state has the smallest capital?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population < $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$s/text()} </result>
+
+what state has the smallest population?
+for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p/population < $s/population return $p where count($ps) = 0 return <result> {$s/text()} </result>
+
+what state has the smallest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what state has the smallest urban population?
+let $up := for $t in document("geobase.xml")//state let $p := for $u in document("geobase.xml")//city where $u/state = $t return $u/population return sum($p) for $s in document("geobase.xml")//state let $sp := for $c in document("geobase.xml")//city where $c/state = $s return $c/population where sum($sp) = min($up) return <result> {$s/text()} </result>
+
+what state has the sparsest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+what state is Austin in?
+for $c in document("geobase.xml")//city where $c = "Austin" return $c/state
+
+what state is Austin the capital of?
+for $s in document("geobase.xml")//state where $s/capital = "Austin" return $s
+
+what state is Boston in?
+for $c in document("geobase.xml")//city where $c = "Boston" return $c/state
+
+what state is Columbus the capital of?
+for $s in document("geobase.xml")//state where $s/capital = "Columbus" return $s
+
+what state is Dallas in?
+for $c in document("geobase.xml")//city where $c = "Dallas" return $c/state
+
+what state is Des Moines located in?
+for $c in document("geobase.xml")//city where $c = "Des Moines" return $c/state
+
+what state is Miami in?
+for $c in document("geobase.xml")//city where $c = "Miami" return $c/state
+
+what state is Pittsburgh in?
+for $c in document("geobase.xml")//city where $c = "Pittsburgh" return $c/state
+
+what state is the biggest?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area > $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+what state is the largest in population?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+what state is the state with the most rivers?
+let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs return $c return count($rc) for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where count($sr) = max($mc) return <result> {$s/text()} </result>
+
+what state that borders Texas has the highest population?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p = $b/state and $p/population > $s/population return $p where $b = "Texas" and $s = $b/state and count($ps) = 0 return <result> {$s/text()} </result>
+
+what state that borders Texas is the largest?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area > $s/area return $a where $b = "Texas" and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+what state which the Mississippi runs through has the largest population?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p = $r/state and $p/population > $s/population return $p where $s = $r/state and $r = "Mississippi" and count($sp) = 0 return <result> {$s/text()} </result>
+
+what states are next to Arizona?
+for $b in document("geobase.xml")//border where $b = "Arizona" return $b/state
+
+what states are next to Texas?
+for $b in document("geobase.xml")//border where $b = "Texas" return $b/state
+
+what states are next to the Mississippi?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/state
+
+what states border Alaska?
+for $b in document("geobase.xml")//border where $b = "Alaska" return $b/state
+
+what states border Arkansas?
+for $b in document("geobase.xml")//border where $b = "Arkansas" return $b/state
+
+what states border Delaware?
+for $b in document("geobase.xml")//border where $b = "Delaware" return $b/state
+
+what states border Florida?
+for $b in document("geobase.xml")//border where $b = "Florida" return $b/state
+
+what states border Georgia?
+for $b in document("geobase.xml")//border where $b = "Georgia" return $b/state
+
+what states border Hawaii?
+for $b in document("geobase.xml")//border where $b = "Hawaii" return $b/state
+
+what states border Indiana?
+for $b in document("geobase.xml")//border where $b = "Indiana" return $b/state
+
+what states border Kentucky?
+for $b in document("geobase.xml")//border where $b = "Kentucky" return $b/state
+
+what states border Michigan?
+for $b in document("geobase.xml")//border where $b = "Michigan" return $b/state
+
+what states border Missouri?
+for $b in document("geobase.xml")//border where $b = "Missouri" return $b/state
+
+what states border Montana?
+for $b in document("geobase.xml")//border where $b = "Montana" return $b/state
+
+what states border New Hampshire?
+for $b in document("geobase.xml")//border where $b = "New Hampshire" return $b/state
+
+what states border New Jersey?
+for $b in document("geobase.xml")//border where $b = "New Jersey" return $b/state
+
+what states border Ohio?
+for $b in document("geobase.xml")//border where $b = "Ohio" return $b/state
+
+what states border Rhode Island?
+for $b in document("geobase.xml")//border where $b = "Rhode Island" return $b/state
+
+what states border states that border Colorado?
+for $c in document("geobase.xml")//border for $bc in document("geobase.xml")//border where $c = "Colorado" and $bc = $c/state return $bc/state
+
+what states border states that border Mississippi?
+for $m in document("geobase.xml")//border for $bm in document("geobase.xml")//border where $m = "Mississippi" and $bm = $m/state return $bm/state
+
+what states border states that border states that border Florida?
+for $f in document("geobase.xml")//border for $bf in document("geobase.xml")//border for $bbf in document("geobase.xml")//border where $f = "Florida" and $bf = $f/state and $bbf = $bf/state return $bbf/state
+
+what states border states that border states that border states that border Texas?
+for $t in document("geobase.xml")//border for $bt in document("geobase.xml")//border for $bbt in document("geobase.xml")//border for $bbbt in document("geobase.xml")//border where $t = "Texas" and $bt = $t/state and $bbt = $bt/state and $bbbt = $bbt/state return $bbbt/state
+
+what states border states that border the state with the largest population?
+for $b in document("geobase.xml")//border for $bs in document("geobase.xml")//border for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($ps) = 0 and $b = $s and $bs = $b/state return $bs/state
+
+what states border states that the Mississippi runs through?
+for $b in document("geobase.xml")//border for $r in document("geobase.xml")//river where $r = "Mississippi" and $b = $r/state return $b/state
+
+what states border states that the Ohio runs through?
+for $b in document("geobase.xml")//border for $r in document("geobase.xml")//river where $r = "Ohio" and $b = $r/state return $b/state
+
+what states border states which the Mississippi runs through?
+for $b in document("geobase.xml")//border for $r in document("geobase.xml")//river where $r = "Mississippi" and $b = $r/state return $b/state
+
+what states border Texas?
+for $b in document("geobase.xml")//border where $b = "Texas" return $b/state
+
+what states border Texas and have a major river?
+let $l := document("geobase.xml")//river/length for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state for $r in document("geobase.xml")//river where $r/state = $s and $r/length > avg($l) and $s = $b/state and $b = "Texas" return <result> {$s/text()} </result>
+
+what states border the Mississippi river?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/state
+
+what states border the most populous state?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($ps) = 0 and $b = $s return $b/state
+
+what states border the state that borders the most states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border where count($b/state) = max($bs) return $b/state
+
+what states border the state with the most cities?
+let $mc := for $cs in document("geobase.xml")//state let $cc := for $t in document("geobase.xml")//city where $t/state = $cs return $t return count($cc) for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sc := for $c in document("geobase.xml")//city where $c/state = $s return $c where $s = $b and count($sc) = max($mc) return $b/state
+
+what states border the state with the most major cities?
+let $mc := for $ms in document("geobase.xml")//state return count($ms/major_city) for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $s = $b and count($s/major_city) = max($mc) return $b/state
+
+what states border the state with the smallest area?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where $b = $s and count($sa) = 0 return $b/state
+
+what states border the states with the most cities?
+let $mc := for $cs in document("geobase.xml")//state let $cc := for $t in document("geobase.xml")//city where $t/state = $cs return $t return count($cc) for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sc := for $c in document("geobase.xml")//city where $c/state = $s return $c where $s = $b and count($sc) = max($mc) return $b/state
+
+what states border Wisconsin?
+for $b in document("geobase.xml")//border where $b = "Wisconsin" return $b/state
+
+what states capital is Dover?
+for $s in document("geobase.xml")//state where $s/capital = "Dover" return $s
+
+what states contain at least one major rivers?
+let $l := document("geobase.xml")//river/length for $s in document("geobase.xml")//state for $r in document("geobase.xml")//river where $r/state = $s and $r/length > avg($l) return <result> {$s/text()} </result>
+
+what states does the Colorado river run through?
+for $r in document("geobase.xml")//river where $r = "Colorado" return $r/state
+
+what states does the Delaware river run through?
+for $r in document("geobase.xml")//river where $r = "Delaware" return $r/state
+
+what states does the Mississippi river run through?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/state
+
+what states does the Mississippi run through?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/state
+
+what states does the Missouri river run through?
+for $r in document("geobase.xml")//river where $r = "Missouri" return $r/state
+
+what states does the Missouri run through?
+for $r in document("geobase.xml")//river where $r = "Missouri" return $r/state
+
+what states does the Ohio river go through?
+for $r in document("geobase.xml")//river where $r = "Ohio" return $r/state
+
+what states does the Ohio river run through?
+for $r in document("geobase.xml")//river where $r = "Ohio" return $r/state
+
+what states does the shortest river run through?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/length < $r/length return $s where count($sr) = 0 return $r/state
+
+what states have a capital that is the highest point in the state?
+for $s in document("geobase.xml")//state for $h in document("geobase.xml")//highlow where $h/state = $s and $h/highest_point = $s/capital return <result> {$s/text()} </result>
+
+what states have a city named Austin?
+for $c in document("geobase.xml")//city where $c = "Austin" return $c/state
+
+what states have cities named Austin?
+for $c in document("geobase.xml")//city where $c = "Austin" return $c/state
+
+what states have cities named Dallas?
+for $c in document("geobase.xml")//city where $c = "Dallas" return $c/state
+
+what states have cities named Plano?
+for $c in document("geobase.xml")//city where $c = "Plano" return $c/state
+
+what states have cities named Portland?
+for $c in document("geobase.xml")//city where $c = "Portland" return $c/state
+
+what states have cities named Rochester?
+for $c in document("geobase.xml")//city where $c = "Rochester" return $c/state
+
+what states have cities named Salt Lake City?
+for $c in document("geobase.xml")//city where $c = "Salt Lake City" return $c/state
+
+what states have no bordering state?
+for $b in document("geobase.xml")//border where count($b/state) = 0 return <result> {$b/text()} </result>
+
+what states have rivers named Colorado?
+for $r in document("geobase.xml")//river where $r = "Colorado" return $r/state
+
+what states have rivers running through them?
+for $s in document("geobase.xml")//state for $r in document("geobase.xml")//river where $s = $r/state return <result> {$s/text()} </result>
+
+what states have towns named Springfield?
+for $c in document("geobase.xml")//city where $c = "Springfield" return $c/state
+
+what states high point are higher than that of Colorado?
+for $ch in document("geobase.xml")//highlow for $h in document("geobase.xml")//highlow where $ch/state = "Colorado" and $h/highest_point/elevation > $ch/highest_point/elevation return $h/state
+
+what states in the United States have a city of Springfield?
+for $c in document("geobase.xml")//city where $c = "Springfield" return $c/state
+
+what states neighbor Maine?
+for $b in document("geobase.xml")//border where $b = "Maine" return $b/state
+
+what states surround Kentucky?
+for $b in document("geobase.xml")//border where $b = "Kentucky" return $b/state
+
+what Texas city has the largest population?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Texas" and $p/population > $c/population return $p where $c/state = "Texas" and count($cp) = 0 return <result> {$c/text()} </result>
+
+what's the largest city by population? (what's the largest city?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>
+
+where are mountains?
+for $m in document("geobase.xml")//mountain return $m/state
+
+where is Austin?
+for $c in document("geobase.xml")//city where $c = "Austin" return $c/state
+
+where is Baton Rouge?
+for $c in document("geobase.xml")//city where $c = "Baton Rouge" return $c/state
+
+where is Dallas?
+for $c in document("geobase.xml")//city where $c = "Dallas" return $c/state
+
+where is Fort Wayne?
+for $c in document("geobase.xml")//city where $c = "Fort Wayne" return $c/state
+
+where is Houston?
+for $c in document("geobase.xml")//city where $c = "Houston" return $c/state
+
+where is Indianapolis?
+for $c in document("geobase.xml")//city where $c = "Indianapolis" return $c/state
+
+near which states is Massachusetts? (where is Massachusetts?)
+for $b in document("geobase.xml")//border where $b = "Massachusetts" return $b/state
+
+where is Mount Whitney?
+for $m in document("geobase.xml")//mountain where $m = "Whitney" return $m/state
+
+where is Mount Whitney located?
+for $m in document("geobase.xml")//mountain where $m = "Whitney" return $m/state
+
+near which states is New Hampshire? (where is New Hampshire?)
+for $b in document("geobase.xml")//border where $b = "New Hampshire" return $b/state
+
+where is New Orleans?
+for $c in document("geobase.xml")//city where $c = "New Orleans" return $c/state
+
+where is Portland?
+for $c in document("geobase.xml")//city where $c = "Portland" return $c/state
+
+where is San Diego?
+for $c in document("geobase.xml")//city where $c = "San Diego" return $c/state
+
+where is San Jose?
+for $c in document("geobase.xml")//city where $c = "San Jose" return $c/state
+
+where is Scotts Valley?
+for $c in document("geobase.xml")//city where $c = "Scotts Valley" return $c/state
+
+where is Springfield?
+for $c in document("geobase.xml")//city where $c = "Springfield" return $c/state
+
+where is the Chattahoochee river?
+for $r in document("geobase.xml")//river where $r = "Chattahoochee" return $r/state
+
+where is the highest mountain of the United States?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/elevation > $m/elevation return $h where count($hm) = 0 return <result> {$m/text()} </result>
+
+where is the highest point in Hawaii?
+for $h in document("geobase.xml")//highlow where $h/state = "Hawaii" return $h/highest_point
+
+where is the highest point in Montana?
+for $h in document("geobase.xml")//highlow where $h/state = "Montana" return $h/highest_point
+
+where is the lowest point in Maryland?
+for $h in document("geobase.xml")//highlow where $h/state = "Maryland" return $h/lowest_point
+
+where is the lowest point in the US?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l where count($hl) = 0 return $h/lowest_point
+
+where is the lowest spot in Iowa?
+for $h in document("geobase.xml")//highlow where $h/state = "Iowa" return $h/lowest_point
+
+which is the most populated city in New Mexico? (where is the most populated area of New Mexico?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "New Mexico" and $p/population > $c/population return $p where $c/state = "New Mexico" and count($cp) = 0 return <result> {$c/text()} </result>
+
+in which state is the smallest city? (where is the smallest city?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population < $c/population return $p where count($cp) = 0 return $c/state
+
+which capitals are in the states that border Texas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $b = "Texas" and $s = $b/state return $s/capital
+
+which capitals are not major cities?
+for $s in document("geobase.xml")//state where every $m in $s/major_city satisfies $m != $s/capital return $s/capital
+
+which city in California has the largest population?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "California" and $p/population > $c/population return $p where $c/state = "California" and count($cp) = 0 return <result> {$c/text()} </result>
+
+which is the density of the state that the largest river in the United States runs through?
+for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 and $s = $r/state return <result> {$s/population ÷ $s/area} </result>
+
+which is the highest peak not in Alaska?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/state != "Alaska" and $h/elevation > $m/elevation return $h where $m/state != "Alaska" and count($hm) = 0 return <result> {$m/text()} </result>
+
+which is the longest river in USA?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+which is the lowest point of the states that the Mississippi runs through?
+for $r in document("geobase.xml")//river for $h in document("geobase.xml")//highlow where $h/state = $r/state and $r = "Mississippi" return $h/lowest_point
+
+which is the shortest river?
+for $r in document("geobase.xml")//river let $sr := for $s in document("geobase.xml")//river where $s/length < $r/length return $s where count($sr) = 0 return <result> {$r/text()} </result>
+
+which is the smallest state?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+which of the states bordering Pennsylvania has the largest population?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $ps := for $p in document("geobase.xml")//state where $p = $b/state and $p/population > $s/population return $p where $b = "Pennsylvania" and $s = $b/state and count($ps) = 0 return <result> {$s/text()} </result>
+
+which river goes through the most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+which river runs through most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+which river runs through the most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+which river traverses most states?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where count($l/state) > count($r/state) return $l where count($lr) = 0 return <result> {$r/text()} </result>
+
+which rivers are in Alaska?
+for $r in document("geobase.xml")//river where $r/state = "Alaska" return <result> {$r/text()} </result>
+
+which rivers do not run through Texas?
+for $r in document("geobase.xml")//river where every $s in $r/state satisfies $s != "Texas" return <result> {$r/text()} </result>
+
+which rivers do not run through any US state? (which rivers do not run through USA?)
+for $r in document("geobase.xml")//river where count($r/state) = 0 return <result> {$r/text()} </result>
+
+which rivers flow through Alaska?
+for $r in document("geobase.xml")//river where $r/state = "Alaska" return <result> {$r/text()} </result>
+
+which rivers run through states bordering New Mexico?
+for $r in document("geobase.xml")//river for $b in document("geobase.xml")//border where $r/state = $b/state and $b = "New Mexico" return <result> {$r/text()} </result>
+
+which rivers run through states that border the state with the capital Austin?
+for $r in document("geobase.xml")//river for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state where $r/state = $b/state and $b = $s and $s/capital = "Austin" return <result> {$r/text()} </result>
+
+which rivers run through states with fewest cities?
+let $mc := for $cs in document("geobase.xml")//state let $cc := for $t in document("geobase.xml")//city where $t/state = $cs return $t return count($cc) for $r in document("geobase.xml")//river for $s in document("geobase.xml")//state let $sc := for $c in document("geobase.xml")//city where $c/state = $s return $c where $s = $r/state and count($sc) = min($mc) return <result> {$r/text()} </result>
+
+which rivers run through the state with the most populated city in the US? (which rivers run through the state with the largest city in the US?)
+for $r in document("geobase.xml")//river for $c in document("geobase.xml")//city let $lc := for $l in document("geobase.xml")//city where $l/population > $c/population return $l where $r/state = $c/state and count($lc) = 0 return <result> {$r/text()} </result>
+
+which rivers run through the state with the lowest elevation in the USA?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l for $r in document("geobase.xml")//river where $r/state = $h/state and count($hl) = 0 return <result> {$r/text()} </result>
+
+which state border Kentucky?
+for $b in document("geobase.xml")//border where $b = "Kentucky" return $b/state
+
+which state borders Florida?
+for $b in document("geobase.xml")//border where $b = "Florida" return $b/state
+
+which state borders Hawaii?
+for $b in document("geobase.xml")//border where $b = "Hawaii" return $b/state
+
+which state borders most states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border where count($b/state) = max($bs) return <result> {$b/text()} </result>
+
+which state borders the most states?
+let $bs := for $m in document("geobase.xml")//border return count($m/state) for $b in document("geobase.xml")//border where count($b/state) = max($bs) return <result> {$b/text()} </result>
+
+which state capital has the smallest population?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population < $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$c/text()} </result>
+
+which state contains most rivers?
+let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs return $c return count($rc) for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where count($sr) = max($mc) return <result> {$s/text()} </result>
+
+which state has the biggest population?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+which state has the greatest density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+which state has the greatest population?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+which state has the highest elevation?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/state
+
+which state has the highest peak in the country?
+for $m in document("geobase.xml")//mountain let $hm := for $h in document("geobase.xml")//mountain where $h/elevation > $m/elevation return $h where count($hm) = 0 return $m/state
+
+which state has the highest point?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/highest_point/elevation > $h/highest_point/elevation return $l where count($hl) = 0 return $h/state
+
+which state has the highest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+which state has the largest city by population? (which state has the largest city?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return $c/state
+
+which state has the largest density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) > ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+which state has the least population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+which state has the longest river?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return $r/state
+
+which state has the lowest elevation?
+for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/lowest_point/elevation < $h/lowest_point/elevation return $l where count($hl) = 0 return $h/state
+
+which state has the lowest point that borders Idaho?
+for $b in document("geobase.xml")//border for $h in document("geobase.xml")//highlow let $hl := for $l in document("geobase.xml")//highlow where $l/state = $b/state and $l/lowest_point/elevation < $h/lowest_point/elevation return $l where $h/state = $b/state and $b = "Idaho" and count($hl) = 0 return $h/state
+
+which state has the lowest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+which state has the most major cities?
+let $mc := for $m in document("geobase.xml")//state return count($m/major_city) for $s in document("geobase.xml")//state where count($s/major_city) = max($mc) return <result> {$s/text()} </result>
+
+which state has the most major rivers?
+let $l := document("geobase.xml")//river/length let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs and $c/length > avg($l) return $c return count($rc) for $s in document("geobase.xml")//state let $mr := for $r in document("geobase.xml")//river where $r/state = $s and $r/length > avg($l) return $r where count($mr) = max($mc) return <result> {$s/text()} </result>
+
+which state has the most major rivers running through it?
+let $l := document("geobase.xml")//river/length let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs and $c/length > avg($l) return $c return count($rc) for $s in document("geobase.xml")//state let $mr := for $r in document("geobase.xml")//river where $r/state = $s and $r/length > avg($l) return $r where count($mr) = max($mc) return <result> {$s/text()} </result>
+
+which state has the most people?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+which state has the most population?
+for $s in document("geobase.xml")//state let $sp := for $p in document("geobase.xml")//state where $p/population > $s/population return $p where count($sp) = 0 return <result> {$s/text()} </result>
+
+which state has the most rivers?
+let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs return $c return count($rc) for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where count($sr) = max($mc) return <result> {$s/text()} </result>
+
+which state has the most rivers running through it?
+let $mc := for $rs in document("geobase.xml")//state let $rc := for $c in document("geobase.xml")//river where $c/state = $rs return $c return count($rc) for $s in document("geobase.xml")//state let $sr := for $r in document("geobase.xml")//river where $r/state = $s return $r where count($sr) = max($mc) return <result> {$s/text()} </result>
+
+which state has the Red river?
+for $r in document("geobase.xml")//river where $r = "Red" return $r/state
+
+which state has the smallest area that borders Texas?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a = $b/state and $a/area < $s/area return $a where $b = "Texas" and $s = $b/state and count($sa) = 0 return <result> {$s/text()} </result>
+
+which state has the smallest average urban population?
+let $up := for $t in document("geobase.xml")//state let $p := for $u in document("geobase.xml")//city where $u/state = $t return $u/population return avg($p) for $s in document("geobase.xml")//state let $sp := for $c in document("geobase.xml")//city where $c/state = $s return $c/population where avg($sp) = min($up) return <result> {$s/text()} </result>
+
+which state has the smallest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+which state has the sparsest population density?
+for $s in document("geobase.xml")//state let $pd := for $d in document("geobase.xml")//state where ($d/population ÷ $d/area) < ($s/population ÷ $s/area) return $d where count($pd) = 0 return <result> {$s/text()} </result>
+
+which state is Kalamazoo in?
+for $c in document("geobase.xml")//city where $c = "Kalamazoo" return $c/state
+
+which state is Mount McKinley in?
+for $m in document("geobase.xml")//mountain where $m = "McKinley" return $m/state
+
+which state is the city Denver located in?
+for $c in document("geobase.xml")//city where $c = "Denver" return $c/state
+
+which state is the largest city in Montana in?
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/state = "Montana" and $p/population > $c/population return $p where $c/state = "Montana" and count($cp) = 0 return $c/state
+
+which state is the smallest?
+for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where count($sa) = 0 return <result> {$s/text()} </result>
+
+which states adjoin Alabama?
+for $b in document("geobase.xml")//border where $b = "Alabama" return $b/state
+
+which states border Alabama?
+for $b in document("geobase.xml")//border where $b = "Alabama" return $b/state
+
+which states border Alaska?
+for $b in document("geobase.xml")//border where $b = "Alaska" return $b/state
+
+which states border Arizona?
+for $b in document("geobase.xml")//border where $b = "Arizona" return $b/state
+
+which states border Colorado?
+for $b in document("geobase.xml")//border where $b = "Colorado" return $b/state
+
+which states border Hawaii?
+for $b in document("geobase.xml")//border where $b = "Hawaii" return $b/state
+
+which states border Illinois?
+for $b in document("geobase.xml")//border where $b = "Illinois" return $b/state
+
+which states border Iowa?
+for $b in document("geobase.xml")//border where $b = "Iowa" return $b/state
+
+which states border Kentucky?
+for $b in document("geobase.xml")//border where $b = "Kentucky" return $b/state
+
+which states border Michigan?
+for $b in document("geobase.xml")//border where $b = "Michigan" return $b/state
+
+which states border New York?
+for $b in document("geobase.xml")//border where $b = "New York" return $b/state
+
+which states border no other states?
+for $b in document("geobase.xml")//border where count($b/state) = 0 return <result> {$b/text()} </result>
+
+which states border South Dakota?
+for $b in document("geobase.xml")//border where $b = "South Dakota" return $b/state
+
+which states border states through which the Mississippi traverses?
+for $b in document("geobase.xml")//border for $r in document("geobase.xml")//river where $r = "Mississippi" and $b = $r/state return $b/state
+
+which states border Texas?
+for $b in document("geobase.xml")//border where $b = "Texas" return $b/state
+
+which states border the longest river in the USA?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return $r/state
+
+which states border the Missouri river?
+for $r in document("geobase.xml")//river where $r = "Missouri" return $r/state
+
+which states border the state with the smallest area?
+for $b in document("geobase.xml")//border for $s in document("geobase.xml")//state let $sa := for $a in document("geobase.xml")//state where $a/area < $s/area return $a where $b = $s and count($sa) = 0 return $b/state
+
+which states capital city is the largest?
+for $s in document("geobase.xml")//state for $c in document("geobase.xml")//city let $cp := for $ps in document("geobase.xml")//state for $pc in document("geobase.xml")//city where $pc = $ps/capital and $pc/population > $c/population return $pc where $c = $s/capital and count($cp) = 0 return <result> {$s/text()} </result>
+
+which states do Colorado river flow through?
+for $r in document("geobase.xml")//river where $r = "Colorado" return $r/state
+
+which states does not border Texas?
+for $b in document("geobase.xml")//border where every $bs in $b/state satisfies $bs != "Texas" return <result> {$b/text()} </result>
+
+which states does the Chattahoochee river run through?
+for $r in document("geobase.xml")//river where $r = "Chattahoochee" return $r/state
+
+which states does the Colorado river run through?
+for $r in document("geobase.xml")//river where $r = "Colorado" return $r/state
+
+which states does the longest river cross?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return $r/state
+
+which states does the longest river run through?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return $r/state
+
+which states does the Mississippi river run through?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/state
+
+which states does the Mississippi run through?
+for $r in document("geobase.xml")//river where $r = "Mississippi" return $r/state
+
+which states does the Missouri river pass through?
+for $r in document("geobase.xml")//river where $r = "Missouri" return $r/state
+
+which states does the Missouri river run through?
+for $r in document("geobase.xml")//river where $r = "Missouri" return $r/state
+
+which states have a major city named Austin?
+for $s in document("geobase.xml")//state where $s/major_city = "Austin" return $s
+
+which states have a river?
+for $s in document("geobase.xml")//state for $r in document("geobase.xml")//river where $s = $r/state return <result> {$s/text()} </result>
+
+which states have cities named Austin?
+for $c in document("geobase.xml")//city where $c = "Austin" return $c/state
+
+which states have points higher than the highest point in Colorado?
+for $ch in document("geobase.xml")//highlow for $h in document("geobase.xml")//highlow where $ch/state = "Colorado" and $h/highest_point/elevation > $ch/highest_point/elevation return $h/state
+
+which states have points that are higher than the highest point in Texas?
+for $th in document("geobase.xml")//highlow for $h in document("geobase.xml")//highlow where $th/state = "Texas" and $h/highest_point/elevation > $th/highest_point/elevation return $h/state
+
+which states lie on the largest river in the United States?
+for $r in document("geobase.xml")//river let $lr := for $l in document("geobase.xml")//river where $l/length > $r/length return $l where count($lr) = 0 return $r/state
+
+which US city has the highest population? (which US city has the highest population density?)
+for $c in document("geobase.xml")//city let $cp := for $p in document("geobase.xml")//city where $p/population > $c/population return $p where count($cp) = 0 return <result> {$c/text()} </result>

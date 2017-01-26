@@ -1,0 +1,40 @@
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Assume you are in an academic setting and are searching over the intranet 
+of a large university. You would like to perform the following tasks.
+
+For the first ten tasks, you are interested in finding the appropriate 
+form/webpage that will allow you to complete the task
+
+For the next five tasks, your goal is obtaining some software
+
+For each task, please provide us with the keyword query you would try on 
+a search engine. If you can think of several keyword queries that you may 
+try, please give us a list of such keyword queries.
+
+For example, supposing the task is to book airline tickets, a sample set 
+of keyword queries one may issue is:
+                airline tickets,        
+                cheap flight tickets,
+                buy flight tickets
+
+The list of tasks are:
+
+1. get recent trip reimbursed
+2. make changes to your health benefits due to being a new employee/qualified 
+   family status change
+3. would like to get  the official letter of recommendation form  
+4. apply for a second degree
+5. contribute to flexible spending account
+6. alter some of the courses you have registered for
+7. report your new address
+8. reserve a room for a meeting
+9. get the broken phone fixed
+10.petition for an extension of the deadline for completing a particular degree 
+   requirement
+ 
+11. obtain the citrix client needed to connect from your machintosh
+12. obtain the Remedy client for your windows machine
+13. obtain the locally modified version of the Samba code
+14. obtain whatever virus scan software is available internally
+15. upgrade version of Cisco Aironet Client 

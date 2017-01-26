@@ -1,0 +1,2817 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./EvaluatorFileInterface_files/filelist.xml">
+<link rel=Edit-Time-Data href="./EvaluatorFileInterface_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Evaluator File Interface:</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Shurug</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>yunyao</o:LastAuthor>
+  <o:Revision>61</o:Revision>
+  <o:TotalTime>37850</o:TotalTime>
+  <o:Created>2004-03-30T03:32:00Z</o:Created>
+  <o:LastSaved>2004-05-06T20:40:00Z</o:LastSaved>
+  <o:Pages>13</o:Pages>
+  <o:Words>6547</o:Words>
+  <o:Characters>37323</o:Characters>
+  <o:Company>EECS</o:Company>
+  <o:Lines>311</o:Lines>
+  <o:Paragraphs>74</o:Paragraphs>
+  <o:CharactersWithSpaces>45835</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Compatibility>
+   <w:SelectEntireFieldWithStartOrEnd/>
+   <w:UseWord2002TableStyleRules/>
+  </w:Compatibility>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+span.SPELLE
+	{mso-spl-e: yes
+;}
+span.GRAME
+	{mso-gram-e: yes
+;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+a:link, span.MsoHyperlink
+	{color:#660000;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:11.0in 8.5in;
+	mso-page-orientation:landscape;
+	margin:1.25in 1.0in 1.25in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1154"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+  <o:regrouptable v:ext="edit">
+   <o:entry new="1" old="0"/>
+  </o:regrouptable>
+ </o:shapelayout></xml><![endif]--><o:SmartTagType name="place" namespaceuri="urn:schemas-microsoft-com:office:smarttags"></o:SmartTagType><o:SmartTagType name="City" namespaceuri="urn:schemas-microsoft-com:office:smarttags"></o:SmartTagType><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">  </w:LatentStyles>
+</xml><![endif]-->
+</head>
+
+<body lang=EN-US link="#660000" vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1 style='margin-top:0in'><a name="_top" id="_top">Evaluator File Interface </a></h1>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='margin-left:.25in;tab-stops:list .5in'><span
+style='font-size:10.0pt'><span style="mso-spacerun: yes">   </span><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:11.25pt;
+ height:11.25pt'>
+ <v:imagedata src="./EvaluatorFileInterface_files/image001.gif" o:title="image002"/>
+</v:shape><![endif]--><![if !vml]><img width=15 height=15
+src="./EvaluatorFileInterface_files/image001.gif" v:shapes="_x0000_i1025"><![endif]><span
+style="mso-spacerun: yes">  </span></span><span style='font-family:Arial'><a
+href="EvaluatorFileInterface.htm#_Work_Information">Evaluation Iterators</a><span
+style='color:black'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='tab-stops:list .5in .75in'><span style='font-size:
+10.0pt;font-family:Arial'><span style="mso-spacerun: yes">        </span><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:11.25pt;height:11.25pt'
+ o:bullet="t">
+ <v:imagedata src="./EvaluatorFileInterface_files/image001.gif" o:title="image002"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=15 height=15
+src="./EvaluatorFileInterface_files/image001.gif" alt="*" v:shapes="_x0000_i1026"><![endif]><span
+style="mso-spacerun: yes">  </span></span><span style='font-family:Arial'><a
+href="EvaluatorFileInterface.htm#_Contact_Information">Examples</a><span
+style='color:black'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoBodyText2>Evaluator file interface provides iterators to allow
+directly manipulate of data in the database via physical plans.<span
+style="mso-spacerun: yes">  </span>In a physical plan, you should list
+iterators in a depth-first preorder manner. First the Iterator then its inputs.
+Each Iterator is on a separate line. A line in the file that starts with a ‘*’
+will be ignored (comment line). Start key is the pedigree (unique id) of the
+node. Interface is case-sensitive. If it’s capital here it should be capital in
+the file. File name(s) where you will find more info about the Iterator or some
+of its input is written underneath the Iterator name (column 1).</p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoBodyText3>NRE is a unique number that gets assigned to a collection
+of nodes upon retrieval from indices or database. In some iterators, where
+nodes are being created (e.g. construct), NRE gets assigned to the newly
+created nodes. So basically, each node in the witness tree will have an NRE.
+This NRE is used to reference the node.</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-family:Arial;
+color:black'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-family:Arial;
+color:black'>For example, we have a structural join following two index
+accesses, in which we want to join </span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial;color:black'>book</span><span
+style='font-family:Arial;color:black'> with </span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial;color:black'>author</span><span
+style='font-family:Arial;color:black'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-family:Arial;
+color:black'>&nbsp;<o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=878 valign=top style='width:9.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Arial;color:black'>J,D,3,9,-1,-1,16,A,B<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Arial;color:black'>I,3,index_books_elementtag,books.xml,GIST,STR,book<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Arial;color:black'>I,9,index_books_elementtag,books.xml,GIST,STR,author</span><span
+  style='font-family:Arial;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-family:Arial;
+color:black'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoBodyText><span style='font-size:12.0pt;font-family:Arial;
+color:black'>We assigned </span><span style='font-family:Arial;color:black'>book
+</span><span style='font-size:12.0pt;font-family:Arial;color:black'>nodes NRE
+3. We assigned author nodes </span><span style='font-family:Arial;color:black'>NRE</span><span
+style='font-size:12.0pt;font-family:Arial;color:black'> 9. When joining, we reference
+node with </span><span style='font-family:Arial;color:black'>NRE</span><span
+style='font-size:12.0pt;font-family:Arial;color:black'> 3 and node with </span><span
+style='font-family:Arial;color:black'>NRE</span><span style='font-size:12.0pt;
+font-family:Arial;color:black'> 9. Which will join </span><span
+style='font-family:Arial;color:black'>book</span><span style='font-size:12.0pt;
+font-family:Arial;color:black'> and </span><span style='font-family:Arial;
+color:black'>author</span><span style='font-size:12.0pt;font-family:Arial;
+color:black'>.</span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black'>&nbsp;<o:p></o:p></span></p>
+
+<h2><a name="_Work_Information"></a>Evaluation Iterators</h2>
+
+<p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>&nbsp;</span><b><span
+style='font-size:16.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Iterator<o:p></o:p></b></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Calling Format<o:p></o:p></b></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Parameter
+  Explanation<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 1'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Index
+  Access<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>IndexAccess.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>GistIndexAccess.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>I,nre,indexName,filename,indexSource,indexType,value1,value2<o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>
+  the nre to be assigned to nodes retrieved from the index.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>IndexName</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: name of the index.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Filename</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: name of the file that
+  the index is built on.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>IndexSource</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: GIST: if the index is a
+  gist index.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>HASH: if index is a
+  hash index.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>IndexType</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: INT: the index key is an
+  integer.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                    </span>FLT: the index key is a
+  float.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                    </span>STR: the index key is a
+  string.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                    </span>DBL: the index key is a
+  double.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Value1</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: the key value you are
+  asking for.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Value2</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: if you are asking for a
+  range, this is the second value. This is optional.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 2'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Scan
+  Access<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ScanIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>SelectionCondition.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>S,nre,fileName,rootKey,nodeType,returnType,num1,num2,Left,opr,rightType,right,<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>…..,num3,start,end,…<o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>
+  the nre to be assigned to nodes retrieved from the database.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Filename</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: name of the file to
+  scan.<b><o:p></o:p></b></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RootKey</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: start key of the root
+  element in the file.<b> <o:p></o:p></b></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NodeType</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: type of the node to scan
+  for.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                     </span>ALL_NODES: scan all
+  nodes.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                     </span>DOCUMENT_NODE: scan doc
+  nodes.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                     </span>ELEMENT_NODE: scan for
+  element nodes.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">           </span><span style="mso-spacerun:
+  yes">          </span>ATTRIBUTE_NODE: scan for attribute nodes.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                     </span>TEXT_NODE: scan for
+  text nodes.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                     </span>COMMENT_NODE: scan for
+  comment nodes.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ReturnType</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: type of the node to be
+  returned as part of the result of the scan.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span><span style="mso-spacerun:
+  yes">         </span>THISNODE: return the node scanned.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                      </span>PARENTNODE: return the
+  parent of the scanned node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                      </span>ELEMENTNODE: return
+  the element node that is closest to the scanned node (if attribute-node, get
+  its parent)<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span><span style="mso-spacerun:
+  yes">              </span>ATTRIBUTENODE: return the attribute node that is
+  closest to the scanned node (if elem-node, get its attrs)<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                     </span>SUBTREE: return the
+  subtree of the scanned node.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num1</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>:<span
+  style="mso-spacerun: yes">  </span>the number of disjunctive conditions you
+  want to apply on scanned nodes. Num2,Left,opr,rightType,right should occur
+  num1number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num2</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: the number of
+  conjunctive conditions in each disjunct. Left,opr,rightType,right should
+  occur num2 number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Left</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: one of the following
+  values: (check SelectionCondition.h for more details)
+  VALUE,LENGTH,XMLFILENAME,DTDFILENAME,NODETAG,<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>CHILDNUMBER,
+  ATTRIBUTENUMBER, HAS_CHILD, HAS_ATTRIBUTE,ATTRIBUTE_VALUE<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>If
+  you choose ATTRIBUTE_VALUE then pass here an attribute name.<b><o:p></o:p></b></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Opr</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: one of the following
+  values: EQ,LE,LT,GT,GE,NE: for =,&lt;,&lt;=,&gt;,&gt;=,!=</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>CONTAIN,CONTAINEDBY,STARTWITH<b><o:p></o:p></b></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RightType</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: STR/INT/FLT<b><o:p></o:p></b></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Right</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: value you want to be
+  checked.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num3</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: number of scan ranges:
+  start,end should occur num3 number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>The scan will scan the sub-trees
+  contained in these start-end.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Start:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes"> </span>the start key of the first node to scan.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>End:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>the end
+  key of the last node to scan.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 3'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Structural
+  Join<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>StackBasedAncs.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>StackBasedDesc.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>J,Algorithm,ancsNRE,descNRE,leftSiblingNRE</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>,<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RightSiblingNRE,expectedDepth,relation,projectWhich,N</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Alg</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: A: if you want results
+  to be sorted by ancs.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>D: if you want results to be sorted
+  by desc.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>N: if you want a negated join
+  (output ancs that don’t have desc).<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>a: if you want an ancs-outer join
+  sorted by ancs (ancs is output even if it doesn’t join).<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>AncsNRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: the nre of the ancs in
+  the ancs input witness tree. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>DescNRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: the nre of the desc in
+  the desc input witness tree. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>LeftSiblingNRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: the nre of the left
+  sibling in ordered semantics. If you want unordered semantics, Pass –1.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RightSiblingNRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: the nre of the right
+  sibling in ordered semantics. If you want unordered semantics, Pass –1.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ExpectedDepth</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: the expected depth of
+  the ancs. I.e. how many ancs are likely to be nested under other ancs . If in
+  doubt, pass the depth of the XML document.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Relation</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: A: ancs-desc
+  relationship between two inputs to the join.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                 </span>P: parent-child
+  relationship. The ancs should be one level higher than desc.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ProjectWhich</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: what you want to keep in
+  the output of this join. <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                           </span>B: both ancs and
+  desc are kept.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                           </span>A: only ancs is
+  kept. Valid when alg = A.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                           </span>D: only desc is
+  kept. Valid when alg = D. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>N:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> this field is optional.
+  If you pass an “N”, then output of the join will be nested descendants. If
+  you don’t pass it or pass something else, output of join will be ancs-desc
+  pairs. Valid only with stackBased ancestor join.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 4'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Filter<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>FilterIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>FilterCondition.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>f,num1,num2,app,lType,lNRE,lNum,lStr,opr,rType,rNRE,<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>rNum,</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>rStr</span> <span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>,…<o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num1</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: is the number of
+  disjunctive conditions. Num2,lType, ….. should occur num1 number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num2</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: number of conjunctive
+  conditions in each disjunctive condition. App,lType,lIndex,.. <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Should
+  occur num2 number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>App:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is one of the following<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>E: the tree will pass if EVERY
+  node with nre lNRE matches the condition.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>AO: the tree will pass if AT
+  LEAST ONE node with nre lNRE matches the condition.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>EO: the tree will pass if
+  EXACTLY ONE node with nre lNRE matches the condition.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">              </span>EX: the tree will pass if
+  EXACTLY ONE node has the nre specified and it matches the condition.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Note
+  that it is applied to the left part of the condition only.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>lType</span></b>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: type of the left
+  value of the predicate.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>V: left side is a value.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>A: left side is an attr.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>T: left side is text directly
+  under node. (child text)<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>DT: left side is text anywhere
+  under node. (desc text)<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">  </span><span style="mso-spacerun:
+  yes">          </span>L: left side is length.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>LCV,LCA,LCT,LCDT,LCL:
+  value/attr/text/descText/length of local child.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>LAV,LAA,LAT,LADT,LAL:
+  value/attr/text/descText/length of local ancs.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>ACV,ACA,ACT,ACDT,ACL:
+  value/attr/text/descText/length of actual child.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>AAV,AAA,AAT,AADT,AAL:
+  value/attr/text/descText/length of actual ancs.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">           </span>SK: left side is a start key.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">           </span>EK: left side is an end key.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">           </span>LEV: left side is a level.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">           </span>C: left side is a const.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>LF: left side is local fan-out.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>AF: left side is actual fan-out.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>LD: left side is local sub-tree
+  depth.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>AD: left side is actual sub-tree
+  depth.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>CI: left side is a constant that we
+  are getting from an Iterator.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>lNRE</span></b>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: nre of the left
+  node in the left input witness tree. This node we will be using its value,
+  attr, text… etc. depending on lType.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>lNum</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: is the child number if
+  lType is one of the following:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">  </span>LCV,LCA,LCT,LCDT,LCL,ACV,ACA,ACT,ACDT,ACL.
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Or
+  it is how many levels up you would like to go to get an ancestor if lType is
+  one of the following:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>LAV,LAA,LAT,LADT,LAL,
+  AAV,AAA,AAT,AADT,AAL.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>If
+  lType = C and opr uses number comparison then lNum holds the number to be
+  compared against.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>lStr</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: is attrName if lType is
+  one of the following:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>A,
+  LCA,LAA,ACA,AAA. Or if lType is V and lNRE returns an attribute node. Or if
+  lType is C and operation uses string comparison, then this will hold the
+  constant value to be compared against.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>opr</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>:EQN,NEN,LTN,LEN,GTN,GEN:=,!=,&lt;,&lt;=,&gt;,&gt;=
+  using number comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">       
+  </span>EQS,NES,LTS,LES,GTS,GES:=,!=,&lt;,&lt;=,&gt;,&gt;= using string
+  comparison.<span style="mso-spacerun: yes">      </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>S: left start with right. Strings.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>B: left is at the beginning of
+  right. Strings.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>C: left contains right.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>CD: left contained in right.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>NS: left does not start with right.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>NC: left does not contain right.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>rType,</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>rNRE,rNum</span> <span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>,… are exactly like the
+  above except they are for the right side of the condition.<b><o:p></o:p></b></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 5'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Sort<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>SortIterator.h</span>
+  <o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt'>ExternalSortIterator.h</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> <o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>R,exp.Size,sortByWhat,num,nre,order</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>,whereEmptyGoes,…,X<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                                     
+  </span>,order,X<o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ExpectedSize</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: is the number of trees
+  we are getting as input.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>SortByWhat</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>:is</span> <span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                    </span>K: to sort by start key<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                    </span>S: to sort by witness
+  tree score.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                    </span>T: to sort by the whole
+  tree (start keys).<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>If<span
+  style="mso-spacerun: yes">  </span>sorting by start key, give the following
+  parameters:<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: number of nodes you want
+  to sort with. nre,order.whereEmptyGoes should occur num number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>nre</span></b>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: nre of node in
+  input witness tree you want to be sorted with.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Order</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: A: ascending order.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>D: descending order.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>WhereEmptyGoes:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> where the empty nodes
+  go.<span style="mso-spacerun: yes">  </span>So if you provide an nre and it
+  returns no nodes, this tree will be either put at the beginning or the end of
+  the set of trees to be sorted. It takes one of two values: <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">              </span>B: the empty ones will go at
+  the beginning. <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">              </span>E: the empty ones will be
+  placed at the end. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>If
+  sorting by score or tree, give the following parameter:<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Order</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: A: ascending order.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>D: descending order.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>X:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> this field is optional.
+  If you pass an “X”, external sort will be used. If you don’t pass anything or
+  pass something else, in-memory quick sort will be used. <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 6'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Value
+  Sort<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ValueSortIterator.h</span>
+  <o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ExternalValueeSortIterator.h</span>&nbsp;<span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> <o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>r,exp.Size,num,sortBy,NRE,order,attrName</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>,whereEmptyGoes…,X</span><o:p></o:p></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ExpectedSize</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: is the number of trees
+  we are getting as input.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: number of nodes you want
+  to sort with. sortBy , nre,order,attrName,whereEmptyGoes should occur num
+  number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>SortBy</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: AN: sort by attribute
+  value. Use number comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>AS: sort by
+  attribute value. Use string comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>TN: sort by text.
+  Use number comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>TS: sort by text.
+  Use string comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                         </span>TG: sort by tag
+  name.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                         </span>VN: sort by value.
+  Value is text if nre is for a text <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>node</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>. It is tagname if
+  nre is for an element node. It is attribute value if the nre belongs to an
+  attribute node. In the last case attrName should be provided. Use number
+  comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>VS: same as VN
+  except use string comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                         </span>SK: sort by start
+  key.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: NRE of element that you
+  want to sort by its text or attr.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Order</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: A: ascending.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>D: descending.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>AttrName</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: name of attribute to be
+  sorted by in the case of AN, AS, NV and VS. Pass NULL if<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                    </span>You want to sort by TN
+  or TS.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>WhereEmptyGoes:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> where the empty nodes
+  go.<span style="mso-spacerun: yes">  </span>So if you provide an nre and it
+  returns no nodes or you give an attribute name that is not in there, this
+  tree will be either put at the beginning or the end of the set of trees to be
+  sorted. It takes one of two values:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">  </span><span style="mso-spacerun:
+  yes">            </span>B: the empty ones will go at the beginning.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">              </span>E: the empty ones will be
+  placed at the end.</span><o:p></o:p></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>X:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> this field is optional.
+  If you pass an “X”, external sort will be used. If you don’t pass anything or
+  pass something else, in-memory quick sort will be used. </span><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 7'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Set
+  Ops.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>UnionIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>–
+  IntersectionIterator.h – DifferenceIterator.h<o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>T,whichOp,length</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>WhichOp</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: U: union<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                   </span>I: intersection.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                   </span>D: difference.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Length:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> starting from root, how many
+  nodes you want to compare. Optional. If not specified, deep equality is used.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 8'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Group
+  by<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>GroupByIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>G,exp.Sz,groupByWhat,GroupByNRE,GroupByAttrName,keepTrees,Num,opr,<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>oprOnWhat,attrName,NRE,opNRE</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>….rootNRE,valueNRE,sort<o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ExpectedSize</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: is the number of trees
+  we are getting as input.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>GroupByWhat</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: AN: attribute. Use
+  number comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                           </span>AS: attribute.
+  Use string comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                           </span>TN: text. Use
+  number comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                           </span>TS: text. Use
+  string comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                           </span>SK: start key.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  VN: value. if groupBy NRE is an element, then we group by tag. if groupBy NRE
+  is an attr, then we group by attribute value of attribute groupByAttrName. if
+  groupBy NRE is text, then we group by value of text. Use number comparison.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  VS: value. if groupBy NRE is an element, then we group by tag. if groupBy NRE
+  is an attr, then we group by attribute value of attribute groupByAttrName. if
+  groupBy NRE is text, then we group by value of text. Use&nbsp;string
+  comparison.</span><o:p></o:p></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>GroupByNRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: the NRE of the element
+  you want to group by its attr, text or start key.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>groupbyAttrName</span></b>
+  <b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>:</span></b><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'> is the attribute name of the node if you are
+  grouping by attribute value. Otherwise, pass NULL.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>KeepTrees</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: 0: do not keep the input
+  trees. Just pass the grouped by value.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                    </span>1: keep the input trees
+  and pass the grouped by value.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: number of operations to
+  be performed on the grouped trees. Opr, oprOnWhat, attrName,nre,opNRE should
+  occur num number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Opr</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: Operation to be
+  performed on the grouped trees.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>C: count<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>A: avg<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>S: sum<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>M: max<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>m: min<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>N: none<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>OprOnWhat</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: On what you want to
+  perform the operation.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                       </span>A: attribute. Number
+  comparison.<span style="mso-spacerun: yes">            </span></span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                       </span>LA: local attr. not
+  from DB. number comparison. </span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                       </span>T: text. Number
+  comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                    </span><span
+  style="mso-spacerun: yes">    </span>LT: local text. not from DB. Number
+  comparison. <o:p></o:p></span></p>
+  <p class=MsoNormal><span style="mso-spacerun: yes">                  </span><span
+  style='font-size:10.0pt'>LF: local fanout.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                       </span>AF: actual fanout.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                       </span>LD: local depth.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                       </span>AD: actual depth.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  V: value. if&nbsp; NRE is an element, then we perform operation on tag. if
+  NRE is an attr, then we perform operation onattribute value of attribute
+  AttrName. if NRE is text, then we&nbsp;perform operation on&nbsp;value of
+  text. Use number comparison.</span> <o:p></o:p></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>AttrName</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: name of attribute if AN
+  or AS. NULL otherwise.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: NRE of node in input
+  trees that you want to perform operation on its text, attr, fanout or depth. <o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>opNRE</span></b> <b
+  style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>:</span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+  the nre to be assigned to the node holding the operation result value.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>rootNRE</span></b> <b
+  style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>:</span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+  the NRE to be assigned to the dummy root added to the group by tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>valueNRE</span></b> <b
+  style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>: </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>the
+  NRE to be assigned to the dummy node holding the group by value (it is the
+  first child of the root).<span style='mso-bidi-font-weight:bold'> <o:p></o:p></span></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Sort:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> 0/1. if you want the
+  groupby to sort by grouped by value, pass 1. if results are already sorted by
+  grouped by value, pass 0.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 9'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Function<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>FunctionIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>F,num,opr,oprOnWhat,attrName,NRE,opNRE</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>….treeLevel<o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: number of operations to
+  be performed on input trees. Opr, oprOnWhat, attrName,nre,opNRE should occur
+  num number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Opr</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: C: count<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>A: avg<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>S: sum<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>M: max<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span>m: min<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>OprOnWhat</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: A: attribute. Number
+  comparison.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  LA: local attr. not from DB. number comparison.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>T: text. Number
+  comparison.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LT:
+  local text. not from DB. Number comparison. <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>LF: local fanout.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                       </span>AF: actual fanout.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                       </span>LD: local depth.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                       </span>AD: actual depth.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  V: value. if&nbsp; NRE is an element, then we perform operation on tag. if
+  NRE is an attr, then we perform operation onattribute value of attribute
+  AttrName. if NRE is text, then we&nbsp;perform operation on&nbsp;value of
+  text. Use number comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>AttrName</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: name of attribute if AN
+  or AS. NULL otherwise.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: NRE of node in input
+  trees that you want to perform operation on its text, attr, fanout or depth. <o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>opNRE</span></b> <b
+  style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>:</span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+  the nre to be assigned to the node holding the operation result value.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>treeLevel</span></b>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:
+  bold'>: if you want the operations to be performed on the tree level pass 1.
+  on the input level pass 0. The difference is that in the case of the input
+  level, the operations are performed across all input trees and one output
+  tree is generated holding the operation result values. In the tree level
+  case, the operations are performed on every tree and the result nodes are
+  appended to the result.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 10'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Value
+  join<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ValueJoinIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>j,rootNRE,leftNRE,leftTag,rightNRE,rightTag,expSize,attrNameLeft,attrNameRight,<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>opr,joinWhatLeft,joinWhatRight,sortedInput,N,O,A</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RootNRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>:
+  the nre to be assigned to the dummy root added to the joined tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>LeftNRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: NRE of the node in the
+  left input trees that will be checked for join.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>LeftTag:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> the tag of the element in
+  the left input tree to perform value join on. If you know its NRE, pass NULL
+  here and pass the NRE in leftNRE. If leftTag is not NULL, leftNRE is ignored.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RightNRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: NRE of the node in the
+  right input trees that will be checked for join.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RightTag:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> the tag of the element in
+  the right input tree to perform value join on. If you know its NRE, pass NULL
+  here and pass the NRE in rightNRE. If rightTag is not NULL, rightNRE is
+  ignored.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Exp.
+  Size</span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>:
+  expected number of trees from the right input (join will block on right
+  input).<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>AttrNameLeft:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> if joining made based on
+  an attr value, then put attr Name of the left input here. NULL otherwise.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>AttrNameRight:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> if joining made based on
+  an attr value, then put attr Name of the right input here. NULL otherwise.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Operator:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>EQN: equality
+  join. Use number comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>NEN: non-equality join.
+  Use number comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>LTN: if left is &lt;
+  right, join. Use number comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>LEN: if left is &lt;=
+  right, join. Use number comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span><span style="mso-spacerun:
+  yes">     </span>GTN: if left is &gt; right, join. Use number comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>GEN: if left is &gt;=
+  right, join. Use number comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>EQS: equality join. Use
+  string comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>NES: non-equality join.
+  Use string comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">  </span><span style="mso-spacerun:
+  yes">                </span>LTS: if left is &lt; right, join. Use string
+  comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>LES: if left is &lt;=
+  right, join. Use string comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>GTS: if left is &gt;
+  right, join. Use string comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>GES: if left is &gt;=
+  right, join. Use string comparison<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                   </span>C: if left CONTAINS
+  right. String comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                   </span>CB: if left CONTAINED BY
+  right. String comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>JoinWhatLeft</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: A: join by attr.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>T: join by text.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DT:
+  join by text not directly underneath node. but even desc text.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>S: join by start key.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>E: join be end key.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>L: join by level.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>N: join by nothing.
+  Cartesian product.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  TR: join by subtree rooted at leftNRE. Tags, content, and attributes are to
+  be compared.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  TNR: join by subtree rooted at leftNRE. Tags, content, and attributes are to
+  be compared except the root tag.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>V: value of the node
+  leftNRE if it is an element node, then tag name is used . if it is an attr
+  node, then attribute attrNameLeft is used. If it is a text node, then text is
+  used.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>JoinWhatRight</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: A: join by attr.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>T: join by text..</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  DT: join by text not directly underneath node. but even desc text. <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>S: join by start key.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>E: join by end key.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>L: join by level.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>N: join by nothing.
+  Cartesian product.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  TR: join by subtree rooted at rightNRE. Tags, content, and attributes are to
+  be compared.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  TNR: join by subtree rooted at rightNRE. Tags, content, and attributes are to
+  be compared except the root tag.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                  </span>V: value of the node
+  rightNRE if it is an element node, then tag name is used . if it is an attr
+  node, then attribute attrNameRight is used. If it is a text node, then text
+  is used.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>SortedInput</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: 0: if the input is not
+  sorted by the join value. (nested-loops join is performed)<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span><span style="mso-spacerun:
+  yes">              </span>1: if the input is already sorted by join value.
+  (sort-merge join is performed)<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>N:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> this parameter is
+  optional. If you pass N, then the output of the join will be nested by the
+  left input. I.e. each left input tree will have all joining right input trees
+  with it in the output tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>O:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> this parameter is
+  optional. If you pass O, then the join will be left outer join. I.e. each
+  left input tree will be output whether or not it joined with a right input
+  tree..</span><o:p></o:p></p>
+  <p class=MsoNormal><strong><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>A:</span></strong><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'> this parameter is optional. if you pass it, at least one of all the
+  nodes with NRE leftNRE will need to match at least one of the nodes with NRE
+  rightNRE. This works only with nested-loops join. </span><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 11'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Child
+  Chooser<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ChildChooserIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>c,whichChild,num,parentNRE...</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>WhichChild</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: which child you want to
+  pass. 1: first child. 2:second child,…. –1:last child. So this Iterator
+  expects input to have ancs-desc pairs sorted by ancs. And it will pass for
+  each ancs, the i<sup> th</sup> occurrence.</span><o:p></o:p></p>
+  <p class=MsoNormal><strong><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>num:</span></strong><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'> number of parents you want to pass their children. parentNRE should
+  occur num number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ParentNRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: the NRE of the ancs in
+  the input tree.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>What
+  this iterator does is for a group of ParentNREs, it will pass the whichChild
+  occurance in the input stream. input should be sorted on parentNREs key.</span><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 12'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Duplicate
+  Eliminator<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>DuplicateEliminatorIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>D,byWhat,NRE,exp.Size,attrName,sort</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ByWhat:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>SK:
+  eliminate trees with duplicate start key (id) of a specific node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                 </span>TR: eliminate duplicate
+  trees based on start keys. (whole tree is checked)<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                </span>TS: eliminate trees with
+  duplicate text values. String comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                </span>TN: eliminate trees with
+  duplicate text values. Number comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                </span>AS: eliminate trees with
+  duplicate attr values. String comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">      </span><span style="mso-spacerun:
+  yes">          </span>AN: eliminate trees with duplicate attr values. Number
+  comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: nre of the node to
+  eliminate duplicates by. If eliminating duplicates by tree, this is ignored.
+  If by start key, then the start key of this nre is used in eliminating
+  duplicates. If by text, the text of the node with this nre is used. If by
+  attr, then the attribute of this node is used.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ExpectedSize</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: is the number of trees
+  we are getting as input. Pass whatever if sorting is turned off.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>AttrName</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: if byWhat =AS or AN,
+  then this is the name of the attribute that you want to eliminate duplicates
+  of.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Sort</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: 0: if you do not want it
+  to sort input. (it is already sorted).<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>1: if you want the Iterator to sort
+  input before eliminating duplicates.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 13'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Phrase
+  Finder<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>PhraseFinderIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>n,NRE,indexName,filename,phrase</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>
+  the nre to be assigned to the output nodes.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>IndexName:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the name of the index
+  to look up when searching for the words in the sentence. It should be some
+  kind of an inverted index or so.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Filename:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes"> </span>name of the file the index is built on.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Phrase:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> this is the phrase you
+  want to find in the document. You can have “*” anywhere in the phrase to
+  represent wildcards. For example, phrase: “hello ** world”<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Will
+  match “hello bad ugly world”, “hello blah blah world” but not “hello world”
+  or “hello blah world”. Also, if you want to make sure that hello is the
+  second word in the text, you should do “* hello world” third :”** hello
+  world”. <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 14'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Construct<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Iterator<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ConstructIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>s,n1,lev,type,src,NRE,str1<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                                   
+  </span>str1,str2<span style="mso-spacerun:
+  yes">                                                       </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                                   
+  </span>str1,rootNRE,n2,ns,lev,rel,getWhat,attrName….<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                                   
+  </span>rootNRE,n2,ns,lev,rel,getWhat,attrName….<span style="mso-spacerun:
+  yes">   </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                                   
+  </span>rootNRE,0,rootGetWhat,attrName<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>n1:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>is the number of nodes in
+  the output tree (attribute is a node, element is a node and content is a
+  node). Lev,type,src,… are repeated n1 number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Lev:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the level of the node
+  in the output tree (attr is 1 level deeper than its element)<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Type:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the type of the node
+  in the output tree:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">           </span>E: element node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">           </span>A: attribute node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">           </span>C: content node.</span><o:p></o:p></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  OA: optional attribute. just like attribute except that if it doesn't have a
+  value, it will not apper in teh output.</span><o:p></o:p></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Src:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> source of data for this
+  output node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>C: constant. I.e. data to be placed
+  there should be specified now.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>R: reference. I.e. a pattern tree
+  is used with a reference root (exp. $a).<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the nre to be assigned
+  to extra nodes. If there are nodes to be retrieved from the database, then
+  this nre will be assigned to them in case type = C. if type = E or A, then
+  this nre is assigned to the new node formed whether it is an element or attr
+  node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Now,
+  there are 4 different information formats you need to provide.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>1-
+  If src is constant.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Str1:
+  should be the constant that will be the element name if the type is element
+  or <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>Text if the type is content.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes"> </span>Str1,str2: str1 should be the attribute
+  name and sr2 is attribute value if type is attribute node.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>2-
+  If src is reference.<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><u><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>str1,rootNRE,n2,ns,lev,rel,getWhat,attrName</span></u></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>…. If type is attribute. <o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>str1</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: is the name of the
+  attribute<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RootNRE:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the nre of the root of
+  the pattern tree node in the input witness trees.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>n2:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the number of nodes in
+  the pattern tree. Level, relation, getWhat should be repeated num-1 number of
+  times. Level,relation,getWhat will describe nodes of the pattern tree.<span
+  style="mso-spacerun: yes">  </span>The nodes will be listed in a depth-first
+  pre-order manner. <o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Ns:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> node source: if I, then
+  index accesses are used to retrieve nodes. If W, then the witness tree is
+  scanned for nodes. . If ns = I then you should pass in the following lines a
+  bunch of index access. If ns=W, then after lev an extra field is required,
+  tagName.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Level:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> the level of the node in
+  the pattern tree. <o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>tagName</span></b> <b
+  style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>:</span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+  pass this field only if ns = W. otherwise, don’t pass anything here.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Relation:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> the relationship with its
+  parent in the pattern either A: ancs-desc or P: parent-child. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>GetWhat:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>is what
+  you want to get exactly for this node. It is ignored for internal nodes.
+  Works only for leaf nodes. It can be one of the following:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>S: gets the subtree
+  rooted at this node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">   </span><span style="mso-spacerun:
+  yes">                     </span>T: gets the text of the node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                         </span>I: gets the node
+  itself only.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>V: gets value of the
+  node. If it is an element node, the tag name is returned. If it is an
+  attribute node, the attribute value of attrName is returned. If it is a text
+  node, the text is returned. If it is a document node, the document name is
+  returned.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>A: gets an attribute
+  of the node. In this case, you need to add a field to <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                          </span>the string just
+  after ,A, which is the attr name that you want returned.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>L: gets the local
+  subtree of the node. The difference between this<span style="mso-spacerun:
+  yes">                    </span>option and the ‘S’ option is that the ‘S’
+  will get you the subtree of the node from the database. While the ‘L’ option
+  gets it from the witness tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>attrName</span></b> <span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: is the name of the
+  attribute to be retrieved if getWhat = A or getWhat=V. In the case of the
+  V,&nbsp;if the&nbsp;node is not an attribute node, pass NULL. otherwise,
+  don’t pass anything here.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><u><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>NOTE</span></u></b><b><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>: if ns = I, then</span></b><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'> the following num-1 lines to this line should be index accesses or
+  scan lines. Each line corresponds to a pattern tree node in a depth-first
+  pre-order traversal.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><u><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>rootNRE,n2,ns,lev,tagName,rel,getWhat,attrName</span></u></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>….<span
+  style="mso-spacerun: yes">    </span>If type is element or content. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RootNRE:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the nre of the root of
+  the pattern tree node in the input witness trees.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>n2:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the number of nodes in
+  the pattern tree. Level, relation, getWhat should be repeated num-1 number of
+  times. Level,relation,getWhat will describe nodes of the pattern tree.<span
+  style="mso-spacerun: yes">  </span>The nodes will be listed in a depth-first
+  pre-order manner. <o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Ns:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> node source: if I, then
+  index accesses are used to retrieve nodes. If W, then the witness tree is
+  scanned for nodes. . If ns = I then you should pass in the following lines a
+  bunch of index access. If ns=W, then after lev an extra field is required,
+  tagName.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Level:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> the level of the node in
+  the pattern tree. <o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>tagName</span></b> <b
+  style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>:</span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+  pass this field only if ns = W. otherwise, don’t pass anything here.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Relation:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> the relationship with its
+  parent in the pattern either A: ancs-desc or P: parent-child. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>GetWhat:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>is what
+  you want to get exactly for this node. It is ignored for internal nodes.
+  Works only for leaf nodes. It can be one of the following:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>S: gets the subtree
+  rooted at this node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>T: gets the text of
+  the node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                         </span>I: gets the node
+  itself only.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>V: gets value of the
+  node. If it is an element node, the tag name is returned. If it is an
+  attribute node, the attribute value of attrName is returned. If it is a text
+  node, the text is returned. If it is a document node, the document name is
+  returned.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>A: gets an attribute
+  of the node. In this case, you need to add a field to <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                          </span>the string just
+  after ,A, which is the attr name that you want returned.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>L: gets the local
+  subtree of the node. The difference between this<span style="mso-spacerun:
+  yes">                    </span>option and the ‘S’ option is that the ‘S’
+  will get you the subtree of the node from the database. While the ‘L’ option
+  gets it from the witness tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>attrName</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> : is the name of the
+  attribute to be retrieved if getWhat = A or getWhat=V. In the case of the
+  V,&nbsp;if the&nbsp;node is not an attribute node, pass NULL. otherwise,
+  don’t pass anything here. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><u><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>NOTE</span></u></b><b><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>: if ns = I, then</span></b><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'> the following num-1 lines to this line should be index accesses or
+  scan lines. Each line corresponds to a pattern tree node in a depth-first
+  pre-order traversal.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><u><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>rootNRE,0,rootGetWhat,attrName</span></u></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>. This is a special case
+  of the previous case. This is when you want to output the root or information
+  regarding the root.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RootNRE:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the nre of the node in
+  the input witness trees that you want to retrieve its data.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>RootGetWhat:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>is what
+  you want to get exactly for this node. It can be one of the following:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>S: gets the subtree
+  rooted at this node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>T: gets the text of
+  the node.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                         </span>I: gets the node
+  itself only.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">               </span><span style="mso-spacerun:
+  yes">         </span>V: gets value of the node. If it is an element node, the
+  tag name is returned. If it is an attribute node, the attribute value of
+  attrName is returned. If it is a text node, the text is returned. If it is a
+  document node, the document name is returned.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>A: gets an attribute
+  of the node. In this case, you need to add a field to <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                          </span>the string just
+  after ,A, which is the attr name that you want returned.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                        </span>L: gets the local
+  subtree of the node. The difference between this<span style="mso-spacerun:
+  yes">                    </span>option and the ‘S’ option is that the ‘S’
+  will get you the subtree of the node from the database. While the ‘L’ option
+  gets it from the witness tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>attrName</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> : is the name of the
+  attribute to be retrieved if getWhat = A or getWhat=V. In the case of the
+  V,&nbsp;if the&nbsp;node is not an attribute node, pass NULL. otherwise,
+  don’t pass anything here. <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 15'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Stack-based
+  Term Join<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>TmpFile.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>t,NRE,indexName,filename,phrase,function1,function2,function3,depth,simpleScore,<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>keywordset,meetAlg,parentIndexName</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>
+  the nre to be assigned to the output nodes.<b> <o:p></o:p></b></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>IndexName:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is the name of the index
+  to look up when searching for the words in the sentence. It should be some
+  kind of an inverted index or so.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Filename:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes"> </span>name of the file the index is built on.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Phrase:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> this is the phrase you
+  want to find its word in the document. And common ancestors of these words
+  will be returned.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Function1:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> score function. The
+  number you pass here is the number of the function in a switch statement.
+  Basically, you write your function, add a case with a number to the first
+  switch statement in the </span><span style='font-size:10.0pt;font-family:
+  "Courier New"'>EVALUATION_OP_SBTERMJOIN</span><span style='font-size:10.0pt'>
+  case. The function should take in a char * and return a double.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>Function2:</span></b><span
+  style='font-size:10.0pt'> ancestor depth threshold function. The number is
+  the same as above but to the second switch statement. The function you use
+  should take in Keytype and int and return an integer, which is the number of
+  level to go up in the document. If –1 is returned the function does nothing.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Function3:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> ancestor qualifies
+  function. The number is like the above except that it is the third switch
+  statement in the </span><span style='font-size:10.0pt;font-family:"Courier New"'>EVALUATION_OP_SBTERMJOIN</span><span
+  style='font-size:10.0pt'> case. The function should take a double in and
+  returns a true or false.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>Depth: </span></b><span
+  style='font-size:10.0pt'>is the expected depth of the document. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>SimpleScore:</span></b><span
+  style='font-size:10.0pt'> pass a 0 or 1 value here. 0 if you want the complex
+  score to be calculated for each ancestor or 1 if you want a simple score that
+  counts the number of occurrences of each term per ancs.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>Keywordset:</span></b><span
+  style='font-size:10.0pt'>Cong stuff. Just pass 0.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>MeetAlg:</span></b><span
+  style='font-size:10.0pt'> pass 0 or 1. 0 if you want the stack based alg to
+  be performed. 1 if you want the meet alg to be performed.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>ParentIndexName:</span></b><span
+  style='font-size:10.0pt'> optional. If passed the parent index is used in
+  getting ancestors. Otherwise, accessing the database.</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 16'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Navigational
+  Get Relative<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NavigationalGetRelative.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>V,nre,relation,num,nre2<o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: nre of the node you want
+  to get its relative.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Relation:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> one of the following:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>1A: gets a specific ancestor. <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>1C: gets a specific child.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>AAO: gets all ancestors and
+  outputs them one at a time.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span><span style="mso-spacerun:
+  yes"> </span><st1:place w:st="on"><st1:City w:st="on">ADO</st1:City> </st1:place>:
+  gets all descendants and outputs them one at a time.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>ACO: gets all children and
+  outputs them one at a time.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>AAOI: gets all ancestors and
+  outputs them one at a time.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Including
+  the node itself.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>ADOI: gets all descendants and
+  outputs them one at a time. Including the node itself.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>ACOI: gets all children and
+  outputs them one at a time. Including the node itself<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>AAT: gets all ancestors and
+  outputs them all at once in the same output tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">           </span>ADT: gets all descendants and
+  outputs them all at once in the same output tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>ACT: gets all children and
+  outputs them all at once in the same output tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>AT: gets all text nodes under
+  node index.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>CT: gets children text nodes
+  under node index.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">            </span>A: gets attribute node of node
+  index.<span style="mso-spacerun: yes">     </span><o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> is used only when
+  relation is one of the following:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">               </span>1A: num is used to specify
+  which ancestor is returned in terms of levels higher. So if num=1, the
+  immediate parent is returned. Num=2, the grandparent is returned and so on. <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>1C: num is used to specify
+  which child to be returned. Num=0, first child is returned, num =1 second
+  child,… num=-1, last child is returned.<span style="mso-spacerun:
+  yes">         </span><o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE2</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: nre to be assigned to
+  the retrieved relative(s).<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 17'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>FileWriter</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>FileWriterIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>w,filename</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Filename:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> the name of the file that
+  you want your query results to be written to. This cannot be a leaf node.
+  Place it anywhere in the query plan except at leaves.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 18'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>FileReader</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>FileReaderIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>d,filename</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Filename:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> the name of the file that
+  you want to read from. This must be a leaf node. You need to write query
+  results using FileWriter<span style="mso-spacerun: yes">   </span>before
+  using fileReader to read them.<b> <o:p></o:p></b></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 19'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Pick
+  Iterator<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>PickIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>K,function1,function2,depth,sort<o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Function1:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> worth outputting
+  function.<span style="mso-spacerun: yes">  </span>This function determines whether
+  or not a node is worth outputting. The number you pass here is the number of
+  the function in a switch statement. Basically, you write your function, add a
+  case with a number to the first switch statement in the </span><span
+  style='font-size:10.0pt;font-family:"Courier New"'>EVALUATION_OP_PICK</span><span
+  style='font-size:10.0pt'> case. The function should take in a witnessTree *
+  and return a bool.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>Function2:</span></b><span
+  style='font-size:10.0pt'> percentage function.<span style="mso-spacerun:
+  yes">  </span>Returns the percentage of children of a node that if these
+  children are worth outputting, the parent is output instead. The number is
+  the same as above but to the second switch statement. The function you use
+  should take in nothing and return a float. <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>Depth: </span></b><span
+  style='font-size:10.0pt'>is the expected depth of the document.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>Sort:</span></b><span
+  style='font-size:10.0pt'> if 1, the input will be sorted in the Pick
+  iterator. If 0, the input is assumed to be sorted by start key.</span><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> <o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 20'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Data
+  Instantiation<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>DataInstatiationIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>i,index,scope,cutDepth,getElement,getAttr,getContent</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Index:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> the index of the node in
+  the witness tree that you want to instantiate its subtree.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Scope:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span style="mso-spacerun:
+  yes">  </span>I: get node itself<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">             </span>S: get whole subtree<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">        </span><span style="mso-spacerun:
+  yes">     </span>C: get whole subtree until a given depth<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>CutDepth:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> applicable if scope = C.
+  pass the depth to which you want the subtree to be instatiated.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>GetElement:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> if 0, no element nodes in
+  the subtree are returned. If 1, element nodes are returned.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>GetAttr:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>if 0, no
+  attr nodes in the subtree are returned. If 1, attr nodes are returned.<b> <o:p></o:p></b></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>GetContent:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>if 0, no
+  content nodes in the subtree are returned. If 1, content nodes are returned.<b>
+  <o:p></o:p></b></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 21'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>SortStopK</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>SortStopKIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>k,K,inSize</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>K:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>number of
+  outputs. This iterator returns top k scoring inputs.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>inSize</span></b>
+  <b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: </span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>number of inputs to be
+  read by this iterator. Among these inputs, top k scoring ones will be output
+  in order of descending score.<b><o:p></o:p></b></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 22'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Projection<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>ProjectionIterator.h</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>P,num,NRE,..,preserveNodeOrder</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Num:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>
+  number of NRE you want to keep in the tree.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>NRE:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>
+  NRE of nodes to be kept. NRE should be repeated <u>num</u> number of times.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>PreserveNodeOrder:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>
+  if 1: nodes are kept in the output tree in their original order.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  mso-bidi-font-weight:bold'><span style="mso-spacerun:
+  yes">                                        </span>0: nodes are kept in the
+  output tree in the order of the input NRE.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 23'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Universal
+  Quantification<o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>u,rootNRE,num,relation</span>
+  <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>,…,compareWhat,attrName,operation,number,str<o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>rootNRE</span></b>
+  <b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: </span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>the
+  nre of the node you want to perform universal quantification on. For example,
+  if you want to get books that have all authors affiliated with <st1:place w:st="on"><st1:PlaceType w:st="on">university</st1:PlaceType>
+  of <st1:PlaceName w:st="on">Michigan</st1:PlaceName></st1:place>. Then, nre
+  of book in the input trees should be passed here.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>num:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  mso-bidi-font-weight:bold'><span style="mso-spacerun: yes"> </span>is the
+  number of nodes in the pattern. So, to follow up on the previous example. the
+  pattern is<span style="mso-spacerun: yes">  </span>author with child/desc
+  affiliation. So that gives us 2 for num. the following num lines in the
+  evaluation plan should be index accesses to pattern nodes. In our example,
+  the following 2 lines to the universal quantification line should be index
+  access to author and then index access to affiliation.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>relation:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  mso-bidi-font-weight:bold'>relation is repeated num number of times. For each
+  node in the pattern, the corresponding relation is either P or A
+  (parent-child or ancs-desc). This tells us the relation of the node with what
+  comes before it in the pattern. For the root of the pattern, relation is its
+  relationship with the rootNRE node. To follow up on our example, you should
+  pass 2 relations, one is for book-author and the other is for
+  author-affiliation.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>compareWhat:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  mso-bidi-font-weight:bold'>it is one of two values:<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  mso-bidi-font-weight:bold'><span style="mso-spacerun:
+  yes">                           </span>T: if you want text of the leaf of the
+  pattern to be checked.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  mso-bidi-font-weight:bold'><span style="mso-spacerun:
+  yes">                           </span>A: if you want an attribute of the
+  leaf of the pattern to be checked.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  mso-bidi-font-weight:bold'><span style="mso-spacerun: yes"> </span>In our
+  example, we want to check the affiliation text and make sure it is equal to <st1:place w:st="on"><st1:PlaceType w:st="on">university</st1:PlaceType>
+  of <st1:PlaceName w:st="on">Michigan</st1:PlaceName></st1:place>.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>attrName</span></b>
+  <b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: </span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>if
+  you use the A option in the previous parameter, then you should pass an
+  attribute name. Otherwise, pass NULL.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>operation:</span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>EQN,NEN,LTN,LEN,GTN,GEN:=,!=,&lt;,&lt;=,&gt;,&gt;=
+  using number comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">       
+  </span>EQS,NES,LTS,LES,GTS,GES:=,!=,&lt;,&lt;=,&gt;,&gt;= using string
+  comparison.<span style="mso-spacerun: yes">      </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">         </span>C: contains. String comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">          </span>S: starts with. String comparison.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  mso-bidi-font-weight:bold'>In our example, we should use EQS because we want
+  the affilation text be equal to “<st1:place w:st="on"><st1:PlaceType w:st="on">university</st1:PlaceType>
+  of <st1:PlaceName w:st="on">Michigan</st1:PlaceName></st1:place>”.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>number:
+  </span></b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  mso-bidi-font-weight:bold'>if you use any of the number operations, then pass
+  a number to compare against. Otherwise, pass -1.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>str</span></b>
+  <b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>: </span></b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-bidi-font-weight:bold'>if
+  you use any of the string operations, then pass a string. Otherwise, pass
+  NULL. In our example, pass “University of Michigan” here.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow: 24;mso-yfti-lastrow: yes'>
+  <td width=174 valign=top style='width:130.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p><span style='font-size:10.0pt'>MLCA (Meaningful Lowest Common Ancestor)<o:p></o:p></span></p>
+  <p><span style='font-size:10.0pt'>meaningfulClosestCommon</span> <span
+  style='font-size:10.0pt'>AncestorStructure.h <o:p></o:p></span></p>
+  </td>
+  <td width=476 valign=top style='width:357.0pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt'>m</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>,num,NRE1,NRE2,...,NREnum,assignedNREforRoot,expectedSize,expectedDepth</span><span
+  style='font-size:10.0pt'> <o:p></o:p></span></p>
+  </td>
+  <td width=410 valign=top style='width:307.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>Num</span></b><span
+  style='font-size:10.0pt'>: number of leaf nodes you want to keep in the MLCAS
+  (Meaningful Lowest Common Ancestor Structure) <o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>NRE<sub>i</sub></span></b><span
+  style='font-size:10.0pt'>: NRE value of the i<sub>th</sub> leaf node<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>assignedNREforRoot</span></b><span
+  style='font-size:10.0pt'>: assigned NRE for the root node of each MLCAS<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>expectedSize</span></b> <span
+  style='font-size:10.0pt'>: the max of the estimated size of all the&nbsp;
+  inputs. Enter -1 if unknown.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span style='font-size:10.0pt'>expectedDepth</span></b>
+  <span style='font-size:10.0pt'>: the depth of the lowest nodes from the
+  inputs. Enter -1 if unknown<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;<o:p></o:p></p>
+
+<p class=MsoNormal><span style='font-family:Arial;color:black'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><a
+href="EvaluatorFileInterface.htm#_top">Back to top</a><span style='color:black'><o:p></o:p></span></span></p>
+
+<h2 style='margin-top:0in'><!--[if gte vml 1]><v:line id="_x0000_s1129"
+ style='position:absolute;z-index:2;mso-position-horizontal:absolute;
+ mso-position-vertical:absolute' from="-3.4pt,4pt" to="653.5pt,4pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:absolute;z-index:0;margin-left:-6px;
+margin-top:4px;width:879px;height:3px'><img width=879 height=3
+src="./EvaluatorFileInterface_files/image002.gif" v:shapes="_x0000_s1129"></span><![endif]><a
+name="_Contact_Information"></a>Examples</h2>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>Example 1: <o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>********************************************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*Query:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>* FOR $b in document(&quot;books.xml&quot;)//book<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*WHERE $b//author=&quot;John Doe&quot; AND
+$b//price&lt;=&quot;50&quot; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*RETURN<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*&lt;result&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">    
+</span>&lt;book isbn={$b//isbn/text()}&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style='mso-tab-count:1'>              </span>&lt;bookAuthor&gt;{$b//author}
+&lt;/bookAuthor&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">     
+</span>&lt;bookTitle&gt;{$b//title} &lt;/bookTitle&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">  
+</span>&lt;/book&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*&lt;/result&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*******************************************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>s,7,1,E,C,8,result,2,E,C,9,book,3,A,R,11,isbn,3,2,I,1,A,T,3,E,C,10,bookAuthor,4,C,R,12,3,2,I,1,A,T,3,E,C,13,bookTitle,4,C,R,14,3,2,I,1,A,T<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*index accesses<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,4,index_books_elementtag,books.xml,GIST,STR,isbn<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,1,index_books_elementtag,books.xml,GIST,STR,author<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,7,index_books_elementtag,books.xml,GIST,STR,title<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*structural joins<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>J,A,3,2,-1,-1,16,A,A<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>J,A,3,5,-1,-1,16,A,A<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,3,index_books_elementtag,books.xml,GIST,STR,book<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*filter<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>f,</span> <span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>1,1,AO,T,5,-1,NULL,EQS,C,-1,-1,John Doe<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,5,index_books_elementtag,books.xml,GIST,STR,author<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>f,1,1,AO,T,2,-1,NULL,LEN,C,-1,50,NULL<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,2,index_books_elementtag,books.xml,GIST,STR,price<o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:group id="_x0000_s1087" style='position:absolute;
+ margin-left:0;margin-top:8pt;width:306pt;height:252pt;z-index:1;
+ mso-position-horizontal:left' coordorigin="8460,5760" coordsize="6120,5040">
+ <v:group id="_x0000_s1088" style='position:absolute;left:8460;top:5760;
+  width:6120;height:4320' coordorigin="8640,1980" coordsize="6120,4320">
+  <v:oval id="_x0000_s1089" style='position:absolute;left:10800;top:1980;
+   width:1620;height:540'>
+   <v:textbox style='MARGIN-TOP: 7.281pt; LEFT: auto; MARGIN-LEFT: 17.968pt; WIDTH: 46.562pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>construct<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:line id="_x0000_s1090" style='position:absolute' from="11520,2520"
+   to="11520,2880"/>
+  <v:oval id="_x0000_s1091" style='position:absolute;left:10800;top:2880;
+   width:1620;height:540'>
+   <v:textbox style='MARGIN-TOP: 7.281pt; LEFT: auto; MARGIN-LEFT: 17.968pt; WIDTH: 46.562pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Struct. Join<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:oval id="_x0000_s1092" style='position:absolute;left:9900;top:3780;
+   width:1620;height:540'>
+   <v:textbox style='MARGIN-TOP: 7.281pt; LEFT: auto; MARGIN-LEFT: 17.968pt; WIDTH: 46.562pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Struct. Join<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:line id="_x0000_s1093" style='position:absolute;flip:x' from="10980,3420"
+   to="11340,3780"/>
+  <v:oval id="_x0000_s1094" style='position:absolute;left:11880;top:3780;
+   width:1620;height:540'>
+   <v:textbox style='MARGIN-TOP: 7.281pt; LEFT: auto; MARGIN-LEFT: 17.968pt; WIDTH: 46.562pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Filter<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:oval id="_x0000_s1095" style='position:absolute;left:10800;top:4680;
+   width:1620;height:540'>
+   <v:textbox style='MARGIN-TOP: 7.281pt; LEFT: auto; MARGIN-LEFT: 17.968pt; WIDTH: 46.562pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Filter<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:oval id="_x0000_s1096" style='position:absolute;left:8640;top:4680;
+   width:1980;height:540'>
+   <v:textbox style='MARGIN-TOP: 7.281pt; LEFT: auto; MARGIN-LEFT: 20.625pt; WIDTH: 59.25pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Index Access<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:oval id="_x0000_s1097" style='position:absolute;left:12780;top:4680;
+   width:1980;height:540'>
+   <v:textbox style='MARGIN-TOP: 7.281pt; LEFT: auto; MARGIN-LEFT: 20.625pt; WIDTH: 59.25pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Index Access<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:line id="_x0000_s1098" style='position:absolute;flip:x' from="10080,4320"
+   to="10440,4680"/>
+  <v:line id="_x0000_s1099" style='position:absolute' from="12060,3420" to="12420,3780"/>
+  <v:line id="_x0000_s1100" style='position:absolute' from="10980,4320" to="11340,4680"/>
+  <v:line id="_x0000_s1101" style='position:absolute' from="12960,4320" to="13320,4680"/>
+  <v:oval id="_x0000_s1102" style='position:absolute;left:10800;top:5760;
+   width:1980;height:540'>
+   <v:textbox style='MARGIN-TOP: 7.281pt; LEFT: auto; MARGIN-LEFT: 20.625pt; WIDTH: 59.25pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Index Access<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:line id="_x0000_s1103" style='position:absolute' from="11700,5220"
+   to="11700,5760"/>
+ </v:group><v:group id="_x0000_s1104" style='position:absolute;left:8460;top:5760;
+  width:6120;height:5040' coordorigin="8460,5760" coordsize="6120,5040">
+  <v:rect id="_x0000_s1105" style='position:absolute;left:8460;top:5760;
+   width:6120;height:4500' filled="f"/>
+  <v:rect id="_x0000_s1106" style='position:absolute;left:8460;top:10260;
+   width:6120;height:540' filled="f">
+   <v:textbox style='MARGIN-TOP: 4.468pt; LEFT: auto; MARGIN-LEFT: 8.312pt; WIDTH: 290.875pt; TOP: auto; HEIGHT: 19.062pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Query Evaluation Tree
+      for example 1.<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:rect></v:group><w:wrap type="square"/>
+</v:group><![endif]--><![if !vml]><img width=411 height=339
+src="./EvaluatorFileInterface_files/image003.gif" align=left v:shapes="_x0000_s1087 _x0000_s1088 _x0000_s1089 _x0000_s1090 _x0000_s1091 _x0000_s1092 _x0000_s1093 _x0000_s1094 _x0000_s1095 _x0000_s1096 _x0000_s1097 _x0000_s1098 _x0000_s1099 _x0000_s1100 _x0000_s1101 _x0000_s1102 _x0000_s1103 _x0000_s1104 _x0000_s1105 _x0000_s1106"><![endif]></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>Example 1: (MLCAS)</b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>********************************************************</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*Query: (with the same semantics as the XQuery in
+Example 1, without schema knowledge)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*FOR $d in
+timber-mlca($b,document(&quot;books.xml&quot;)//book,$a,document(&quot;books.xml&quot;)//author,$p,document(&quot;books.xml&quot;)//price,
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun:
+yes">                                         
+</span>$i&nbsp;,document(&quot;books1.xml&quot;)//isbn,$t,document(&quot;books1.xml&quot;)//title)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*WHERE</span>&nbsp;<span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> MLCA($b, $a, $p )</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*&nbsp; AND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $a
+=&quot;John Doe&quot;&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>* AND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $p
+&lt;=&quot;50&quot; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*RETURN<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*&lt;result&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">     </span>&lt;book
+isbn={$i/text()}&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style='mso-tab-count:1'>              </span>&lt;bookAuthor&gt;
+{$a} &lt;/bookAuthor&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">             
+</span>&lt;bookTitle&gt; {$t} &lt;/bookTitle&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">    
+</span>&lt;/book&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*&lt;/result&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*******************************************************</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*construct<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>s,7,1,E,C,8,result,2,E,C,9,book,3,A,R,4,isbn,4,0,T,3,E,C,10,bookAuthor,4,C,R,2,2,0,T,3,E,C,13,bookTitle,4,C,R,5,5,0,T<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*filter<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>f,1,1,AO,T,2,-1,NULL,EQS,C,-1,-1,John
+Doe,AO,T,3,-1,NULL,LEN,C,-1,50,NULL<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*MLCAS calculation<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>m,5,1,2,3,4,5,6,100,5<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*index accesses<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,1,index_books_elementtag,books.xml,GIST,STR,book<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,2,index_books_elementtag,books.xml,GIST,STR,author<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,3,index_books_elementtag,books.xml,GIST,STR,price<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,4,index_books_elementtag,books.xml,GIST,STR,isbn<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,5,index_books_elementtag,books.xml,GIST,STR,title</span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Example 2: <o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>********************************************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*Query:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*FOR $b in document(&quot;books.xml&quot;)//book<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*FOR $a in document(&quot;books.xml&quot;)//article<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*WHERE $b//author=$a//author<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*RETURN<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*&lt;result&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style='mso-tab-count:1'>              </span>&lt;bookTitle&gt;
+{$b//title} &lt;/bookTitle&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">      
+</span>&lt;articleTitle&gt;{$a//title} &lt;/articleTitle&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*&lt;/result&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*******************************************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*construct<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>s,5,1,E,C,8,result,2,E,C,9,bookTitle,3,C,R,11,1,2,I,1,A,T,2,E,C,10,articleTitle,3,C,R,12,2,2,I,1,A,T<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*index accesses for the construct<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,6,index_books_elementtag,books.xml,GIST,STR,title<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,7,index_books_elementtag,books.xml,GIST,STR,title<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*value join<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>j,5,4,NULL,3,NULL,500,NULL,NULL,EQS,T,T,0<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*structural joins<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>J,A,1,4,-1,-1,16,A,B<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,1,index_books_elementtag,books.xml,GIST,STR,book<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,4,index_books_elementtag,books.xml,GIST,STR,author<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>J,A,2,3,-1,-1,16,A,B<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,2,index_books_elementtag,books.xml,GIST,STR,article<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,3,index_books_elementtag,books.xml,GIST,STR,author<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><!--[if gte vml 1]><v:group id="_x0000_s1130"
+ style='position:absolute;left:0;text-align:left;margin-left:0;margin-top:0;
+ width:306pt;height:252pt;z-index:3;mso-position-horizontal:left;
+ mso-position-vertical:top;mso-position-vertical-relative:line' coordorigin="8460,1980"
+ coordsize="6120,5040" o:allowoverlap="f">
+ <v:group id="_x0000_s1131" style='position:absolute;left:8460;top:2160;
+  width:6120;height:3960' coordorigin="8460,2160" coordsize="6120,3960">
+  <v:oval id="_x0000_s1132" style='position:absolute;left:10620;top:2160;
+   width:1620;height:540'>
+   <v:textbox style='mso-next-textbox:#_x0000_s1132;MARGIN-TOP: 7.531pt; LEFT: auto; MARGIN-LEFT: 17.968pt; WIDTH: 46.562pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>construct<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:line id="_x0000_s1133" style='position:absolute' from="11340,2700"
+   to="11340,3060"/>
+  <v:oval id="_x0000_s1134" style='position:absolute;left:10620;top:3060;
+   width:1620;height:540'>
+   <v:textbox style='mso-next-textbox:#_x0000_s1134;MARGIN-TOP: 7.531pt; LEFT: auto; MARGIN-LEFT: 17.968pt; WIDTH: 46.562pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Value Join<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:oval id="_x0000_s1135" style='position:absolute;left:9720;top:3960;
+   width:1620;height:540'>
+   <v:textbox style='mso-next-textbox:#_x0000_s1135;MARGIN-TOP: 7.531pt; LEFT: auto; MARGIN-LEFT: 17.968pt; WIDTH: 46.562pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Struct. Join<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:line id="_x0000_s1136" style='position:absolute;flip:x' from="10800,3600"
+   to="11160,3960"/>
+  <v:oval id="_x0000_s1137" style='position:absolute;left:8460;top:4860;
+   width:1980;height:540'>
+   <v:textbox style='mso-next-textbox:#_x0000_s1137;MARGIN-TOP: 7.531pt; LEFT: auto; MARGIN-LEFT: 20.625pt; WIDTH: 59.25pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Index Access<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:oval id="_x0000_s1138" style='position:absolute;left:12600;top:4860;
+   width:1980;height:540'>
+   <v:textbox style='mso-next-textbox:#_x0000_s1138;MARGIN-TOP: 7.531pt; LEFT: auto; MARGIN-LEFT: 20.625pt; WIDTH: 59.25pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Index Access<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:line id="_x0000_s1139" style='position:absolute;flip:x' from="9900,4500"
+   to="10260,4860"/>
+  <v:line id="_x0000_s1140" style='position:absolute' from="11880,3600" to="12240,3960"/>
+  <v:line id="_x0000_s1141" style='position:absolute' from="10800,4500" to="11160,4860"/>
+  <v:line id="_x0000_s1142" style='position:absolute' from="12780,4500" to="13140,4860"/>
+  <v:oval id="_x0000_s1143" style='position:absolute;left:10440;top:4860;
+   width:1980;height:540'>
+   <v:textbox style='mso-next-textbox:#_x0000_s1143;MARGIN-TOP: 7.531pt; LEFT: auto; MARGIN-LEFT: 20.625pt; WIDTH: 59.25pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Index Access<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:oval id="_x0000_s1144" style='position:absolute;left:11880;top:3960;
+   width:1620;height:540'>
+   <v:textbox style='mso-next-textbox:#_x0000_s1144;MARGIN-TOP: 7.531pt; LEFT: auto; MARGIN-LEFT: 17.968pt; WIDTH: 46.562pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Struct. Join<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval><v:line id="_x0000_s1145" style='position:absolute;flip:x' from="12420,4500"
+   to="12600,5580"/>
+  <v:oval id="_x0000_s1146" style='position:absolute;left:11520;top:5580;
+   width:1980;height:540'>
+   <v:textbox style='mso-next-textbox:#_x0000_s1146;MARGIN-TOP: 7.531pt; LEFT: auto; MARGIN-LEFT: 20.625pt; WIDTH: 59.25pt; TOP: auto; HEIGHT: 13.437pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Index Access<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:oval></v:group><v:group id="_x0000_s1147" style='position:absolute;
+  left:8460;top:1980;width:6120;height:5040' coordorigin="8460,5760"
+  coordsize="6120,5040">
+  <v:rect id="_x0000_s1148" style='position:absolute;left:8460;top:5760;
+   width:6120;height:4500' filled="f"/>
+  <v:rect id="_x0000_s1149" style='position:absolute;left:8460;top:10260;
+   width:6120;height:540' filled="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1149;MARGIN-TOP: 4.718pt; LEFT: auto; MARGIN-LEFT: 8.312pt; WIDTH: 290.875pt; TOP: auto; HEIGHT: 19.062pt'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal align=center style='text-align:center'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Query Evaluation Tree
+      for example 2.<o:p></o:p></span></p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:rect></v:group><w:wrap type="square" anchorx="page"/>
+</v:group><![endif]--><![if !vml]><img width=411 height=339
+src="./EvaluatorFileInterface_files/image004.gif" align=left v:shapes="_x0000_s1130 _x0000_s1131 _x0000_s1132 _x0000_s1133 _x0000_s1134 _x0000_s1135 _x0000_s1136 _x0000_s1137 _x0000_s1138 _x0000_s1139 _x0000_s1140 _x0000_s1141 _x0000_s1142 _x0000_s1143 _x0000_s1144 _x0000_s1145 _x0000_s1146 _x0000_s1147 _x0000_s1148 _x0000_s1149"><![endif]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b>Example 2: (MLCAS)</b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>********************************************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>* Query: (with the same semantics as the XQuery in
+Example 2, without schema knowledge)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*FOR $k1 in
+timber-mlca($b,document(&quot;books.xml&quot;)\\book,
+$a1,document(&quot;books.xml&quot;)\\author,$t1,document(&quot;books.xml&quot;)\\title)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*FOR $k2 in
+timber-mlca($a,document(&quot;books.xml&quot;)\\article,$a2
+,document(&quot;books.xml&quot;)\\author,$t2,document(&quot;books.xml&quot;)\\title)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*WHERE &nbsp; $a1 = $a2<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*RETURN<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*&lt;result&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style='mso-tab-count:1'>              </span>&lt;bookTitle&gt;
+$t1&nbsp; &lt;/bookTitle&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">      
+</span>&lt;articleTitle&gt; $t2&nbsp; &lt;/articleTitle&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*&lt;/result&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*******************************************************<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>*construct<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>s,5,1,E,C,8,result,2,E,C,9,bookTitle,3,C,R,3,3,0,T,2,E,C,10,articleTitle,3,C,R,7,7,0,T<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>j,9,2,NULL,6,NULL,500,NULL,NULL,EQS,T,T,0<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>m,3,1,2,3,4,100,10<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,1,index_books_elementtag,books.xml,GIST,STR,book<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,2,index_books_elementtag,books.xml,GIST,STR,author<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,3,index_books_elementtag,books.xml,GIST,STR,title<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>m,3,5,6,7,8,100,10<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,5,index_books_elementtag,books.xml,GIST,STR,article<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,6,index_books_elementtag,books.xml,GIST,STR,author<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>I,7,index_books_elementtag,books.xml,GIST,STR,title</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>********************************************************
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'><a
+href="EvaluatorFileInterface.htm#_top">Back to top</a><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

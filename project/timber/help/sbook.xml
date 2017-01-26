@@ -1,0 +1,129 @@
+<?xml version="1.0" ?>
+<books>
+	<book publisher="Morgan">
+		<title>The world</title>
+		<author>John Doe</author>
+		<author>Jane Doe</author>
+		<author>Mr. T</author>
+		<isbn>122322</isbn>
+		<price>70</price>
+		<editor>John Doe</editor>
+		<editor>
+				<name>John Doe</name>
+		</editor>
+		<editor>Stelios</editor>
+		<chapter number="1">hello</chapter>
+		<chapter number="2">world</chapter>
+		<chapter number="3">how</chapter>
+		<chapter number="4">are</chapter>
+		<chapter number="5">you</chapter>
+	</book>
+	<book publisher="Reilly">
+		<title>I am happy</title>
+		<author>John Doe</author>
+		<author>John Doe</author>
+		<isbn>231492</isbn>
+		<price>50</price>
+		<year>2003</year>
+		<chapter number="1">how</chapter>
+		<chapter number="2">to</chapter>
+		<chapter number="3">be really happy</chapter>
+	</book>
+	<book publisher="Reilly">
+		<title>The world now and cookies</title>
+		<author>Mrs. Field</author>
+		<author>Jane Doe</author>
+		<isbn>123242</isbn>
+		<price>30</price>
+		<year>1992</year>
+		<editor>John Doe</editor>
+		<editor>
+				<name>John Doe</name>
+		</editor>
+		<chapter number="1">how</chapter>
+		<chapter number="2">to</chapter>
+		<chapter number="3">cookie</chapter>
+		<chapter number="4">are</chapter>
+		<chapter number="5">you</chapter>
+	</book>
+	<nestedbooks>
+		<book publisher="Morgan">
+			<title>Nestedbook 1</title>
+			<author>
+				<name>Stelios</name>
+				<institution>Michigan</institution>
+			</author>
+			<author>
+				<name>Innername</name>
+			</author>
+			<author>Stelios</author>
+			<editor>Stelios</editor>
+			<editor>John Doe</editor>
+			<editor>Jane Doe</editor>
+			<isbn>323</isbn>
+			<chapter number="1">hello</chapter>
+			<chapter number="2">one</chapter>
+			<chapter number="3">five</chapter>
+		</book>
+		<book>
+			<title>Nestedbook 2</title>
+			<author>
+				<name>Stelios</name>
+				<address>EECS Building</address>
+			</author>
+			<author>
+				<name>Stelios</name>
+				<institution>Michigan</institution>
+			</author>
+			<author>John Doe</author>
+			<author>Jane Doe</author>
+			<editor>John Doe</editor>
+			<editor>Jane Doe</editor>
+			<author>Stelios</author>
+			<isbn>324</isbn>
+			<chapter number="1">how</chapter>
+			<chapter number="2">to</chapter>
+			<chapter number="3">cookie</chapter>
+			<chapter number="4">are</chapter>
+			<chapter number="5">you</chapter>
+			<year>1995</year>
+		</book>
+	</nestedbooks>
+	<book>
+		<title>The school</title>
+		<author>Mr. Hello</author>
+		<author>John Doe</author>
+		<isbn>53432</isbn>
+		<price>70</price>
+		<price>10</price>
+		<editor>
+				<name>John Doe</name>
+		</editor>
+		<editor>Stelios</editor>
+		<year>1999</year>
+		<chapter number="1">how</chapter>
+		<chapter number="2">to</chapter>
+		<chapter number="3">go to school</chapter>
+	</book>
+	<article>
+		<title>the best article</title>
+		<author>John Doe</author>
+		<editor>John Doe</editor>
+		<editor>Jane Doe</editor>
+		<year>1999</year>
+	</article>
+	<article>
+		<title>how to write an article</title>
+		<author>Jane Doe</author>
+		<author>Stelios</author>
+		<editor>John Doe</editor>
+		<year>2000</year>
+	</article>
+	<article>
+		<title>the third article</title>
+		<author>Stelios</author>
+		<editor>John Doe</editor>
+		<editor>Stelios</editor>
+		<year>2002</year>
+	</article>
+</books>

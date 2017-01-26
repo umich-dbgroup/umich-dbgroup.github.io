@@ -1,0 +1,502 @@
+<html>
+<head>
+<title>ER9 Bank Database</title>
+</head>
+<body>
+<div align="center"><h2>ER9 Bank Database</h2></div>
+
+Source: Fundamentals of Database Systems, Ramez Elmasri, Shamkant B. Navathe
+<p></p>
+<p><b>ER characteristics</b></p>
+5 entities<br>
+
+5 relationships: 3 of 1:m, 2 of m:n<br>
+<img width=576 height=432
+src="er9_files/image001.jpg" v:shapes="_x0000_i1025">
+<br>
+
+<p><b>XML Schema</b></p>
+DEEP<br>
+<img width=252 height=432
+src="er9_files/image003.jpg" v:shapes="_x0000_i1028">
+<br>
+AF<br>
+<img width=316 height=384
+src="er9_files/image005.jpg" v:shapes="_x0000_i1029">
+<br>
+SHALLOW<br>
+<img width=516 height=212
+src="er9_files/image007.jpg" v:shapes="_x0000_i1027">
+<br>
+EN, MCMR, DR: 2 colors<br>
+<img width=384 height=277
+src="er9_files/image009.jpg" v:shapes="_x0000_i1026"><br>
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+<b>Q1 Return the name of customer id = 0</b>
+DEEP
+For $a in DISTINCT(//customer[@id="0"])
+Return $a/name
+
+SHALLOW, AF
+For $a in //customer[@id="0"]
+Return $a/name
+
+EN, MCMR, DR
+For $a in //{c2}customer[@id="0"]
+Return $a/{c2}name
+
+<b>Q2 Return the balance of the first transaction of all accounts</b>
+DEEP, AF, SHALLOW
+For $a in //account
+Return $a/a-c[1]/balance
+
+EN, MCMR, DR
+For $a in //{c1}account
+Return $a/{c1}a-c[1]/{c1}balance
+
+<b>Q3 Return the id of all account whose last balance is more than twice of the first balance</b>
+DEEP, AF, SHALLOW
+For $a in //account
+Where $a/a-c[1]/balance *2 &lt;= $a/a-c[last()]/balance
+Return $a/@id
+
+EN, MCMR, DR
+For $a in //{c1}account
+Where $a/{c1}a-c[1]/{c1}balance *2 &lt;= $a/{c1}a-c[last()]/{c1}balance
+Return $a/@id
+
+<b>Q4 List account where a certain customer open before another</b>
+DEEP
+For $a in //account
+For $b in //account
+For $c in $a/a-c[customer/@id="0"]
+For $d in $b/a-c[customer/@id="1"]
+where $c/date &lt; $d/date
+return $a, $b
+
+SHALLOW, AF
+For $a in //account
+For $b in //account
+For $c in $a/a-c
+For $d in $b/a-c
+where $c/date &lt; $d/date
+and $c/@idref = 0
+and $d/@idref = 1
+return $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}account
+For $b in //{c2}customer[@id="0"]/{c2}a-c
+For $c in //{c1}account
+For $d in //{c2}customer[@id="1"]/{c2}a-c
+where $b/{c1}date &lt; $d/{c1}date
+and $a/{c1}a-c = $b
+and $c/{c1}a-c = $d
+return $a, $b
+
+<b>Q5 How many loan cost more than 40K?</b>
+DEEP, AF, SHALLOW
+COUNT(For $a in //loan[cost &gt; 40K])
+Return $a)
+
+EN, MCMR, DR
+COUNT(For $a in //{c1}loan[{c1}cost &gt; 40K])
+Return $a)
+
+<b>Q6 How many bank-branch are overall?</b>
+DEEP, AF, SHALLOW
+COUNT (for $a in //
+Return $a//bank-branch)
+
+EN, MCMR, DR
+COUNT (for $a in //
+Return $a//{c1}bank-branch)
+
+<b>Q7 How may pieces of prose in the database?</b>
+DEEP
+For $a in  //
+Return count(DISTINCT $a//customer) + count($a//bank) + count($a//account + count($a//loan) + count($a//bank-branch)
+
+SHALLOW, AF
+For $a in  //
+Return count($a//customer) + count($a//bank) + count($a//account + count($a//loan) + count($a//bank-branch)
+
+EN, MCMR, DR
+For $a in  //
+Return count($a//{c2}customer) + count($a//{c1}bank) + count($a//{c1}account + count($a//{c1}loan) + count($a//{c1}bank-branch)
+
+<b>Q8 List the name of customer and the number of loans they buy</b>
+DEEP
+For $a in DISTINCT //customer
+Let $b := //l-c
+Where $b/customer/@id = $a/@id
+Return $a, count($b)
+
+AF, SHALLOW
+For $a in //customer
+Let $b := //l-c
+where $b/@idref = $a/@id
+return $a, count($b)
+
+EN, MCMR, DR
+For $a in //{c2}customer
+Return $a, count ($a/{c2}l-c)
+
+<b>Q9 List the name of customer and the number of loans they borrowed from bank id=1</b>
+DEEP
+For $a in DISTINCT //customer
+Let $b := //bank[@id="1"]//l-c
+Where $b/customer/@id = $a/@id
+Return $a, count($b)
+
+AF
+For $a in //customer
+Let $b := //bank[@id="1"]//l-c
+Where $b/@idref = $a/@id
+Return $a, count($b)
+
+SHALLOW
+For $a in //customer
+Let $b := for $c in //loan
+	For $d in //bank-branch
+	For $e in //bank[@id="1"]
+	For $f in $c/l-c
+	where $f/@idref = $a
+	and $d/loans/@idref = $c/@id
+	and $e/branch/@idref = $d/@id
+return $a, count($b)
+
+EN, MCMR, DR
+For $a in //{c2}customer
+Let $b := //{c1}bank["@id=1"]//{c1}l-c
+Where $b = $a/{c2}l-c
+Return $a, count($b)
+
+<b>Q10 list all banks according to their account’s average lowest balance</b>
+DEEP, AF
+For $a in DISTINCT-VALUES //account/lowest
+Let $b := Let $c in //bank
+	Where AVG($c//lowest) = $a/text()
+	Return $c
+Return $a, $b
+
+SHALLOW
+For $a in DISTINCT-VALUES //account/lowest
+Let $b := For $c in //bank
+	For $d in //bank-branch
+	Let $e := //account
+	Where $c/branch/@idref = $d/@id
+	And $d/accts/@idref = $e/!id
+	And AVG($e//lowest) = $a/text()
+	return $c
+return $a, $b
+
+EN, MCMR, DR
+For $a in DISTINCT-VALUES //{c1}account/{c1}lowest
+Let $b := Let $c in //{c1}bank
+	Where AVG($c//{c1}lowest) = $a/text()
+	Return $c
+Return $a, $b
+
+<b>Q11 For each customer, list the number of accounts whose balance do not exceed monthly income</b>
+DEEP
+For $a in DISTINCT //customer
+Let $b := //account
+Where $b//customer/@id = $a/@id
+And $b/balance &lt; $a/income
+Return $a, count($b)
+
+AF, SHALLOW
+For $a in //customer
+Let $b := //account
+Where $b/a-c/@idref = $a/@id
+And $b/balance &lt; $a/income
+return $a, count($b)
+
+EN, MCMR, DR
+For $a in //{c2}customer
+Let $b := //{c1}account
+Where $b/{c1}a-c = $a/{c2}a-c
+And $b/{c1}balance &lt; $a/{c2}income
+return $a, count($b)
+
+<b>Q12 For each rich customer, list the number of accounts whose balance do not exceed monthly income</b>
+DEEP
+For $a in DISTINCT //customer[income &gt; 100K]
+Let $b := //account
+Where $b//customer/@id = $a/@id
+And $b/balance &lt; $a/income
+Return $a, count($b)
+
+AF, SHALLOW
+For $a in //customer[income &gt; 100K]
+Let $b := //account
+Where $b/a-c/@idref = $a/@id
+And $b/balance &lt; $a/income
+return $a, count($b)
+
+EN, MCMR, DR
+For $a in //{c2}customer[{c2}income &gt; 100K]
+Let $b := //{c1}account
+Where $b/{c1}a-c = $a/{c2}a-c
+And $b/{c1}balance &lt; $a/{c2}income
+return $a, count($b)
+
+<b>Q13 List the bank branch of bank in MI</b>
+DEEP, AF
+For $a in //bank[state = "MI"]//bank-branch
+Return $a/name, $a/location
+
+SHALLOW
+For $a in //bank-branch
+For $b in //bank[state="MI"]
+where $b/branch/@idref = $a/@id
+return $a/name, $a/location
+
+EN, MCMR, DR
+For $a in //{c1}bank[{c1}state = "MI"]//{c1}bank-branch
+Return $a/{c1}name, $a/{c1}location
+
+<b>Q14 Return the location of all bank branches whose location contain the word "campus"</b>
+DEEP, AF, SHALLOW
+For $a in //bank-branch
+Where CONTAINS($a/location, "campus")
+Return $a/location
+
+EN, MCMR, DR
+For $a in //{c1}bank-branch
+Where CONTAINS($a/l{c1}ocation, "campus")
+Return $a/location
+
+<b>Q15 Print the bank-branch that gives loans</b>
+DEEP, AF
+For $a in //bank-branch
+Let $b := $a//loan
+return $a, $b
+
+SHALLOW
+For $a in //bank-branch
+Let $b := //loan
+Where $a/loans/@idref = $b/@id
+Return $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}bank-branch
+Let $b :=  $a//{c1}loan
+return $a, $b
+
+<b>Q16 Return the id of those loans that has the same branch as account [0]</b>
+DEEP, AF
+For $a in //bank-branch[//account/@id =0]
+Return $a//loan/@id
+
+SHALLOW
+For $a in //bank-branch
+For $b in //account[id=0]
+For $c in //loan
+where $a/accts/@idref = $b
+and $c/@id = $a/loans/@idref
+return $c
+
+EN, MCMR, DR
+For $a in //{c1}bank-branch[//account/@id =0]
+Return $a//{c1}loan/@id
+
+<b>Q17 Which customer doesn’t have an email?</b>
+DEEP
+For $a in DISTINCT //customer
+Where EMPTY($a/email)
+Return $a
+
+SHALLOW, AF
+For $a in //customer
+Where EMPTY($a/email)
+Return $a
+
+EN, MCMR, DR
+For $a in //{c2}customer
+Where EMPTY($a/{c2}email)
+Return $a
+
+<b>Q18 Convert currency of all account balance</b>
+DEEP, AF, SHALLOW
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $a in //account
+Return CONVERT($a/balance)
+
+EN, MCMR, DR
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $a in //{c1}account
+Return CONVERT($a/{c1}balance)
+
+<b>Q19 Give an alphabetically list of all branches of a Credit Union bank</b>
+DEEP, AF
+For $a in //bank[name="Credit Union"]//bank-branch
+ORDER BY $a/name
+Return $a/name
+
+SHALLOW
+For $a in //bank[name="Credit Union"]
+$b in //bank-branch
+where $b/@idref = $a/branch/@idref
+ORDER BY $b/name
+Return $b/name
+
+EN, MCMR, DR
+For $a in //{c1}bank[{c1}name="Credit Union"]//{c1}bank-branch
+ORDER BY $a/{c1}name
+Return $a/{c1}name
+
+<b>Q20 Group customer by their income and output the cardinality</b>
+DEEP
+&lt;High&gt;
+ COUNT(DISTINCT //customer[income &gt; 100K])
+&lt;/ High &gt;
+&lt;low&gt;
+COUNT(DISTINCT // customer [income &lt;= 100K])
+&lt;/low&gt;
+
+AF, SHALLOW
+&lt;High&gt;
+ COUNT(//customer [income &gt; 100K])
+&lt;/ High &gt;
+&lt;low&gt;
+COUNT(//customer [income &lt;= 100K])
+&lt;/low&gt;
+
+EN, MCMR, DR
+&lt;High&gt;
+ COUNT(//{c2}customer [{c2}income &gt; 100K])
+&lt;/ High &gt;
+&lt;low&gt;
+COUNT(//{c2}customer [{c2}income &lt;= 100K])
+&lt;/low&gt;
+
+<b>U1 Insert the new bank branch for bank id=100</b>
+DEEP, AF
+For $a in //bank[@id="100"]
+Insert &lt;bank-branch/&gt; into $a
+
+SHALLOW
+For $a in //bank[100]
+Insert &lt;branch idref="100"&gt; into $a
+Insert &lt;bank-branch/&gt; into //
+
+EN, MCMR, DR
+For $a in //{c1}bank[@id="100"]
+Insert &lt;bank-branch/&gt; into $a
+
+<b>U2 Delete the last a-c of account id=0</b>
+DEEP
+For $a in //account[@id="0"]
+$b in //a-c[last]//customer
+move $b to //
+delete $a/a-c[last()]
+
+AF, SHALLOW
+For $a in //account[@id="0"]
+Delete $a/a-c[last()]
+
+EN, MCMR, DR
+For $a in //{c1}account[@id="0"]
+Delete $a/{c1}a-c[last()]
+
+<b>U3 Replace SSN info of customer id=0</b>
+DEEP, AF, SHALLOW
+For $a in //customer[@id="0"]
+Replace $a/SSN/text() with "000-00-0000"
+
+EN, MCMR, DR
+For $a in //{c2}customer[@id="0"]
+Replace $a/{c2}SSN/text() with "000-00-0000"
+
+<b>U4 If bank 4 exist, change name else insert a new bank</b>
+DEEP, AF, SHALLOW
+If for $a in //bank[@id="4"]
+Change $a/name to &lt;name&gt;ddd&lt;/name&gt;
+Else
+Insert &lt;bank id=4&gt;&lt;/bank&gt;
+
+EN, MCMR, DR
+If for $a in //{c1}bank[@id="4"]
+Change $a/{c1}name to &lt;name&gt;ddd&lt;/name&gt;
+Else
+Insert &lt;bank id=4&gt;&lt;/bank&gt;
+
+<b>U5 For all accounts, insert a number of a-c account associated with customers</b>
+DEEP, AF, SHALLOW
+For $a in //account
+Insert &lt;count&gt;count($a/a-c)&lt;/count&gt;
+
+EN, MCMR, DR
+For $a in //{c1}account
+Insert &lt;count&gt;count($a/{c1}a-c)&lt;/count
+
+<b>U6 Delete all account a-c for customer id=3</b>
+DEEP
+For $a in //a-c/customer[@id="3"]
+For $b in //customer[@id="3"]
+Move $b to //
+Delete $a
+
+SHALLOW, AF
+For $a in //a-c
+For $v in //customer[@id="3"]
+where $a/@idref = $b/@id
+Delete $a
+
+EN, MCMR, DR
+For $a in //{c2}customer[@id=3]//{c2}a-c
+Delete $a
+
+<b>U7 Remove bank id = 3 and all associate information</b>
+DEEP, AF, EN, MCMR, DR 
+For $a in //bank[@id="3"]
+Delete $a
+
+SHALLOW
+For $a in //bank[@id = "3"]
+For $b in //bank-branch
+For $c in //account
+For $d in //loan
+where $a/branches/@idref = $b
+and $b/accts/@idref = $c/@id
+And $b/loans/@idref = $d/@id
+delete $a, $b, $c, $d
+
+EN, MCMR, DR 
+For $a in //{c1}bank[@id="3"]
+Delete $a
+
+<b>U8 For each customer, compute the total loan account and insert it into customer’s element</b>
+DEEP
+For $a in DISTINCT //customer
+Let $b := //loan
+Where $b/l-c/customer/@id = $a/@id
+Insert &lt;total&gt;SUM($b/amount)&lt;/total&gt; into $a
+
+SHALLOW, AF
+For $a in //customer
+Let $b := //loan
+Where $b/l-c/@idref = $a/@id
+Insert &lt;total&gt;SUM($b/amount)&lt;/total&gt; into $a
+
+EN, MCMR, DR
+For $a in //{c2}customer
+Let $b := $a/{c1}loan
+Where $a/{c2}l-c = $b/{c1}l-c
+Insert &lt;total&gt;SUM($b/{c2}amount)&lt;/total&gt; into $a
+</pre>
+</body>
+</html>

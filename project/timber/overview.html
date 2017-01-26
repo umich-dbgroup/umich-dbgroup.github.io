@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>TIMBER</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<table width="600" border="0" cellspacing="0" cellpadding="10" align="center" bordercolorlight="#FFFFFF" bordercolordark="#CCFFFF">
+  <tr align="center" valign="bottom" bgcolor="#6666FF"> 
+    <td colspan="2" height="100"> 
+      <div align="center"> 
+        <img src="timber2.gif" width="477" height="128">
+      </div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100" valign="top" bgcolor="#CCFFCC"> 
+      <p>&nbsp;</p>
+      <p><a href="introduction.html">Introduction</a></p>
+      <p><a href="overview.html">Overview</a></p>
+      <p><a href="support.html">Support</a></p>
+      <p><a href="people.html">People</a></p>
+      <p><a href="publications.html">Publications</a></p>
+      <p><a href="download.php">Download</a></p>
+      <p><a href="usermanual/index.htm">User manual</a></p>
+      <p><a href="bug.php">Report bugs</a></p>
+      <p><a href="links.html">Useful links</a></p>
+      </td>
+    <td bgcolor="#CCCCFF" valign="top" align="left"> 
+      <h2>Overview</h2>
+      <p>The central idea in the Timber project is to construct an XML database 
+        that has an architecture as close as possible to that of a relational 
+        database. In this way, we attempt to reuse, where appropriate, the technologies 
+        developed for relational databases over the past several decades. See 
+        (<a href="files/timber.pdf">Timber overview</a>) for an overview of the 
+        project. </p>
+      <p>Relational Algebra plays a central role in relational database implementation. 
+        An equivalent algebra for XML is developed in <a href="files/tax_full.pdf">TAX</a>. 
+        This algebra manipulates sets of ordered labeled trees, rather than sets 
+        of tuples. The primary difficulties addressed include the complex and 
+        variable structure of trees in a set, and issues of ordering. </p>
+      <p>Once a query has been parsed into an algebraic representation, this algebraic 
+        expression is manipulated in a query optimizer, which then chooses an 
+        appropriate query plan to evaluate the query. The (<a href="files/optimization.pdf">Query 
+        optimization for XML</a>) points out some key differences for XML query 
+        otimization vis-a-vis relational optimization. </p>
+      <p>Cost-based query optimization requires good size estimates for query 
+        results and intermediate results. Due to the complex structure of XML 
+        data, obtaining these estimates is not necessarily straightforward. Techniques 
+        for obtaining such estimates effectively are discussed in (<a href="files/yEDBT02.pdf">Estimating 
+        answer sizes for XML queries</a> and <a href="files/twig-icde2001.pdf">Counting 
+        Twig Matches in a Tree</a>). </p>
+      <p>XML query evaluation often involves the computation of a structural join. 
+        One has to determine the satisfaction of predicates at multiple structurally 
+        related elements in the database. New access methods for the computation 
+        of such joins are introduced in (<a href="files/sICDE02.pdf">Structural 
+        Joins</a> and <a href="files/comboperators.pdf">Combining Operators in 
+        XML Query Processing</a>). </p>
+      <hr>
+	<p align="right"><img src="email.gif" /><i><font size="2"><br>Page last modified on 09/May/06</font></i></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

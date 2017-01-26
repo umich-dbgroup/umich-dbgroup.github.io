@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	
+
+<head>
+<link rel=File-List href="./LogicalAlgebra_files/filelist.xml">
+<title>LogicalAlgebra</title>
+<style>
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#660000;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#003399;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+</style>
+</head>
+
+	
+
+<body bgcolor=white lang=EN-US link="#660000" vlink="#003399" style='tab-interval:
+.5in'>
+<div class=Section1>
+
+<h1 style='margin-top:0in'><a name="_Ref68354279"></a><a name="_top"></a><span
+style='mso-bookmark:_Ref68354279'><span style='font-size:18.0pt;mso-bidi-font-size:
+24.0pt'>Logical Algebra </span></span><span style='font-size:18.0pt;mso-bidi-font-size:
+24.0pt'><o:p></o:p></span></h1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Given an XQuery input, Timber first translate it into a
+logical plan&nbsp;that follows the grammar below.&nbsp;Detail information about
+the logical algebra and&nbsp;query&nbsp;translation&nbsp;from XQuery to logical
+plan&nbsp;can be found <a href="../files/tlc.pdf">here</a>. <span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>// node ids for pattern and constrct nodes are LCLs
+(they are referred as NREs in physical algebra)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>// node ids for process nodes are independent of
+LCLs, <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>// hence there might be a pattern node with LCL=2
+and a process node with id = 2<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>// they shouldn't be confused.<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>//tree<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;tree&gt; := &lt;tree id&gt; &lt;node number&gt;
+&lt;tree root id&gt; [&lt;tree marker&gt; ] &lt;tree node list&gt; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;tree node list&gt; := (&lt;node id&gt;<span
+style="mso-spacerun: yes">  </span>&lt;parent id&gt; /n)*<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;tree marker&gt; := PATTERN_TREE |
+CONSTRUCT_TREE | PROCESS_TREE | MLCA_TREE<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>//Pattern Tree node<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;pattern tree node&gt;<span style="mso-spacerun:
+yes">  </span>:= &lt;document_ptn&gt; | &lt;regular_ptn&gt; |
+&lt;reference_ptn&gt; | &lt;value join pattern tree node&gt; | &lt;mlca-root
+node&gt;<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;document pattern tree node&gt; := &lt;node
+id&gt; DOCUMENT &lt;filename&gt; &lt;ANCS | PARENT&gt;<span
+style="mso-spacerun: yes">  </span>&lt;- | ? | * | +&gt;<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;regular_ptn&gt; := &lt;node id&gt;<span
+style="mso-spacerun: yes">  </span>&lt;ELEMENT | ATTRIBUTE&gt;<span
+style="mso-spacerun: yes">  </span>&lt;filename&gt;<span style="mso-spacerun:
+yes">  </span>&lt;tagname&gt;<span style="mso-spacerun: yes"> 
+</span>&lt;operator&gt; &lt;value&gt; &lt;ANCS | PARENT&gt;<span
+style="mso-spacerun: yes">  </span>&lt;- | ? | * | +&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;operator&gt; :=
+EQN,NEN,LTN,LEN,GTN,GEN,EQS,NES,LTS,LES,GTS,GES,CONTAINS,CONTAINEDBY,STARTSWITH,NULL,ID_EQ,ID_NEQ<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;reference pattern tree node&gt; := &lt;node
+id&gt; REFERENCE &lt;Reference LCL&gt; &lt;ANCS | PARENT&gt;<span
+style="mso-spacerun: yes">  </span>&lt;- | ? | * | +&gt;<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;value join pattern tree node&gt; := &lt;node
+id&gt; VALUEJOIN &lt;ANY|ONE&gt; &lt;left node LCL&gt; &lt;operator&gt;
+&lt;right node LCL&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;value join pattern tree node&gt; := &lt;node
+id&gt; CARTESIAN <o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;mlca-root node&gt; := &lt;node id&gt; MLCA-ROOT<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>//Construct Tree node<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;construct pattern tree node&gt; :=<span
+style="mso-spacerun: yes">  </span>&lt;c_element pattern tree node&gt; |
+&lt;c_reference pattern tree node&gt; | &lt;c_attribute pattern tree node&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;c_element pattern tree node&gt; := &lt;node
+id&gt; C_ELEMENT &lt;tagname&gt; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;c_attribute pattern tree node&gt; := &lt;node
+id&gt; C_ATTRIBUTE &lt;tagname&gt; &lt;Reference LCL&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;c_reference pattern tree node&gt; := &lt;node
+id&gt; C_REFERENCE &lt;Reference LCL&gt; &lt;TEXT|SUBTREE|NODE|OUTER&gt;<span
+style="mso-spacerun: yes">  </span><o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>//Process Tree Node<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;process tree node&gt; := &lt;select node&gt; |
+&lt;join node&gt; | &lt;project node&gt; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'><span style='mso-tab-count:1'>                </span>|
+&lt;duplicate elimination node&gt; | &lt;aggregate function node&gt; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'><span style='mso-tab-count:1'>                </span>|
+&lt;filter node&gt; | &lt;orfilter node&gt; | &lt;sort node&gt; | &lt;construct
+node&gt; | &lt;set node&gt; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'><span style='mso-tab-count:1'>                </span>|
+&lt;delete node&gt; | &lt;update node&gt; | &lt;insert-file node&gt; |
+&lt;insert-element node&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'><span style='mso-tab-count:1'>                </span>...<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;set node&gt; := &lt;node id&gt; UNION |
+INTERSECTION | DIFFERENCE<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;select node&gt; := &lt;node id&gt; SELECT
+&lt;pattern tree id&gt; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;join node&gt; := &lt;node id&gt; JOIN
+&lt;pattern tree id&gt; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;construct node&gt; := &lt;node id&gt; CONSTRUCT
+&lt;pattern tree id&gt; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;project node&gt; := &lt;node id&gt;
+PROJECT<span style="mso-spacerun: yes">  </span>&lt;number of nodes to
+project&gt;<span style="mso-spacerun: yes">  </span>&lt;projection list using
+LCLs&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;duplicate elimination node&gt; := &lt;node
+id&gt; DUPLICATE_ELIMINATION<span style="mso-spacerun: yes">  </span>&lt;ID |
+TEXT&gt; &lt;LCL&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;filter node&gt; := &lt;node id&gt; FILTER
+&lt;reference node LCL&gt; &lt;operator&gt; &lt;CONST | REF&gt; &lt;value |
+LCL&gt; &lt;EVERY | SOME | EXACTLYONE&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;orfilter node&gt; := &lt;node id&gt; ORFILTER
+&lt;number of filters in OR&gt; (&lt;reference node LCL&gt; &lt;operator&gt;
+&lt;CONST | REF&gt; &lt;value | LCL&gt; &lt;EVERY | SOME | EXACTLYONE&gt;)+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;sort node&gt; :=<span style="mso-spacerun:
+yes">  </span>&lt;node id&gt; SORT &lt;number of nodes to sort&gt;<span
+style="mso-spacerun: yes">  </span>[&lt;LCL&gt; &lt;KEY | VALUE&gt;
+&lt;ASCENDING | DESCENDING&gt; &lt;LEAST | GREATEST&gt;]+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;aggregate function node&gt; := &lt;node id&gt;
+AGGREGATE_FUNCTION &lt;COUNT | MIN | MAX | SUM | AVERAGE&gt; &lt;reference node
+LCL&gt; &lt;new node id&gt; &lt;new node tagname&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;delete node&gt; := &lt;node id&gt; DELETE
+&lt;LCL&gt; &lt;TEXT | SUBTREE&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;update node&gt; := &lt;node id&gt; UPDATE
+&lt;LCL&gt; &lt;CONST | REF&gt; &lt;value | LCL&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;insert-file node&gt; := &lt;node id&gt;
+INSERT_FILE &lt;LCL&gt; &lt;filename&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;insert-element node&gt; := &lt;node id&gt;
+INSERT_ELEMENT &lt;LCL&gt; &lt;tagname&gt; &lt;CONST | REF&gt; &lt;value |
+LCL&gt; &lt;number of attributes&gt;<span style="mso-spacerun: yes"> 
+</span>[&lt;tagname&gt; &lt;CONST | REF&gt; &lt;value | LCL&gt;]+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;insert-attribute node&gt; := &lt;node id&gt;
+INSERT_ATTRIBUTE &lt;LCL&gt; &lt;tagname&gt; &lt;CONST | REF&gt; &lt;value |
+LCL&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;mlca node&gt; := &lt;node id&gt; MLCA
+&lt;pattern tree id&gt; &lt;number of nodes for mlca&gt; &lt;mlca list using
+LCLs&gt; <o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'> &nbsp;<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>//Query<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;Query&gt; :=<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;Number of Pattern/Construct tree nodes&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;Number of Pattern/Construct trees&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;Number of Process tree nodes&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;List of Pattern/Construct tree nodes&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;List of Pattern/Construct trees&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;List of process tree nodes&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&lt;Process tree structure&gt;<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

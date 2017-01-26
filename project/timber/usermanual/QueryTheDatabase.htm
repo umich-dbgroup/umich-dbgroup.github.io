@@ -1,0 +1,926 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Main Heading Goes Here</title>
+			<link rel="File-List" href="./QueryTheDatabase_files/filelist.xml">
+			<link rel="Edit-Time-Data" href="./QueryTheDatabase_files/editdata.mso">
+				<link rel="OLE-Object-Data" href="./QueryTheDatabase_files/oledata.mso"> 
+        <style> 
+	@font-face {font-family:"\@SimSun"; panose-1:2 1 6 0 3 1 1 1 1 1; mso-font-charset:134; mso-generic-font-family:auto; mso-font-pitch:variable; mso-font-signature:3 135135232 16 0 262145 0;}
+	/* Style Definitions */ p.MsoNormal, li.MsoNormal, div.MsoNormal {mso-style-parent:""; margin:0in; margin-bottom:.0001pt; mso-pagination:widow-orphan; font-size:12.0pt; font-family:Arial; mso-fareast-font-family:"Times New Roman"; color:black;}
+	h1 {mso-style-next:Normal; margin-top:12.0pt; margin-right:0in; margin-bottom:3.0pt; margin-left:0in; mso-pagination:widow-orphan; mso-outline-level:1; font-size:24.0pt; font-family:Arial; color:black; mso-font-kerning:16.0pt; font-weight:normal; mso-bidi-font-weight:bold;}
+	h2 {mso-style-next:Normal; margin-top:12.0pt; margin-right:0in; margin-bottom:3.0pt; margin-left:0in; mso-pagination:widow-orphan; mso-outline-level:2; font-size:18.0pt; font-family:Arial; color:black; font-weight:normal; mso-bidi-font-weight:bold; mso-bidi-font-style:italic;}
+	h3 {mso-style-next:Normal; margin-top:12.0pt; margin-right:0in; margin-bottom:3.0pt; margin-left:0in; mso-pagination:widow-orphan; mso-outline-level:3; font-size:14.0pt; font-family:Arial; color:black; font-weight:normal; mso-bidi-font-weight:bold;}
+	h4 {mso-style-next:Normal; margin-top:12.0pt; margin-right:0in; margin-bottom:3.0pt; margin-left:0in; mso-pagination:widow-orphan; mso-outline-level:4; font-size:12.0pt; font-family:Arial; color:black; font-weight:normal; mso-bidi-font-weight:bold;}
+	h5 {mso-style-next:Normal; margin-top:12.0pt; margin-right:0in; margin-bottom:3.0pt; margin-left:0in; mso-pagination:widow-orphan; mso-outline-level:5; font-size:10.0pt; font-family:Arial; color:black; font-weight:normal; mso-bidi-font-weight:bold; mso-bidi-font-style:italic;}
+	h6 {mso-style-next:Normal; margin-top:12.0pt; margin-right:0in; margin-bottom:3.0pt; margin-left:0in; mso-pagination:widow-orphan; mso-outline-level:6; font-size:8.0pt; font-family:Arial; color:black; font-weight:normal; mso-bidi-font-weight:bold;}
+	p.MsoHeading7, li.MsoHeading7, div.MsoHeading7 {mso-style-next:Normal; margin-top:12.0pt; margin-right:0in; margin-bottom:3.0pt; margin-left:0in; mso-pagination:widow-orphan; mso-outline-level:7; font-size:12.0pt; font-family:"Times New Roman"; mso-fareast-font-family:SimSun;}
+	p.MsoHeading8, li.MsoHeading8, div.MsoHeading8 {mso-style-next:Normal; margin-top:12.0pt; margin-right:0in; margin-bottom:3.0pt; margin-left:0in; mso-pagination:widow-orphan; mso-outline-level:8; font-size:12.0pt; font-family:"Times New Roman"; mso-fareast-font-family:SimSun; font-style:italic;}
+	p.MsoHeading9, li.MsoHeading9, div.MsoHeading9 {mso-style-next:Normal; margin-top:12.0pt; margin-right:0in; margin-bottom:3.0pt; margin-left:0in; mso-pagination:widow-orphan; mso-outline-level:9; font-size:11.0pt; font-family:Arial; mso-fareast-font-family:SimSun;}
+	p.MsoToc1, li.MsoToc1, div.MsoToc1 {mso-style-update:auto; mso-style-next:Normal; margin:0in; margin-bottom:.0001pt; mso-pagination:widow-orphan; font-size:12.0pt; font-family:"Times New Roman"; mso-fareast-font-family:SimSun;}
+	p.MsoCaption, li.MsoCaption, div.MsoCaption {mso-style-next:Normal; margin-top:6.0pt; margin-right:0in; margin-bottom:6.0pt; margin-left:0in; mso-pagination:widow-orphan; font-size:10.0pt; font-family:"Times New Roman"; mso-fareast-font-family:SimSun; font-weight:bold;}
+	a:link, span.MsoHyperlink {color:#660000; text-decoration:underline; text-underline:single;}
+	a:visited, span.MsoHyperlinkFollowed {color:#003399; text-decoration:underline; text-underline:single;}
+	p {margin-right:0in; mso-margin-top-alt:auto; mso-margin-bottom-alt:auto; margin-left:0in; mso-pagination:widow-orphan; font-size:12.0pt; font-family:"Times New Roman"; mso-fareast-font-family:"Times New Roman";}
+	@page Section1 {size:8.5in 11.0in; margin:1.0in 1.25in 1.0in 1.25in; mso-header-margin:.5in; mso-footer-margin:.5in; mso-paper-source:0;}
+	div.Section1 {page:Section1;}
+	--></style>
+		</head>
+	<body bgcolor="#FFFFFF" background="strbkgde.gif" lang="EN-US" link="#660000" vlink="#003399" style='tab-interval:.5in' text="#000000" alink="#999933">
+		<div class="Section1">
+			<h1 style='MARGIN-TOP:0in'><font face="Arial, Helvetica" color="#000000"><a name="_Ref68355088"></a><a name="_top"></a><span style='mso-bookmark:_Ref68355088'>Query the Database</span></font></h1>
+<font face="Arial, Helvetica"></font>
+			<h2><font face="Arial, Helvetica" color="#000000">Contents</font></h2>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal" style='MARGIN-LEFT:0.25in;tab-stops:list .5in'><span style="FONT-SIZE:10pt;COLOR:windowtext;FONT-FAMILY:'Times New Roman'">
+					<img width="15" height="15" src="./QueryTheDatabase_files/image002.gif" v:shapes="_x0000_i1025">
+					<span style='mso-tab-count:1'>&nbsp;&nbsp; </span>
+				</span><a href="QueryTheDatabase.htm#_XQuery">XQuery</a></p>
+			<p class="MsoNormal" style='tab-stops:list .5in .75in'><span style="FONT-SIZE:
+10pt;COLOR:
+windowtext;FONT-FAMILY:
+'Times New Roman'"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+					<img border="0" width="15" height="15" src="./QueryTheDatabase_files/image002.gif" alt="*" v:shapes="_x0000_i1026">
+					<span style='mso-tab-count:1'>&nbsp;&nbsp; </span>
+				</span><a href="QueryTheDatabase.htm#_LogicalPlan">Logical Plan</a></p>
+			<p class="MsoNormal" style='tab-stops:list .5in .75in'><span style="FONT-SIZE:
+10pt;COLOR:
+windowtext;FONT-FAMILY:
+'Times New Roman'"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+					<img border="0" width="15" height="15" src="./QueryTheDatabase_files/image002.gif" alt="*" v:shapes="_x0000_i1027">
+					<span style='mso-tab-count:1'>&nbsp;&nbsp; </span>
+				</span><a href="QueryTheDatabase.htm#_PhysicalPlan">Physical Plan</a></p>
+			<p class="MsoNormal">&nbsp;</p>
+	</font>
+        <p class="MsoNormal"><font face="Arial, Helvetica">Timber provides three ways to query a file stored in 
+				Timber<o:p></o:p></font></p>
+     
+			<h2><font face="Arial, Helvetica" color="#000000"><a name="_XQuery" id="_XQuery"></a>XQuery</font></h2>
+  <font face="Arial, Helvetica">
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'>Timber supports queries in standard 
+				XQuery. Each query in XQuery is composed of a sequence of XQuery expressions, 
+				including path expressions used to locate nodes in XML structures, element 
+				constructors for constructing XML structures with, and FLWOR expressions for 
+				combining and restructuring information from XML documents, sorting, and 
+				conditional expressions, and quantified expressions. For more information about 
+				the XQuery specification, see <a href="http://www.w3.org/TR/xquery">XQuery 1.0</a>.<span style="mso-spacerun: yes">&nbsp; </span></p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'>Timber supports a wide range of 
+				features in XQuery. Specifically, Timber supports any queries satisfying&nbsp;<a href="GeneralizedXQueryGrammar.htm">XQuery 
+					Fragment Supported</a>. In addition, Timber also supports <a href="#_Update">
+            XQuery with updates</a>, and <a href="#_SchemaFree"> Schema-Free
+            XQuery</a>.<span style="mso-spacerun: yes">
+            </span>Please 
+				note that XQuery is case-sensitive, and all XQuery keywords (such as
+				<span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>for</span>,
+				<span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>let</span>)<span style="mso-spacerun: yes">&nbsp; </span>and 
+				function names should be in lower case.
+			</p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'>As an illustration, following are 
+				two example queries supported by Timber, including simple selection query and 
+				complex nested queries on XML document <a href="sbook.xml">sbook.xml</a>.
+			</p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'><a name="_Ref68007478"><b><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>Example</span></b></a><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><b>1: Simple query:
+            </b>return the title of books whose prices are between 20 and 60.<b><o:p></o:p></b></span></p>
+    </font>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                       <font face="Arial, Helvetica">
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>for
+  $b in document(&quot;sbook.xml&quot;)//book<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>where
+                        $b/price &lt; 60 and $b/price &gt; 20<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>return
+  $b/title</span></p>
+                      </font>
+					</td>
+				</tr>
+			</table>
+       <font face="Arial, Helvetica">
+			
+<p class="MsoNormal"><span style="COLOR:windowtext; FONT-FAMILY:'Times New Roman'">&nbsp;<o:p></o:p></span></p>
+			
+<p class="MsoNormal">&nbsp;<o:p></o:p></p>
+        <p class="MsoNormal" style='TEXT-ALIGN:justify'><b><span style='FONT-SIZE:10pt;
+mso-bidi-font-size:12.0pt'>Example 2: Nested query: </span></b><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt">for
+        books whose price</span><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>
+        is between 20 and 60, return its title and articles</span><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt">
+        </span><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>published&nbsp;
+        in the same year as the book</span></p>
+    </font>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>for
+  $b in document(&quot;sbook.xml&quot;)//book<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>where
+  $b/price &lt; 60 and $b/price &gt; 20<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>return
+  <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>&lt;result&gt;<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{$b/title}<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{for $k in
+  document("sbook.xml")/books/article<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>where $b/year = $k/year<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-spacerun:
+  yes">&nbsp;</span>return $k }<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>&lt;/result&gt;</span></p>
+                        </font>
+					</td>
+				</tr>
+			</table>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal"><span style="COLOR:windowtext; FONT-FAMILY:'Times New Roman'">&nbsp;<o:p></o:p></span></p>
+			<p class="MsoNormal"><b>Important Notes:</b> The nested queries must be connected 
+				with the outer part via a join (either value join or structural indicated by a 
+				path). Else it cannot be supported by our system<span style="COLOR:windowtext; FONT-FAMILY:'Times New Roman'">&nbsp;<o:p></o:p></span></p>
+			
+<p class="MsoNormal"><span style="COLOR:windowtext; FONT-FAMILY:'Times New Roman'">&nbsp;<o:p></o:p></span></p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'><b><span style='FONT-SIZE:10pt;
+mso-bidi-font-size:12.0pt'>Example 3: Unsupported Nested query</span></b></p>
+        </font>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>let
+  $c := for $k document("sbook.xml")//book <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>return $k<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>return
+  $c</span></p>
+                        </font>
+					</td>
+				</tr>
+			</table>
+        <font face="Arial, Helvetica">
+			
+<p class="MsoNormal"><span style="COLOR:windowtext; FONT-FAMILY:'Times New Roman'">&nbsp;</span></p>
+			
+<p class="MsoNormal"><a href="QueryTheDatabase.htm#_top">Back to top</a><span style="COLOR:windowtext; FONT-FAMILY:'Times New Roman'"><o:p></o:p></span></p>
+        </font>
+			<h3><font face="Arial, Helvetica" color="#000000"><a name="_Update" id="_Update"></a><font size="4">XQuery</font> with Updates</font>
+			</h3>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal" style='TEXT-INDENT:0.5in'>&nbsp;</p>
+    </font>
+        <p class="MsoNormal" style='TEXT-ALIGN:justify'><font face="Arial, Helvetica">Standard XQuery syntax does not 
+				allow updates to the database. Timber extends XQuery to support 
+				updates to the database via queries, including <a href="#_deletion">deletion</a>,
+    <a href="#_update1">update/modify</a>, <a href="#_InsertEle">insertion of elements</a>, and
+    <a href="#_InsertAtt">insertion of attributes</a>. In addition to the
+            update functions added to XQuery, Timber also allows the user to append an XML document to
+			a file that is alread loaded, via the <a href="#_App"> append</a> operation (accessible from the command line).
+			When many updates have been performed,  query performance will be increased by performing a <a href="#_Reorg"> reorganize</a> on the file (so that all nodes will be stored in &quot;document order&quot;, as they are when data is initially loaded into Timber).</font></p>
+            <font face="Arial, Helvetica"><p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><b>1.
+            General Principles of our XQuery Update Functions</b><font size="3"><br>
+            </font>
+            <br>
+            All functions update nodes that map to `FOR' bound variables. So the
+            semantics follow the logic of XQuery on `FOR' bindings. Althought
+            batch updates are supported, note that the variable bindings occur
+            before the updates start to be processed. In other words, any
+            inserted nodes will not be seen by succeeding update function calls
+            (while deleted and modified nodes will affect subsequent updates in
+            the same query). A different query must be issued for newly inserted
+            nodes to be accessed.<br>
+            &nbsp;</p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'><b>2. Update
+            Functions</b></p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><font face="Arial, Helvetica" color="#000000"><a name="_App" id="_App"></a></font>In
+            addition to the update methods listed below, we also provide an <b>append</b>
+            method that is accessible from the command line. &nbsp;This will
+            take an XML file and (efficiently) append it to a currently loaded
+            file. &nbsp;All indices will be updated appropriately. Note that if
+            the file contains an overflow portion before appending, the entire
+            appended document will end up in the overflow portion. This is not
+            advisable for large documents, and the user should perform a
+            reorganize before appending large documents.<br>
+            <br>
+            Appending a document new.xml (that exists in a Data directory) to
+            the document sbook.xml (that is already loaded into Timber) is
+            executed as follows:<br>
+            <br>
+            <font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;timber -m
+            append -d Data\new.xml -a sbook.xml</font></p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'></p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'>Update functions of
+            Timber along with example usages are listed as below.</p>
+			<p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><font face="Arial, Helvetica" color="#000000"><a name="_Deletion" id="_Deletion"></a></font><b>1) Deletion:</b>
+            timber-delete(&lt;var&gt; | &lt;var&gt;/text())<br>
+            <br>
+            This function accepts as an argument &lt;var&gt; a `FOR' bound
+            variable. It deletes from the database all nodes that correspond to
+            this variable. If the nodes are elements, then the subtrees rooted
+            at those nodes are also deleted. To delete only the content (text)
+            use /text() after the variable.<br>
+            <br>
+            <span style="font-size: 10pt; mso-bidi-font-size: 12.0pt">
+            <b>Example 4-a. </b>
+            Select
+            all <i>book</i>s and delete the <i>author</i>s.</span></p>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+                        <p class="MsoNormal"><font size="2">for $b in
+                        document(&quot;sbook.xml&quot;)//book<br>
+                        for $a in $b/author<br>
+                        return timber-delete($a)</font>
+                        </font>
+					</td>
+				</tr>
+			</table>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt"><b>NOTE:
+            </b>
+            If the last line was: return timber-delete($a/text()) only the
+            content (text) of the author elements would be removed.<b><br>
+            <br>
+            <span style='FONT-SIZE:10pt;
+mso-bidi-font-size:12.0pt'>Example 4-b. </span></b>Select
+            all <i>book</i>s and delete the <i> author</i> and content of <i> price</i> elements.</span></p>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+                        <p class="MsoNormal"><font size="2">for $b in
+                        document(&quot;sbook.xml&quot;)//book<br>
+                        for $a in $b/author<br>
+                        for $p in $b/price<br>
+                        return<br>
+                        &nbsp;&lt;result&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{timber-delete($a)}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{timber-delete($p/text())}<br>
+                        &nbsp;&lt;/result&gt;</font>
+                        </font>
+					</td>
+				</tr>
+			</table>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt"><b>NOTE:</b>
+            according to the `FOR' binding semantics in xquery, a book with an
+            author but no price will not be selected.</span></p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><a href="QueryTheDatabase.htm#_top">Back to top</a></p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><font face="Arial, Helvetica" color="#000000"><a name="_Update1" id="_Update1"></a></font><b>2) Update:</b>
+            timber-update(&lt;var&gt;, &lt;Value&gt; | &lt;SP&gt; |
+            Aggregate(&lt;SP&gt;) )<br>
+            <br>
+            This function accepts a `FOR' bound variable to indicate the nodes
+            whose content is to be updated. The second argument can be a
+            constant value (string or number), a path to some other selected
+            element from the database or an aggregate function. The function
+            will set the content of the nodes bound by the input variable to the
+            what is specified at the right input path. An update will not create
+            an element, it will only update its content if it exists.<br>
+            <br>
+            <span style="font-size: 10pt; mso-bidi-font-size: 12.0pt">NOTE: If the second
+            argument is a path to another selected element (such as $b/price),
+            it is possible for this path to map to more than one node, in a
+            single result (i.e. witness tree). If this is the case, only the
+            first of such mappings will be used to assign a value to &lt;var&gt;,
+            and a warning will be issued indicating this. &nbsp;This behavior
+            applies to all other XQuery update methods defined in this document
+            as well.)</span><br>
+            <br>
+            <span style="font-size: 10pt; mso-bidi-font-size: 12.0pt">
+            <b>Example 5-a. </b>
+            Select
+            all <i>book</i>s and set the content of its <i>
+            author</i> to &quot;Stelios&quot;<span style="mso-bidi-font-size: 12.0pt">.</span></span></p>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+                        <p class="MsoNormal"><font size="2">for $b in
+                        document(&quot;sbook.xml&quot;)//book<br>
+                        for $a in $b/author<br>
+                        return timber-update($a, &quot;Stelios&quot;)</font>
+                        </font>
+					</td>
+				</tr>
+			</table>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt"><b>Example 5<span style='mso-bidi-font-size: 12.0pt'>-b.
+            </span></b>Set all of the book <i>author</i>s to be equal to the <i>book</i>'s
+            <i>
+            publisher</i> attribute<span style="mso-bidi-font-size: 12.0pt">.</span></span></p>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+                        <p class="MsoNormal"><font size="2">for $b in
+                        document(&quot;sbook.xml&quot;)//book<br>
+                        for $a in $b/author<br>
+                        return timber-update($a, $b/@publisher)</font>
+                        </font>
+					</td>
+				</tr>
+			</table>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt"><b>Example 5<span style='mso-bidi-font-size: 12.0pt'>-c.
+            </span></b>Set each <i>book</i>'s <i> id</i> attribute to be equal to the
+            <i>book</i>'s <i> isbn</i><span style="mso-bidi-font-size: 12.0pt">.</span></span></p>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+                        <p class="MsoNormal"><font size="2">for $b in
+                        document(&quot;sbook.xml&quot;)//book<br>
+                        for $i in $b/@id<br>
+                        return timber-update($i, $b/isbn)</font>
+                        </font>
+					</td>
+				</tr>
+			</table>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt"><b>NOTE:
+            </b>if there is no associated isbn for a given
+            book, the id attribute will be updated with its value equal to
+            &quot;&quot;.</span>
+            </p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><br>
+            </p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt"><b>Example 5<span style='mso-bidi-font-size: 12.0pt'>-d.
+            </span></b>Select all <i>book</i>s, set attribute <i> author</i> to &quot;Stelios&quot;.
+            set <i> price</i> to 5, set <i> name</i> equal to the content of title and
+            set <i> authorcount</i> equals to the count of all authors<span style="mso-bidi-font-size: 12.0pt">.</span></span></p>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+                        <p class="MsoNormal"><font size="2">for $b in
+                        document(&quot;sbook.xml&quot;)//book<br>
+                        for $a in $b/@author<br>
+                        for $p in $b/price<br>
+                        for $n in $b/name<br>
+                        for $v in $b/authorcount<br>
+                        return<br>
+                        &nbsp;&lt;result&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{timber-update($a,
+                        &quot;Stelios&quot;)}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{timber-update($p,
+                        5)}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{timber-update($n,
+                        $b/title)}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{timber-update($v,
+                        count($b/author))}<br>
+                        &nbsp;&lt;/result&gt;</font>
+                        </font>
+					</td>
+				</tr>
+			</table>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><a href="QueryTheDatabase.htm#_top">Back to top</a></p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><font face="Arial, Helvetica" color="#000000"><a name="_InsertEle" id="_InsertEle"></a></font><b>3)
+            Insertion of </b><font face="Arial, Helvetica"><b> Element </b>
+        </font>
+            <b>: </b>timber-insertelement( &lt;SP&gt;, ElementTag,
+            &lt;Value&gt; | &lt;SP&gt; | Aggregate(&lt;SP&gt;), &lt;attrCont&gt;*),
+            where &lt;attrCont&gt; ::= AttributeTag, (&lt;Value&gt; | &lt;SP&gt;
+            | Aggregate(&lt;SP&gt;)<br>
+            <br>
+            This function inserts a constructed element under the nodes
+            specified by the input `FOR' bound variable. The new element is
+            specified by a tag and its content descriptor (constant value for
+            string or number,or a path pointing to some other node, or an
+            aggregate function). An optional list of attributes is also
+            supported.<br>
+            </p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt"><b>Example 6<span style='mso-bidi-font-size: 12.0pt'>-a.
+            </span></b>Select all <i>book</i>s, and under each <i> author</i> insert an element
+            with tag equals &quot;name&quot; and content equals &quot;Stelios&quot;<span style="mso-bidi-font-size: 12.0pt">.</span></span></p>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+                        <p class="MsoNormal"><font size="2">for $b in
+                        document(&quot;sbook.xml&quot;)//book<br>
+                        for $a in $b/author<br>
+                        return timber-insertelement($a, &quot;name&quot;, &quot;Stelios&quot;)</font>
+                        </font>
+					</td>
+				</tr>
+			</table>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;
+            </p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt"><b>Example 6<span style='mso-bidi-font-size: 12.0pt'>-b.
+            </span></b>Select all <i>book</i>s with <i> editor</i>
+            equals &quot;Stelios&quot;, insert an element with tag =
+            &quot;flag&quot; and empty content.</span></p>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+                        <p class="MsoNormal"><font size="2">for $b in
+                        document(&quot;sbook.xml&quot;)//book<br>
+                        where $b/editor = &quot;Stelios&quot;<br>
+                        return timber-insertelement($b,&quot;flag&quot;,&quot;&quot;)</font>
+                        </font>
+					</td>
+				</tr>
+			</table>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><br>
+            <span style="font-size: 10pt; mso-bidi-font-size: 12.0pt">
+            <b>Example 6<span style='mso-bidi-font-size: 12.0pt'>-c.&nbsp;</span>
+            </b>
+            Select all <i>book</i>s and insert under each <i> author</i> an
+            element with tag &quot;price&quot; and content &quot;5&quot;, create
+            an attibute named &quot;avg&quot; and content equal to the average <i>
+            price</i> of the book, and an attribute &quot;name&quot; with content
+            equal to the <i> editor</i> of the <i>book</i>.</span></p>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+                        <p class="MsoNormal"><font size="2">for $b in
+                        document(&quot;sbook.xml&quot;)/books/book<br>
+                        for $a in $b/author<br>
+                        return timber-insertelement($a, &quot;price&quot;,
+                        &quot;5&quot;, &quot;avg&quot;, avg($b/price),
+                        &quot;name&quot;, $b/editor)</font>
+                        </font>
+					</td>
+				</tr>
+			</table>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'>&nbsp;</p>
+            <p class="MsoNormal" style='TEXT-ALIGN:justify'><a href="QueryTheDatabase.htm#_top">Back to top</a><br>
+            </p>
+            <p class="MsoNormal"><font face="Arial, Helvetica" color="#000000"><a name="_InsertAtt" id="_InsertAtt"></a></font><b>4)
+            Insertion of </b> 
+        <font face="Arial, Helvetica">
+            <b> Attribute</b></font><b>:</b> timber-insertattribute( &lt;var&gt;, AttributeTag,
+            &lt;Value&gt; | &lt;SP&gt; | Aggregate(&lt;SP&gt;))<br>
+            <br>
+            Similar in concept with insert element, this function will insert an
+            attribute under the node specified by the input variable binding.
+            The attribute tag is given and the content can be a constant value
+            or set equal to some other node in the database, or the result of an
+            aggregate function.<br>
+            <span style="font-size: 10pt; mso-bidi-font-size: 12.0pt">
+            <b>
+            <br>
+            <a name="_Ref68009135"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>Example</span></a><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'> 
+            7.&nbsp; </span></b>Select
+            all <i>book</i>s with <i> editor</i> equals &quot;Stelios&quot;, under each
+            <i> chapter</i>
+            insert an attribute with tag &quot;num&quot; and no associated
+            value.</span></p>
+        </font>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+						<p class="MsoNormal"><span style="font-size: 10pt; mso-bidi-font-size: 12.0pt">for
+                        $b in document(&quot;sbook.xml&quot;)//book<br>
+                        for $c in $b/chapter<br>
+                        where $b/editor = &quot;Stelios&quot;<br>
+                        return timber-insertattribute($c,&quot;num&quot;,&quot;&quot;)</span>
+                        </p>
+                        </font>
+					</td>
+				</tr>
+			</table>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal"><font face="Arial, Helvetica" color="#000000"><a name="_Reorg" id="_Reorg"></a></font><b>3.
+            Reorganize</b></p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">Timber provides update functionality by
+            extending the XQuery language. &nbsp;When no updates have been
+            performed on a Timber volume, all nodes for a document are laid out
+            on the disk in document order. &nbsp;This is a key factor in
+            efficient query execution. &nbsp;When updates are performed we may
+            be required to put nodes into a separate unordered overflow portion
+            of the file. This happens when we insert new nodes, and when when a
+            node is modified so that its new value is larger than its previously
+            stored value. &nbsp;If the overflow portion is large enough, query
+            performance will suffer. &nbsp;To alleviate this problem, Timber
+            provides a reorganize function that will take a file containing an
+            overflow portion, and lay all of the nodes out on disk in document
+            order.<br>
+            <br>
+            Reorganizing the file from the command line is executed as follows,
+            where the document sbook.xml is the file to reorganize.:<br>
+            </p>
+			<p class="MsoNormal">&nbsp;<span style="font-size: 10pt; mso-bidi-font-size: 12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;timber -m reorganize -d sbook.xml</span><br>
+            </p>
+			<p class="MsoNormal">&nbsp;
+            </p>
+			<p class="MsoNormal"><a href="QueryTheDatabase.htm#_top">Back to top</a></p>
+        </font>
+			<h3><font face="Arial, Helvetica" color="#000000"><a name="_SchemaFree" id="_SchemaFree"></a>Schema-free XQuery</font></h3>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">Writing queries in standard XQuery requires extensive 
+				knowledge of the document structure (i.e., the document schema) in order to 
+				write the correct path expressions used to locate nodes in XML structures.<span style="mso-spacerun: yes">&nbsp; </span>Even 
+				for queries as simple as the one in Example 1, the user must at least know that 
+				nodes
+				<span style='FONT-SIZE:10pt;
+mso-bidi-font-size:12.0pt'>price</span>and
+				<span style='FONT-SIZE:10pt;
+mso-bidi-font-size:12.0pt'>title</span>are children of nodes
+				<span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>book</span>
+				in order to correctly write the queries<span style='FONT-SIZE:8pt;mso-bidi-font-size:12.0pt'>.</span></p>
+			<p class="MsoToc1" style='mso-outline-level:3'>&nbsp;</p>
+			<p class="MsoNormal" style='mso-outline-level:3'>In Timber, we provide a function
+				<span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>timber-mlca()</span>to 
+				allow users with limited knowledge of document structure,<span style="mso-spacerun: yes">&nbsp; </span>to 
+				be able to pose complex queries and get meaningful results.<span style='mso-fareast-language:ZH-CN'> Specifically, the
+function </span><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>timber-mlca()
+</span>return the Meaningful Lowest Common Ancestor (MLCA) of the variables inside the 
+				function; any variables sharing the same non-empty MLCA are regarded as 
+				meaningfully related to each other. More details about
+            Schema-Free XQuery can be found <a href="http://www.eecs.umich.edu/db/timber/files/mlcas.pdf">here</a>.
+			</p>
+			<p class="MsoNormal" style='mso-outline-level:3'>&nbsp;
+			</p>
+			<p class="MsoNormal" style='mso-outline-level:3'>The following are the 
+				corresponding schema-free queries for the previous example queries in XQuery, 
+				when the user only has the knowledge of tag names and values.
+			</p>
+			<p class="MsoCaption">&nbsp;<span style="COLOR:black;FONT-FAMILY:Arial;mso-fareast-font-family:'Times New Roman';mso-bidi-font-size:12.0pt">Example
+        8. Simple
+schema-free query (corresponding<span style="mso-spacerun: yes">&nbsp; </span>to the simple query in Example 1)</span></p>
+        </font>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="743" valign="top">
+                        <font face="Arial, Helvetica">
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>for
+  $d in timber-mlca($b, document("sbook.xml")//book, $p,
+  document("sbook.xml")// price,
+  $t,document("sbook.xml")//title)<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>where
+  $p &lt; 60 and $p &gt; 20<o:p></o:p></span></p>
+						<p class="MsoNormal" style='mso-outline-level:3'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>return $t</span></p>
+                        </font>
+					</td>
+				</tr>
+			</table>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal" style='mso-outline-level:3'>&nbsp;</p>
+        <p class="MsoCaption"><span style="COLOR:black;FONT-FAMILY:Arial;mso-fareast-font-family:'Times New Roman';mso-bidi-font-size:12.0pt">Example
+        9.<span style="mso-spacerun: yes">&nbsp; </span>Complex schema-free query (corresponding<span style="mso-spacerun: yes">&nbsp; </span>to the simple query in Example
+        2)</span></p>
+        </font>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="659" valign="top">
+                        <font face="Arial, Helvetica">
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>for
+  $d1 in timber-mlca($b,document(&quot;sbook.xml&quot;)//book,
+                        $p1,document(&quot;sbook.xml&quot;)//price,$y1,<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>document("sbook.xml")//year, $t,
+  document("sbook.xml")//title)<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>let
+                        $a := for $d2 in timber-mlca ($k,document(&quot;sbook.xml&quot;)//article,
+                        $y2, document(&quot;sbook.xml&quot;)//year)<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>where
+                        $y1 = $y2<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>return
+                        $k<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>where
+  $b/price &lt; 60 and $b/price &gt; 20<o:p></o:p><o:p></o:p><o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>return
+  <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>&lt;result&gt;<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{$t}<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>{$a}<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>&lt;/result&gt;</span></p>
+                        </font>
+					</td>
+				</tr>
+			</table>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal" style='mso-outline-level:3'>&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal"><a href="QueryTheDatabase.htm#_top">Back to top</a><o:p></o:p></p>
+        </font>
+			<h2><font face="Arial, Helvetica" color="#000000"><a name="_LogicalPlan" id="_LogicalPlan"></a>Logical Plan</font></h2>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal" style='mso-outline-level:3'><b>&nbsp;<o:p></o:p></b></p>
+			<p class="MsoNormal" style='mso-outline-level:3'>A logical plan is a query composed 
+				of logic algebra operators. It can be generated from a given query inXQuery by 
+				XqueryParser, and transformed into corresponding physical plan(s) by Query 
+				Optimizer of Timber; the one determined with lowest cost will be executed 
+				against the database.</p>
+			<p class="MsoNormal" style='mso-outline-level:3'>&nbsp;</p>
+			<p class="MsoNormal" style='mso-outline-level:3'>Timber supports any logical plan 
+				satisfying the <a href="LogicalAlgebra.htm">Logical Algebra grammar</a>.</p>
+			<p class="MsoToc1" style='tab-stops:list .25in;mso-outline-level:3'>&nbsp;</p>
+			<p class="MsoCaption"><span style="COLOR:black;FONT-FAMILY:Arial;mso-fareast-font-family:'Times New Roman';mso-bidi-font-size:12.0pt">Example
+            10.<span style="mso-spacerun: yes">&nbsp; </span>A sample logical plan (corresponding<span style="mso-spacerun: yes">&nbsp; </span>to the simple query in Example 1)</span></p>
+        </font>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  Logical plan<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  number of Pattern Tree Nodes, Pattern Trees and Process Tree Nodes<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>8<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>3<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>6<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  list of pattern tree nodes <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  list of nodes for pattern tree 5<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>7
+  C_REFERENCE 6 SUBTREE<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  list of nodes for pattern tree 6<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>1000
+  REFERENCE 3 PARENT -<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>6
+  ELEMENT sbook.xml title NULL "" PARENT *<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  list of nodes for pattern tree 1<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>1
+  DOCUMENT sbook.xml ANCS -<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>2
+  ELEMENT sbook.xml books NULL "" PARENT -<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>3
+  ELEMENT sbook.xml book NULL "" PARENT -<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>4
+  ELEMENT sbook.xml price LTN "60" PARENT -<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>5
+  ELEMENT sbook.xml price GTN "20" PARENT -<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  list of pattern trees <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  pattern tree <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>5
+  1 7 CONSTRUCT_TREE<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>7
+  -1<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  pattern tree <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>6
+  2 1000 PATTERN_TREE<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>1000
+  -1<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>6
+  1000<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  pattern tree <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>1
+  5 1 PATTERN_TREE<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>1
+  -1<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>2
+  1<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>3
+  2<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>4
+  3<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>5
+  3<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  list of process tree nodes <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>10
+  CONSTRUCT 5<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>11
+  SORT 1 3 KEY ASCENDING GREATEST <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>9
+  SELECT 6<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>7
+  DUPLICATE_ELIMINATION ID 1 <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>6
+  PROJECT 2 1 3<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>4
+  SELECT 1<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>//
+  process tree <o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>0
+  6 10<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>10
+  -1<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>11
+  10<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>9
+  11<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>7
+  9<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>6
+  7<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>4
+  6</span></p>
+                        </font>
+					</td>
+				</tr>
+			</table>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal"><a href="QueryTheDatabase.htm#_top">Back to top</a><o:p></o:p></p>
+        </font>
+			<h2><font face="Arial, Helvetica" color="#000000"><a name="_PhysicalPlan" id="_PhysicalPlan"></a>Physical Plan</font></h2>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">A physical plan is a query composed of evaluation iterators 
+				(physical operators) that actually access database, and combine and reconstruct 
+				information from the database. In a physical plan, the evaluation operators are 
+				listed
+				<span style='FONT-SIZE:11pt;mso-bidi-font-size:12.0pt'>in a
+depth-first preorder manner- first the operator then its inputs. Each Iterator
+is on a separate line. A line in the file that starts with a ‘*’ is a comment
+line and will be ignored during the query process. The evaluator interface is
+case-sensitive. If it’s capital here it should be capital in the file. </span>For full 
+				specification of all iterators supported by Timber please see <a href="EvaluatorFileInterface.htm">
+					Physical Algebra</a>.</p>
+			<p class="MsoNormal"><span style='mso-fareast-language:ZH-CN'>&nbsp;<o:p></o:p></span></p>
+			<p class="MsoCaption"><span style="COLOR:black;FONT-FAMILY:Arial;mso-fareast-font-family:'Times New Roman';mso-bidi-font-size:12.0pt">Example
+            11. A sample
+physical plan (corresponding to the simple query in Example 1)</span><span style='mso-fareast-language:ZH-CN'>&nbsp;<o:p></o:p></span></p>
+        </font>
+			<table border="1" cellspacing="0" cellpadding="0" style='BORDER-RIGHT:medium none;
+ BORDER-TOP:medium none;
+ BORDER-LEFT:medium none;
+ BORDER-BOTTOM:medium none;
+ BORDER-COLLAPSE:collapse;
+ mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt' bordercolorlight="#CCCC99" bordercolordark="#999966">
+				<tr>
+					<td width="590" valign="top">
+                        <font face="Arial, Helvetica">
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>********************************************************<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>*Query:<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>*
+  for $b in document("sbook.xml")/books/book<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>*
+  where $b/price &lt; 60 and $b/price &gt; 20<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>*
+  return $b/title<o:p></o:p></span></p>
+						<p class="MsoNormal"><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt'>*******************************************************</span><span style='FONT-SIZE:10pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>
+								<o:p></o:p>
+							</span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>s,1,1,C,R,7,6,0,S<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>R,-1,K,1,3,A,E,X<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>J,a,3,6,-1,-1,-1,P,B,N<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>R,-1,K,1,3,A,B,X<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>D,TR,1,-1,NULL,1<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>P,2,1,3,1<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>J,A,1,2,-1,-1,-1,P,B<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>S,1,sbook.xml,0,DOCUMENT_NODE,THISNODE,1,1,XMLFILENAME,EQ,STR,sbook.xml,0,0,0<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>J,A,2,3,-1,-1,-1,P,B<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>I,2,index_sbook_elementtag,sbook.xml,GIST,INT,books<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>J,A,3,5,-1,-1,-1,P,B<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>J,A,3,4,-1,-1,-1,P,B<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>I,3,index_sbook_elementtag,sbook.xml,GIST,INT,book<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>f,1,1,AO,T,4,-1,NULL,LTN,C,-1,60.000000,NULL<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>I,4,index_sbook_elementtag,sbook.xml,GIST,INT,price<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>f,1,1,AO,T,5,-1,NULL,GTN,C,-1,20.000000,NULL<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>I,5,index_sbook_elementtag,sbook.xml,GIST,INT,price<o:p></o:p></span></p>
+						<p class="MsoNormal" style='TEXT-ALIGN:justify'><span style='FONT-SIZE:10pt;
+  mso-bidi-font-size:12.0pt'>I,6,index_sbook_elementtag,sbook.xml,GIST,INT,title</span><span style='mso-fareast-language:ZH-CN'>
+								<o:p></o:p>
+							</span></p>
+                        </font>
+					</td>
+				</tr>
+			</table>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal"><span style='mso-fareast-language:ZH-CN'>&nbsp;<o:p></o:p></span></p>
+			<p class="MsoCaption"><span style="COLOR:black;FONT-FAMILY:Arial;mso-fareast-font-family:'Times New Roman';mso-bidi-font-size:12.0pt">Example
+            12.<span style="mso-spacerun: yes">&nbsp; </span>Query evaluation tree for the physical plan
+in example 11</span></p>
+            <p><img border="0" src="QueryT1.gif" width="493" height="757"></p>
+			<p class="MsoCaption">&nbsp;</p>
+			<p class="MsoNormal"><span style='mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+			<p class="MsoNormal"><a href="QueryTheDatabase.htm#_top">Back to top</a></p>
+        
+  </font> <br>
+        <font face="Arial, Helvetica">
+			<p class="MsoNormal">Last updated: 07/19/2004</p>
+			<p class="MsoNormal">&nbsp;</p>
+		</font>
+        
+	</body>
+</html>

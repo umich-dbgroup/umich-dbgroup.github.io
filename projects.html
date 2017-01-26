@@ -11,6 +11,6 @@ permalink: /projects
 
   <h2>Past Projects</h2>
   {% for p in site.data.projects.inactive %}
-    <li>{{ p.name }}</li>
+    <li><a href={{ p.url }}>{{ p.name }}</a></li>
   {% endfor %}
 </div>

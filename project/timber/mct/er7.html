@@ -1,0 +1,556 @@
+<html>
+<head>
+<title>ER7 Internet Sales</title>
+</head>
+<body>
+<div align="center"><h2>ER7 Internet Sales</h2></div>
+
+Source: example from an ER drawing program
+
+<p></p>
+<p><b>ER characteristics</b></p>
+8 entities<br>
+10 relationships: 1 of 1:1, 9 of 1:m<br>
+<img width=648 height=526
+src="er7_files/image002.jpg" v:shapes="_x0000_i1025">
+
+<p><b>XML Schema</b></p>
+DEEP<br>
+<img width=343 height=492
+src="er7_files/image004.jpg" v:shapes="_x0000_i1026">
+<br>
+AF<br>
+<img width=405 height=456
+src="er7_files/image006.jpg" v:shapes="_x0000_i1027">
+<br>
+SHALLOW<br>
+<img width=575 height=272
+src="er7_files/image008.jpg" v:shapes="_x0000_i1028">
+<br>
+EN : 2 colors<br>
+<img width=516 height=338
+src="er7_files/image010.jpg" v:shapes="_x0000_i1029">
+<br>
+MCMR: 2 colors<br>
+<img width=576 height=413
+src="er7_files/image012.jpg" v:shapes="_x0000_i1030">
+<br>
+DR: 3 colors<br>
+<img width=576 height=413
+src="er7_files/image014.jpg" v:shapes="_x0000_i1031">
+<br>
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+
+<b>Q1 Return the order of order number = 0</b>
+DEEP, AF, SHALLOW
+For $a in //order[order_number = "0"]
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}order[order_number = "0"]
+Return $a
+
+<b>Q2 Return the first item of all orders</b>
+DEEP, AF
+For $a in //order
+Return $a//item[1]
+
+SHALLOW
+For $a in //order/contains1[1]
+For $c in //item
+Where $c/@id = $a/@idref
+Return $c
+
+EN, MCMR, DR
+For $a in //{c1}order
+Return $a//{c1}item[1]
+
+<b>Q3 Return the order number of all orders whose total is at least twice as high as the first item </b>
+DEEP, AF
+For $a in //order
+Where $a/total &gt;= 2* $a/item[1]/price
+Return $a/order_number
+
+SHALLOW
+For $a in //order
+For $b in $a/contains1[1]
+For $c in item
+Where $c/@id = $b/@id
+And $a/total &gt; 2* $c/price
+Return $a/order_number
+
+EN, MCMR, DR
+For $a in //{c1}order
+Where $a/{c1}total &gt;= 2* $a/{c1}item[1]/ {c1}price
+Return $a/{c1}order_number
+
+<b>Q4 List the order status for all orders where a certain item ordered with another item</b>
+DEEP, AF
+For $a in //order
+Where $a//item/@id = "1"
+And $a//item/@id = "2"
+Return $a/order_status
+
+SHALLOW
+For $a in //order
+For $b in //item[@id = "1"]
+For $c in //item[@id = "2"]
+Where $a/contain1//@idref = $b
+And $a/contain1/@idref = $c
+Return $a/order_status
+
+EN, MCMR, DR
+For $a in //{c1}order
+Where $a//{c1}item/@id = "1"
+And $a//{c1}item/@id = "2"
+Return $a/{c1}order_status
+
+<b>Q5 How many customers has more than 1 email</b>
+DEEP, AF, SHALLOW
+For $a in //customer
+Let $b := $a/email
+Where count($b) &gt; 1
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}customer
+Let $b := $a/{c1}email
+Where count($b) &gt; 1
+Return $a
+
+<b>Q6 How many items produced by company in MI?</b>
+DEEP
+Count (For $a in item[//company/state = "MI"]
+Return $a)
+
+AF, SHALLOW
+COUNT( For $a in //company[state = "MI"]
+For $b in //item
+Where $b/produces/@idref = $a/@id
+Return $b)
+
+EN
+COUNT( For $a in //{c2}company[{c2}state = "MI"] 
+For $b in //{c1}item
+Where $b/{c1}produces = $a/{c2}produces
+Return $b)
+
+MCMR, DR
+COUNT (For $a in //{c2}company[{c2}state = "MI"]
+Return $a//{c2}item)
+
+<b>Q7 How many proses in the database?</b>
+DEEP
+For $a in  //
+Return count($a//customer) + count(DISTINCT $a//item) + count(DISTINCT $a//company)
+
+SHALLOW, AF
+For $a in  //
+Return count($a//customer) + count($a//item) + count($a//company)
+
+EN, MCMR, DR
+Return count($a//{c1}customer) + count($a//{c1}item) + count($a//{c1}company)
+
+<b>Q8 List the name of item and the number ordered by customers</b>
+DEEP
+For $a in DISTINCT(//item)
+Let $b := //orders
+Where $b/item/@id = $a/@id
+Return $a/name, SUM($b/num)
+
+SHALLOW, AF
+For $a in //item
+Let $b := //orders
+Where $b/@idref = $a
+Return $a/name, SUM($b/num)
+
+EN, MCMR, DR
+For $a in //{c2}item
+Return $a/name, SUM($a//{c2}num)
+
+<b>Q9 List the name of item and the number ordered by customer id = 1</b>
+DEEP
+For $a in DISTINCT(//item)
+Let $b := //customer[@id = "1"]/orders
+Where $b/item/@Id = $a/@id
+Return $a/name, SUM($b/num)
+
+SHALLOW, AF
+For $a in //item
+Let $b := //customer[@id = "1"]orders
+Where $b/@idref = $a
+Return $a/name, SUM($b/num)
+
+EN, MCMR, DR
+$a in //{c2}item
+Let $b := //{c1}customer[@id = "1"]/{c1}orders
+Where $a/{c2}orders = $b
+Return $a, SUM($a/{c2}num)
+
+<b>Q10 List all items according to their company state</b>
+DEEP
+For $a in DISTINCT-VALUES(//company/state)
+Let $b := For $c in //item
+	Where $c//company/state = $a
+	Return $c
+Return $a, $b
+
+SHALLOW, AF
+For $a in DISTINCT-VALUES(//company/state)
+Let $b := For $c in //company
+		For $d in //items
+		Where $c/state = $a
+		And $d/produces = $c
+		Return $d
+Return $a, $b
+
+EN
+For $a in DISTINCT-VALUES(//{c2}company/{c2}state)
+Let $b := For $c in //{c2}company
+		For  $d in //{c1}item
+		Where $c/{c2}state = $a
+		And $d/{c1}produces = $c/{c2}produces
+	Return $d
+Return $a, $b
+
+MCMR, DR
+For $a in DISTINCT-VALUES(//{c2}company/{c2}state)
+Let $b := For $c in //{c2}company
+	Where $c/{c2}state= $a
+	Return $c/{c2}item
+Return $a, $b
+
+<b>Q11 For each item, show the shopping cart where total price does not exceed 2 * item’s initial cost</b>
+
+DEEP
+For $a in DISTINCT(//item)
+For $b //shopping_cart
+Where $b/item/@id = $a/@id
+And $a/cost * 2 &lt;= $b/total
+Return $a, $b
+
+AF, SHALLOW
+For $a in //item
+For $b //shopping_cart
+Where $b/contains2/@idref = $a/@id
+And $a/cost *2 &lt;= $b/total
+Return $a, $b
+
+EN, MCMR
+For $a in //{c2}item
+For $b //{c1}shopping_cart
+Where $a/{c2}contains2 = $b/{c1}contains2
+And $a/{c2}cost *2 &lt;= $b/{c1}total
+Return $a, $b
+
+DR
+For $a in //{c3}item
+For $b in //{c3}shopping_cart
+Where $b/{c3}item/@id = $a/@id
+And $a/{c3}cost *2 &lt;= $b/{c3}total
+Return $a, $b
+
+
+<b>Q12 For each expensive item, show the shopping cart where total price does not exceed 2 * item’s initial cost</b>
+
+DEEP
+For $a in DISTINCT(//item[cost&gt;1000])
+For $b //shopping_cart
+Where $b/item/@id = $a/@id
+And $a/cost * 2 &lt;= $b/total
+Return $a, $b
+
+AF, SHALLOW
+For $a in //item[cost&gt;1000]
+For $b //shopping_cart
+Where $b/contains2/@idref = $a/@id
+And $a/cost *2 &lt;= $b/total
+Return $a, $b
+
+EN, MCMR
+For $a in //{c2}item[{c2}cost &gt; 1000]
+For $b //{c1}shopping_cart
+Where $a/{c2}contains2 = $b/{c1}contains2
+And $a/{c2}cost *2 &lt;= $b/{c1}total
+Return $a, $b
+
+DR
+For $a in //{c3}item[{c3}cost &gt; 1000]
+For $b in //{c3}shopping_cart
+Where $b/{c3}item/@id = $a/@id
+And $a/{c3}cost *2 &lt;= $b/{c3}total
+Return $a, $b
+
+<b>Q13 List the name of item produced in Michigan along with their description</b>
+DEEP
+For $a in //item[company/state = "MI"]
+Return $a/name, $a/description
+
+AF, SHALLOW
+For $a in //item
+For $b in //company[state = "MI"]
+Where $b/@id = $a/produces
+Return $a/name, $a/description
+
+EN
+For $a in //{c1}item
+For $b in //{c2}company[{c2}state = "MI"]
+Where $b/{c2}produces = $a/{c1}produces
+Return $a/{c1}name, $a/{c1}description
+
+MCMR, DR
+For $a in //{c2}company[{c2}state = "MI"]//{c2}item
+Return $a/{c2}name, $a/{c2}description
+
+<b>Q14 Return the names of all items whose description contains the word "gold"</b>
+DEEP
+For $a in DISTINCT-VALUES(//item)
+Where CONTAINS($a/description,"gold")
+Return $a/name
+
+SHALLOW, AF
+For $a in //item
+Where CONTAINS($a/description,"gold")
+Return $a/name
+
+EN, MCMR, DR
+For $a in //{c1}item
+Where CONTAINS($a/{c1}description,"gold")
+Return $a/{c1}name
+
+<b>Q15 Print the shipsitem of a customer[id=2]</b>
+DEEP, AF
+For $a //ships_item[customer/@id = "2"]
+Return $a
+
+SHALLOW
+For $a in //ships_item
+For $b  in //customer[@id = "2"]
+Where $a/@idref = $b/@id
+Return $a
+
+EN, MCMR, DR
+For $a //{c1}ships_item[{c1}customer/@id = "2"]
+Return $a
+
+<b>Q16 Return the id of those customers where credit card ending 1111</b>
+DEEP, AF
+For $a in //customer
+Where $a//credit_card/ending = "1111"
+Return $a
+
+SHALLOW
+For $a in //customer
+For $b in //credit_card[ending = "1111"]
+Where $a/has/@idref = $b/@id
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}customer
+Where $a//{c1}credit_card/{c1}ending = "1111"
+Return $a
+
+<b>Q17 Which item have not been ordered?</b>
+DEEP, AF
+For $a in //item
+Let $b := //contains1
+Where $b/item/@id= $a/@id
+And count($b) = 0
+Return $a
+
+SHALLOW
+For $a in //item
+Let $b := //contains1
+Where $a/@id = $b/@idref
+And count($b) = 0
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}item
+Let $b := //{c1}contains1
+Where $b/{c1}item/@id= $a/@id
+And count($b) = 0
+Return $a
+
+<b>Q18 Convert the currency of order price to another currency</b>
+DEEP, AF, SHALLOW
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $a in //order
+Return CONVERT($a/price)
+
+
+EN, MCMR, DR
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $a in //{c1}order
+Return CONVERT($a/{c1}price)
+
+<b>Q19 Give an alphabetically list of all items along with their description</b>
+DEEP
+For $a in DISTINCT //item
+ORDER BY $a/name
+Return $a/name, $a/description
+
+AF, SHALLOW
+For $a in //item
+ORDER BY $a/name
+Return $a/name, $a/description
+
+EN, MCMR, DR
+For $a in //{c1}item
+ORDER BY $a/{c1}name
+Return $a/{c1}name, $a/{c1}description
+
+<b>Q20 Group item by their price</b>
+DEEP
+&lt;High&gt;
+ COUNT(DISTINCT //item[price &gt; 1000])
+&lt;/ High &gt;
+&lt;low&gt;
+COUNT(DISTINCT //item[price &lt;= 1000])
+&lt;/low&gt;
+
+AF, SHALLOW
+&lt;High&gt;
+ COUNT(//item[price &gt; 1000])
+&lt;/ High &gt;
+&lt;low&gt;
+COUNT(//item[price &lt;= 1000])
+&lt;/low&gt;
+
+EN, MCMR, DR
+&lt;High&gt;
+ COUNT(//{c1}item[{c1}price &gt; 1000])
+&lt;/ High &gt;
+&lt;low&gt;
+COUNT(/{c1}/item{c1}[price &lt;= 1000])
+&lt;/low&gt;
+
+
+<b>U1 Insert an item with id = 108 produced by company 1</b>
+DEEP
+For $a in //company[@id = "1"]
+Insert &lt;item id=108&gt;&lt;produces&gt;&lt;/produces&gt;&lt;/item&gt; into $b in //
+Insert $a as last into $b
+AF, SHALLOW
+Insert &lt;item id=108&gt;&lt;produces idref=1&gt;&lt;/produces&gt;&lt;/item&gt; into $a //
+
+EN
+Insert &lt;produces/&gt; into $a in //{c2}company[@id = "1"]
+Insert &lt;item id=108/&gt; into $b in //{c1}
+
+MCMR, DR
+Insert &lt;produces&gt;&lt;item id=108&lt;/item&gt;&lt;/produces&gt; into $a in //{c2}company[@id = "1"]
+
+<b>U2 Delete the last item of order -1</b>
+DEEP, AF, SHALLOW
+For $a in //order[@id = "1"]
+For $b in $a/contains1/last()
+Delete $b/item
+
+EN, MCMR, DR
+For $a in //{c1}order[@id = "1"]
+For $b in $a/{c1}contains1/last()
+Delete $b/{c1}item
+
+<b>U3 Replace item cost of item id 111</b>
+DEEP, AF, SHALLOW
+Replace //item[@id = "111"]/cost with &lt;cost/&gt;
+
+EN, MCMR, DR
+Replace //{c2}item[@id = "111"]/{c2}cost with &lt;cost/&gt;
+
+<b>U4 If company 4 exists change its name, else insert a new company</b>
+DEEP, AF, SHALLOW
+If $a in //company[@id = "4"] EXIST
+Then replace $a/name with &lt;name/&gt;
+Else insert &lt;company id=100/&gt; into //
+
+EN, MCMR, DR
+If $a in //{c2}company[@id = "4"] EXIST
+Then replace $a/{c2}name with &lt;name/&gt;
+Else insert &lt;company id=100/&gt; into //{c2}
+
+<b>U5 For all order, insert a count of total number of items contained</b>
+DEEP, AF, SHALLOW
+For $a in //order
+Let $b := $a/contains1
+Insert into $a &lt;count&gt;count($b)&lt;/count&gt;
+
+EN, MCMR, DR
+For $a in //{c1}order
+Let $b := $a/{c1}contains1
+Insert into $a &lt;count&gt;count($b)&lt;/count&gt;
+
+<b>U6 Delete all orders for item = 1</b>
+DEEP
+For $a in //orders[item/@id = "1"]
+Delete $a
+
+AF, SHALLOW
+For $a in //orders
+For $b in //item[@id = "1"]
+Where $a/@idref = $b
+Delete $a
+
+EN, MCMR, DR
+For $a in //{c2}item[@id = "1"]//{c2}orders
+Delete $a
+
+<b>U7 Remove company id 3, remove all items associated with it</b>
+DEEP
+For $a in //contains1
+For $b in $a/item
+Let $c := //contains2
+Where $a//company/@id = "3"
+And $c/item/@id = $b/@id
+Delete $a, $c
+
+AF, SHALLOW
+For $a in //company[@id = "3"]
+Let $b : =  For $c in //item
+	Let $d := //orders
+       Let $e : = //contains2
+Where $b/produces = $a/@id
+       And $d/@idref= $c
+       And $e/@idref = $c
+       Delete $d, $e
+       Return $c
+Delete $b, $a
+
+EN, MCMR, DR
+For $a in //{c2}company[@id = "3"]
+Let $b := //{c1}contains1
+Where $b/{c1}item/{c1}produces = $a/{c2}produces
+Delete $a, $b, $b/{c1}item/{c2}contains2
+ 
+<b>U8 For each item, compute total purchase amount and insert it</b>
+DEEP
+For $a in DISTINCT //item
+Let $b := //orders
+Where $b/item/@id = $a/@id
+Insert SUM($b/num) into $a
+
+AF, SHALLOW
+For $a in //item
+Let $b := orders
+Where $b/@idref = $a
+Insert SUM($b/num) into $a
+
+EN, MCMR, DR
+For $a in //{c2}item
+Let $b := $a/{c2}orders
+Insert SUM($b/{c2}num) into $a
+</pre>
+</body>
+</html>

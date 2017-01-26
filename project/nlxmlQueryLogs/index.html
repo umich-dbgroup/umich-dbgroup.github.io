@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Natural Language & XML Query Logs</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3059" name=GENERATOR></HEAD>
+<BODY bgColor=#afbed1>
+<TABLE width="75%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#003399>
+      <DIV align=center>
+      <P><STRONG><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#ffffff size=4>Natural
+      Language & XML 
+      Query Logs</FONT></STRONG></P></DIV>
+    </TD>
+  </TR>
+  <TR>
+    <TD bgColor=#ffffff>
+
+      <BLOCKQUOTE>
+        <P align=justify>&nbsp;</P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>This page is a
+        distribution site for two logs of database queries. They were obtained from two different
+        data sources, the first on American geography and the second a collection of job listings
+        in the state of Texas. A total of 1,520 unique queries were collected from two database
+        logs which are presented here in both natural language and XQuery formats. We also provide
+        derived XML schemas for the two datasets. We found the data and queries to be useful in
+        evaluating the design and performance of natural language and XML-based query interfaces
+        and feel that they can be a useful resource to other researchers working in this area.</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>The data
+        was originally compiled by the <A HREF="http://www.cs.utexas.edu/users/ml/">
+        Machine Learning Research Group</A> at the <A HREF="http://www.cs.utexas.edu/">
+        University of Texas</A>, and the queries were posed by real users
+        (students at the university). Both the data and the queries can be downloaded in their native
+        Prolog format <A HREF="http://www.cs.utexas.edu/users/ml/nldata.html">here</A>. The following
+        paper describes the purpose and use of these logs for natural language query
+        answering.</FONT></P>
+        <DIV align=justify>
+        <UL>
+          <LI><FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>Lappoon R. Tang
+          and Raymond J. Mooney, <STRONG>Using Multiple Clause Constructors in Inductive
+          Logic Programming for Semantic Parsing</STRONG>. <EM>Proceedings of the 12th
+          European Conference on Machine Learning (ECML-2001)</EM>, pp. 466-477, Freiburg,
+          Germany, September 2001.</FONT></LI>
+        </UL>
+        </DIV>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>The translations
+        were done by <A HREF="http://www.umich.edu/~yunyaol">Yunyao Li</A> and Magesh Jayapandian of the
+        <A HREF="http://www.eecs.umich.edu/db/">Database Research Group</A> at the
+        <A HREF="http://www.eecs.umich.edu/cse/">University of Michigan</A>. The natural language
+        queries were used in the following papers.</FONT></P>
+        <DIV align=justify>
+        <UL>
+          <LI><FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>Magesh Jayapandian
+          and H. V. Jagadish, <STRONG>
+          Automated Creation of a Forms-based Database Query Interface</STRONG>.
+          <EM>Proceedings of the 34th International Conference on Very Large Data Bases
+          (VLDB 2008)</EM>, Auckland, New Zealand, August 2008.
+          (<A HREF="http://www.eecs.umich.edu/db/files/p695-jayapandian.pdf">PDF</A>)
+          (<A HREF="http://www.eecs.umich.edu/db/nlxmlQueryLogs/p695-jayapandian.bib.htm">BibTeX</A>)</FONT></LI>
+        </UL>
+        <UL>
+          <LI><FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>Yunyao Li,
+          Ishan Chaudhuri, Huahai Yang, Satinder Singh and H. V. Jagadish, <STRONG>
+          Enabling Domain-Awareness for a Generic Natural Language  Interface</STRONG>.
+          <EM>Proceedings of the 22nd Conference on Artificial Intelligence
+          (AAAI 2007)</EM>, Vancouver, British Columbia, Canada, July 2007.
+          (<A HREF="http://www.eecs.umich.edu/db/files/AAAI07LiY.pdf">PDF</A>)
+          (<A HREF="http://www.eecs.umich.edu/db/nlxmlQueryLogs/AAAI07LiY.bib.htm">BibTeX</A>)</FONT></LI>
+        </UL>
+        </DIV>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" size=2> If you choose to use
+        our versions of these datasets and queries for your research, we would really appreciate
+        it if you could tell us briefly how and why you used them. We will then add you to a running
+        bibliography maintained on this site<!--A HREF="http://www.eecs.umich.edu/db/nlxmlQueryLogs/bib.htm">here</A-->.
+        Please send email to <A HREF="mailto:jmagesh@umich.edu">jmagesh@umich.edu</A>. Thanks!</FONT></P>
+      </BLOCKQUOTE>
+
+      <HR align=justify>
+
+       <P align=center><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=4><STRONG>Datasets and Queries</STRONG></FONT></P>
+
+      <BLOCKQUOTE>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" size=3><STRONG>Geoquery: </STRONG></FONT>
+        <FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>Data and queries pertaining
+        to the geography of the United States.</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2><STRONG>(1) <A 
+        href="http://www.eecs.umich.edu/db/nlxmlQueryLogs/geoquery/geobase.xsd">geobase.xsd</A> 
+        (4.57 KB):</STRONG> XML Schema Definition of the Geobase dataset.</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2><STRONG>(2) <A 
+        href="http://www.eecs.umich.edu/db/nlxmlQueryLogs/geoquery/geobase.xml">geobase.xml</A> 
+        (123 KB):</STRONG> XML version of the Geobase dataset (conforms to geobase.xsd).</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2><STRONG>(3) <A 
+        href="http://www.eecs.umich.edu/db/nlxmlQueryLogs/geoquery/geoqueries880.txt">geoqueries880.txt</A> 
+        (37.6 KB):</STRONG> 880 natural language queries to the Geobase dataset.</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2><STRONG>(4) <A 
+        href="http://www.eecs.umich.edu/db/nlxmlQueryLogs/geoquery/geoqueries880.xquery.txt">geoqueries880.xquery.txt</A> 
+        (175 KB):</STRONG> 880 queries in XQuery (translations of the natural language queries above).</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2> NOTE: Some queries did not conform exactly to the schema of the dataset. In
+        each such case, a minor modification was made to the natural language query prior to
+        XQuery translation. The original query can be found next to each modified query (within parentheses).</FONT></P>
+
+        <HR align=justify>
+
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" size=3><STRONG>Jobsquery: </STRONG></FONT>
+        <FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>Data and queries pertaining
+        to job announcements on the newsgroup austin.jobs.</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2><STRONG>(1) <A 
+        href="http://www.eecs.umich.edu/db/nlxmlQueryLogs/jobsquery/jobdata.xsd">jobdata.xsd</A> 
+        (1.66 KB):</STRONG> XML Schema Definition of the Jobdata dataset.</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2><STRONG>(2) <A 
+        href="http://www.eecs.umich.edu/db/nlxmlQueryLogs/jobsquery/jobdata.xml">jobdata.xml</A> 
+        (1.38 MB):</STRONG> XML version of the Jobdata dataset (conforms to jobdata.xsd).</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2><STRONG>(3) <A 
+        href="http://www.eecs.umich.edu/db/nlxmlQueryLogs/jobsquery/jobqueries640.txt">jobqueries640.txt</A> 
+        (31.1 KB):</STRONG> 640 natural language queries to the Jobdata dataset.</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2><STRONG>(4) <A 
+        href="http://www.eecs.umich.edu/db/nlxmlQueryLogs/jobsquery/jobqueries640.xquery.txt">jobqueries640.xquery.txt</A> 
+        (103 KB):</STRONG> 640 queries in XQuery (translations of the natural language queries above).</FONT></P>
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2> NOTE: Some queries did not conform exactly to the schema of the dataset. In
+        each such case, a minor modification was made to the natural language query prior to
+        XQuery translation. The original query can be found next to each modified query (within parentheses).</FONT></P>
+
+        <HR align=justify>
+
+        <P align=justify><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+        size=2>If you have any questions or comments about the content of this page,
+        please send email to Magesh Jayapandian (<A HREF="mailto:jmagesh@umich.edu">jmagesh@umich.edu</A>).</FONT></P>
+      </BLOCKQUOTE>
+
+    </TD>
+  </TR>
+  </TBODY>
+</TABLE>
+</BODY>
+</HTML>

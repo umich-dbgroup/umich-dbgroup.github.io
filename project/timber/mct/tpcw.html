@@ -1,0 +1,371 @@
+<html>
+<head>
+<title>TPC-W Schema and Queries</title>
+</head>
+<body>
+<div align="center"><h2>TPC-W Schema and Queries</h2></div>
+
+<img width=576 height=422
+src="tpcw_files/image002.jpg" v:shapes="_x0000_i1027">
+<p><b>XML Schema</b></p>
+DEEP<br>
+<img width=309 height=241
+src="tpcw_files/image003.jpg" v:shapes="_x0000_i1025">
+<br>
+AF<br>
+<img width=294 height=377
+src="tpcw_files/image004.jpg" v:shapes="_x0000_i1026">
+
+<br>
+SHALLOW<br>
+<img width=431 height=242
+src="tpcw_files/image005.jpg" v:shapes="_x0000_i1028">
+<br>
+
+EN<br>
+<img width=576 height=310
+src="tpcw_files/image007.jpg" v:shapes="_x0000_i1029">
+<br>
+
+MCMR<br>
+<img width=576 height=308
+src="tpcw_files/image008.jpg" v:shapes="_x0000_i1030"><br>
+DR<br>
+<img width=576 height=248
+src="tpcw_files/image010.jpg" v:shapes="_x0000_i1031">
+<br>
+UNDR<br>
+<img width=672 height=232
+src="tpcw_files/image012.jpg" v:shapes="_x0000_i1032"><br>
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+<b>Q1-Display customer id of order id = 1</b>
+
+DEEP,AF
+For $a in //customer[//order/@id=”1”]
+Return $a/@id	
+
+SHALLOW
+For $a in //customer
+For $b in //order[@id=”1”]
+Where $a/@id = $b/make/@customer_idref
+Return $a/@id
+
+EN,MCMR,DR,UNDR
+For $a in //{c1}customer[//{c1}order/@id=”1”]
+Return $a/@id	
+
+<b>Q2- Group orders with total amount bigger than a certain number (11000.0), by customer id, display user_name and calculate the total number of each group.</b>
+
+DEEP,AF
+For $a in //customer
+Let $b := $a//order[total > 11000.00]
+Where count($b) > 0
+Return $a/user_name/text(), count($b)
+
+SHALLOW
+For $a in //customer
+Let $b := //order[total>11000.00]
+Where $a/@id = $b/make/@customer_idref
+	And count($b) > 0
+Return $a/user_name/text(), count($b)
+
+EN,MCMR,DR,UNDR
+For $a in //{c1}customer
+Let $b := $a//{c1}order[{c1}total > 11000.00]
+Where count($b) > 0
+Return $a/{c1}user_name/text(), count($b)
+
+<b>Q6- Return the ids of authors whose biographies contain a certain word (``hockey").</b>
+
+DEEP
+For $a in distinct-values(//author)
+Where contains ($a/biography,”hockey”)
+Return $a/@id
+
+AF, SHALLOW
+For $a in //author
+Where contains ($a/biography,”hockey”)
+Return $a/@id
+
+EN, MCMR
+For $a in //{c1}author
+Where contains ($a/{c1}biography,”hockey”)
+Return $a/@id
+
+DR, UNDR
+For $a in //{c2}author
+Where contains ($a/{c2}biography,”hockey”)
+Return $a/@id
+
+<b>Q7- Return All items (display id) that has at least once, quantity ordered each time less than 20</b>
+
+DEEP
+For $a in distinct-values(//item)
+Let $b:= //order_line[quantity_of_item < 20]
+Where $b/item/@id = $a/@id
+And count($b) > 0
+Return $a/@id
+
+AF,SHALLOW
+For $a in //item
+Let $b := //order_line[quantity_of_item < 20]
+Where $a/@id = $b/@item_idref and count($b) > 0
+Return $a/@id
+
+EN,MCMR
+For $a in //{c2} item
+Let $b := $a/{c2} order_line[{c2} quantity_of_item < 20]
+Where count($b) > 0
+Return $a/@id
+
+DR,UNDR
+For $a in //{c5} item
+Let $b := $a/{c5} order_line[{c5} quantity_of_item < 20]
+Where count($b) > 0
+Return $a/@id
+
+<b>Q8-return customer where shipping address is in Canada that the order_status is in PENDING</b>
+
+DEEP
+For $a in //customer
+Let  $b:= $a//order
+Where	$b/order_status = “PENDING” and
+	$b/shipping//country/name = “Canada”
+	and count($b) > 0
+Return $a
+
+AF
+For $a in //customer
+Let $b  := For $c in $a//order
+       	    For $d in //country[name=”Canada”]//address
+    Where $c/shipping/@ship_address_idref = $d/@id and
+		$c/order_status = “PENDING”
+	    Return $c
+Where count($b) > 0
+Return $a
+
+SHALLOW
+For $a in //customer
+Let $b := For $c in //order[order_status=”PENDING”]
+	    For $d in //country[name=”Canada”]
+	    For $e in //address
+	    Where $a/@id = $c/make/@customer_idref
+	 	  And $d/@id = $e/in/@country_idref
+		  And $c/shipping/@ship_address_idref = $e/@id
+	   Return $c
+Where count($b) > 0
+Return $a
+
+MCMR, DR,UNDR
+For $a in //{c1}customer
+Let $b: = $a//{c1}order[{c1}order_status = “PENDING”]/ {c1}shipping
+Let $b:= //{c3}country[{c3}name=”Canada”]// {c3}shipping
+Where count($b) > 0
+Return $a
+
+EN 
+For $a in //{c1}customer
+Let $b := For $c in $a//{c1}order[{c1}order_status=”PENDING”] /{c1}shipping
+	    For $d in //{c2}address
+	    For $d in //{c1}country[{c1}name=”Canada”]//{c1}address
+	    Where $c = $d/{c2}shipping
+	    Return $c
+Where count($b) > 0
+Return $a
+
+<b>Q9- Return order id that has shipping address in the city "Honolulu"</b>
+
+DEEP
+For $a in //order[shipping//name_of_city = “Honolulu”]
+Return $a/@id
+
+AF,SHALLOW
+For $a in //order
+       $b in //address[name_of_city = “Honolulu”]
+Where $a/shipping/@ship_address_idref = $b/@id
+Return $a/@id
+
+DR,UNDR
+For $a in //{c3}address[{c3}name_of_city = “Honolulu]//{c3}order
+Return $a/@id
+
+EN,MCMR
+For $a in //{c1}order
+For $b //{c2}address[{c2}name_of_city = “Honolulu”]
+Where $a/{c1}shipping = $b/{c2}shipping
+Return $a/@id
+
+<b>Q10- Return cost of item that has ISBN = 6AOIESSCVMHXRZ (item1)</b>
+
+DEEP
+For $c in distinct-values(//item[ISBN =”6AOIESSCVMHXRZ”])
+Return $c/cost
+
+AF,SHALLOW,EN,DR,MCMR,UNDR
+For $c in //item[ISBN=”6AOIESSCVMHXRZ”]
+Return $c/cost
+
+EN,MCMR
+For $c in //{c1}item[ISBN=”6AOIESSCVMHXRZ”]
+Return $c/{c1}cost
+
+DR, UNDR
+For $c in //{c5}item[ISBN=”6AOIESSCVMHXRZ”]
+Return $c/{c5}cost
+
+<b>Q11- Return shipping and billing address of an order (id 1)</b>
+
+DEEP
+For $a in //order[@id=“1”]
+Return $a/shipping/address, $a/billing/address
+
+UNDR
+For $a in //{c1}order[@id=“1”]
+Return $a/{c1}shipping/{c1}address, $a/{c1}billing/{c1}address
+
+
+AF,SHALLOW
+For $a in //order[@id=”1]
+For $b in //address
+For $c in //address
+Where $a/shipping/@ship_address_idref = $b/@id 
+	And $a/billing/@bill_address_idref = $c/@id
+Return $b, $c
+
+DR
+For $a in //{c2}address[//order/@id=”1”]
+For $b in //{c3}address[//order/@id=”1”]
+Return $a, $b
+
+EN
+ For $a in //{c1}order[@id=”1”]
+ For $b in //{c2}address
+ For $c in //{c2}address
+Where $a/{c1}shipping = $b/{c2}shipping
+	And $a/{c1}billing = $c/{c2}billing
+Return $b, $c
+
+MCMR
+For $a in //{c1}order[@id=”1”]
+For $b in //{c2}address[//order/@id=”1”]
+For $c in //{c2}address
+Where $a/{c1}shipping = $c/{c2}shipping
+Return $b, $c
+
+
+<b>Q12- Return shipping, billing address , and customer info of all the orders of customer customer775</b>
+
+DEEP
+For $a in //customer[@id=”775”]
+For $b in $a//order
+Return $a, $b/billing/address, $b/shipping/address
+
+AF
+For $a in //customer[@id = “775”]
+For $b in $a//order
+For $c in //address
+For $d in //address
+Where $c/@id = $b/ billing/@bill_address_idref 
+ 	And $d/@id = $b/shipping/@ship_address_idref
+Return $a, $c, $d
+
+SHALLOW
+For $a in //order
+For $b in //customer[@id=”775”]
+For $c in //address
+For $d in //address
+Where $b/@id = $a/make/@customer_idref
+	And $c/@id = $a/billing/@bill_address_idref
+	And $d/@id = $a/shipping/@ship_address_idref
+Return $b, $c, $d
+
+DR
+For $a in //{c1}customer[@id=”775”]
+For $b in $a//{c1}order
+For $c in //{c2}address[{c2}billing = $b/{c1}billing]
+For $d in //{c3}address[{c3}shipping = $b/{c1}shipping]
+Return $a, $c, $d
+
+UNDR
+For $a in //{c1}customer[@id=”775”]
+For $b in $a//{c1}order
+Return $a, $b/{c1}billing/{c1}address, $b/{c1}shipping/{c1}address
+
+
+EN
+For $a in //{c1}customer[@id=”775”]
+For $b in $a//{c1}order
+For $c in //{c2}address
+For $d in //{c2}address
+Where $b/{c1}billing = $c/{c2}billing
+	And $b/{c1}shipping = $d/{c2}shipping
+Return $a, $c, $d
+
+MCMR
+For $a in //{c1}customer[@id=”775”]
+For $b in $a//{c1}order
+For $c in //{c2}address
+For $d in //{c2}address
+Where $d/{c2}shipping = $b/{c1}shipping
+	And $b = $c/{c2}billing
+Return $a, $c, $d
+
+<b>U1-Modify the description of id1 to id10</b>
+DEEP, AF, SHALLOW
+For $a in //item[@id in range {1-10}]/description 
+Modify $a/text() to “N/A”
+
+EN, MCMR
+For $a in //{c1}item[@id in range {1-10}]/{c1}description 
+Modify $a/text() to “N/A”
+
+DR, UNDR
+For $a in //{c5}item[@id in range {1-10}]/{c5}description 
+Modify $a/text() to “N/A”
+
+<b>U2-Modify zip code of address (id = 5004) 01111</b>
+DEEP, AF, SHALLOW
+For $a in //address[@id=”5004”]
+Modify $a/zipcode/text() to “01111”
+
+EN, MCMR, DR, UNDR
+For $a in //{c1}address[@id=”5004”]
+Modify $a/{c1}zipcode/text() to “01111”
+
+<b>U3-Insert district of billing address of order id = 1</b>
+
+DEEP
+For $a in //order[@id=”1”]/billing/address
+For $b in //address
+Where $b/@id = $a/@id
+Insert $b with <district>Makkasan</district>
+
+AF, SHALLOW
+For $a in //order[@id=”1”]/billing
+For $b in //address
+Where $a/@bill_address_idref = $b/@id
+Insert $b with <district>Makkasan</district>
+
+DR, MCMR
+For $a in //{c2}address[{c2}order/@id=”1”]
+Insert $a with <district>Makkasan</district>
+
+UNDR
+For $a in //{c1}order[@id=”1”]/{c1}billing/{c1}address
+For $b in //{c1}address
+Where $b/@id = $a/@id
+Insert $b with <district>Makkasan</district>
+
+EN
+For $a in //{c1}order[@id=”1”]/{c1}billing
+For $b in //{c2}address
+Where $a = $b/{c2}billing
+Insert $b with <district>Makkasan</district>
+</pre>
+</body>
+</html>
