@@ -37,10 +37,8 @@ function loadPubs() {
   $.ajax({
     type: 'GET',
     dataType: 'json',
-    // This is a node.js corsproxy running on
-    // umich-dbgroup EC2 free tier instance
-    // contact cjbaik for more info
-    url: 'http://107.23.149.163/dblp.org/search/publ/api',
+    // Needed a cors proxy, so set one up.
+    url: 'https://umdb-proxy.herokuapp.com/http://dblp.org/search/publ/api',
     data: {
       // Can find these on dblp.org/search
       q: ':author:Barzan_Mozafari:|:author:Michael_J._Cafarella:|:author:H._V._Jagadish:',
