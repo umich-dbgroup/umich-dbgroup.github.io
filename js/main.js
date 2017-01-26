@@ -21,8 +21,17 @@ $(document).ready(function() {
   // Rudimentary hack at DBLP search
   if (window.location.pathname === "/publications") {
     loadPubs();
+  } else {
+    pingProxyServer();
   }
 });
+
+// Heroku free servers sleep after 30 min of inactivity
+// To expedite loading when clicking 'Publications', we will wake the
+// proxy server when loading any page.
+function pingProxyServer() {
+  $.get('https://umdb-proxy.herokuapp.com/http://google.com/')
+}
 
 function loadPubsError() {
   $("#publications").html("Error loading publications! Leave a note with <a href='mailto:dbgroup@umich.edu'>dbgroup@umich.edu</a>.");
