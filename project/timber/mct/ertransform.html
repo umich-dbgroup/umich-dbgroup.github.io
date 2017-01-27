@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Transformation to Simplified ER Diagrams</title>
+</head>
+
+<body>
+<h2>Transformation to Simplified ER Diagrams</h2>
+<p>For simplicity of exposition, especially in the translation of ER
+diagrams to MCT schemas in the paper, it is useful to focus
+attention on simplified ER diagrams, that contain only entity types, binary
+relationship types between distinct entity or relationship types,
+and atomic attributes. Arbitrary ER diagrams can be translated
+into such simplified ER diagrams by repeatedly applying the following
+transformations.</p>
+<ul>
+<li>
+A <em>k</em>-ary (<em>k</em>>2) relationship type <em>R</em> between <em>k</em> entity
+(or relationship) types <em>E<sub>1</sub>,..., E<sub>k</sub></em> is replaced by a
+new entity type <em>E<sub>R</sub></em>, with k new relationship types <em>R<sub>1</sub>,
+,... R<sub>k</sub></em>, where each <em>R<sub>i</sub></em> is a <em>1:n</em> binary relationship
+type between <em>E<sub>i</sub></em> and <em>E<sub>R</sub></em>.
+</li>
+
+
+<li>
+A binary relationship type <em>R</em> in which an entity (or relationship)
+type <em>E</em> participates more than once is replaced by a new
+entity type <em>E<sub>R</sub></em>, with two new binary relationship types <em>R<sub>1</sub></em>,
+<em>R<sub>2</sub></em>, where each <em>R<sub>i</sub></em> corresponds to one of the original roles
+of <em>R</em>, linking <em>E</em> and <em>E<sub>R</sub></em>.
+The cardinality of an <em>R<sub>i</sub></em> is the same as that of <em>R</em>'s
+original role.
+</li>
+
+
+<li>
+Composite attributes are replaced by new entity types that
+are linked to their original entity type by new binary
+relationship types.
+This is done since the XML data model does not support composite
+attributes to be associated with elements.
+</li>
+
+</ul>
+<p>Note that the TPC-W ER diagram of Figure 1 in the paper is
+already in the desired simplified form.</p>
+
+</body>
+</html>

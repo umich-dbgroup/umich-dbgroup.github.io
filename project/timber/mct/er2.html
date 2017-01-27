@@ -1,0 +1,595 @@
+<html>
+<head>
+<title>ER2 Department Relationships</title>
+</head>
+<body>
+<div align="center"><h2>ER2 Department Relationships</h2></div>
+
+Source: example from an ER drawing program
+<p></p>
+<p><b>ER characteristics</b></p>
+14 entities<br>
+15 relationships: 8 of 1:1, 6 of 1:m, 1 of m:n<br>
+
+<img width=648 height=481
+src="er2_files/image002.jpg" v:shapes="_x0000_i1025">
+<br>
+
+<p><b>XML Schema</b></p>
+
+DEEP<br>
+<img width=576 height=346
+src="er2_files/image004.jpg" v:shapes="_x0000_i1028">
+<br>
+AF<br>
+<img width=576 height=374
+src="er2_files/image006.jpg" v:shapes="_x0000_i1026">
+<br>
+
+SHALLOW<br><img width=575 height=410
+src="er2_files/image008.jpg" v:shapes="_x0000_i1031">
+<br>
+
+EN: 2 colors<br>
+<img width=575 height=375
+src="er2_files/image010.jpg" v:shapes="_x0000_i1027">
+<br>
+
+MCMR: 2 colors<br>
+<img width=575 height=235
+src="er2_files/image012.jpg" v:shapes="_x0000_i1029"><br>
+<img width=575 height=315
+src="er2_files/image014.jpg" v:shapes="_x0000_i1030">
+<br>
+
+DR: 6 colors<br>
+<img width=575 height=235
+src="er2_files/image015.jpg" v:shapes="_x0000_i1032"><br>
+<img width=575 height=315
+src="er2_files/image017.jpg" v:shapes="_x0000_i1033"><br>
+<img width=575 height=307
+src="er2_files/image019.jpg" v:shapes="_x0000_i1034"><br>
+<img width=576 height=332
+src="er2_files/image021.jpg" v:shapes="_x0000_i1035"><br>
+<img width=575 height=318
+src="er2_files/image023.jpg" v:shapes="_x0000_i1036"><br>
+<img width=575 height=318
+src="er2_files/image025.jpg" v:shapes="_x0000_i1037">
+<br>
+
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+<b>Q1 Return the name of the Development branch id = 0 for CEO id =0</b>
+DEEP, AF
+For $a in //CEO[@id = "0"]
+For $b in $a//Development_branch[@id = "0"]
+Return $b/name
+
+SHALLOW
+For $a in //CEO[@id = "0"]
+$b in //Development_branch[@id = "0"]
+where $a/manages2/@idref = $b/@id
+return $b/name
+
+EN, MCMR, DR
+For $a in //{c1}CEO[@id = "0"]
+For $b in $a//{c1}Development_branch[@id = "0"]
+Return $b/{c1}name
+
+<b>Q2 Return all employees that share</b>
+DEEP
+For $a in //share
+Return $a/employees5
+
+AF, SHALLOW
+For $a in //share
+For $b in //employees5
+Where $a/@idref = $b/@id
+Return $b
+
+EN, MCMR, DR 
+For $a in //{c1}share
+Return $a/{c1}employees6
+
+<b>Q3 Return the ids of all the employees in QCC who has department Share starting in QCC (@ in contains) before content branch</b>
+DEEP
+For $a in //QCC/contains5
+For $b in //content_branch/contains6
+For $c in //share
+For $d in $a/employees5
+For $e in $b/employees6
+where $d/@id = $ c/employees5/@id
+and $e/@id = $ c/employees6/@id
+and $a/date &lt; $b/date
+return $d/@id
+
+AF
+For $a in //QCC/contains5
+For $b in //content_branch
+For $v in $b/contains6
+For $c in //share
+For $d in $a/employees5
+For $e in $v/employees6
+where $d/@id = $ c/@employees5_idref
+and $e/@id = $ c /@employees6_idref
+and $b/@id = $c/@content_branch_idref
+and $a/date &lt; $v/date
+return $d/@id
+
+SHALLOW
+For $a in //QCC
+For $b in //content_branch
+For $c in //share
+For $d in //employees5
+For $e in //employees6
+where $d/@id = $ c/@employees5_idref
+and $e/@id = $ c/@employees6_idref
+and $b/@id = $c/@content_branch_idref
+and $d/contains5/date &lt; $e/contains6/date
+and $a/@id = $d/contains5/@idref
+and $b/@id = $e/contains6/@idref
+return $d/@id
+
+EN, MCMR
+For $a in //{c1}QCC
+For $b in $a/{c1}contains5
+For $c in //{c2}contains6
+For $d in //{c2}share
+For $e in $a/{c1}share
+Where $b/{c1}date &lt; $c{c2}/date
+And $d = $e
+And $d/{c2}employees6 = $e/{c1}employees6
+And $b/{c1}employees5 = $d/{c2}employees5
+Return $b/{c1}employees5/@id
+
+DR
+For $a in //{c5}QCC
+For $b in //{c6}share
+For $c in //{c5}content_branch
+For $d in $a/{c5}contains5
+For $e in $c/{c5}contains6
+Where $d/{c5}date &lt; $e{c5}/date
+And $d/{c5}employees5 = $b/{c6}employees5
+And $e/{c5}employees6 = $b/{c6}employees6
+Return $d/{c5}employees5/@id
+
+<b>Q4 List QCC where average employee salary = 10K</b>
+DEEP, AF
+For $a in //QCC
+Let $b := $a/employees5
+Where AVG($b/salary) = 10K
+Return $a
+
+SHALLOW
+For $a in //QCC
+Let $b := //employees5
+Where $b/contains5/@idef = $a/@id
+and AVG($b/salary) = 10K
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}QCC
+Let $b := $a/{c1}employees5
+Where AVG($b/{c1}salary) = 10K
+Return $a
+
+<b>Q5 How many vice presidents have salary more than 90K</b>
+DEEP, AF, SHALLOW
+COUNT(For $a in //vice_president[salary &gt; 90K] return $a)
+
+EN, MCMR, DR
+COUNT(For $a in //{c1}vice_president[salary &gt; 90K] return $a)
+
+<b>Q6 How many accountings managed by CEO in Chicago</b>
+DEEP, AF
+COUNT(For $a in //CEO[address= "Chicago"]
+For $b in $a//accounting
+Return $b)
+
+SHALLOW
+COUNT(For $a in //CEO[address= "Chicago"]
+For $b in //accounting
+where $a/manages1/@idref = $b/@id
+return $b)
+
+EN, MCMR, DR
+COUNT(For $a in //{c1}CEO[address= "Chicago"]
+For $b in $a//{c1}accounting
+Return $b)
+
+<b>Q7 How many pieces of name in the database</b>
+DEEP, AF, SHALLOW
+For $a in //
+Return count($a//employees1) + count($a//employees2) + count($a//employees3) + count($a//employees4)+ count($a//employees5)+ count($a//employees6)
+
+EN, MCMR, DR
+For $a in //
+Return count($a//{c1}employees1) + count($a//{c1}employees2) + count($a//{c1}employees3) + count($a//{c1}employees4)+ count($a//{c1}employees5)+ count($a//{c1}employees6)
+
+
+<b>Q8 List the name of vice president and the content branch they managed</b>
+DEEP, AF
+For $a in //vice_president
+Return $a, $a//content_branch
+
+SHALLOW
+For $a in //vice_president
+$b in //content_branch
+Where $a/manages6/@idref = $b/@id
+Return $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}vice_president
+Return $a, $a//{c1}content_branch
+
+<b>Q9 List the name of vice president and the content branch they managed under CEO in Chicago</b>
+DEEP, AF
+For $a in //CEO[city="Chicago"]//vice_president
+Return $a, $a//content_branch
+
+SHALLOW
+For $a in //CEO[city= "Chicago"]
+For $b in //vice_president
+For $c in //content_branch
+where $a/manages7/@idref = $b/@id
+and $b/manages6/@idref = $c/@id
+Return $a, $c
+
+EN, MCMR, DR
+For $a in //{c1}CEO[{c1}city="Chicago"]//{c1}vice_president
+Return $a, $a//{c1}content_branch
+
+
+<b>Q10 List all Development branches according to CEO’s city</b>
+DEEP, AF
+For $a in //CEO/city/text()
+Let $b := For $c in //CEO[city = $a]
+	  For $d in c//Development_branch
+ 	  Return $d
+Return &lt;city&gt;
+	$a
+	$b
+	&lt;/city&gt;
+
+SHALLOW
+For $a in //CEO/city/text()
+Let $b := For $c in //CEO[city = $a]
+	  For $d in //Development_branch
+	   Where $c/manages2/@idref = $d/@id
+ 	  Return $d
+Return &lt;city&gt;
+	$a
+	$b
+	&lt;/city&gt;
+
+EN, MCMR, DR
+For $a in //{c1}CEO/{c1}city/text()
+Let $b := For $c in //{c1}CEO[{c1}city = $a]
+	  For $d in c//{c1}Development_branch
+ 	  Return $d
+Return &lt;city&gt;
+	$a
+	$b
+	&lt;/city&gt;
+
+<b>Q11 For each QCC, show the Development branch work closely with where starting work closely 1 year after the start of QCC department start itself</b>
+DEEP
+For $a in //QCC
+For $b in $a/work_closely[start_date &gt; $a/start_date]/Development_branch
+Where count($b) &gt; 0
+Return $a, $b
+
+AF, SHALLOW
+For $a in //QCC
+For $b in //Development_branch
+Where $b/work_closely/@idref = $a/@id
+And $b/work_closely/startdate &gt; $a/start_date
+And count($b) &gt; 0
+Return $a, $b
+
+EN
+For $a in //{c1}Development_branch 
+For $b in $a//{c2}QCC
+Where $b/{c1}work_closely/{c1}start_date  &gt; $b/{c2}start_date
+And count($a) &gt; 0
+Return $b, $a
+
+MCMR, DR
+For $a in //{c2}QCC
+For $b in $a/{c2}work_closely[{c2}start_date &gt; $a/{c2}start_date]/ {c2}Development_branch
+Where count($b) &gt; 0
+Return $a, $b
+
+<b>Q12 For each QCC that has  number of employees more than 10, list the number of Development branch work closely with where starting work closely 1 year after the start of QCC department start itself</b>
+DEEP
+For $a in //QCC
+For $b in $a/work_closely[start_date &gt; $a/start_date]/Development_branch
+Let $c := $a//employees5
+Where count($b) &gt; 0, and count($c) &gt;10
+Return $a, $b
+
+AF
+For $a in //QCC
+$b in //Development_branch
+Let $c := $a//employees5
+Where $b/work_closely/@idref = $a/@id
+And $b/work_closely/start_date &gt; $a/start_date
+And count($b) &gt; 0
+and count($c) &gt;10
+Return $a, $b
+
+SHALLOW
+For $a in //QCC
+$b in //Development_branch
+Let $c := //employees5
+Where $b/work_closely/@idref = $a/@id
+And $c/contains5/@idref = $a/@id
+And $b/work_closely/start_date &gt; $a/start_date
+And count($b) &gt; 0
+and count($c) &gt;10
+Return $a, $b
+
+EN
+For $a in //{c1}Development_branch 
+For $b in $a//{c1}QCC
+Let $c := $b//{c1}employees5
+Where $b/{c1}work_closely/{c1}start_date  &gt; $b/{c2}start_date
+And count($a) &gt; 0
+and count($c) &gt;10
+Return $b, $a
+
+MCMR, DR
+For $a in //{c2}QCC
+For $b in $a/{c2}work_closely[{c2}start_date &gt; $a/{c2}start_date]/ {c2}Development_branch
+Let $c := $a//{c2}employees5
+Where count($b) &gt; 0, and count($c) &gt;10
+Return $a, $b
+
+<b>Q13 List the name of accounting with CEO id=2 along with their address</b>
+DEEP, AF
+For $a in //CEO[id = "2"]//accounting
+Return $a, $a/address
+
+SHALLOW
+For $a in //CEO[id = "2"]
+For $b in accounting
+Where $a/manages1/@idref = $b/@id
+Return $b, $b/address
+
+EN, MCMR, DR
+For $a in //{c1}CEO[id = "2"]//accounting
+Return $a, $a/{c1}address
+
+<b>Q14 Return the name of all marketing whose address contains the word "NY"</b>
+DEEP, AF, SHALLOW
+For $a in //marketing
+Where CONTAINS($a/address,NY)
+Return $a/name
+
+EN, MCMR, DR
+For $a in //{c1}marketing
+Where CONTAINS($a/{c1}address,NY)
+Return $a/{c1}name
+
+<b>Q15 Print the vice president of each CEO</b>
+DEEP, AF
+For $a in //CEO
+Return $a//vice_president
+
+SHALLOW
+For $a in //CEO
+For $b in //vice_president
+Where $a/manages7/@ref =$b/@id
+Return $b
+
+EN, MCMR, DR
+For $a in //{c1}CEO
+Return $a//{c1}vice_president
+
+<b>Q16 Return the id of those vice presidents that managed 3 departments at the same time</b>
+DEEP, AF, SHALLOW
+For $a in //vice_president
+Where NOT EMPTY($a/manages3)
+And NOT EMPTY($a/manages4)
+And NOT EMPTY($a/manages6)
+Return $a/@id
+
+EN, MCMR, DR
+For $a in //{c1}vice_president
+Where NOT EMPTY($a/{c1}manages3)
+And NOT EMPTY($a/{c1}manages4)
+And NOT EMPTY($a/{c1}manages6)
+Return $a/@id
+
+<b>Q17 Which QCC doesn’t have shared employee?</b>
+DEEP
+For $a in //QCC
+For $b in //share
+Where EMPTY ($b/QCC[@id = $a/@id])
+Return $a
+
+AF, SHALLOW
+For $a in //QCC
+Where EMPTY($a/share)
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}QCC
+Where EMPTY($a/{c1}share)
+Return $a
+
+<b>Q18 Convert the employee salary of Technical support to another currency</b>
+DEEP,AF, SHALLOW
+FUNCTION CONVERT ($v)
+{
+ RETURN 40 * $v (Dollar to baht)
+}
+For $a in //employees4
+Return CONVERT($a/salary)
+
+EN, MCMR, DR
+FUNCTION CONVERT ($v)
+{
+ RETURN 40 * $v (Dollar to baht)
+}
+For $a in //{c1}employees4
+Return CONVERT($a/{c1}salary)
+
+
+<b>Q19 Give an alphabetically ordered list of all marketing along with there address</b>
+DEEP, AF, SHALLOW
+For $a in //marketing
+ORDER BY $a/name
+Return $a, $a/address
+
+EN, MCMR, DR
+For $a in //{c1}marketing
+ORDER BY $a/{c1}name
+Return $a, $a/{c1}address
+
+<b>Q20 Group CEO by their income and output cardinality for each group</b>
+DEEP, AF, SHALLOW
+&lt;result&gt;
+ &lt;high&gt;
+	COUNT(//CEO[income &gt; 100K])
+&lt;/high&gt;
+&lt;low&gt;
+COUNT(//CEO[income &lt;= 100K])
+&lt;/low&gt;
+&lt;na&gt;
+COUNT (For $a in //CEO
+ Where EMPTY ($a/income)
+Return $a)
+&lt;/na&gt;
+
+EN, MCMR, DR
+&lt;result&gt;
+ &lt;high&gt;
+	COUNT(//{c1}CEO[{c1}income &gt; 100K])
+&lt;/high&gt;
+&lt;low&gt;
+COUNT(//{c1}CEO[{c1}income &lt;= 100K])
+&lt;/low&gt;
+&lt;na&gt;
+COUNT (For $a in //{c1}CEO
+ Where EMPTY ($a/{c1}income)
+Return $a)
+&lt;/na&gt;
+
+<b>U1 Insert an accounting department manage by CEO id 1</b>
+DEEP,AF
+Insert &lt;manages1&gt;&lt;accounting/&gt;&lt;/manages1&gt; under $a in //CEO[@id = "1"]
+
+SHALLOW
+Insert &lt;account/&gt; under $a in // get id
+Insert &lt;manages1 idref=id&gt;&lt;/&gt; under $b in //CEO[@id = "1"]
+
+EN,MCMR,DR
+Insert &lt;manages1&gt;&lt;accounting/&gt;&lt;/manages1&gt; under $a in //{c1}CEO[@id = "1"]
+
+<b>U2 Delete the last employee of marketing dept id =0</b>
+
+DEEP, AF
+Delete $a in //marketing[@id = "0"]/contains3[last()]
+
+SHALLOW
+Delete $a in //employee[containts/@idref = "0"]
+
+EN, MCMR, DR
+Delete $a in //{c1}marketing[@id = "0"]/{c1}contains3[last()]
+
+<b>U3 Replace Development Branch location of CEO [id=0]</b>
+DEEP,AF
+For $a in //CEO[@id = "0"]
+Replace $a//Development_branch/location with &lt;location&gt;..&lt;/location&gt;
+
+SHALLOW 
+For $a in //CEO[id = "0"]
+For $b in //Development_branch
+where $b/@id = $a/manages2/@idref
+Replace $b/location with &lt;location&gt;&lt;/location&gt;
+
+EN,MCMR,DR
+For $a in //{c1}CEO[@id = "0"]
+Replace $a//{c1}Development_branch/{c1}location with &lt;location&gt;..&lt;/location&gt;
+
+U4 If CEO[id = 100] exists, change its name to "David", otherwise insert a new CEO in the CEO list
+DEEP,AF,SHALLOW
+If $a in //CEO[@id = "100"] exists
+Then replace $a/name with &lt;name&gt;David&lt;/name&gt;
+Else insert &lt;CEO id = "100"&gt;&lt;/&gt; to $b in //
+
+EN, MCMR, DR
+If $a in //{c1}CEO[@id = "100"] exists
+Then replace $a/{c1}name with &lt;name&gt;David&lt;/name&gt;
+Else insert &lt;CEO id = "100"&gt;&lt;/&gt; to $b in //
+
+<b>U5 For all QCC iinsert a count of a total number of employees as new employees count</b>
+DEEP, AF, EN, MCMR, DR (color5)
+Update For $a in //QCC
+Insert &lt;employees_count&gt; {COUNT($a//employees5)&lt;/employees_count&gt; as last into $a
+
+SHALLOW
+Update For $a in //QCC
+	Let $b := //employees5
+	Where $a/contains5/@idref = $b/@id
+Insert &lt;employees_count&gt; {COUNT($b)&lt;/employees_count&gt; as last into $a
+
+EN, MCMR, DR
+Update For $a in //{c1}QCC
+Insert &lt;employees_count&gt; {COUNT($a//{c1}employees5)&lt;/employees_count&gt; as last into $a
+
+<b>U6 Delete all employees worked for QCC id =1</b>
+DEEP, AF
+For $a in //QCC[@id = "1"]
+Delete $a//employees5
+
+SHALLOW
+For $a in //QCC[@id = "1"]
+Let $b := //employees5
+Where $b/@id = $a/contains5
+Delete $b
+
+EN, MCMR, DR
+For $a in //{c1}QCC[@id = "1"]
+Delete $a//{c1}employees5
+
+<b>U7 Remove CEO id 3 . remove all department/employees connect to it</b>
+DEEP, AF, 
+Delete subtree $a in //CEO[id = "3"]
+
+SHALLOW
+For $a in //CEO
+ $b in //accounting
+….
+…
+(14 variables, 13 value-join conditions = 28 path expressions
+delete every variables)
+
+EN, MCMR, DR
+Delete subtree $a in //{c1}CEO[id = "3"]
+
+<b>U8 For each content branch compute the number of employees that share with QCC and insert it into contains6</b>
+
+DEEP
+For $a in //content_branch
+Let $b := $a//share
+Insert &lt;count&gt;COUNT($b) &lt;/count&gt; into $a/contains6
+
+AF, SHALLOW
+For $a in //content_branch
+Let $b := //share
+Where $a/@id - $b/idref
+Insert &lt;count&gt;COUNT($b) &lt;/count&gt; into $a/contains6
+
+EN, MCMR, DR
+For $a in //{c1}content_branch
+Let $b := $a//{c1}share
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; into $a/{c1}contains6
+</pre>
+</body>
+</html>

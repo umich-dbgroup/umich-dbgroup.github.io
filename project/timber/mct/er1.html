@@ -1,0 +1,873 @@
+<html>
+<head>
+<title>ER1 Hospital Billing System</title>
+</head>
+<body>
+<div align="center"><h2>ER1 Hospital Billing System</h2></div>
+
+Source: example from an ER drawing program
+<p></p>
+<p><b>ER characteristics</b></p>
+7 entities<br>
+
+9 relationships: 6 of 1:m, 3 of m:n<br>
+
+<img width=576 height=620
+src="er1_files/image002.jpg" v:shapes="_x0000_i1025"><br>
+
+<p><b>XML Schema</b></p>
+
+DEEP<br>
+<img width=395 height=588
+src="er1_files/image004.jpg" v:shapes="_x0000_i1026">
+<br>
+AF<br>
+<img width=408 height=341
+src="er1_files/image006.jpg" v:shapes="_x0000_i1027">
+
+<br>
+
+
+SHALLOW<br>
+<img width=576 height=343
+src="er1_files/image008.jpg" v:shapes="_x0000_i1028">
+<br>
+
+
+EN: 2 colors<br>
+<img width=408 height=283
+src="er1_files/image010.jpg" v:shapes="_x0000_i1029">
+
+<br>
+
+
+MCMR: 2 colors<br>
+<img width=432 height=390
+src="er1_files/image012.jpg" v:shapes="_x0000_i1030">
+
+<br>
+
+DR: 3 colors<br>
+<img width=444 height=404
+src="er1_files/image014.jpg" v:shapes="_x0000_i1031">
+
+<br>
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+
+<b>Q1: Return the patient name who has a medical history="allergy"</b>
+DEEP, AF, SHALLOW
+For $a in //patient[medical_history = "allergy"]
+Return $a/name/text()
+
+
+EN
+For $a in //{c1}[patient[{c1}medical_history = "allergy"]
+Return $a/{c1}name/text()
+
+MCMR
+For $a in //{c2}patient[{c2}medical_history = "allergy"]
+Return $a/{c2}name/text()
+
+DR
+For $a in //{c2}patient[{c2}medical_history = "allergy"]
+Return $a/{c2}name/text()
+
+
+<b>Q2: Return the amount of the all reimbursement of each insurance company</b>
+DEEP
+For $a in //insurance_company
+Let $b := for $c in //reimburse
+	 Where $c/ insurance_company /@id = $a/@id
+               Return $c/amount
+Return $a, $b
+
+AF , SHALLOW
+For $a in //insurance_company 
+Let $b:= for $c in //reimburse 
+Where $a/@id = $c/@idref
+	Return $c/amount
+Return $a, $b
+
+EN, MCMR
+For $a in //{c2}insurance_company
+Let $b := $a/{c2}/reimburse/{c2}amount
+Return $a, $b
+
+DR
+For $a in //{c1}insurance_company
+Let $b in $a/{c1}reimburse/{c1}amount
+Return $a, $b
+
+<b>Q3: Return the id of insurance company whose amount reimburse is at least twice as high as the initial deductible</b>
+DEEP
+For $a in //reimburse
+Where $a/deductible * 2 &lt;= $a/amount
+Return distinct-values ($a/insurance_company/@id)
+
+AF, SHALLOW
+For $a in //insurance_company
+For $b in //reimburse
+Where $a/@id = $b/@idref and $b/deductible * 2 &lt;= $b/amount
+Return distinct-values($a/@id)
+
+
+EN,MCMR
+For $a in //{c2}insurance_company
+Where $a/{c2}reimburse/{c2}deductible * 2 &lt;= $a/{c2}amount
+Return distinct-values($a/@id)
+
+DR
+For $a in //{c1}insurance_company
+Where $a/{c1}reimburse/{c1}deductible * 2 &lt;= $a/{c1}amount
+Return distinct-values($a/@id)
+
+<b>Q4: List the name/address of insurance company where a certain patient got the reimbursement before another. (open_auction/person = insurance_company /patient/account)</b>
+DEEP
+For $a in //patient[@id = "1"]//reimburse
+For $b in //patient[@id = "2"]//reimburse
+Where $a/date &lt; $b/date
+Return $a/ins.com/name, $a/insurance_company /address
+
+AF
+For $a in //patient[@id = "1"]//patient_account
+For $b in //patient[@id = "2"]//patient_account
+For $c in //insurance_company
+Where $a/reimburse/date &lt; $b/reimburse/date and $a/reimburse/@idref = $c/@id
+Return $c/name, $c/address
+
+SHALLOW
+For $a in //patient[@id = "1"]
+For $b in //patient[@id = "2"]
+For $c in //patient_account
+For $d in //patient_account
+For $e in //insurance_company
+Where $a/has2/@idref = $c/@id
+And  $b/has2/@idref = $d/@id
+And $c/reimburse/@idref = $e/@id
+And $c/reimburse/date &lt; $d/reimburse/date
+Return $e/name, $e/address
+
+
+EN, MCMR
+For $a in //{c1}patient[@id = "1"]//{c1}patient_account
+For $b in //{c1}patient[@id = "1"]//{c1}patient_account
+For $c in //{c2}insurance_company
+Where $a/{c1}reimburse/{c1}date &lt; $b/{c1}reimburse/{c1}date
+And $a/{c1}reimburse = $c/{c2}reimburse
+Return $c/{c2}name, $c/{c2}address
+
+DR
+For $a in //{c2}patient[@id = "1"]//{c2}patient_account
+For $b in //{c2}patient[@id = "1"]//{c2}patient_account
+For $c in //{c1}insurance_company
+Where $a/{c2}reimburse/{c2}date &lt; $b/{c2}reimburse/{c2}date
+And $a/{c2}reimburse = $c/{c2}reimburse
+Return $c/{c1}name, $c/{c1}address
+
+<b>Q5: How many procedure fee cost more than $100</b>
+DEEP,AF,SHALLOW
+COUNT (For $a in //procedures
+	  Where $a/fee &gt; 100
+  Return $a)
+
+EN,DR,MCMR
+COUNT (For $a in //{c1}procedures
+	  Where $a/{c1}fee &gt; 100
+  Return $a)
+
+
+<b>Q6: How many insurance claims are for each patient bill?</b>
+DEEP,AF
+For $a in //patient_bill//
+Return COUNT($a//insurance_claim)
+
+SHALLOW
+For $a in //patient_bill
+Return COUNT($a/generate)
+
+EN ,MCMR
+For $a in //{c1}patient_bill//
+Return COUNT($a//{c1}insurance_claim)
+
+DR
+For $a in //{c3}patient_bill//
+Return COUNT($a//{c3}insurance_claim)
+
+<b>Q7: How many proses (names) are in our database (//name of physician, name of patient...)</b>
+DEEP,AF,SHALLOW
+For $a in //
+Return count($a//physician/name) + count($a/patient/name) + count($a/patient_account/name)
+
+EN,MCMR
+For $a in //
+Return count($a//{c1}physician/{c1}name) + count($a/{c1}patient/{c1}name) + count($a/{c1}patient_account/{c1}name)
+
+DR
+For $a in //
+Return count($a//{c1}physician/{c1}name) + count($a/{c2}patient/{c2}name) + count($a/{c2}patient_account/{c2}name)
+
+<b>Q8: List the name of patient and the number of bills they had since registered.</b>
+DEEP
+For $a in //patient
+Let $b := $a//patient_bill
+Return $a, count(distinct-values($b))
+
+AF
+For $a in //patient
+Let $b := For $c in //procedure
+	  For $d in //patient_bill
+		Where $c/undergoes/@idref = $a/@id and $c/list/@idref = $d/@id
+	  Return ($d)
+Return $a, count($b)
+
+SHALLOW
+For $a in //patient
+Let $b := For $c in //procedure
+	  For $d in //patient_bill
+		Where $d/list/@idref = $c/@id
+		And $a/undergoes/@idref = $c/@id
+	  Return ($d)
+Return $a, count($b)
+
+EN
+For $a in //{c2}patient
+Let $b := For $c in //{c1}procedure
+	  For $d in //{c2}patient_bill
+ 	  Where $c/{c1}undergoes = $a/{c2}undergoes and $c/{c1}list = $d/{c2}list
+	  Return ($d)
+Return $a, count($b)
+
+MCMR
+For $a in //{c2}patient
+Let $b := For $c in //{c1}procedure
+	  For $c in $a//{c2}procedure
+	  For $d in //{c2}patient_bill
+ 	  Where $c/{c1}list = $d/{c2}list
+	  Return  ($d)
+Return $a, count($b)
+
+DR
+For $a in //{c2}patient
+Let $b := For $c in //{c3}patient_bill
+	  Where $a/{c2}//procedure = $c//{c3}procedure
+	  Return $c
+Return $a, count($b)
+
+<b>Q9: For each patient, list number of bills generated whose claim policy category = "old citizen" (join patient/procedure, patient bill, insurance claim)</b>
+DEEP
+For $a in //patient
+Let $b := $a//patient_bill
+Where $b//insurance_claim/policy_category = "old citizen"
+Return $a, count(distinct-values($b))
+
+
+AF
+For $a in //patient
+Let $b := For $c in //procedure
+	  For $d in //patient_bill
+		Where $c/undergoes/@idref = $a/@id and $c/list/@idref = $d/@id
+			And $d//insurance_claim/policy_category = "old citizen"
+	  Return $d
+Return $a, count($b)
+
+SHALLOW
+For $a in //patient
+Let $b := For $c in //procedure
+	  For $d in //patient_bill
+	  For $e in //insurance_claim
+		Where $d/list/@idref = $c/@id
+		And $a/undergoes/@idref = $c/@id
+		And $e/policy_category = "old citizen"
+		And $e/@id = $d/generate/@idref
+	  Return  ($d)
+Return $a, count($b)
+
+EN
+For $a in //{c2}patient
+Let $b := For $c in //{c1}procedure
+	  For $d in //{c2}patient_bill
+	  Where $c/{c1}undergoes = $a/{c2}undergoes and $c/{c1}list = $d/{c2}list and $d//{c1}insurance_claim/{c1}policy_category = "old citizen"
+	  Return  ($d)
+Return $a, count($b)
+
+MCMR
+For $a in //{c2}patient
+Let $b := For $c in //{c1}procedure
+	  For $c in $a//{c2}procedure
+	  For $d in //{c2}patient_bill
+ 	  Where $c/{c1}list = $d/{c2}list 
+                  and $d//{c1}insurance_claim/{c1}policy_category = "old citizen"
+	  Return ($d)
+Return $a, count($b)
+
+DR
+For $a in //{c2}patient
+Let $b := For $c in //{c3}patient_bill
+	  Where $a/{c2}//procedure = $c//{c3}procedure
+		And $c//{c3}insurance_claim/{c3}policy_category = "old citizen"
+	  Return  ($c)
+Return $a, count($b)
+
+<b>Q10: List all patients according to their patient’s account’s attribute.</b>
+DEEP,AF
+For $a in DISTINCT-VALUES( //patient_acccount/agerange)
+Let $b := For $c in //patient
+       Where $c//patient_account/agerange = $a
+       Return &lt;patient&gt;$c/name&lt;/patient&gt;
+Return &lt;agerange&gt;
+       &lt;age&gt;$a/text()&lt;/age&gt;
+	$b
+  	&lt;/agerange&gt;
+
+SHALLOW
+For $a in DISTINCT-VALUES(//patient_acccount/agerange)
+Let $b := For $c in //patient
+	  For $d in //patient_account
+       Where $d/agerange = $a
+       And $c/has2/@idref = $d/@id
+       Return &lt;patient&gt;$c/name&lt;/patient&gt;
+Return &lt;agerange&gt;
+       &lt;age&gt;$a/text()&lt;/age&gt;
+	$b
+  	&lt;/agerange&gt;
+
+EN, MCMR
+For $a in DISTINCT-VALUES(//{c1}patient_acccount/{c1}agerange)
+Let $b := For $c in //{c1}patient
+       Where $c//{c1}patient_account/{c1}agerange = $a
+       Return &lt;patient&gt;$c/{c1}name&lt;/patient&gt;
+Return &lt;agerange&gt;
+       &lt;age&gt;$a/text()&lt;/age&gt;
+	$b
+  	&lt;/agerange&gt;
+
+DR
+For $a in DISTINCT-VALUES(//{c2}patient_acccount/{c2}agerange)
+Let $b := For $c in //{c2}patient
+       Where $c//{c2}patient_account/{c2}agerange = $a
+       Return &lt;patient&gt;$c/{c2}name&lt;/patient&gt;
+Return &lt;agerange&gt;
+       &lt;age&gt;$a/text()&lt;/age&gt;
+	$b
+  	&lt;/agerange&gt;
+
+<b>Q11: For each patient, list the number of patient bill generated to claim from insurance company that the stock value do not exceed 200% of patient’s income (patient (ins. com-&gt;claim) (bill-&gt;claim))</b>
+DEEP
+For $a in //patient
+Let $b := $a//patient_bill
+Where $b//insurance_company/stock_value &lt; 2 * $a/income
+Return $a, count(distinct-values($b))
+
+AF
+For $a in //patient
+Let $b := For $c in //procedure
+	  For $d in //patient_bill
+	  For $e in //insurance_company
+		Where $c/undergoes/@idref = $a/@id and $c/list/@idref = $d/@id
+			And $d//sento/@idref = $e/@id and $e/stock_value &lt; 2*$a/income
+	  Return  ($d)
+Return $a, count($b)
+
+SHALLOW
+For $a in //patient
+Let $b := For $c in //procedure
+	  For $d in //patient_bill
+	  For $e in //insurance_company
+	  For $f in //insurance_claim
+		Where $a/undergoes/@idref = $c/@id and $d/list/@idref = $c/@id
+			And $f//sento/@idref = $e/@id and $e/stock_value &lt; 2*$a/income
+			And $f/@id = $d/generate/@idref
+	  Return  ($d)
+Return $a, count($b)
+
+EN
+For $a in //{c2}patient
+Let $b := For $c in //{c1}procedure
+	  For $d in //{c2}patient_bill
+	  For $e in //{c2}insurance_company
+	  Where $c/{c1}undergoes = $a/{c2}undergoes and $c/{c1}list = $d/{c2}list and $d//{c1} sentto = $e/{c2}sentto and $e/{c2}stock_value &lt; 2*$/{c2}income
+	  Return  ($d)
+Return $a, count($b)
+
+MCMR
+For $a in //{c2}patient
+Let $b := For $c in //{c1}procedure
+	  For $c in $a//{c2}procedure
+	  For $d in //{c2}patient_bill
+	  For $e in //{c2}insurance_company
+ 	  Where $c/{c1}list = $d/{c2}list 
+                  and $d//{c1} sentto = $e/{c2}sentto and $e/{c2}stock_value &lt; 2*$a/{c2}income
+	  Return  ($d)
+Return $a, count($b)
+
+
+DR
+For $a in //{c2}patient
+Let $b := For $c in //{c3}patient_bill
+	  For $d in //{c1}insurance_company
+	  Where $a/{c2}//procedure = $c//{c3}procedure
+		And $c//{c3}/sentto = $d/{c1}sentto and 
+		$d/{c1}stock_value &lt; 2*$/{c2}income
+	  Return  ($c)
+Return $a, count($b)
+
+<b>Q12: For richer patient, list the number of patient bill generated to claim from insurance company that the stock value do not exceed 200% of patient’s income</b>
+DEEP
+For $a in //patient[income &gt; 5000]
+Let $b := $a//patient_bill
+Where $b//insurance_company/stock_value &lt; 2 * $a/income
+Return $a, count(distinct-values($b))
+
+AF
+For $a in //patient[income &gt; 5000]
+Let $b := For $c in //procedure
+	  For $d in //patient_bill
+	  For $e in //insurance_company
+		Where $c/undergoes/@idref = $a/@id and $c/list/@idref = $d/@id
+			And $d//sento/@idref = $e/@id and $e/stock_value &lt; 2*$a/income
+	  Return ($d)
+Return $a, count($b)
+
+SHALLOW
+For $a in //patient[income &gt; 5000]
+Let $b := For $c in //procedure
+	  For $d in //patient_bill
+	  For $e in //insurance_company
+	  For $f in //insurance_claim
+		Where $a/undergoes/@idref = $c/@id and $d/list/@idref = $c/@id
+			And $f//sento/@idref = $e/@id and $e/stock_value &lt; 2*$a/income
+			And $f/@id = $d/generate/@idref
+	  Return  ($d)
+Return $a, count($b)
+
+
+EN
+For $a in //{c2}patient[{c2}income &gt; 5000]
+Let $b := For $c in //{c1}procedure
+	  For $d in //{c2}patient_bill
+	  For $e in //{c2}insurance_company
+	  Where $c/{c1}undergoes = $a/{c2}undergoes and $c/{c1}list = $d/{c2}list and $d//{c1} sentto = $e/{c2}sentto and $e/{c2}stock_value &lt; 2*$/{c2}income
+	  Return ($d)
+Return $a, count($b)
+
+MCMR
+For $a in //{c2}patient[{c2}income &gt; 5000]
+Let $b := For $c in //{c1}procedure
+	  For $c in $a//{c2}procedure
+	  For $d in //{c2}patient_bill
+	  For $e in //{c2}insurance_company
+ 	  Where $c/{c1}list = $d/{c2}list 
+                  and $d//{c1}sentto = $e/{c2}sentto and $e/{c2}stock_value &lt; 2*$a/{c2}income
+	  Return ($d)
+Return $a, count($b)
+
+DR
+For $a in //{c2}patient[{c2}income &gt; 5000]
+Let $b := For $c in //{c3}patient_bill
+	  For $d in //{c1}insurance_company.
+	  Where $a/{c2}//procedure = $c//{c3}procedure
+		And $c//{c3}/sentto = $d/{c1}sentto and 
+		$d/{c1}stock_value &lt; 2*$/{c2}income
+	  Return  ($c)
+Return $a, count($b)
+
+<b>Q13: List no. of patient bill generated by Ins. Company "A"</b>
+DEEP
+For $a in //patient_bill
+Where $a//insurance_company /name = "A"
+Return $a/no
+
+AF
+For $a in //patient_bill
+For $b in //insurance_company[name = "A"]
+Where $a//sentto/@idref = $b/@id
+Return $a/no
+
+SHALLOW
+For $a in //patient_bill
+$b in //insurance_claim
+$c in //insurance_company
+Where $c/@id = $b/sentto/@idref
+	And $b/@id = $a/generate/@idref
+Return $a/no
+
+EN,MCMR
+For $a in //{c1}patient_bill
+For $b in //{c2}insurance_company [{c2}name = "A"]
+Where $a//{c1}sentto= $b/{c2}sentto
+Return $a/{c1}no
+
+DR
+For $a in //{c3}patient_bill
+For $b in //{c1}insurance_company [{c1}name = "A"]
+Where $a//{c3}sentto= $b/{c1}sentto
+Return $a/{c3}no
+
+<b>Q14: Return all patient bills that description contain word "heart"</b>
+DEEP
+For $a in distince-values(//patient_bill)
+Where CONTAINS($a/desc,"heart")
+Return $a
+
+AF,SHALLOW
+For $a in //patient_bill
+Where CONTAINS($a/desc,"heart")
+Return $a
+
+EN,MCMR
+For $a in //{c1}patient_bill
+Where CONTAINS($a/{c1}desc,"heart")
+Return $a
+
+DR
+For $a in //{c3}patient_bill
+Where CONTAINS($a/{c3}desc,"heart")
+Return $a
+
+<b>Q15: Print the procedure code for physician with name = "David"</b>
+DEEP
+For $a in //procedure
+Where $a//physician/name = "David"
+Return $a/code
+
+AF
+For $a in //physician[name = "David"]
+Return $a/procedure/code
+
+SHALLOW
+For $a in //procedure
+For $b in //physician
+Where $b/name = "David"
+And $a/@id = $b/order/@idref
+Return $a/code
+
+EN, DR,MCMR
+For $a in //{c1}physician[{c1}name = "David"]
+Return $a/{c1}procedure/{c1}code
+
+<b>Q16: Return the procedure code for physician with one or more characters "a" in name</b>
+DEEP
+For $a in //procedure
+Where CONTAINS($a//physician/name,"a")
+Return $a/code
+
+AF
+For $a in //physician
+Where CONTAINS($a/name,"a")
+Return $a/procedure/code
+
+SHALLOW
+For $a in //procedure
+For $b in //physician
+Where CONTAINS($b/name,"a")
+And $a/@id = $b/order/@idref
+Return $a/code
+
+
+EN, DR,MCMR
+For $a in //{c1}physician
+Where CONTAINS($a/{c1}name,"a")
+Return $a/{c1}procedure/{c1}code
+
+<b>Q17: Which patient does not have drug history?</b>
+DEEP,AF,SHALLOW
+For $a in //patient
+Where EMPTY ($a/drug_history)
+Return $a/name
+
+EN,DR,MCMR
+For $a in //{c2}patient
+Where EMPTY ($a/{c2}drug_history)
+Return $a/{c2}name
+
+<b>Q18: Convert the claim number to claim code (number concatenation insurance company number) (claim/com)</b>
+DEEP
+For $a in //insurance_claim
+For $b in $a//insurance_company
+ORDER BY $a/@id
+Return $a/@id CONCAT "_" CONCAT $b/@id
+
+AF,SHALLOW
+For $a in //insurance_claim
+For $b in //insurance_company
+Where $a/sentto/@idref = $b/@id
+ORDER BY $a/@id
+Return $a/@id CONCAT "_" CONCAT $b/@id
+
+EN
+For $a in //{c1}insurance_claim
+For $b in //{c2}insurance_company
+Where $a/{c1}sentto = $b/{c2}sentto
+ORDER BY $a/@id
+Return $a/@id CONCAT "_" CONCAT $b/@id
+
+MCMR
+For $a in //{c2}insurance_company
+For $b in $a//{c2}insurance_claim
+ORDER BY $b/@id
+Return $b/@id CONCAT "_" CONCAT $a/@id
+
+DR
+For $a in //{c1}insurance_company
+For $b in $a//{c1}insurance_claim
+ORDER BY $b/@id
+Return $b/@id CONCAT "_" CONCAT $a/@id
+
+<b>Q19: Give an alphabetically ordered list of all patients, along with their address.</b>
+DEEP, AF, SHALLOW
+For $a in //patient
+Sort by $a/name
+Return &lt;patient&gt;&lt;name&gt;$a/name&lt;/name&gt;&lt;add&gt;$a/address&lt;/add&gt;&lt;/patient&gt;
+
+EN,DR,MCMR
+For $a in //{c2}patient
+Sort by $a/{c2}name
+Return &lt;patient&gt;&lt;name&gt;$a/{c2}name&lt;/name&gt;&lt;add&gt;$a/{c2}address&lt;/add&gt;&lt;/patient&gt;
+
+<b>Q20: Group patient by their account’s payment (attribute in patient account) and output cardinality of each group.</b>
+DEEP,AF
+For $a in //patient
+Let $b := {for each $c in $a//patient_account
+		Return $c/payment/text()}
+If SUM($b) &lt; 30000
+&lt;low&gt; $a/name&lt;/low&gt;
+If SUM($b) &gt; 30000 and SUM($b) &lt; 100000
+&lt;middle&gt;$a/name&lt;/middle&gt;
+If SUM($b) &lt; 30000
+&lt;high&gt; $a/name&lt;/high&gt;
+
+SHALLOW
+For $a in //patient
+Let $b := {for each $c in //patient_account
+		Where $c/@id = $a/has2/@idref
+		Return $c/payment/text()}
+If SUM($b) &lt; 30000
+&lt;low&gt; $a/name&lt;/low&gt;
+If SUM($b) &gt; 30000 and SUM($b) &lt; 100000
+&lt;middle&gt;$a/name&lt;/middle&gt;
+If SUM($b) &lt; 30000
+&lt;high&gt; $a/name&lt;/high&gt;
+
+EN,MCMR
+For $a in //{c1}patient
+Let $b := {for each $c in $a//{c1}patient_account
+		Return $c/{c1}payment/text()}
+If SUM($b) &lt; 30000
+&lt;low&gt; $a/{c1}name&lt;/low&gt;
+If SUM($b) &gt; 30000 and SUM($b) &lt; 100000
+&lt;middle&gt;$a/{c1}name&lt;/middle&gt;
+If SUM($b) &lt; 30000
+&lt;high&gt; $a/{c1}name&lt;/high&gt;
+
+DR
+For $a in //{c2}patient
+Let $b := {for each $c in $a//{c2}patient_account
+		Return $c/{c2}payment/text()}
+If SUM($b) &lt; 30000
+&lt;low&gt; $a/{c2}name&lt;/low&gt;
+If SUM($b) &gt; 30000 and SUM($b) &lt; 100000
+&lt;middle&gt;$a/{c2}name&lt;/middle&gt;
+If SUM($b) &lt; 30000
+&lt;high&gt; $a/{c2}name&lt;/high&gt;
+
+
+<b>U1: Insert patient bill into DB for the procedure id = 0</b>
+
+DEEP
+For $a in //procedure[@id=0] Insert &lt;list&gt;&lt;patient_bill&gt;…&lt;/&gt;&lt;/list&gt; after $a
+
+AF
+Insert &lt;patient_bill&gt;…&lt;/&gt; after $b in //, 
+For $a in //procedure[@id=0], insert &lt;list bill_ref = recent_id&gt;&lt;/list&gt; after $a
+
+SHALLOW
+Insert &lt;patient_bill&gt;&lt;list idref = "0"&gt;…&lt;/&gt; after $a in //, 
+
+EN, MCMR
+Insert &lt;patient_bill&gt;&lt;/&gt; into $a in //{c1},  
+&lt;list bill_ref = recent_id&gt;&lt;/list&gt; under $b in //procedure[@id = "0"]{c1}
+
+ Insert &lt;patient_bill&gt;&lt;list&gt;&lt;/&gt;&lt;/&gt; into $a in //{c2} 
+
+DR
+Insert &lt;patient bill&gt;&lt;list&gt;&lt;procedure id = "0"&gt; in $a in //{c3}, 
+Insert &lt;list/&gt; to //procedure[@id = 0] {c1}, Insert &lt;list/&gt; to //procedure[@id = "0"] {c2} 
+
+<b>U2: Delete the last reimbursement of insurance company id = 1</b>
+AF,SHALLOW
+Delete $x/last() from {For $a in //reimburse[@idref = "1"]
+			Return $a
+			Order by $a/date}
+DEEP
+Delete subtree $x/last() from {For $a in //reimburse[insurance_company/@id = "1"]
+			Return $a
+			Order by $a/date}
+
+EN,MCMR
+Delete $x/last() from {For $a in //{c2}insurance_company[@id = "1"]/ {c2}reimburse
+			Return $a
+			Order by $a/{c2}date}
+(
+DR
+Delete $x/last() from {For $a in //{c1}insurance_company[@id = "1"]/ {c1}reimburse
+			Return $a
+			Order by $a/{c1}date}
+
+
+
+<b>U3: Replace patient zipcode with 10400</b>
+DEEP,AF, SHALLOW
+Replace //patient[@id = "0"]/zipcode/text()
+With "10400"
+
+EN ,MCMR
+Replace //patient{c1}[@id = "0"]/zipcode{c1}/text()
+With "10400"
+
+DR
+Replace //patient{c2} [@id = "0"]/zipcode{c2}/text()
+With "10400"
+
+<b>U4: If patient account for the patient’s id = 1 exist, change its name to "ABC" otherwise insert a new patient account.</b>
+AF, DEEP
+If {For $a in //patient[@id = 1]//patient_account return $a}
+Then replace $a/name/text() 
+	With "ABC"
+Else  insert &lt;has2&gt;&lt;patient_account&gt;&lt;/&gt;&lt;/&gt;
+	Into //patient[@id = "1"]
+
+SHALLOW
+If {For $a in //patient[@id = "1"]/has2
+	$b in //patient_account
+	Where $a/@idref = $b/@id
+	Return $b}
+Then replace $b/name/text()
+	With "ABC"
+Else insert &lt;patient_account/&gt;
+	Into / get @id
+	Insert &lt;has2 idref = @id&gt;
+	Into //patient[@id = "1"]
+
+EN, MCMR
+If {For $a in //patient[@id = "1"]{c1}//patient_account{c1} return $a}
+Then replace $a/name{c1}/text() 
+	With "ABC"
+Else  insert &lt;has2&gt;&lt;patient_account&gt;&lt;/&gt;&lt;/&gt;
+	Into //patient{c1} [@id = "1"]
+
+DR
+If {For $a in //{c2}patient[@id = "1"]{c2}//patient_account{c2} return $a}
+Then replace $a/name{c2}/text() 
+	With "ABC"
+Else  insert &lt;has2&gt;&lt;patient_account&gt;&lt;/&gt;&lt;/&gt;
+	Into //patient{c2} [@id = "1"]
+
+<b>U5: For all insurance company count number of reimbursement and insert as &lt;count&gt; element (under insurance company)</b>
+DEEP (must update to n copies)
+For $a in distinct-values(//insurance_company)
+For $d in //insurance_company
+Let $b := For $c in //reimburse
+	 Where $c/insurance_company = $a
+	Return $c
+Where $d/@id = $a/@id
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; as last() into $d
+
+AF,SHALLOW
+For $a in //insurance_company
+Let $b := //reimburse
+Where $a/@id = $b/@idref
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; as last() into $a
+
+EN,MCMR
+For $a in //{c2}insurance_company
+Let $b := $a/{c2}reimburse
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; as last() into $a
+
+DR
+For $a in //{c1}insurance_company
+Let $b := $a/{c1}reimburse
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; as last() into $a
+
+<b>U6: Delete all patient account where one of reimbursed company is company id =1</b>
+DEEP
+For $a in //patient_account
+Where $a//insurance_company/@id = "1"
+Delete $a
+
+AF
+For $a in //patient_account
+For $b in //insurance_company[@id = "1"]
+Where $a/reimburse/@idref = $b/@id
+Delete $a
+
+SHALLOW
+For $a in //patient_account
+For $b in //insurance_company[@id = "1"]
+For $c in //has2
+Where $a/reimburse/@idref = $b/@id
+And $c/@idref = $a/@id
+Delete $a, $c
+
+EN,MCMR
+For $a in //{c1}patient_account
+For $b in //{c2}insurance_company[@id = "1"]
+Where $a/{c1}/reimburse = $b/{c2}reimburse
+Delete $a
+
+DR
+For $a in //{c2}patient_account
+For $b in //{c1}insurance_company[@id = "1"]
+Where $a/{c2}/reimburse = $b/{c1}reimburse
+Delete $a
+
+<b>U7: Remove patient account name ="David", remove all associate with the patient and ins. company.</b>
+DEEP, AF
+For $a in //patient[name = "David"]
+Delete $a/has2
+
+SHALLOW
+For $a in //patient[name = "David"]/has2
+For $b in //patient_account
+Where $a/@idref = $b/@id
+Delete $a, $b
+
+EN,MCMR,DR
+For $a in //{c2}patient[{c2}name = "David"]
+Delete $a/{c2}has2
+
+<b>U8: For each patient, compute total procedure fee and insert it into patient’s element</b>
+DEEP
+For $a in //patient
+Let $b := $a//procedure
+insert &lt;feetotal&gt;SUM ($b/fee)&lt;/feetotal&gt; into $a
+
+AF
+For $a in //patient
+Let $b := //procedure
+Where $b/undergoes/@idref = $a/@id
+Insert &lt;feetotal&gt;SUM ($b/fee)&lt;/feetotal&gt; into $a
+
+SHALLOW
+For $a in //patient
+Let $b := //procedure
+Where $a/undergoes/@idref = $b/@id
+Return insert &lt;feetotal&gt;SUM ($b/fee)&lt;/feetotal&gt; into $a
+
+EN
+For $a in //{c2}patient
+Let $b := //{c1}procedure
+Where $b/{c1}undergoes = $a/{c2}undergoes
+insert &lt;feetotal&gt;SUM ($b/{c1}fee)&lt;/feetotal&gt; into $a
+
+MCMR,DR
+For $a in //{c2}patient
+Let $b := $a//{c2}procedure
+insert &lt;feetotal&gt;SUM ($b/{c2}fee)&lt;/feetotal&gt; into $a
+</pre>
+</body>
+</html>

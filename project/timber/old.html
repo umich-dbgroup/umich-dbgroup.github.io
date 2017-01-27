@@ -1,0 +1,90 @@
+<html>
+<head>
+   <TITLE>TIMBER</TITLE>
+</head>
+
+<body>
+
+<h1>
+<font color="#009900">T</font>  <font color="#663300">ree-structured native XML database</font>
+<br>
+<font color="#009900">I</font>   <font color="#663300">mplemented at the University of</font>
+<br>
+<font color="#009900">M</font><font color="#663300">ichigan by</font>
+<br>
+<font color="#009900">B</font>  <font color="#663300">right (and sometimes
+even brilliant)</font>
+<br>
+<font color="#009900">E</font>  <font color="#663300">nergetic</font>
+<br>
+<font color="#009900">R</font>  <font color="#663300">esearchers</font>
+</h1>
+
+XML has become ubiquitous, and XML data has to be managed in databases.
+The current industry standard is to map XML data into relational tables and
+store this information in a relational database.  Such mappings create both
+expressive power problems (such as requiring transitive closure computations
+to compute ancestor-descendant relationships) and performance problems (for
+instance to reconstruct XML for output).
+
+In the TIMBER project we are exploring the issues involved in storing XML in
+native format.  We recognize XML documents to be trees, and build a system to 
+manipulate collections of trees.  In doing so, we attempt to avoid the
+pitfall of "instance-at-a-time" navigational access.  Rather, we attempt to
+bring to bear the core ideas of database technology, such as declarative
+querying, a bulk algebra, and cost-based query optimization.  We do not yet
+have a fully functional system, but large portions are working and initial
+results are very promising.
+
+<h2> Papers </h2>
+<ul>
+<LI>
+<A href="tax_full.ps">A Tree Algebra
+</A></LI> that provides the basis for our implementation.
+</ul>
+
+<h2> Project Team </h2>
+<ul>
+<LI>
+<B>Shurug Al-Khalifa</B></LI>
+
+<li>
+<b><a href="http://www.eecs.umich.edu/~jag/" target="display">H. V. Jagadish</a></b></li>
+
+<li>
+<b><a href="http://www.eecs.umich.edu/~jignesh" target="display">Jignesh
+M. Patel</a></b></li>
+
+<LI>
+<B>Keith Thompson</B></LI>
+
+<LI>
+<B>Yuqing "Melanie" Wu</B></LI>
+</ul>
+
+In collaboration with
+<ul>
+<li><b>
+Nick Koudas, AT&T Labs
+</li></b>
+<li><b>
+Laks V S Lakshmanan, University of British Columbia
+</li></b>
+<li><b>
+Divesh Srivastava, AT&T Labs
+</li></b>
+</ul>
+
+This project has been funded in part by the National Science Foundation,
+under grant number IIS-9986030, and by IBM, through an equipment grant.  Any
+opinions, findings, and conclusions or recommendations expressed in this
+material are those of the project participants, and do not necessarily
+reflect the views of the National Science Foundation or of the IBM Corporation.
+<br>
+<a href="http://www.eecs.umich.edu/db" target="top">
+<img SRC="../logo.jpg" BORDER=0 height=100 width=111>
+</a>
+
+</body>
+</html>
+

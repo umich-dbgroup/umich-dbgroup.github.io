@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="geobase">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="state" maxOccurs="unbounded"/>
+                <xs:element ref="city" maxOccurs="unbounded"/>
+                <xs:element ref="river" maxOccurs="unbounded"/>
+                <xs:element ref="border" maxOccurs="unbounded"/>
+                <xs:element ref="highlow" maxOccurs="unbounded"/>                
+                <xs:element ref="mountain" maxOccurs="unbounded"/>
+                <xs:element ref="road" maxOccurs="unbounded"/>
+                <xs:element ref="lake" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="state">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name="abbreviation" type="xs:string"/>
+                <xs:element name="capital" type="xs:string"/>
+                <xs:element name="population" type="xs:float"/>
+                <xs:element name="area" type="xs:float"/>
+                <xs:element name="state_number" type="xs:integer"/>
+                <xs:element name="major_city" type = "xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="city">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name="state">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element name="abbreviation" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="population" type="xs:float"/>
+            </xs:sequence>
+        </xs:complexType>   
+    </xs:element>
+    <xs:element name="river">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name="length" type="xs:integer"/>
+                <xs:element name="state" type = "xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="border">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name="abbreviation" type = "xs:string"/>
+                <xs:element name="state" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="highlow">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="state" type="xs:string"/>
+                <xs:element name="abbreviation" type="xs:string"/>
+                <xs:element name="highest_point">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element name="elevation" type="xs:integer"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="lowest_point">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element name="elevation" type="xs:integer"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>   
+    </xs:element>
+    <xs:element name="mountain">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name="state">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element name="abbreviation" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="elevation" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>   
+    </xs:element>
+    <xs:element name="road">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name="state" type = "xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="lake">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name="area" type="xs:integer"/>
+                <xs:element name="state" type = "xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

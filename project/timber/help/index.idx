@@ -1,0 +1,36 @@
+* Sample index file, field tab seperated, comment line preceded by '*'
+* Note that element tag index and attribute name index is built by default during loading
+* line format:
+*  filename	[Gist|Shore]	[Int|String|Float|Double]	[Element|Attribute|Text|Inverted|Parent|Updatable]	value
+*  for Element index (e): 
+*   't': element tag, 
+*   'c': element content (needs optional value)
+*  for Attribute index (a):
+*   'n': attribute name, 
+*   'v': attribute value,
+*   'c': attribute content (needs optional value)
+*  for Text index (t):
+*   'v' as text value
+*  for Inverted index (i):
+*   'e' or 't': index the leaf level element node or the text node, respectively
+*   's' or 'n': stem or nostem, respectively
+*  for Parent index (p):
+*   no additional options
+*  for Updatable index (u):
+*   no additional options
+*   
+* element tag
+*sbook.xml	g	s	et
+* attribute name
+*sbook.xml	g	s	an
+*
+* element content
+sbook.xml	g	s	ec	title
+* attribute content
+sbook.xml	g	s	ac	number
+* inverted stem index
+sbook.xml	g	s	its
+* parent index
+sbook.xml	g	s	p
+* updatable index
+sbook.xml	g	s	u

@@ -1,0 +1,806 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="strtedge 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./QueryTheDatabase_files/filelist.xml">
+<link rel=Edit-Time-Data href="./QueryTheDatabase_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Main Heading Goes Here</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Yunyao Li</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>yunyao</o:LastAuthor>
+  <o:Revision>32</o:Revision>
+  <o:TotalTime>127</o:TotalTime>
+  <o:Created>2004-03-30T01:59:00Z</o:Created>
+  <o:LastSaved>2004-04-24T19:20:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1082</o:Words>
+  <o:Characters>6173</o:Characters>
+  <o:Company>U of M</o:Company>
+  <o:Lines>51</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>7580</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:SimSun;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:8;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:SimSun;
+	font-style:italic;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:9;
+	font-size:11.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:SimSun;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:SimSun;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:SimSun;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#660000;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#003399;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1032"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./QueryTheDatabase_files/image001.gif"
+lang=EN-US link="#660000" vlink="#003399" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1030" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="" o:title="strbkgde" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 style='margin-top:0in'><a name="_Ref68355088"></a><a name="_top"></a><span
+style='mso-bookmark:_Ref68355088'>Query the Database</span></h1>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='margin-left:.25in;tab-stops:list .5in'><span
+style='font-size:10.0pt;font-family:"Times New Roman";color:windowtext'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:11.25pt;
+ height:11.25pt'>
+ <v:imagedata src="./QueryTheDatabase_files/image002.gif" o:title="image002"/>
+</v:shape><![endif]--><![if !vml]><img width=15 height=15
+src="./QueryTheDatabase_files/image002.gif" v:shapes="_x0000_i1025"><![endif]><span
+style='mso-tab-count:1'>   </span></span><a href="QueryTheDatabase.htm#_XQuery">XQuery</a></p>
+
+<p class=MsoNormal style='tab-stops:list .5in .75in'><span style='font-size:
+10.0pt;font-family:"Times New Roman";color:windowtext'><span
+style="mso-spacerun: yes">        </span><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" style='width:11.25pt;height:11.25pt' o:bullet="t">
+ <v:imagedata src="./QueryTheDatabase_files/image002.gif" o:title="image002"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=15 height=15
+src="./QueryTheDatabase_files/image002.gif" alt="*" v:shapes="_x0000_i1026"><![endif]><span
+style='mso-tab-count:1'>   </span></span><a
+href="QueryTheDatabase.htm#_LogicalPlan">Logical Plan</a></p>
+
+<p class=MsoNormal style='tab-stops:list .5in .75in'><span style='font-size:
+10.0pt;font-family:"Times New Roman";color:windowtext'><span
+style="mso-spacerun: yes">        </span><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+ type="#_x0000_t75" style='width:11.25pt;height:11.25pt' o:bullet="t">
+ <v:imagedata src="./QueryTheDatabase_files/image002.gif" o:title="image002"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=15 height=15
+src="./QueryTheDatabase_files/image002.gif" alt="*" v:shapes="_x0000_i1027"><![endif]><span
+style='mso-tab-count:1'>   </span></span><a
+href="QueryTheDatabase.htm#_PhysicalPlan">Physical Plan</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Timber provides three ways to query a database stored in
+Timber<o:p></o:p></p>
+
+<h2><a name="_XQuery" id="_XQuery"></a>XQuery</h2>
+
+<p class=MsoNormal style='text-align:justify'>Timber supports queries in
+standard XQuery. Each query in XQuery is composed of a sequence of XQuery
+expressions, including path expressions used to locate nodes in XML structures,
+element constructors for constructing XML structures with, and FLWOR
+expressions for combining and restructuring information from XML documents,
+sorting, and conditional expressions, and quantified expressions. For more
+information about the XQuery specification, see XQuery 1.0 (<a
+href="http://www.w3.org/TR/xquery"><span style='color:black;text-decoration:
+none;text-underline:none'>http://www.w3.org/TR/xquery</span></a>).<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Timber supports a wide range of
+features in XQuery. Specifically, Timber supports any queries satisfying <a
+href="GeneralizedXQueryGrammar.htm">Generalized XQuery grammar</a>. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>As an illustration, following are
+two example queries supported by Timber, including simple selection query and
+complex nested queries on XML document <a href="sbook.xml">sbook.xml</a>. </p>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><a name="_Ref68007478"><b><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Example</span></b></a><b><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>1: Simple query<o:p></o:p></span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>for
+  $b in document(&quot;sbook.xml&quot;)/books/book<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>where
+  $b/price &lt; 60 and $b/price &gt; 20<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>return
+  $b/title</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>Example 2: Nested query</span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>for
+  $b in document(&quot;sbook.xml&quot;)/books/book<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>let
+  $a := for $k in document(&quot;sbook.xml&quot;)/books/article<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:2'>                        </span>where $b/author =
+  $k/author<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:2'>                        </span>return $k<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>where
+  $b/author = &quot;Stelios&quot;<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>order
+  by $a/year<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>return
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&lt;result&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{$b/title}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{$a}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&lt;/result&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+<h3>XQuery with Updates </h3>
+
+<p class=MsoNormal style='text-indent:.5in'>&nbsp;</p>
+
+<p class=MsoNormal style='text-align:justify'>Standard XQuery syntax does not
+allow updates to database through queries. Timber extends XQuery to support updates
+to database via queries by adding functions <span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>timber-delete()</span>, <span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>timber-update(),timber-insertfile()</span>,and <span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>timber- insertelement()</span>.The
+usages of these functions are illustrated as follows in Example 3<span
+style='mso-field-code:"REF _Ref68009135 h &#1; * MERGEFORMAT"'><b><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Example</span></b></span>.<b><span
+style='font-size:8.0pt;mso-bidi-font-size:12.0pt'> <o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><a name="_Ref68009135"><b><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Example</span></b></a><b><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> 3.<span
+style="mso-spacerun: yes">  </span>Query updating the database</span></b></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>for
+  $b in document(&quot;sbook.xml&quot;)/books//book<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>return
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&lt;result&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{timber-delete($b/title)}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{timber-delete($b/year/text)}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{timber-update($b/@author,
+  &quot;Stelios&quot;)}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{timber-update($b/isbn, $b/title)}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{timber-update($b/priceavg,
+  avg($b/author))}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{timber-insertfile($b/content,
+  &quot;bib.xml&quot;)}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{timber-insertelement($b/editor,
+  &quot;name&quot;, &quot;Stelios&quot;)}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{timber-insertelement($b/author,
+  &quot;price&quot;, &quot;5&quot;, &quot;avg&quot;, avg($b/price),
+  &quot;name&quot;, $b/editor)}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&lt;/result&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3>Schema-free XQuery</h3>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Writing queries in standard XQuery requires extensive
+knowledge of the document structure (i.e., the document schema) in order to
+write the correct path expressions used to locate nodes in XML structures.<span
+style="mso-spacerun: yes">  </span>Even for queries as simple as the one in
+Example 1, the user must at least know that nodes <span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>price</span><span style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'> </span>and <span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>title</span><span
+style='font-size:8.0pt;mso-bidi-font-size:12.0pt'> </span>are children of nodes
+<span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>book</span> in order
+to correctly write the queries<span style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>.</span></p>
+
+<p class=MsoToc1 style='mso-outline-level:3'>&nbsp;</p>
+
+<p class=MsoNormal style='mso-outline-level:3'>In Timber, we provide a function
+<span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>timber-mlca()</span><span
+style='font-size:8.0pt;mso-bidi-font-size:12.0pt'> </span>to allow users with
+limited knowledge of document structure, <span style="mso-spacerun:
+yes"> </span>to be able to pose complex queries and get meaningful results.<span
+style='mso-fareast-language:ZH-CN'> Specifically, the function </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>timber-mlca() </span>return
+the Meaningful Lowest Common Ancestor (MLCA) of the variables inside the
+function; any variables sharing the same non-empty MLCA are regarded as
+meaningfully related to each other. </p>
+
+<p class=MsoNormal style='mso-outline-level:3'>&nbsp;</p>
+
+<p class=MsoNormal style='mso-outline-level:3'>The following are the
+corresponding schema-free queries for the previous example queries in XQuery,
+when the user only has the knowledge of tag names and values. </p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoCaption><span style='mso-bidi-font-size:12.0pt;font-family:Arial;
+mso-fareast-font-family:"Times New Roman";color:black'>Example 4. Simple
+schema-free query</span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=743 valign=top style='width:557.6pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>for
+  $d in timber-mlca($b, document(&quot;sbook.xml&quot;)//book, $p,
+  document(&quot;sbook.xml&quot;)// price,
+  $t,document(&quot;sbook.xml&quot;)//title)<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>where
+  $p &lt; 60 and $p &gt; 20<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-outline-level:3'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>return $t</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='mso-outline-level:3'>&nbsp;</p>
+
+<p class=MsoCaption><span style='mso-bidi-font-size:12.0pt;font-family:Arial;
+mso-fareast-font-family:"Times New Roman";color:black'>Example 5.<span
+style="mso-spacerun: yes">  </span>Complex schema-free query (TODO)</span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=659 valign=top style='width:494.6pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>for
+  $d1 in timber-mlca($b,document(&quot;sbook.xml&quot;)//book,
+  $a1,document(&quot;sbook.xml&quot;)//author,$y,<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style="mso-spacerun: yes">                                    
+  </span>document(&quot;sbook.xml&quot;)//year, $t,
+  document(&quot;sbook.xml&quot;)//title)<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>let
+  $a := for $d2 in timber-mlca ($k,document(&quot;sbook.xml&quot;)//article,
+  $a2, document(&quot;sbook.xml&quot;)//author,)<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:2'>                        </span>where $a1 = $a2<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:2'>                        </span>return $k<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>where
+  $a1 = &quot;Stelios&quot;<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>group
+  by $d1<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>order
+  by $y<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>return
+  <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&lt;result&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{$t}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><span
+  style='mso-tab-count:1'>            </span>{$a}<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>&lt;/result&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='mso-outline-level:3'>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><a href="QueryTheDatabase.htm#_top">Back to top</a><o:p></o:p></p>
+
+<h2><a name="_LogicalPlan" id="_LogicalPlan"></a>Logical Plan</h2>
+
+<p class=MsoNormal style='mso-outline-level:3'><b>&nbsp;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='mso-outline-level:3'>A logical plan is a query composed
+of logic algebra operators. It can be generated from a given query inXQuery by
+XqueryParser, and transformed into corresponding physical plan(s) by Query
+Optimizer of Timber; the one determined with lowest cost will be executed
+against the database.</p>
+
+<p class=MsoNormal style='mso-outline-level:3'>&nbsp;</p>
+
+<p class=MsoNormal style='mso-outline-level:3'>Timber supports any logical plan
+satisfying the <a href="LogicalAlgebra.htm">Logical Algebra grammar</a>.</p>
+
+<p class=MsoToc1 style='mso-outline-level:3;tab-stops:list .25in'>&nbsp;</p>
+
+<p class=MsoCaption><span style='mso-bidi-font-size:12.0pt;font-family:Arial;
+mso-fareast-font-family:"Times New Roman";color:black'>Example 6.<span
+style="mso-spacerun: yes">  </span>A sample logical plan</span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  Logical plan<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  number of Pattern Tree Nodes, Pattern Trees and Process Tree Nodes<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>8<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>3<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>5<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  list of pattern tree nodes <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  list of nodes for pattern tree 5<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>7
+  C_REFERENCE 6 SUBTREE<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  list of nodes for pattern tree 6<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>1000
+  REFERENCE 3 PARENT -<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>6
+  ELEMENT sbook.xml title NULL &quot;&quot; PARENT *<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  list of nodes for pattern tree 1<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>1
+  DOCUMENT sbook.xml ANCS -<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>2 ELEMENT
+  sbook.xml books NULL &quot;&quot; PARENT -<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>3
+  ELEMENT sbook.xml book NULL &quot;&quot; PARENT -<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>4
+  ELEMENT sbook.xml price LTN &quot;60&quot; PARENT -<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>5
+  ELEMENT sbook.xml price GTN &quot;20&quot; PARENT -<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  list of pattern trees <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  pattern tree <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>5
+  1 7 CONSTRUCT_TREE<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>7
+  -1<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  pattern tree <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>6
+  2 1000 PATTERN_TREE<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>1000
+  -1<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>6
+  1000<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  pattern tree <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>1
+  5 1 PATTERN_TREE<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>1
+  -1<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>2
+  1<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>3
+  2<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>4
+  3<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>5
+  3<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  list of process tree nodes <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>10
+  CONSTRUCT 5<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>9
+  SELECT 6<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>7
+  DUPLICATE_ELIMINATION ID 1 <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>6
+  PROJECT 2 1 3<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>4
+  SELECT 1<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>//
+  process tree <o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>0
+  5 10<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>10
+  -1<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>9
+  10<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>7
+  9<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>6
+  7<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>4
+  6</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><a href="QueryTheDatabase.htm#_top">Back to top</a><o:p></o:p></p>
+
+<h2><a name="_PhysicalPlan" id="_PhysicalPlan"></a>Physical Plan</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>A physical plan is a query composed of evaluation iterators
+(physical operators) provided though evaluator interface that actually access
+database, and combine and reconstruct information from the database. In a
+physical plan, the evaluation operators are listed <span style='font-size:11.0pt;
+mso-bidi-font-size:12.0pt'>in a depth-first preorder manner- first the operator
+then its inputs. Each Iterator is on a separate line. A line in the file that
+starts with a ‘*’ is a comment line and will be ignored during the query
+process. The evaluator interface is case-sensitive. If it’s capital here it
+should be capital in the file. </span>For full specification of evaluator
+interface of Timber please see <a href="EvaluatorFileInterface.htm">Evaluator
+Interface</a>.</p>
+
+<p class=MsoNormal><span style='mso-fareast-language:ZH-CN'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoCaption><span style='mso-bidi-font-size:12.0pt;font-family:Arial;
+mso-fareast-font-family:"Times New Roman";color:black'>Example 7. A sample
+physical plan</span><span style='mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>********************************************************<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*Query:<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*FOR $b in document(&quot;books.xml&quot;)\\book<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*WHERE $b\\author=&quot;John Doe&quot; AND
+  $b\\price&lt;=&quot;50&quot; <o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*RETURN<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*&lt;result&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">     </span>&lt;book
+  isbn=$b\\isbn\text()&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*<span style='mso-tab-count:1'>           </span>&lt;bookAuthor&gt;
+  $b\\author &lt;/bookAuthor&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">      
+  </span>&lt;bookTitle&gt; $b\\title &lt;/bookTitle&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*<span style="mso-spacerun: yes">    
+  </span>&lt;/book&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*&lt;/result&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>*******************************************************</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>s,7,1,E,C,8,result,2,E,C,9,book,3,A,R,11,isbn,3,2,I,1,A,T,3,E,C,10,bookAuthor,4,C,R,12,3,2,I,1,A,T,3,E,C,13,bookTitle,4,C,R,14,3,2,I,1,A,T<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*index accesses<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>I,4,index_books_elementtag,books.xml,GIST,STR,isbn<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>I,1,index_books_elementtag,books.xml,GIST,STR,author<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>I,7,index_books_elementtag,books.xml,GIST,STR,title<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*structural joins<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>J,A,3,2,-1,-1,16,A,A<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>J,A,3,5,-1,-1,16,A,A<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>I,3,index_books_elementtag,books.xml,GIST,STR,book<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>*filter<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>f, 1,1,T,5,-1,NULL,EQS,C,-1,-1,John Doe<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>I,5,index_books_elementtag,books.xml,GIST,STR,author<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>f,1,1,T,2,-1,NULL,LEN,C,-1,50,NULL<o:p></o:p></span></p>
+  <p class=MsoNormal style='text-align:justify'><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt'>I,2,index_books_elementtag,books.xml,GIST,STR,price</span><span
+  style='mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='mso-fareast-language:ZH-CN'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoCaption>Example 8.<span style="mso-spacerun: yes">  </span>Query
+evaluation tree f the sample physical plan<span style='mso-fareast-language:
+ZH-CN'> in example 7<o:p></o:p></span></p>
+
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=590 style='width:6.15in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1028" type="#_x0000_t75"
+   style='width:210.75pt;height:147pt'>
+   <v:imagedata src="./QueryTheDatabase_files/image003.gif" o:title="image005"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=281 height=196
+  src="./QueryTheDatabase_files/image003.gif" v:shapes="_x0000_i1028"><![endif]><span
+  style='mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='mso-fareast-language:ZH-CN'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal><a href="QueryTheDatabase.htm#_top">Back to top</a></p>
+
+<h2>&nbsp;</h2>
+
+<p class=MsoNormal>Last revised: 04/24/2004 by Yunyao Li (yunyaol@umich.edu)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

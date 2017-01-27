@@ -1,0 +1,5732 @@
+<geobase>
+<state>
+    Alabama
+    <abbreviation>Al</abbreviation>
+    <capital>Montgomery</capital>
+    <population>3894.0e+3</population>
+    <area>51.7e+3</area>
+    <state_number>22</state_number>
+        <major_city>Birmingham</major_city>
+        <major_city>Mobile</major_city>
+        <major_city>Montgomery</major_city>
+        <major_city>Huntsville</major_city>
+</state>
+<state>
+    Alaska
+    <abbreviation>Ak</abbreviation>
+    <capital>Juneau</capital>
+    <population>401.8e+3</population>
+    <area>591.0e+3</area>
+    <state_number>49</state_number>
+        <major_city>Anchorage</major_city>
+        <major_city>Fairbanks</major_city>
+        <major_city>Juneau</major_city>
+        <major_city>Sitka</major_city>
+</state>
+<state>
+    Arizona
+    <abbreviation>Az</abbreviation>
+    <capital>Phoenix</capital>
+    <population>2718.0e+3</population>
+    <area>114.0e+3</area>
+    <state_number>48</state_number>
+        <major_city>Phoenix</major_city>
+        <major_city>Tucson</major_city>
+        <major_city>Mesa</major_city>
+        <major_city>Tempe</major_city>
+</state>
+<state>
+    Arkansas
+    <abbreviation>Ar</abbreviation>
+    <capital>Little rock</capital>
+    <population>2286.0e+3</population>
+    <area>53.2e+3</area>
+    <state_number>25</state_number>
+        <major_city>Little rock</major_city>
+        <major_city>Fort smith</major_city>
+        <major_city>North little rock</major_city>
+        <major_city>Pine bluff</major_city>
+</state>
+<state>
+    California
+    <abbreviation>Ca</abbreviation>
+    <capital>Sacramento</capital>
+    <population>23.67e+6</population>
+    <area>158.0e+3</area>
+    <state_number>31</state_number>
+        <major_city>Los angeles</major_city>
+        <major_city>San diego</major_city>
+        <major_city>San francisco</major_city>
+        <major_city>San jose</major_city>
+</state>
+<state>
+    Colorado
+    <abbreviation>Co</abbreviation>
+    <capital>Denver</capital>
+    <population>2889.0e+3</population>
+    <area>104.0e+3</area>
+    <state_number>38</state_number>
+        <major_city>Denver</major_city>
+        <major_city>Colorado springs</major_city>
+        <major_city>Aurora</major_city>
+        <major_city>Lakewood</major_city>
+</state>
+<state>
+    Connecticut
+    <abbreviation>Ct</abbreviation>
+    <capital>Hartford</capital>
+    <population>3107.0e+3</population>
+    <area>5.02e+3</area>
+    <state_number>5</state_number>
+        <major_city>Bridgeport</major_city>
+        <major_city>Hartford</major_city>
+        <major_city>New haven</major_city>
+        <major_city>Waterbury</major_city>
+</state>
+<state>
+    Delaware
+    <abbreviation>De</abbreviation>
+    <capital>Dover</capital>
+    <population>594.0e+3</population>
+    <area>2044</area>
+    <state_number>1</state_number>
+        <major_city>Wilmington</major_city>
+        <major_city>Newark</major_city>
+        <major_city>Dover</major_city>
+        <major_city>Brookside</major_city>
+</state>
+<state>
+    District of columbia
+    <abbreviation> dc</abbreviation>
+    <capital>Washington</capital>
+    <population>638.0e+3</population>
+    <area>1100</area>
+    <state_number>0</state_number>
+        <major_city>Tenleytown</major_city>
+        <major_city>Washington</major_city>
+        <major_city>Georgetown</major_city>
+        <major_city>Duval circle</major_city>
+</state>
+<state>
+    Florida
+    <abbreviation>Fl</abbreviation>
+    <capital>Tallahassee</capital>
+    <population>9746.0e+3</population>
+    <area>68664</area>
+    <state_number>27</state_number>
+        <major_city>Jacksonville</major_city>
+        <major_city>Miami</major_city>
+        <major_city>Tampa</major_city>
+        <major_city>St. petersburg</major_city>
+</state>
+<state>
+    Georgia
+    <abbreviation>Ga</abbreviation>
+    <capital>Atlanta</capital>
+    <population>5463.0e+3</population>
+    <area>58.9e+3</area>
+    <state_number>4</state_number>
+        <major_city>Atlanta</major_city>
+        <major_city>Columbus</major_city>
+        <major_city>Savannah</major_city>
+        <major_city>Macon</major_city>
+</state>
+<state>
+    Hawaii
+    <abbreviation>Hi</abbreviation>
+    <capital>Honolulu</capital>
+    <population>964.0e+3</population>
+    <area>6471</area>
+    <state_number>50</state_number>
+        <major_city>Honolulu</major_city>
+        <major_city>Ewa</major_city>
+        <major_city>Koolaupoko</major_city>
+        <major_city>Wahiawa</major_city>
+</state>
+<state>
+    Idaho
+    <abbreviation>Id</abbreviation>
+    <capital>Boise</capital>
+    <population>944.0e+3</population>
+    <area>83.0e+3</area>
+    <state_number>43</state_number>
+        <major_city>Boise</major_city>
+        <major_city>Pocatello</major_city>
+        <major_city>Idaho falls</major_city>
+        <major_city>Lewiston</major_city>
+</state>
+<state>
+    Illinois
+    <abbreviation>Il</abbreviation>
+    <capital>Springfield</capital>
+    <population>11.4e+6</population>
+    <area>56.3e+3</area>
+    <state_number>21</state_number>
+        <major_city>Chicago</major_city>
+        <major_city>Rockford</major_city>
+        <major_city>Peoria</major_city>
+        <major_city>Springfield</major_city>
+</state>
+<state>
+    Indiana
+    <abbreviation>In</abbreviation>
+    <capital>Indianapolis</capital>
+    <population>5490.0e+3</population>
+    <area>36.2e+3</area>
+    <state_number>19</state_number>
+        <major_city>Indianapolis</major_city>
+        <major_city>Fort wayne</major_city>
+        <major_city>Gary</major_city>
+        <major_city>Evansville</major_city>
+</state>
+<state>
+    Iowa
+    <abbreviation>Ia</abbreviation>
+    <capital>Des moines</capital>
+    <population>2913.0e+3</population>
+    <area>56.3e+3</area>
+    <state_number>29</state_number>
+        <major_city>Des moines</major_city>
+        <major_city>Cedar rapids</major_city>
+        <major_city>Davenport</major_city>
+        <major_city>Sioux city</major_city>
+</state>
+<state>
+    Kansas
+    <abbreviation>Ks</abbreviation>
+    <capital>Topeka</capital>
+    <population>2364.0e+3</population>
+    <area>82.3e+3</area>
+    <state_number>34</state_number>
+        <major_city>Wichita</major_city>
+        <major_city>Kansas city</major_city>
+        <major_city>Topeka</major_city>
+        <major_city>Overland park</major_city>
+</state>
+<state>
+    Kentucky
+    <abbreviation>Ky</abbreviation>
+    <capital>Frankfort</capital>
+    <population>2364.0e+3</population>
+    <area>82.3e+3</area>
+    <state_number>15</state_number>
+        <major_city>Louisville</major_city>
+        <major_city>Lexington</major_city>
+        <major_city>Owensboro</major_city>
+        <major_city>Covington</major_city>
+</state>
+<state>
+    Louisiana
+    <abbreviation>La</abbreviation>
+    <capital>Baton rouge</capital>
+    <population>4206.0e+3</population>
+    <area>47.7e+3</area>
+    <state_number>18</state_number>
+        <major_city>New orleans</major_city>
+        <major_city>Baton rouge</major_city>
+        <major_city>Shreveport</major_city>
+        <major_city>Metairie</major_city>
+</state>
+<state>
+    Maine
+    <abbreviation>Me</abbreviation>
+    <capital>Augusta</capital>
+    <population>1125.0e+3</population>
+    <area>33265</area>
+    <state_number>23</state_number>
+        <major_city>Portland</major_city>
+        <major_city>Lewiston</major_city>
+        <major_city>Bangor</major_city>
+        <major_city>Auburn</major_city>
+</state>
+<state>
+    Maryland
+    <abbreviation>Md</abbreviation>
+    <capital>Annapolis</capital>
+    <population>4217.0e+3</population>
+    <area>10460</area>
+    <state_number>7</state_number>
+        <major_city>Baltimore</major_city>
+        <major_city>Silver spring</major_city>
+        <major_city>Dundalk</major_city>
+        <major_city>Bethesda</major_city>
+</state>
+<state>
+    Massachusetts
+    <abbreviation>Ma</abbreviation>
+    <capital>Boston</capital>
+    <population>5737.0e+3</population>
+    <area>8284</area>
+    <state_number>6</state_number>
+        <major_city>Boston</major_city>
+        <major_city>Worcester</major_city>
+        <major_city>Springfield</major_city>
+        <major_city>New bedford</major_city>
+</state>
+<state>
+    Michigan
+    <abbreviation>Mi</abbreviation>
+    <capital>Lansing</capital>
+    <population>9262.0e+3</population>
+    <area>58.5e+3</area>
+    <state_number>26</state_number>
+        <major_city>Detroit</major_city>
+        <major_city>Grand rapids</major_city>
+        <major_city>Warren</major_city>
+        <major_city>Flint</major_city>
+</state>
+<state>
+    Minnesota
+    <abbreviation>Mn</abbreviation>
+    <capital>St. paul</capital>
+    <population>4076.0e+3</population>
+    <area>84.4e+3</area>
+    <state_number>32</state_number>
+        <major_city>Minneapolis</major_city>
+        <major_city>St. paul</major_city>
+        <major_city>Duluth</major_city>
+        <major_city>Bloomington</major_city>
+</state>
+<state>
+    Mississippi
+    <abbreviation>Ms</abbreviation>
+    <capital>Jackson</capital>
+    <population>2520.0e+3</population>
+    <area>47.7e+3</area>
+    <state_number>20</state_number>
+        <major_city>Jackson</major_city>
+        <major_city>Biloxi</major_city>
+        <major_city>Meridian</major_city>
+        <major_city>Hattiesburg</major_city>
+</state>
+<state>
+    Missouri
+    <abbreviation>Mo</abbreviation>
+    <capital>Jefferson city</capital>
+    <population>4916.0e+3</population>
+    <area>69.7e+3</area>
+    <state_number>24</state_number>
+        <major_city>St. louis</major_city>
+        <major_city>Kansas city</major_city>
+        <major_city>Springfield</major_city>
+        <major_city>Independence</major_city>
+</state>
+<state>
+    Montana
+    <abbreviation>Mt</abbreviation>
+    <capital>Helena</capital>
+    <population>786.7e+3</population>
+    <area>147.0e+3</area>
+    <state_number>41</state_number>
+        <major_city>Billings</major_city>
+        <major_city>Great falls</major_city>
+        <major_city>Butte</major_city>
+        <major_city>Missoula</major_city>
+</state>
+<state>
+    Nebraska
+    <abbreviation>Ne</abbreviation>
+    <capital>Lincoln</capital>
+    <population>1569.0e+3</population>
+    <area>77.3e+3</area>
+    <state_number>37</state_number>
+        <major_city>Omaha</major_city>
+        <major_city>Lincoln</major_city>
+        <major_city>Grand island</major_city>
+        <major_city>North platte</major_city>
+</state>
+<state>
+    Nevada
+    <abbreviation>Nv</abbreviation>
+    <capital>Carson city</capital>
+    <population>800.5e+3</population>
+    <area>110.5e+3</area>
+    <state_number>36</state_number>
+        <major_city>Las vegas</major_city>
+        <major_city>Reno</major_city>
+        <major_city>Sunrise manor</major_city>
+        <major_city>Sparks</major_city>
+</state>
+<state>
+    New hampshire
+    <abbreviation>Nh</abbreviation>
+    <capital>Concord</capital>
+    <population>920.6e+3</population>
+    <area>9279</area>
+    <state_number>9</state_number>
+        <major_city>Manchester</major_city>
+        <major_city>Nashua</major_city>
+        <major_city>Concord</major_city>
+        <major_city>Portsmouth</major_city>
+</state>
+<state>
+    New jersey
+    <abbreviation>Nj</abbreviation>
+    <capital>Trenton</capital>
+    <population>7365.0e+3</population>
+    <area>7787</area>
+    <state_number>3</state_number>
+        <major_city>Newark</major_city>
+        <major_city>Jersey city</major_city>
+        <major_city>Paterson</major_city>
+        <major_city>Elizabeth</major_city>
+</state>
+<state>
+    New mexico
+    <abbreviation>Nm</abbreviation>
+    <capital>Santa fe</capital>
+    <population>1303.0e+3</population>
+    <area>121.6e+3</area>
+    <state_number>47</state_number>
+        <major_city>Albuquerque</major_city>
+        <major_city>Santa fe</major_city>
+        <major_city>Las cruces</major_city>
+        <major_city>Roswell</major_city>
+</state>
+<state>
+    New york
+    <abbreviation>Ny</abbreviation>
+    <capital>Albany</capital>
+    <population>17.558e+6</population>
+    <area>49.1e+3</area>
+    <state_number>11</state_number>
+        <major_city>New york</major_city>
+        <major_city>Buffalo</major_city>
+        <major_city>Rochester</major_city>
+        <major_city>Yonkers</major_city>
+</state>
+<state>
+    North carolina
+    <abbreviation>Nc</abbreviation>
+    <capital>Raleigh</capital>
+    <population>5882.0e+3</population>
+    <area>52.67e+3</area>
+    <state_number>12</state_number>
+        <major_city>Charlotte</major_city>
+        <major_city>Greensboro</major_city>
+        <major_city>Raleigh</major_city>
+        <major_city>Winston-salem</major_city>
+</state>
+<state>
+    North dakota
+    <abbreviation>Nd</abbreviation>
+    <capital>Bismarck</capital>
+    <population>652.7e+3</population>
+    <area>70.7e+3</area>
+    <state_number>39</state_number>
+        <major_city>Fargo</major_city>
+        <major_city>Bismarck</major_city>
+        <major_city>Grand forks</major_city>
+        <major_city>Minot</major_city>
+</state>
+<state>
+    Ohio
+    <abbreviation>Oh</abbreviation>
+    <capital>Columbus</capital>
+    <population>10.8e+6</population>
+    <area>41.3e+3</area>
+    <state_number>17</state_number>
+        <major_city>Cleveland</major_city>
+        <major_city>Columbus</major_city>
+        <major_city>Cincinnati</major_city>
+        <major_city>Toledo</major_city>
+</state>
+<state>
+    Oklahoma
+    <abbreviation>Ok</abbreviation>
+    <capital>Oklahoma city</capital>
+    <population>3025.0e+3</population>
+    <area>69.95e+3</area>
+    <state_number>46</state_number>
+        <major_city>Oklahoma city</major_city>
+        <major_city>Tulsa</major_city>
+        <major_city>Lawton</major_city>
+        <major_city>Norman</major_city>
+</state>
+<state>
+    Oregon
+    <abbreviation>Or</abbreviation>
+    <capital>Salem</capital>
+    <population>2633.0e+3</population>
+    <area>97073</area>
+    <state_number>33</state_number>
+        <major_city>Portland</major_city>
+        <major_city>Eugene</major_city>
+        <major_city>Salem</major_city>
+        <major_city>Springfield</major_city>
+</state>
+<state>
+    Pennsylvania
+    <abbreviation>Pa</abbreviation>
+    <capital>Harrisburg</capital>
+    <population>11.863e+6</population>
+    <area>45308</area>
+    <state_number>2</state_number>
+        <major_city>Philadelphia</major_city>
+        <major_city>Pittsburgh</major_city>
+        <major_city>Erie</major_city>
+        <major_city>Allentown</major_city>
+</state>
+<state>
+    Rhode island
+    <abbreviation>Ri</abbreviation>
+    <capital>Providence</capital>
+    <population>947.2e+3</population>
+    <area>1212</area>
+    <state_number>13</state_number>
+        <major_city>Providence</major_city>
+        <major_city>Warwick</major_city>
+        <major_city>Cranston</major_city>
+        <major_city>Pawtucket</major_city>
+</state>
+<state>
+    South carolina
+    <abbreviation>Sc</abbreviation>
+    <capital>Columbia</capital>
+    <population>3121.8e+3</population>
+    <area>31.113e+3</area>
+    <state_number>8</state_number>
+        <major_city>Columbia</major_city>
+        <major_city>Charleston</major_city>
+        <major_city>North charleston</major_city>
+        <major_city>Greenville</major_city>
+</state>
+<state>
+    South dakota
+    <abbreviation>Sd</abbreviation>
+    <capital>Pierre</capital>
+    <population>690.767e+3</population>
+    <area>77116</area>
+    <state_number>40</state_number>
+        <major_city>Sioux falls</major_city>
+        <major_city>Rapid city</major_city>
+        <major_city>Aberdeen</major_city>
+        <major_city>Watertown</major_city>
+</state>
+<state>
+    Tennessee
+    <abbreviation>Tn</abbreviation>
+    <capital>Nashville</capital>
+    <population>4591.0e+3</population>
+    <area>42.14e+3</area>
+    <state_number>16</state_number>
+        <major_city>Memphis</major_city>
+        <major_city>Nashville</major_city>
+        <major_city>Knoxville</major_city>
+        <major_city>Chattanooga</major_city>
+</state>
+<state>
+    Texas
+    <abbreviation>Tx</abbreviation>
+    <capital>Austin</capital>
+    <population>14.229e+6</population>
+    <area>266.807e+3</area>
+    <state_number>28</state_number>
+        <major_city>Houston</major_city>
+        <major_city>Dallas</major_city>
+        <major_city>San antonio</major_city>
+        <major_city>El paso</major_city>
+</state>
+<state>
+    Utah
+    <abbreviation>Ut</abbreviation>
+    <capital>Salt lake city</capital>
+    <population>1461.0e+3</population>
+    <area>84.9e+3</area>
+    <state_number>45</state_number>
+        <major_city>Salt lake city</major_city>
+        <major_city>Provo</major_city>
+        <major_city>West valley</major_city>
+        <major_city>Ogden</major_city>
+</state>
+<state>
+    Vermont
+    <abbreviation>Vt</abbreviation>
+    <capital>Montpelier</capital>
+    <population>511.5e+3</population>
+    <area>9614</area>
+    <state_number>14</state_number>
+        <major_city>Burlington</major_city>
+        <major_city>Rutland</major_city>
+        <major_city>Bennington</major_city>
+        <major_city>Essex</major_city>
+</state>
+<state>
+    Virginia
+    <abbreviation>Va</abbreviation>
+    <capital>Richmond</capital>
+    <population>5346.8e+3</population>
+    <area>40.76e+3</area>
+    <state_number>10</state_number>
+        <major_city>Norfolk</major_city>
+        <major_city>Virginia beach</major_city>
+        <major_city>Richmond</major_city>
+        <major_city>Arlington</major_city>
+</state>
+<state>
+    Washington
+    <abbreviation>Wa</abbreviation>
+    <capital>Olympia</capital>
+    <population>41.132e+5</population>
+    <area>68.139e+3</area>
+    <state_number>42</state_number>
+        <major_city>Seattle</major_city>
+        <major_city>Spokane</major_city>
+        <major_city>Tacoma</major_city>
+        <major_city>Bellevue</major_city>
+</state>
+<state>
+    West virginia
+    <abbreviation>Wv</abbreviation>
+    <capital>Charleston</capital>
+    <population>1.95e+6</population>
+    <area>24.2e+3</area>
+    <state_number>35</state_number>
+        <major_city>Charleston</major_city>
+        <major_city>Huntington</major_city>
+        <major_city>Wheeling</major_city>
+        <major_city>Parkersburg</major_city>
+</state>
+<state>
+    Wisconsin
+    <abbreviation>Wi</abbreviation>
+    <capital>Madison</capital>
+    <population>4.7e+6</population>
+    <area>56153</area>
+    <state_number>30</state_number>
+        <major_city>Milwaukee</major_city>
+        <major_city>Madison</major_city>
+        <major_city>Green bay</major_city>
+        <major_city>Racine</major_city>
+</state>
+<city>
+    <state>
+        alabama
+        <abbreviation>al</abbreviation>
+    </state>
+    birmingham
+    <population>284413</population>
+</city>
+<state>
+    Wyoming
+    <abbreviation>Wy</abbreviation>
+    <capital>Cheyenne</capital>
+    <population>469.557e+3</population>
+    <area>97.809e+3</area>
+    <state_number>44</state_number>
+        <major_city>Casper</major_city>
+        <major_city>Cheyenne</major_city>
+        <major_city>Laramie</major_city>
+        <major_city>Rock springs</major_city>
+</state>
+<city>
+    <state>
+        alabama
+        <abbreviation>al</abbreviation>
+    </state>
+    mobile
+    <population>200452</population>
+</city>
+<city>
+    <state>
+        alabama
+        <abbreviation>al</abbreviation>
+    </state>
+    montgomery
+    <population>177857</population>
+</city>
+<city>
+    <state>
+        alabama
+        <abbreviation>al</abbreviation>
+    </state>
+    huntsville
+    <population>142513</population>
+</city>
+<city>
+    <state>
+        alabama
+        <abbreviation>al</abbreviation>
+    </state>
+    tuscaloosa
+    <population>75143</population>
+</city>
+<city>
+    <state>
+        alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    anchorage
+    <population>174431</population>
+</city>
+<city>
+    <state>
+        arizona
+        <abbreviation>az</abbreviation>
+    </state>
+    phoenix
+    <population>789704</population>
+</city>
+<city>
+    <state>
+        arizona
+        <abbreviation>az</abbreviation>
+    </state>
+    tucson
+    <population>330537</population>
+</city>
+<city>
+    <state>
+        arizona
+        <abbreviation>az</abbreviation>
+    </state>
+    mesa
+    <population>152453</population>
+</city>
+<city>
+    <state>
+        arizona
+        <abbreviation>az</abbreviation>
+    </state>
+    tempe
+    <population>106919</population>
+</city>
+<city>
+    <state>
+        arizona
+        <abbreviation>az</abbreviation>
+    </state>
+    glendale
+    <population>96988</population>
+</city>
+<city>
+    <state>
+        arizona
+        <abbreviation>az</abbreviation>
+    </state>
+    scottsdale
+    <population>88622</population>
+</city>
+<city>
+    <state>
+        arkansas
+        <abbreviation>ar</abbreviation>
+    </state>
+    little rock
+    <population>158915</population>
+</city>
+<city>
+    <state>
+        arkansas
+        <abbreviation>ar</abbreviation>
+    </state>
+    fort smith
+    <population>71384</population>
+</city>
+<city>
+    <state>
+        arkansas
+        <abbreviation>ar</abbreviation>
+    </state>
+    north little rock
+    <population>64388</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    los angeles
+    <population>2966850</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    san diego
+    <population>875538</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    san francisco
+    <population>678974</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    san jose
+    <population>629442</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    long beach
+    <population>361334</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    oakland
+    <population>339337</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    sacramento
+    <population>275741</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    anaheim
+    <population>219311</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    fresno
+    <population>218202</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    santa ana
+    <population>203713</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    riverside
+    <population>170876</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    huntington beach
+    <population>170505</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    stockton
+    <population>149779</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    glendale
+    <population>139060</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    fremont
+    <population>131945</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    torrance
+    <population>131497</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    garden grove
+    <population>123351</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    san bernardino
+    <population>118794</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    pasadena
+    <population>118072</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    east los angeles
+    <population>110017</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    oxnard
+    <population>108195</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    modesto
+    <population>106963</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    sunnyvale
+    <population>106618</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    bakersfield
+    <population>105611</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    concord
+    <population>103763</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    berkeley
+    <population>103328</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    fullerton
+    <population>102246</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    inglewood
+    <population>94162</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    hayward
+    <population>93585</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    pomona
+    <population>92742</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    orange
+    <population>91450</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    ontario
+    <population>88820</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    santa monica
+    <population>88314</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    santa clara
+    <population>87700</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    citrus heights
+    <population>85911</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    norwalk
+    <population>84901</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    burbank
+    <population>84625</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    chula vista
+    <population>83927</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    santa rosa
+    <population>83205</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    downey
+    <population>82602</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    costa mesa
+    <population>82291</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    compton
+    <population>81230</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    carson
+    <population>81221</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    salinas
+    <population>80479</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    west covina
+    <population>80292</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    vallejo
+    <population>80188</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    el monte
+    <population>79494</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    daly city
+    <population>78519</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    thousand oaks
+    <population>77797</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    san mateo
+    <population>77640</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    simi valley
+    <population>77500</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    oceanside
+    <population>76698</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    richmond
+    <population>74676</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    lakewood
+    <population>74654</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    santa barbara
+    <population>74542</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    el cajon
+    <population>73892</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    ventura
+    <population>73774</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    westminster
+    <population>71133</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    whittier
+    <population>68558</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    south gate
+    <population>66784</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    alhambra
+    <population>64767</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    buena park
+    <population>64165</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    san leandro
+    <population>63952</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    alameda
+    <population>63852</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    newport beach
+    <population>63475</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    escondido
+    <population>62480</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    irvine
+    <population>62134</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    mountain view
+    <population>58655</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    fairfield
+    <population>58099</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    redondo beach
+    <population>57102</population>
+</city>
+<city>
+    <state>
+        california
+        <abbreviation>ca</abbreviation>
+    </state>
+    scotts valley
+    <population>6037</population>
+</city>
+<city>
+    <state>
+        colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    denver
+    <population>492365</population>
+</city>
+<city>
+    <state>
+        colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    colorado springs
+    <population>215150</population>
+</city>
+<city>
+    <state>
+        colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    aurora
+    <population>158588</population>
+</city>
+<city>
+    <state>
+        colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    lakewood
+    <population>113808</population>
+</city>
+<city>
+    <state>
+        colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    pueblo
+    <population>101686</population>
+</city>
+<city>
+    <state>
+        colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    arvada
+    <population>84576</population>
+</city>
+<city>
+    <state>
+        colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    boulder
+    <population>76685</population>
+</city>
+<city>
+    <state>
+        colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    fort collins
+    <population>64632</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    bridgeport
+    <population>142546</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    hartford
+    <population>136392</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    new haven
+    <population>126089</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    waterbury
+    <population>103266</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    stamford
+    <population>102466</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    norwalk
+    <population>77767</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    new britain
+    <population>73840</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    west hartford
+    <population>61301</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    danbury
+    <population>60470</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    greenwich
+    <population>59578</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    bristol
+    <population>57370</population>
+</city>
+<city>
+    <state>
+        connecticut
+        <abbreviation>ct</abbreviation>
+    </state>
+    meriden
+    <population>57118</population>
+</city>
+<city>
+    <state>
+        delaware
+        <abbreviation>de</abbreviation>
+    </state>
+    wilmington
+    <population>70195</population>
+</city>
+<city>
+    <state>
+        district of columbia
+        <abbreviation>dc</abbreviation>
+    </state>
+    washington
+    <population>638333</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    jacksonville
+    <population>540920</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    miami
+    <population>346865</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    tampa
+    <population>271523</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    st. petersburg
+    <population>238647</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    fort lauderdale
+    <population>153256</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    orlando
+    <population>128394</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    hollywood
+    <population>117188</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    miami beach
+    <population>96298</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    clearwater
+    <population>85450</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    tallahassee
+    <population>81548</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    gainesville
+    <population>81371</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    kendall
+    <population>73758</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    west palm beach
+    <population>62530</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    largo
+    <population>58977</population>
+</city>
+<city>
+    <state>
+        florida
+        <abbreviation>fl</abbreviation>
+    </state>
+    pensacola
+    <population>57619</population>
+</city>
+<city>
+    <state>
+        georgia
+        <abbreviation>ga</abbreviation>
+    </state>
+    atlanta
+    <population>425022</population>
+</city>
+<city>
+    <state>
+        georgia
+        <abbreviation>ga</abbreviation>
+    </state>
+    columbus
+    <population>169441</population>
+</city>
+<city>
+    <state>
+        georgia
+        <abbreviation>ga</abbreviation>
+    </state>
+    savannah
+    <population>141654</population>
+</city>
+<city>
+    <state>
+        georgia
+        <abbreviation>ga</abbreviation>
+    </state>
+    macon
+    <population>116860</population>
+</city>
+<city>
+    <state>
+        georgia
+        <abbreviation>ga</abbreviation>
+    </state>
+    albany
+    <population>74425</population>
+</city>
+<city>
+    <state>
+        hawaii
+        <abbreviation>hi</abbreviation>
+    </state>
+    honolulu
+    <population>762874</population>
+</city>
+<city>
+    <state>
+        hawaii
+        <abbreviation>hi</abbreviation>
+    </state>
+    ewa
+    <population>190037</population>
+</city>
+<city>
+    <state>
+        hawaii
+        <abbreviation>hi</abbreviation>
+    </state>
+    koolaupoko
+    <population>109373</population>
+</city>
+<city>
+    <state>
+        idaho
+        <abbreviation>id</abbreviation>
+    </state>
+    boise
+    <population>102249</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    chicago
+    <population>3005172</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    rockford
+    <population>139712</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    peoria
+    <population>124160</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    springfield
+    <population>100054</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    decatur
+    <population>93939</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    aurora
+    <population>81293</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    joliet
+    <population>77956</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    evanston
+    <population>73706</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    waukegan
+    <population>67653</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    arlington heights
+    <population>66116</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    elgin
+    <population>63668</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    cicero
+    <population>61232</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    oak lawn
+    <population>60590</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    skokie
+    <population>60278</population>
+</city>
+<city>
+    <state>
+        illinois
+        <abbreviation>il</abbreviation>
+    </state>
+    champaign
+    <population>58267</population>
+</city>
+<city>
+    <state>
+        indiana
+        <abbreviation>in</abbreviation>
+    </state>
+    indianapolis
+    <population>700807</population>
+</city>
+<city>
+    <state>
+        indiana
+        <abbreviation>in</abbreviation>
+    </state>
+    fort wayne
+    <population>172196</population>
+</city>
+<city>
+    <state>
+        indiana
+        <abbreviation>in</abbreviation>
+    </state>
+    gary
+    <population>151968</population>
+</city>
+<city>
+    <state>
+        indiana
+        <abbreviation>in</abbreviation>
+    </state>
+    evansville
+    <population>130496</population>
+</city>
+<city>
+    <state>
+        indiana
+        <abbreviation>in</abbreviation>
+    </state>
+    south bend
+    <population>109727</population>
+</city>
+<city>
+    <state>
+        indiana
+        <abbreviation>in</abbreviation>
+    </state>
+    hammond
+    <population>93714</population>
+</city>
+<city>
+    <state>
+        indiana
+        <abbreviation>in</abbreviation>
+    </state>
+    muncie
+    <population>77216</population>
+</city>
+<city>
+    <state>
+        indiana
+        <abbreviation>in</abbreviation>
+    </state>
+    anderson
+    <population>64695</population>
+</city>
+<city>
+    <state>
+        indiana
+        <abbreviation>in</abbreviation>
+    </state>
+    terre haute
+    <population>61125</population>
+</city>
+<city>
+    <state>
+        iowa
+        <abbreviation>ia</abbreviation>
+    </state>
+    des moines
+    <population>191003</population>
+</city>
+<city>
+    <state>
+        iowa
+        <abbreviation>ia</abbreviation>
+    </state>
+    cedar rapids
+    <population>110243</population>
+</city>
+<city>
+    <state>
+        iowa
+        <abbreviation>ia</abbreviation>
+    </state>
+    davenport
+    <population>103254</population>
+</city>
+<city>
+    <state>
+        iowa
+        <abbreviation>ia</abbreviation>
+    </state>
+    sioux city
+    <population>82003</population>
+</city>
+<city>
+    <state>
+        iowa
+        <abbreviation>ia</abbreviation>
+    </state>
+    waterloo
+    <population>75985</population>
+</city>
+<city>
+    <state>
+        iowa
+        <abbreviation>ia</abbreviation>
+    </state>
+    dubuque
+    <population>62321</population>
+</city>
+<city>
+    <state>
+        kansas
+        <abbreviation>ks</abbreviation>
+    </state>
+    wichita
+    <population>279212</population>
+</city>
+<city>
+    <state>
+        kansas
+        <abbreviation>ks</abbreviation>
+    </state>
+    kansas city
+    <population>161148</population>
+</city>
+<city>
+    <state>
+        kansas
+        <abbreviation>ks</abbreviation>
+    </state>
+    topeka
+    <population>118690</population>
+</city>
+<city>
+    <state>
+        kansas
+        <abbreviation>ks</abbreviation>
+    </state>
+    overland park
+    <population>81784</population>
+</city>
+<city>
+    <state>
+        kentucky
+        <abbreviation>ky</abbreviation>
+    </state>
+    louisville
+    <population>298451</population>
+</city>
+<city>
+    <state>
+        kentucky
+        <abbreviation>ky</abbreviation>
+    </state>
+    lexington
+    <population>204165</population>
+</city>
+<city>
+    <state>
+        louisiana
+        <abbreviation>la</abbreviation>
+    </state>
+    new orleans
+    <population>557515</population>
+</city>
+<city>
+    <state>
+        louisiana
+        <abbreviation>la</abbreviation>
+    </state>
+    baton rouge
+    <population>219419</population>
+</city>
+<city>
+    <state>
+        louisiana
+        <abbreviation>la</abbreviation>
+    </state>
+    shreveport
+    <population>205820</population>
+</city>
+<city>
+    <state>
+        louisiana
+        <abbreviation>la</abbreviation>
+    </state>
+    metairie
+    <population>164160</population>
+</city>
+<city>
+    <state>
+        louisiana
+        <abbreviation>la</abbreviation>
+    </state>
+    lafayette
+    <population>80584</population>
+</city>
+<city>
+    <state>
+        louisiana
+        <abbreviation>la</abbreviation>
+    </state>
+    lake charles
+    <population>75051</population>
+</city>
+<city>
+    <state>
+        louisiana
+        <abbreviation>la</abbreviation>
+    </state>
+    kenner
+    <population>66382</population>
+</city>
+<city>
+    <state>
+        louisiana
+        <abbreviation>la</abbreviation>
+    </state>
+    monroe
+    <population>57597</population>
+</city>
+<city>
+    <state>
+        maine
+        <abbreviation>me</abbreviation>
+    </state>
+    portland
+    <population>61572</population>
+</city>
+<city>
+    <state>
+        maryland
+        <abbreviation>md</abbreviation>
+    </state>
+    baltimore
+    <population>786775</population>
+</city>
+<city>
+    <state>
+        maryland
+        <abbreviation>md</abbreviation>
+    </state>
+    silver spring
+    <population>72893</population>
+</city>
+<city>
+    <state>
+        maryland
+        <abbreviation>md</abbreviation>
+    </state>
+    dundalk
+    <population>71293</population>
+</city>
+<city>
+    <state>
+        maryland
+        <abbreviation>md</abbreviation>
+    </state>
+    bethesda
+    <population>63022</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    boston
+    <population>562994</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    worcester
+    <population>161799</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    springfield
+    <population>152319</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    new bedford
+    <population>98478</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    cambridge
+    <population>95322</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    brockton
+    <population>95172</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    fall river
+    <population>92574</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    lowell
+    <population>92418</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    quincy
+    <population>84743</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    newton
+    <population>83622</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    lynn
+    <population>78471</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    somerville
+    <population>77372</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    framingham
+    <population>65113</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    lawrence
+    <population>63175</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    waltham
+    <population>58200</population>
+</city>
+<city>
+    <state>
+        massachusetts
+        <abbreviation>ma</abbreviation>
+    </state>
+    medford
+    <population>58076</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    detroit
+    <population>1203339</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    grand rapids
+    <population>181843</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    warren
+    <population>161134</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    flint
+    <population>159611</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    lansing
+    <population>130414</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    sterling heights
+    <population>108999</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    ann arbor
+    <population>107969</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    livonia
+    <population>104814</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    dearborn
+    <population>90660</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    westland
+    <population>84603</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    kalamazoo
+    <population>79722</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    taylor
+    <population>77568</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    saginaw
+    <population>77508</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    pontiac
+    <population>76715</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    st. clair shores
+    <population>76210</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    southfield
+    <population>75568</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    clinton
+    <population>72400</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    royal oak
+    <population>70893</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    dearborn heights
+    <population>67706</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    troy
+    <population>67102</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    waterford
+    <population>64250</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    wyoming
+    <population>59616</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    redford
+    <population>58441</population>
+</city>
+<city>
+    <state>
+        michigan
+        <abbreviation>mi</abbreviation>
+    </state>
+    farmington hills
+    <population>58056</population>
+</city>
+<city>
+    <state>
+        minnesota
+        <abbreviation>mn</abbreviation>
+    </state>
+    minneapolis
+    <population>370951</population>
+</city>
+<city>
+    <state>
+        minnesota
+        <abbreviation>mn</abbreviation>
+    </state>
+    st. paul
+    <population>270230</population>
+</city>
+<city>
+    <state>
+        minnesota
+        <abbreviation>mn</abbreviation>
+    </state>
+    duluth
+    <population>92811</population>
+</city>
+<city>
+    <state>
+        minnesota
+        <abbreviation>mn</abbreviation>
+    </state>
+    bloomington
+    <population>81831</population>
+</city>
+<city>
+    <state>
+        minnesota
+        <abbreviation>mn</abbreviation>
+    </state>
+    rochester
+    <population>57906</population>
+</city>
+<city>
+    <state>
+        mississippi
+        <abbreviation>ms</abbreviation>
+    </state>
+    jackson
+    <population>202895</population>
+</city>
+<city>
+    <state>
+        missouri
+        <abbreviation>mo</abbreviation>
+    </state>
+    st. louis
+    <population>453085</population>
+</city>
+<city>
+    <state>
+        missouri
+        <abbreviation>mo</abbreviation>
+    </state>
+    kansas city
+    <population>448159</population>
+</city>
+<city>
+    <state>
+        missouri
+        <abbreviation>mo</abbreviation>
+    </state>
+    springfield
+    <population>133116</population>
+</city>
+<city>
+    <state>
+        missouri
+        <abbreviation>mo</abbreviation>
+    </state>
+    independence
+    <population>111797</population>
+</city>
+<city>
+    <state>
+        missouri
+        <abbreviation>mo</abbreviation>
+    </state>
+    st. joseph
+    <population>76691</population>
+</city>
+<city>
+    <state>
+        missouri
+        <abbreviation>mo</abbreviation>
+    </state>
+    columbia
+    <population>62061</population>
+</city>
+<city>
+    <state>
+        montana
+        <abbreviation>mt</abbreviation>
+    </state>
+    billings
+    <population>66842</population>
+</city>
+<city>
+    <state>
+        montana
+        <abbreviation>mt</abbreviation>
+    </state>
+    great falls
+    <population>56725</population>
+</city>
+<city>
+    <state>
+        nebraska
+        <abbreviation>ne</abbreviation>
+    </state>
+    omaha
+    <population>314255</population>
+</city>
+<city>
+    <state>
+        nebraska
+        <abbreviation>ne</abbreviation>
+    </state>
+    lincoln
+    <population>171932</population>
+</city>
+<city>
+    <state>
+        nevada
+        <abbreviation>nv</abbreviation>
+    </state>
+    las vegas
+    <population>164674</population>
+</city>
+<city>
+    <state>
+        nevada
+        <abbreviation>nv</abbreviation>
+    </state>
+    reno
+    <population>100756</population>
+</city>
+<city>
+    <state>
+        new hampshire
+        <abbreviation>nh</abbreviation>
+    </state>
+    manchester
+    <population>90936</population>
+</city>
+<city>
+    <state>
+        new hampshire
+        <abbreviation>nh</abbreviation>
+    </state>
+    nashua
+    <population>67865</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    newark
+    <population>329248</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    jersey city
+    <population>223532</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    paterson
+    <population>137970</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    elizabeth
+    <population>106201</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    trenton
+    <population>92124</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    woodbridge
+    <population>90074</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    camden
+    <population>84910</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    east orange
+    <population>77878</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    clifton
+    <population>74388</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    edison
+    <population>70193</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    cherry hill
+    <population>68785</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    bayonne
+    <population>65047</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    middletown
+    <population>61615</population>
+</city>
+<city>
+    <state>
+        new jersey
+        <abbreviation>nj</abbreviation>
+    </state>
+    irvington
+    <population>61493</population>
+</city>
+<city>
+    <state>
+        new mexico
+        <abbreviation>nm</abbreviation>
+    </state>
+    albuquerque
+    <population>331767</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    new york
+    <population>7071639</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    buffalo
+    <population>357870</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    rochester
+    <population>241741</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    yonkers
+    <population>195351</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    syracuse
+    <population>170105</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    albany
+    <population>101727</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    cheektowaga
+    <population>92145</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    utica
+    <population>75632</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    niagara falls
+    <population>71384</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    new rochelle
+    <population>70794</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    schenectady
+    <population>67972</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    mount vernon
+    <population>66713</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    irondequoit
+    <population>57648</population>
+</city>
+<city>
+    <state>
+        new york
+        <abbreviation>ny</abbreviation>
+    </state>
+    levittown
+    <population>57045</population>
+</city>
+<city>
+    <state>
+        north carolina
+        <abbreviation>nc</abbreviation>
+    </state>
+    charlotte
+    <population>314447</population>
+</city>
+<city>
+    <state>
+        north carolina
+        <abbreviation>nc</abbreviation>
+    </state>
+    greensboro
+    <population>155642</population>
+</city>
+<city>
+    <state>
+        north carolina
+        <abbreviation>nc</abbreviation>
+    </state>
+    raleigh
+    <population>149771</population>
+</city>
+<city>
+    <state>
+        north carolina
+        <abbreviation>nc</abbreviation>
+    </state>
+    winston-salem
+    <population>131885</population>
+</city>
+<city>
+    <state>
+        north carolina
+        <abbreviation>nc</abbreviation>
+    </state>
+    durham
+    <population>100538</population>
+</city>
+<city>
+    <state>
+        north carolina
+        <abbreviation>nc</abbreviation>
+    </state>
+    high point
+    <population>64107</population>
+</city>
+<city>
+    <state>
+        north carolina
+        <abbreviation>nc</abbreviation>
+    </state>
+    fayetteville
+    <population>59507</population>
+</city>
+<city>
+    <state>
+        north dakota
+        <abbreviation>nd</abbreviation>
+    </state>
+    fargo
+    <population>61308</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    cleveland
+    <population>573822</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    columbus
+    <population>564871</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    cincinnati
+    <population>385457</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    toledo
+    <population>354635</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    akron
+    <population>237177</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    dayton
+    <population>203371</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    youngstown
+    <population>115436</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    canton
+    <population>93077</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    parma
+    <population>92548</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    lorain
+    <population>75416</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    springfield
+    <population>72563</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    hamilton
+    <population>63189</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    lakewood
+    <population>61963</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    kettering
+    <population>61186</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    euclid
+    <population>59999</population>
+</city>
+<city>
+    <state>
+        ohio
+        <abbreviation>oh</abbreviation>
+    </state>
+    elyria
+    <population>57504</population>
+</city>
+<city>
+    <state>
+        oklahoma
+        <abbreviation>ok</abbreviation>
+    </state>
+    oklahoma city
+    <population>403213</population>
+</city>
+<city>
+    <state>
+        oklahoma
+        <abbreviation>ok</abbreviation>
+    </state>
+    tulsa
+    <population>360919</population>
+</city>
+<city>
+    <state>
+        oklahoma
+        <abbreviation>ok</abbreviation>
+    </state>
+    lawton
+    <population>80054</population>
+</city>
+<city>
+    <state>
+        oklahoma
+        <abbreviation>ok</abbreviation>
+    </state>
+    norman
+    <population>68020</population>
+</city>
+<city>
+    <state>
+        oregon
+        <abbreviation>or</abbreviation>
+    </state>
+    portland
+    <population>366383</population>
+</city>
+<city>
+    <state>
+        oregon
+        <abbreviation>or</abbreviation>
+    </state>
+    eugene
+    <population>105664</population>
+</city>
+<city>
+    <state>
+        oregon
+        <abbreviation>or</abbreviation>
+    </state>
+    salem
+    <population>89233</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    philadelphia
+    <population>1688210</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    pittsburgh
+    <population>423938</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    erie
+    <population>119123</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    allentown
+    <population>103758</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    scranton
+    <population>88117</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    upper darby
+    <population>84054</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    reading
+    <population>78686</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    bethlehem
+    <population>70419</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    lower merion
+    <population>59651</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    abingdon
+    <population>59084</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    bristol township
+    <population>58733</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    penn hills
+    <population>57632</population>
+</city>
+<city>
+    <state>
+        pennsylvania
+        <abbreviation>pa</abbreviation>
+    </state>
+    altoona
+    <population>57078</population>
+</city>
+<city>
+    <state>
+        rhode island
+        <abbreviation>ri</abbreviation>
+    </state>
+    providence
+    <population>156804</population>
+</city>
+<city>
+    <state>
+        rhode island
+        <abbreviation>ri</abbreviation>
+    </state>
+    warwick
+    <population>87123</population>
+</city>
+<city>
+    <state>
+        rhode island
+        <abbreviation>ri</abbreviation>
+    </state>
+    cranston
+    <population>71992</population>
+</city>
+<city>
+    <state>
+        rhode island
+        <abbreviation>ri</abbreviation>
+    </state>
+    pawtucket
+    <population>71204</population>
+</city>
+<city>
+    <state>
+        south carolina
+        <abbreviation>sc</abbreviation>
+    </state>
+    columbia
+    <population>101229</population>
+</city>
+<city>
+    <state>
+        south carolina
+        <abbreviation>sc</abbreviation>
+    </state>
+    charleston
+    <population>69855</population>
+</city>
+<city>
+    <state>
+        south carolina
+        <abbreviation>sc</abbreviation>
+    </state>
+    north charleston
+    <population>62504</population>
+</city>
+<city>
+    <state>
+        south carolina
+        <abbreviation>sc</abbreviation>
+    </state>
+    greenville
+    <population>58242</population>
+</city>
+<city>
+    <state>
+        south dakota
+        <abbreviation>sd</abbreviation>
+    </state>
+    sioux falls
+    <population>81343</population>
+</city>
+<city>
+    <state>
+        tennessee
+        <abbreviation>tn</abbreviation>
+    </state>
+    memphis
+    <population>646356</population>
+</city>
+<city>
+    <state>
+        tennessee
+        <abbreviation>tn</abbreviation>
+    </state>
+    nashville
+    <population>455651</population>
+</city>
+<city>
+    <state>
+        tennessee
+        <abbreviation>tn</abbreviation>
+    </state>
+    knoxville
+    <population>175030</population>
+</city>
+<city>
+    <state>
+        tennessee
+        <abbreviation>tn</abbreviation>
+    </state>
+    chattanooga
+    <population>169728</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    houston
+    <population>1595138</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    dallas
+    <population>904078</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    san antonio
+    <population>785880</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    el paso
+    <population>425259</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    fort worth
+    <population>385164</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    austin
+    <population>345496</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    corpus christi
+    <population>231999</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    lubbock
+    <population>173979</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    arlington
+    <population>160123</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    amarillo
+    <population>149230</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    garland
+    <population>138857</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    beaumont
+    <population>118102</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    pasadena
+    <population>112560</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    irving
+    <population>109943</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    waco
+    <population>101261</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    abilene
+    <population>98315</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    wichita falls
+    <population>94201</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    laredo
+    <population>91449</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    odessa
+    <population>90027</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    brownsville
+    <population>84997</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    san angelo
+    <population>73240</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    richardson
+    <population>72496</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    plano
+    <population>72331</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    grand prairie
+    <population>71462</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    midland
+    <population>70525</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    tyler
+    <population>70508</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    mesquite
+    <population>67053</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    mcallen
+    <population>67042</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    longview
+    <population>62762</population>
+</city>
+<city>
+    <state>
+        texas
+        <abbreviation>tx</abbreviation>
+    </state>
+    port arthur
+    <population>61195</population>
+</city>
+<city>
+    <state>
+        utah
+        <abbreviation>ut</abbreviation>
+    </state>
+    salt lake city
+    <population>163034</population>
+</city>
+<city>
+    <state>
+        utah
+        <abbreviation>ut</abbreviation>
+    </state>
+    provo
+    <population>74111</population>
+</city>
+<city>
+    <state>
+        utah
+        <abbreviation>ut</abbreviation>
+    </state>
+    west valley
+    <population>72299</population>
+</city>
+<city>
+    <state>
+        utah
+        <abbreviation>ut</abbreviation>
+    </state>
+    ogden
+    <population>64407</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    norfolk
+    <population>266979</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    virginia beach
+    <population>262199</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    richmond
+    <population>219214</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    arlington
+    <population>152599</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    newport news
+    <population>144903</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    hampton
+    <population>122617</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    chesapeake
+    <population>114226</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    portsmouth
+    <population>104577</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    alexandria
+    <population>103217</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    roanoke
+    <population>100427</population>
+</city>
+<city>
+    <state>
+        virginia
+        <abbreviation>va</abbreviation>
+    </state>
+    lynchburg
+    <population>66743</population>
+</city>
+<city>
+    <state>
+        washington
+        <abbreviation>wa</abbreviation>
+    </state>
+    seattle
+    <population>493846</population>
+</city>
+<city>
+    <state>
+        washington
+        <abbreviation>wa</abbreviation>
+    </state>
+    spokane
+    <population>171300</population>
+</city>
+<city>
+    <state>
+        washington
+        <abbreviation>wa</abbreviation>
+    </state>
+    tacoma
+    <population>158501</population>
+</city>
+<city>
+    <state>
+        washington
+        <abbreviation>wa</abbreviation>
+    </state>
+    bellevue
+    <population>73903</population>
+</city>
+<city>
+    <state>
+        west virginia
+        <abbreviation>wv</abbreviation>
+    </state>
+    charleston
+    <population>63968</population>
+</city>
+<city>
+    <state>
+        west virginia
+        <abbreviation>wv</abbreviation>
+    </state>
+    huntington
+    <population>63684</population>
+</city>
+<city>
+    <state>
+        wisconsin
+        <abbreviation>wi</abbreviation>
+    </state>
+    milwaukee
+    <population>636212</population>
+</city>
+<city>
+    <state>
+        wisconsin
+        <abbreviation>wi</abbreviation>
+    </state>
+    madison
+    <population>170616</population>
+</city>
+<city>
+    <state>
+        wisconsin
+        <abbreviation>wi</abbreviation>
+    </state>
+    green bay
+    <population>87899</population>
+</city>
+<city>
+    <state>
+        wisconsin
+        <abbreviation>wi</abbreviation>
+    </state>
+    racine
+    <population>85725</population>
+</city>
+<city>
+    <state>
+        wisconsin
+        <abbreviation>wi</abbreviation>
+    </state>
+    kenosha
+    <population>77685</population>
+</city>
+<city>
+    <state>
+        wisconsin
+        <abbreviation>wi</abbreviation>
+    </state>
+    west allis
+    <population>63982</population>
+</city>
+<city>
+    <state>
+        wisconsin
+        <abbreviation>wi</abbreviation>
+    </state>
+    appleton
+    <population>58913</population>
+</city>
+<city>
+    <state>
+        wyoming
+        <abbreviation>wy</abbreviation>
+    </state>
+    casper
+    <population>51016</population>
+</city>
+<river>
+    mississippi
+    <length>3778</length>
+    <state>minnesota</state>
+    <state>wisconsin</state>
+    <state>iowa</state>
+    <state>illinois</state>
+    <state>missouri</state>
+    <state>kentucky</state>
+    <state>tennessee</state>
+    <state>arkansas</state>
+    <state>mississippi</state>
+    <state>louisiana</state>
+    <state>louisiana</state>
+</river>
+<river>
+    missouri
+    <length>3968</length>
+    <state>montana</state>
+    <state>north dakota</state>
+    <state>south dakota</state>
+    <state>iowa</state>
+    <state>nebraska</state>
+    <state>missouri</state>
+    <state>missouri</state>
+</river>
+<river>
+    colorado
+    <length>2333</length>
+    <state>colorado</state>
+    <state>utah</state>
+    <state>arizona</state>
+    <state>nevada</state>
+    <state>california</state>
+</river>
+<river>
+    ohio
+    <length>1569</length>
+    <state>pennsylvania</state>
+    <state>west virginia</state>
+    <state>kentucky</state>
+    <state>indiana</state>
+    <state>illinois</state>
+    <state>illinois</state>
+    <state>ohio</state>
+</river>
+<river>
+    red
+    <length>1638</length>
+    <state>new mexico</state>
+    <state>texas</state>
+    <state>oklahoma</state>
+    <state>arkansas</state>
+    <state>arkansas</state>
+    <state>louisiana</state>
+</river>
+<river>
+    arkansas
+    <length>2333</length>
+    <state>colorado</state>
+    <state>kansas</state>
+    <state>oklahoma</state>
+    <state>arkansas</state>
+</river>
+<river>
+    canadian
+    <length>1458</length>
+    <state>colorado</state>
+    <state>new mexico</state>
+    <state>texas</state>
+    <state>oklahoma</state>
+</river>
+<river>
+    connecticut
+    <length>655</length>
+    <state>new hampshire</state>
+    <state>vermont</state>
+    <state>massachusetts</state>
+    <state>connecticut</state>
+</river>
+<river>
+    delaware
+    <length>451</length>
+    <state>new york</state>
+    <state>pennsylvania</state>
+    <state>new jersey</state>
+    <state>delaware</state>
+</river>
+<river>
+    little missouri
+    <length>901</length>
+    <state>wyoming</state>
+    <state>montana</state>
+    <state>south dakota</state>
+    <state>north dakota</state>
+</river>
+<river>
+    snake
+    <length>1670</length>
+    <state>wyoming</state>
+    <state>idaho</state>
+    <state>oregon</state>
+    <state>washington</state>
+    <state>washington</state>
+</river>
+<river>
+    chattahoochee
+    <length>702</length>
+    <state>georgia</state>
+    <state>georgia</state>
+    <state>florida</state>
+</river>
+<river>
+    cimarron
+    <length>965</length>
+    <state>new mexico</state>
+    <state>kansas</state>
+    <state>oklahoma</state>
+</river>
+<river>
+    green
+    <length>1175</length>
+    <state>wyoming</state>
+    <state>utah</state>
+    <state>colorado</state>
+    <state>utah</state>
+</river>
+<river>
+    north platte
+    <length>1094</length>
+    <state>colorado</state>
+    <state>wyoming</state>
+    <state>nebraska</state>
+</river>
+<river>
+    potomac
+    <length>462</length>
+    <state>west virginia</state>
+    <state>maryland</state>
+    <state>virginia</state>
+    <state>district of columbia</state>
+</river>
+<river>
+    republican
+    <length>679</length>
+    <state>colorado</state>
+    <state>nebraska</state>
+    <state>kansas</state>
+</river>
+<river>
+    rio grande
+    <length>3033</length>
+    <state>colorado</state>
+    <state>new mexico</state>
+    <state>texas</state>
+</river>
+<river>
+    san juan
+    <length>579</length>
+    <state>colorado</state>
+    <state>new mexico</state>
+    <state>colorado</state>
+    <state>utah</state>
+</river>
+<river>
+    tennessee
+    <length>1049</length>
+    <state>tennessee</state>
+    <state>alabama</state>
+    <state>tennessee</state>
+    <state>kentucky</state>
+</river>
+<river>
+    wabash
+    <length>764</length>
+    <state>ohio</state>
+    <state>indiana</state>
+    <state>illinois</state>
+</river>
+<river>
+    yellowstone
+    <length>1080</length>
+    <state>wyoming</state>
+    <state>montana</state>
+    <state>north dakota</state>
+</river>
+<river>
+    allegheny
+    <length>523</length>
+    <state>pennsylvania</state>
+    <state>new york</state>
+    <state>pennsylvania</state>
+</river>
+<river>
+    bighorn
+    <length>541</length>
+    <state>wyoming</state>
+    <state>montana</state>
+</river>
+<river>
+    cheyenne
+    <length>848</length>
+    <state>wyoming</state>
+    <state>north dakota</state>
+</river>
+<river>
+    clark fork
+    <length>483</length>
+    <state>montana</state>
+    <state>idaho</state>
+</river>
+<river>
+    columbia
+    <length>1953</length>
+    <state>washington</state>
+    <state>oregon</state>
+</river>
+<river>
+    cumberland
+    <length>1105</length>
+    <state>kentucky</state>
+    <state>tennessee</state>
+    <state>kentucky</state>
+</river>
+<river>
+    dakota
+    <length>1142</length>
+    <state>north dakota</state>
+    <state>south dakota</state>
+</river>
+<river>
+    gila
+    <length>805</length>
+    <state>new mexico</state>
+    <state>arizona</state>
+</river>
+<river>
+    hudson
+    <length>492</length>
+    <state>new york</state>
+    <state>new jersey</state>
+</river>
+<river>
+    neosho
+    <length>740</length>
+    <state>kansas</state>
+    <state>oklahoma</state>
+</river>
+<river>
+    niobrara
+    <length>693</length>
+    <state>wyoming</state>
+    <state>nebraska</state>
+</river>
+<river>
+    ouachita
+    <length>973</length>
+    <state>arkansas</state>
+    <state>louisiana</state>
+</river>
+<river>
+    pearl
+    <length>788</length>
+    <state>michigan</state>
+    <state>louisiana</state>
+</river>
+<river>
+    pecos
+    <length>805</length>
+    <state>new mexico</state>
+    <state>texas</state>
+</river>
+<river>
+    powder
+    <length>603</length>
+    <state>wyoming</state>
+    <state>montana</state>
+</river>
+<river>
+    roanoke
+    <length>660</length>
+    <state>virginia</state>
+    <state>north carolina</state>
+</river>
+<river>
+    rock
+    <length>459</length>
+    <state>wisconsin</state>
+    <state>illinois</state>
+</river>
+<river>
+    smoky hill
+    <length>869</length>
+    <state>colorado</state>
+    <state>kansas</state>
+</river>
+<river>
+    south platte
+    <length>682</length>
+    <state>colorado</state>
+    <state>nebraska</state>
+</river>
+<river>
+    st. francis
+    <length>684</length>
+    <state>missouri</state>
+    <state>arkansas</state>
+</river>
+<river>
+    tombigbee
+    <length>658</length>
+    <state>mississippi</state>
+    <state>alabama</state>
+</river>
+<river>
+    washita
+    <length>805</length>
+    <state>texas</state>
+    <state>oklahoma</state>
+</river>
+<river>
+    wateree catawba
+    <length>636</length>
+    <state>north carolina</state>
+    <state>south carolina</state>
+</river>
+<river>
+    white
+    <length>1110</length>
+    <state>arkansas</state>
+    <state>missouri</state>
+    <state>arkansas</state>
+</river>
+<border>
+    alabama
+    <abbreviation>al</abbreviation>
+        <state>tennessee</state>
+        <state>georgia</state>
+        <state>florida</state>
+        <state>mississippi</state>
+    </border>
+<border>
+    alaska
+    <abbreviation>ak</abbreviation>
+    </border>
+<border>
+    arizona
+    <abbreviation>az</abbreviation>
+        <state>utah</state>
+        <state>colorado</state>
+        <state>new mexico</state>
+        <state>california</state>
+        <state>nevada</state>
+    </border>
+<border>
+    arkansas
+    <abbreviation>ar</abbreviation>
+        <state>missouri</state>
+        <state>tennessee</state>
+        <state>mississippi</state>
+        <state>louisiana</state>
+        <state>texas</state>
+        <state>oklahoma</state>
+    </border>
+<border>
+    california
+    <abbreviation>ca</abbreviation>
+        <state>oregon</state>
+        <state>nevada</state>
+        <state>arizona</state>
+    </border>
+<border>
+    colorado
+    <abbreviation>co</abbreviation>
+        <state>nebraska</state>
+        <state>kansas</state>
+        <state>oklahoma</state>
+        <state>new mexico</state>
+        <state>arizona</state>
+        <state>utah</state>
+        <state>wyoming</state>
+    </border>
+<border>
+    connecticut
+    <abbreviation>ct</abbreviation>
+        <state>massachusetts</state>
+        <state>rhode island</state>
+        <state>new york</state>
+    </border>
+<border>
+    delaware
+    <abbreviation>de</abbreviation>
+        <state>pennsylvania</state>
+        <state>new jersey</state>
+        <state>maryland</state>
+    </border>
+<border>
+    district of columbia
+    <abbreviation>dc</abbreviation>
+        <state>maryland</state>
+        <state>virginia</state>
+    </border>
+<border>
+    florida
+    <abbreviation>fl</abbreviation>
+        <state>georgia</state>
+        <state>alabama</state>
+    </border>
+<border>
+    georgia
+    <abbreviation>ga</abbreviation>
+        <state>north carolina</state>
+        <state>south carolina</state>
+        <state>florida</state>
+        <state>alabama</state>
+        <state>tennessee</state>
+    </border>
+<border>
+    hawaii
+    <abbreviation>hi</abbreviation>
+    </border>
+<border>
+    idaho
+    <abbreviation>id</abbreviation>
+        <state>montana</state>
+        <state>wyoming</state>
+        <state>utah</state>
+        <state>nevada</state>
+        <state>oregon</state>
+        <state>washington</state>
+    </border>
+<border>
+    illinois
+    <abbreviation>il</abbreviation>
+        <state>wisconsin</state>
+        <state>indiana</state>
+        <state>kentucky</state>
+        <state>missouri</state>
+        <state>iowa</state>
+    </border>
+<border>
+    indiana
+    <abbreviation>in</abbreviation>
+        <state>michigan</state>
+        <state>ohio</state>
+        <state>kentucky</state>
+        <state>illinois</state>
+    </border>
+<border>
+    iowa
+    <abbreviation>ia</abbreviation>
+        <state>minnesota</state>
+        <state>wisconsin</state>
+        <state>illinois</state>
+        <state>missouri</state>
+        <state>nebraska</state>
+        <state>south dakota</state>
+    </border>
+<border>
+    kansas
+    <abbreviation>ks</abbreviation>
+        <state>nebraska</state>
+        <state>missouri</state>
+        <state>oklahoma</state>
+        <state>colorado</state>
+    </border>
+<border>
+    kentucky
+    <abbreviation>ky</abbreviation>
+        <state>indiana</state>
+        <state>ohio</state>
+        <state>west virginia</state>
+        <state>virginia</state>
+        <state>tennessee</state>
+        <state>missouri</state>
+        <state>illinois</state>
+    </border>
+<border>
+    louisiana
+    <abbreviation>la</abbreviation>
+        <state>arkansas</state>
+        <state>mississippi</state>
+        <state>texas</state>
+    </border>
+<border>
+    maine
+    <abbreviation>me</abbreviation>
+        <state>new hampshire</state>
+    </border>
+<border>
+    maryland
+    <abbreviation>md</abbreviation>
+        <state>pennsylvania</state>
+        <state>delaware</state>
+        <state>virginia</state>
+        <state>district of columbia</state>
+        <state>west virginia</state>
+    </border>
+<border>
+    massachusetts
+    <abbreviation>ma</abbreviation>
+        <state>new hampshire</state>
+        <state>rhode island</state>
+        <state>connecticut</state>
+        <state>new york</state>
+        <state>vermont</state>
+    </border>
+<border>
+    michigan
+    <abbreviation>mi</abbreviation>
+        <state>ohio</state>
+        <state>indiana</state>
+        <state>wisconsin</state>
+    </border>
+<border>
+    minnesota
+    <abbreviation>mn</abbreviation>
+        <state>wisconsin</state>
+        <state>iowa</state>
+        <state>south dakota</state>
+        <state>north dakota</state>
+    </border>
+<border>
+    mississippi
+    <abbreviation>ms</abbreviation>
+        <state>tennessee</state>
+        <state>alabama</state>
+        <state>louisiana</state>
+        <state>arkansas</state>
+    </border>
+<border>
+    missouri
+    <abbreviation>mo</abbreviation>
+        <state>iowa</state>
+        <state>illinois</state>
+        <state>kentucky</state>
+        <state>tennessee</state>
+        <state>arkansas</state>
+        <state>oklahoma</state>
+        <state>kansas</state>
+        <state>nebraska</state>
+    </border>
+<border>
+    montana
+    <abbreviation>mt</abbreviation>
+        <state>north dakota</state>
+        <state>south dakota</state>
+        <state>wyoming</state>
+        <state>idaho</state>
+    </border>
+<border>
+    nebraska
+    <abbreviation>ne</abbreviation>
+        <state>south dakota</state>
+        <state>iowa</state>
+        <state>missouri</state>
+        <state>kansas</state>
+        <state>colorado</state>
+        <state>wyoming</state>
+    </border>
+<border>
+    nevada
+    <abbreviation>nv</abbreviation>
+        <state>idaho</state>
+        <state>utah</state>
+        <state>arizona</state>
+        <state>california</state>
+        <state>oregon</state>
+    </border>
+<border>
+    new hampshire
+    <abbreviation>nh</abbreviation>
+        <state>maine</state>
+        <state>massachusetts</state>
+        <state>vermont</state>
+    </border>
+<border>
+    new jersey
+    <abbreviation>nj</abbreviation>
+        <state>new york</state>
+        <state>delaware</state>
+        <state>pennsylvania</state>
+    </border>
+<border>
+    new mexico
+    <abbreviation>nm</abbreviation>
+        <state>colorado</state>
+        <state>oklahoma</state>
+        <state>texas</state>
+        <state>arizona</state>
+        <state>utah</state>
+    </border>
+<border>
+    new york
+    <abbreviation>ny</abbreviation>
+        <state>vermont</state>
+        <state>massachusetts</state>
+        <state>connecticut</state>
+        <state>new jersey</state>
+        <state>pennsylvania</state>
+    </border>
+<border>
+    north carolina
+    <abbreviation>nc</abbreviation>
+        <state>virginia</state>
+        <state>south carolina</state>
+        <state>georgia</state>
+        <state>tennessee</state>
+    </border>
+<border>
+    north dakota
+    <abbreviation>nd</abbreviation>
+        <state>minnesota</state>
+        <state>south dakota</state>
+        <state>montana</state>
+    </border>
+<border>
+    ohio
+    <abbreviation>oh</abbreviation>
+        <state>michigan</state>
+        <state>pennsylvania</state>
+        <state>west virginia</state>
+        <state>kentucky</state>
+        <state>indiana</state>
+    </border>
+<border>
+    oklahoma
+    <abbreviation>ok</abbreviation>
+        <state>kansas</state>
+        <state>missouri</state>
+        <state>arkansas</state>
+        <state>texas</state>
+        <state>new mexico</state>
+        <state>colorado</state>
+    </border>
+<border>
+    oregon
+    <abbreviation>or</abbreviation>
+        <state>washington</state>
+        <state>idaho</state>
+        <state>nevada</state>
+        <state>california</state>
+    </border>
+<border>
+    pennsylvania
+    <abbreviation>pa</abbreviation>
+        <state>new york</state>
+        <state>new jersey</state>
+        <state>delaware</state>
+        <state>maryland</state>
+        <state>west virginia</state>
+        <state>ohio</state>
+    </border>
+<border>
+    rhode island
+    <abbreviation>ri</abbreviation>
+        <state>massachusetts</state>
+        <state>connecticut</state>
+    </border>
+<border>
+    south carolina
+    <abbreviation>sc</abbreviation>
+        <state>north carolina</state>
+        <state>georgia</state>
+    </border>
+<border>
+    south dakota
+    <abbreviation>sd</abbreviation>
+        <state>north dakota</state>
+        <state>minnesota</state>
+        <state>iowa</state>
+        <state>nebraska</state>
+        <state>wyoming</state>
+        <state>montana</state>
+    </border>
+<border>
+    tennessee
+    <abbreviation>tn</abbreviation>
+        <state>kentucky</state>
+        <state>virginia</state>
+        <state>north carolina</state>
+        <state>georgia</state>
+        <state>alabama</state>
+        <state>mississippi</state>
+        <state>arkansas</state>
+        <state>missouri</state>
+    </border>
+<border>
+    texas
+    <abbreviation>tx</abbreviation>
+        <state>oklahoma</state>
+        <state>arkansas</state>
+        <state>louisiana</state>
+        <state>new mexico</state>
+    </border>
+<border>
+    utah
+    <abbreviation>ut</abbreviation>
+        <state>wyoming</state>
+        <state>colorado</state>
+        <state>new mexico</state>
+        <state>arizona</state>
+        <state>nevada</state>
+        <state>idaho</state>
+    </border>
+<border>
+    vermont
+    <abbreviation>vt</abbreviation>
+        <state>new hampshire</state>
+        <state>massachusetts</state>
+        <state>new york</state>
+    </border>
+<border>
+    virginia
+    <abbreviation>va</abbreviation>
+        <state>maryland</state>
+        <state>district of columbia</state>
+        <state>north carolina</state>
+        <state>tennessee</state>
+        <state>kentucky</state>
+        <state>west virginia</state>
+    </border>
+<border>
+    washington
+    <abbreviation>wa</abbreviation>
+        <state>idaho</state>
+        <state>oregon</state>
+    </border>
+<border>
+    west virginia
+    <abbreviation>wv</abbreviation>
+        <state>pennsylvania</state>
+        <state>maryland</state>
+        <state>virginia</state>
+        <state>kentucky</state>
+        <state>ohio</state>
+    </border>
+<border>
+    wisconsin
+    <abbreviation>wi</abbreviation>
+        <state>michigan</state>
+        <state>illinois</state>
+        <state>iowa</state>
+        <state>minnesota</state>
+    </border>
+<border>
+    wyoming
+    <abbreviation>wy</abbreviation>
+        <state>montana</state>
+        <state>south dakota</state>
+        <state>nebraska</state>
+        <state>colorado</state>
+        <state>utah</state>
+        <state>idaho</state>
+    </border>
+<highlow>
+    <state>alabama</state>
+    <abbreviation>al</abbreviation>
+    <highest_point>cheaha mountain
+    <elevation>734</elevation>
+    </highest_point>
+    <lowest_point>gulf of mexico
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>alaska</state>
+    <abbreviation>ak</abbreviation>
+    <highest_point>mount mckinley
+    <elevation>6194</elevation>
+    </highest_point>
+    <lowest_point>pacific ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>arizona</state>
+    <abbreviation>az</abbreviation>
+    <highest_point>humphreys peak
+    <elevation>3851</elevation>
+    </highest_point>
+    <lowest_point>colorado river
+    <elevation>21</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>arkansas</state>
+    <abbreviation>ar</abbreviation>
+    <highest_point>magazine mountain
+    <elevation>839</elevation>
+    </highest_point>
+    <lowest_point>ouachita river
+    <elevation>17</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>california</state>
+    <abbreviation>ca</abbreviation>
+    <highest_point>mount whitney
+    <elevation>4418</elevation>
+    </highest_point>
+    <lowest_point>death valley
+    <elevation>-85</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>colorado</state>
+    <abbreviation>co</abbreviation>
+    <highest_point>mount elbert
+    <elevation>4399</elevation>
+    </highest_point>
+    <lowest_point>arkansas river
+    <elevation>1021</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>connecticut</state>
+    <abbreviation>ct</abbreviation>
+    <highest_point>mount frissell
+    <elevation>725</elevation>
+    </highest_point>
+    <lowest_point>long island sound
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>delaware</state>
+    <abbreviation>de</abbreviation>
+    <highest_point>centerville
+    <elevation>135</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>district of columbia</state>
+    <abbreviation>dc</abbreviation>
+    <highest_point>tenleytown
+    <elevation>125</elevation>
+    </highest_point>
+    <lowest_point>potomac river
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>florida</state>
+    <abbreviation>fl</abbreviation>
+    <highest_point>walton county
+    <elevation>105</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>georgia</state>
+    <abbreviation>ga</abbreviation>
+    <highest_point>brasstown bald
+    <elevation>1458</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>hawaii</state>
+    <abbreviation>hi</abbreviation>
+    <highest_point>mauna kea
+    <elevation>4205</elevation>
+    </highest_point>
+    <lowest_point>pacific ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>idaho</state>
+    <abbreviation>id</abbreviation>
+    <highest_point>borah peak
+    <elevation>3859</elevation>
+    </highest_point>
+    <lowest_point>snake river
+    <elevation>216</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>illinois</state>
+    <abbreviation>il</abbreviation>
+    <highest_point>charles mound
+    <elevation>376</elevation>
+    </highest_point>
+    <lowest_point>mississippi river
+    <elevation>85</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>indiana</state>
+    <abbreviation>in</abbreviation>
+    <highest_point>franklin township
+    <elevation>383</elevation>
+    </highest_point>
+    <lowest_point>ohio river
+    <elevation>98</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>iowa</state>
+    <abbreviation>ia</abbreviation>
+    <highest_point>ocheyedan mound
+    <elevation>511</elevation>
+    </highest_point>
+    <lowest_point>mississippi river
+    <elevation>146</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>kansas</state>
+    <abbreviation>ks</abbreviation>
+    <highest_point>mount sunflower
+    <elevation>1231</elevation>
+    </highest_point>
+    <lowest_point>verdigris river
+    <elevation>207</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>kentucky</state>
+    <abbreviation>ky</abbreviation>
+    <highest_point>black mountain
+    <elevation>1263</elevation>
+    </highest_point>
+    <lowest_point>mississippi river
+    <elevation>78</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>louisiana</state>
+    <abbreviation>la</abbreviation>
+    <highest_point>driskill mountain
+    <elevation>163</elevation>
+    </highest_point>
+    <lowest_point>new orleans
+    <elevation>-1</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>maine</state>
+    <abbreviation>me</abbreviation>
+    <highest_point>mount katahdin
+    <elevation>1606</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>maryland</state>
+    <abbreviation>md</abbreviation>
+    <highest_point>backbone mountain
+    <elevation>1024</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>massachusetts</state>
+    <abbreviation>ma</abbreviation>
+    <highest_point>mount greylock
+    <elevation>1064</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>michigan</state>
+    <abbreviation>mi</abbreviation>
+    <highest_point>mount curwood
+    <elevation>604</elevation>
+    </highest_point>
+    <lowest_point>lake erie
+    <elevation>174</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>minnesota</state>
+    <abbreviation>mn</abbreviation>
+    <highest_point>eagle mountain
+    <elevation>701</elevation>
+    </highest_point>
+    <lowest_point>lake superior
+    <elevation>183</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>mississippi</state>
+    <abbreviation>ms</abbreviation>
+    <highest_point>woodall mountain
+    <elevation>246</elevation>
+    </highest_point>
+    <lowest_point>gulf of mexico
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>missouri</state>
+    <abbreviation>mo</abbreviation>
+    <highest_point>taum sauk mountain
+    <elevation>540</elevation>
+    </highest_point>
+    <lowest_point>st. francis river
+    <elevation>70</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>montana</state>
+    <abbreviation>mt</abbreviation>
+    <highest_point>granite peak
+    <elevation>3901</elevation>
+    </highest_point>
+    <lowest_point>kootenai river
+    <elevation>549</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>nebraska</state>
+    <abbreviation>ne</abbreviation>
+    <highest_point>johnson township
+    <elevation>1654</elevation>
+    </highest_point>
+    <lowest_point>southeast corner
+    <elevation>256</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>nevada</state>
+    <abbreviation>nv</abbreviation>
+    <highest_point>boundary peak
+    <elevation>4005</elevation>
+    </highest_point>
+    <lowest_point>colorado river
+    <elevation>143</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>new hampshire</state>
+    <abbreviation>nh</abbreviation>
+    <highest_point>mount washington
+    <elevation>1917</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>new jersey</state>
+    <abbreviation>nj</abbreviation>
+    <highest_point>high point
+    <elevation>550</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>new mexico</state>
+    <abbreviation>nm</abbreviation>
+    <highest_point>wheeler peak
+    <elevation>4011</elevation>
+    </highest_point>
+    <lowest_point>red bluff reservoir
+    <elevation>859</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>new york</state>
+    <abbreviation>ny</abbreviation>
+    <highest_point>mount marcy
+    <elevation>1629</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>north carolina</state>
+    <abbreviation>nc</abbreviation>
+    <highest_point>mount mitchell
+    <elevation>2037</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>north dakota</state>
+    <abbreviation>nd</abbreviation>
+    <highest_point>white butte
+    <elevation>1069</elevation>
+    </highest_point>
+    <lowest_point>red river
+    <elevation>229</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>ohio</state>
+    <abbreviation>oh</abbreviation>
+    <highest_point>campbell hill
+    <elevation>472</elevation>
+    </highest_point>
+    <lowest_point>ohio river
+    <elevation>132</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>oklahoma</state>
+    <abbreviation>ok</abbreviation>
+    <highest_point>black mesa
+    <elevation>1516</elevation>
+    </highest_point>
+    <lowest_point>little river
+    <elevation>87</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>oregon</state>
+    <abbreviation>or</abbreviation>
+    <highest_point>mount hood
+    <elevation>3424</elevation>
+    </highest_point>
+    <lowest_point>pacific ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>pennsylvania</state>
+    <abbreviation>pa</abbreviation>
+    <highest_point>mount davis
+    <elevation>979</elevation>
+    </highest_point>
+    <lowest_point>delaware river
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>rhode island</state>
+    <abbreviation>ri</abbreviation>
+    <highest_point>jerimoth hill
+    <elevation>247</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>south carolina</state>
+    <abbreviation>sc</abbreviation>
+    <highest_point>sassafras mountain
+    <elevation>1085</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>south dakota</state>
+    <abbreviation>sd</abbreviation>
+    <highest_point>harney peak
+    <elevation>2207</elevation>
+    </highest_point>
+    <lowest_point>big stone lake
+    <elevation>284</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>tennessee</state>
+    <abbreviation>tn</abbreviation>
+    <highest_point>clingmans dome
+    <elevation>2025</elevation>
+    </highest_point>
+    <lowest_point>mississippi river
+    <elevation>55</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>texas</state>
+    <abbreviation>tx</abbreviation>
+    <highest_point>guadalupe peak
+    <elevation>2667</elevation>
+    </highest_point>
+    <lowest_point>gulf of mexico
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>utah</state>
+    <abbreviation>ut</abbreviation>
+    <highest_point>kings peak
+    <elevation>4123</elevation>
+    </highest_point>
+    <lowest_point>beaver dam creek
+    <elevation>610</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>vermont</state>
+    <abbreviation>vt</abbreviation>
+    <highest_point>mount mansfield
+    <elevation>1339</elevation>
+    </highest_point>
+    <lowest_point>lake champlain
+    <elevation>29</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>virginia</state>
+    <abbreviation>va</abbreviation>
+    <highest_point>mount rogers
+    <elevation>1746</elevation>
+    </highest_point>
+    <lowest_point>atlantic ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>washington</state>
+    <abbreviation>wa</abbreviation>
+    <highest_point>mount rainier
+    <elevation>4392</elevation>
+    </highest_point>
+    <lowest_point>pacific ocean
+    <elevation>0</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>west virginia</state>
+    <abbreviation>wv</abbreviation>
+    <highest_point>spruce knob
+    <elevation>1482</elevation>
+    </highest_point>
+    <lowest_point>potomac river
+    <elevation>73</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>wisconsin</state>
+    <abbreviation>wi</abbreviation>
+    <highest_point>timms hill
+    <elevation>595</elevation>
+    </highest_point>
+    <lowest_point>lake michigan
+    <elevation>177</elevation></lowest_point>
+</highlow>
+<highlow>
+    <state>wyoming</state>
+    <abbreviation>wy</abbreviation>
+    <highest_point>gannett peak
+    <elevation>4202</elevation>
+    </highest_point>
+    <lowest_point>belle fourche river
+    <elevation>945</elevation></lowest_point>
+</highlow>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    mckinley
+    <elevation>6194</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    st. elias
+    <elevation>5489</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    foraker
+    <elevation>5304</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    bona
+    <elevation>5044</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    blackburn
+    <elevation>4996</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    kennedy
+    <elevation>4964</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    sanford
+    <elevation>4949</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    south buttress
+    <elevation>4842</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    vancouver
+    <elevation>4785</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    churchill
+    <elevation>4766</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    fairweather
+    <elevation>4663</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    hubbard
+    <elevation>4577</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    bear
+    <elevation>4520</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    east buttress
+    <elevation>4490</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    hunter
+    <elevation>4442</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    alverstone
+    <elevation>4439</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    browne tower
+    <elevation>4429</elevation>
+</mountain>
+<mountain>
+    <state>california
+        <abbreviation>ca</abbreviation>
+    </state>
+    whitney
+    <elevation>4418</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    elbert
+    <elevation>4399</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    massive
+    <elevation>4396</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    harvard
+    <elevation>4395</elevation>
+</mountain>
+<mountain>
+    <state>washington
+        <abbreviation>wa</abbreviation>
+    </state>
+    rainier
+    <elevation>4392</elevation>
+</mountain>
+<mountain>
+    <state>california
+        <abbreviation>ca</abbreviation>
+    </state>
+    williamson
+    <elevation>4382</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    bianca
+    <elevation>4372</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    la plata
+    <elevation>4370</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    uncompahgre
+    <elevation>4361</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    crestone
+    <elevation>4357</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    lincoln
+    <elevation>4354</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    grays
+    <elevation>4349</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    antero
+    <elevation>4349</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    torreys
+    <elevation>4349</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    castle
+    <elevation>4348</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    quandary
+    <elevation>4348</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    evans
+    <elevation>4348</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    longs
+    <elevation>4345</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    wilson
+    <elevation>4342</elevation>
+</mountain>
+<mountain>
+    <state>california
+        <abbreviation>ca</abbreviation>
+    </state>
+    white
+    <elevation>4342</elevation>
+</mountain>
+<mountain>
+    <state>california
+        <abbreviation>ca</abbreviation>
+    </state>
+    north palisade
+    <elevation>4341</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    shavano
+    <elevation>4337</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    belford
+    <elevation>4327</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    princeton
+    <elevation>4327</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    crestone needle
+    <elevation>4327</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    yale
+    <elevation>4327</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    bross
+    <elevation>4320</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    kit carson
+    <elevation>4317</elevation>
+</mountain>
+<mountain>
+    <state>alaska
+        <abbreviation>ak</abbreviation>
+    </state>
+    wrangell
+    <elevation>4317</elevation>
+</mountain>
+<mountain>
+    <state>california
+        <abbreviation>ca</abbreviation>
+    </state>
+    shasta
+    <elevation>4317</elevation>
+</mountain>
+<mountain>
+    <state>california
+        <abbreviation>ca</abbreviation>
+    </state>
+    sill
+    <elevation>4317</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    el diente
+    <elevation>4316</elevation>
+</mountain>
+<mountain>
+    <state>colorado
+        <abbreviation>co</abbreviation>
+    </state>
+    maroon
+    <elevation>4315</elevation>
+</mountain>
+<road>
+    95
+    <state>maine</state>
+    <state>new hampshire</state>
+    <state>rhode island</state>
+    <state>connecticut</state>
+    <state>new york</state>
+    <state>new jersey</state>
+    <state>delaware</state>
+    <state>maryland</state>
+    <state>district of columbia</state>
+    <state>virginia</state>
+    <state>north carolina</state>
+    <state>south carolina</state>
+    <state>georgia</state>
+    <state>florida</state>
+
+</road>
+<road>
+    90
+    <state>massachusetts</state>
+    <state>new york</state>
+    <state>pennsylvania</state>
+    <state>ohio</state>
+    <state>indiana</state>
+    <state>illinois</state>
+    <state>wisconsin</state>
+    <state>minnesota</state>
+    <state>south dakota</state>
+    <state>wyoming</state>
+    <state>montana</state>
+    <state>idaho</state>
+    <state>washington</state>
+
+</road>
+<road>
+    80
+    <state>new york</state>
+    <state>new jersey</state>
+    <state>pennsylvania</state>
+    <state>ohio</state>
+    <state>indiana</state>
+    <state>illinois</state>
+    <state>iowa</state>
+    <state>nebraska</state>
+    <state>wyoming</state>
+    <state>utah</state>
+    <state>nevada</state>
+    <state>california</state>
+
+</road>
+<road>
+    70
+    <state>district of columbia</state>
+    <state>maryland</state>
+    <state>pennsylvania</state>
+    <state>ohio</state>
+    <state>indiana</state>
+    <state>illinois</state>
+    <state>missouri</state>
+    <state>kansas</state>
+    <state>colorado</state>
+    <state>utah</state>
+
+</road>
+<road>
+    10
+    <state>florida</state>
+    <state>alabama</state>
+    <state>mississippi</state>
+    <state>louisiana</state>
+    <state>texas</state>
+    <state>new mexico</state>
+    <state>arizona</state>
+    <state>california</state>
+
+</road>
+<road>
+    40
+    <state>north carolina</state>
+    <state>tennessee</state>
+    <state>arkansas</state>
+    <state>oklahoma</state>
+    <state>texas</state>
+    <state>new mexico</state>
+    <state>arizona</state>
+    <state>california</state>
+
+</road>
+<road>
+    15
+    <state>montana</state>
+    <state>idaho</state>
+    <state>utah</state>
+    <state>arizona</state>
+    <state>nevada</state>
+    <state>california</state>
+
+</road>
+<road>
+    20
+    <state>south carolina</state>
+    <state>georgia</state>
+    <state>alabama</state>
+    <state>mississippi</state>
+    <state>louisiana</state>
+    <state>texas</state>
+
+</road>
+<road>
+    35
+    <state>minnesota</state>
+    <state>iowa</state>
+    <state>missouri</state>
+    <state>kansas</state>
+    <state>oklahoma</state>
+    <state>texas</state>
+
+</road>
+<road>
+    55
+    <state>illinois</state>
+    <state>missouri</state>
+    <state>arkansas</state>
+    <state>tennessee</state>
+    <state>mississippi</state>
+    <state>louisiana</state>
+
+</road>
+<road>
+    64
+    <state>virginia</state>
+    <state>west virginia</state>
+    <state>kentucky</state>
+    <state>indiana</state>
+    <state>illinois</state>
+    <state>missouri</state>
+
+</road>
+<road>
+    75
+    <state>michigan</state>
+    <state>ohio</state>
+    <state>kentucky</state>
+    <state>tennessee</state>
+    <state>georgia</state>
+    <state>florida</state>
+
+</road>
+<road>
+    81
+    <state>new york</state>
+    <state>pennsylvania</state>
+    <state>maryland</state>
+    <state>west virginia</state>
+    <state>virginia</state>
+    <state>tennessee</state>
+
+</road>
+<road>
+    77
+    <state>ohio</state>
+    <state>west virginia</state>
+    <state>virginia</state>
+    <state>north carolina</state>
+    <state>south carolina</state>
+
+</road>
+<road>
+    85
+    <state>virginia</state>
+    <state>north carolina</state>
+    <state>south carolina</state>
+    <state>georgia</state>
+    <state>alabama</state>
+
+</road>
+<road>
+    94
+    <state>illinois</state>
+    <state>wisconsin</state>
+    <state>minnesota</state>
+    <state>north dakota</state>
+    <state>montana</state>
+
+</road>
+<road>
+    29
+    <state>north dakota</state>
+    <state>south dakota</state>
+    <state>iowa</state>
+    <state>missouri</state>
+
+</road>
+<road>
+    65
+    <state>indiana</state>
+    <state>kentucky</state>
+    <state>tennessee</state>
+    <state>alabama</state>
+
+</road>
+<road>
+    84
+    <state>connecticut</state>
+    <state>new york</state>
+    <state>new jersey</state>
+    <state>pennsylvania</state>
+
+</road>
+<road>
+    5
+    <state>washington</state>
+    <state>oregon</state>
+    <state>california</state>
+
+</road>
+<road>
+    24
+    <state>tennessee</state>
+    <state>kentucky</state>
+    <state>illinois</state>
+
+</road>
+<road>
+    25
+    <state>wyoming</state>
+    <state>colorado</state>
+    <state>new mexico</state>
+
+</road>
+<road>
+    44
+    <state>missouri</state>
+    <state>oklahoma</state>
+    <state>texas</state>
+
+</road>
+<road>
+    59
+    <state>tennessee</state>
+    <state>georgia</state>
+    <state>alabama</state>
+
+</road>
+<road>
+    74
+    <state>ohio</state>
+    <state>indiana</state>
+    <state>illinois</state>
+
+</road>
+<road>
+    78
+    <state>new york</state>
+    <state>new jersey</state>
+    <state>pennsylvania</state>
+
+</road>
+<road>
+    84
+    <state>utah</state>
+    <state>idaho</state>
+    <state>oregon</state>
+
+</road>
+<road>
+    91
+    <state>vermont</state>
+    <state>massachusetts</state>
+    <state>connecticut</state>
+
+</road>
+<road>
+    93
+    <state>new hampshire</state>
+    <state>vermont</state>
+    <state>massachusetts</state>
+
+</road>
+<road>
+    8
+    <state>arizona</state>
+    <state>california</state>
+
+</road>
+<road>
+    30
+    <state>arkansas</state>
+    <state>texas</state>
+
+</road>
+<road>
+    57
+    <state>illinois</state>
+    <state>missouri</state>
+
+</road>
+<road>
+    66
+    <state>district of columbia</state>
+    <state>virginia</state>
+
+</road>
+<road>
+    69
+    <state>michigan</state>
+    <state>indiana</state>
+
+</road>
+<road>
+    71
+    <state>ohio</state>
+    <state>kentucky</state>
+
+</road>
+<road>
+    76
+    <state>nebraska</state>
+    <state>colorado</state>
+
+</road>
+<road>
+    79
+    <state>pennsylvania</state>
+    <state>west virginia</state>
+
+</road>
+<road>
+    83
+    <state>pennsylvania</state>
+    <state>maryland</state>
+
+</road>
+<road>
+    86
+    <state>massachusetts</state>
+    <state>connecticut</state>
+
+</road>
+<road>
+    89
+    <state>vermont</state>
+    <state>new hampshire</state>
+
+</road>
+<lake>
+    superior
+    <area>82362</area>
+    <state>michigan</state>
+    <state>wisconsin</state>
+    <state>minnesota</state>
+</lake>
+<lake>
+    huron
+    <area>59570</area>
+    <state>michigan</state>
+</lake>
+<lake>
+    michigan
+    <area>58016</area>
+    <state>michigan</state>
+    <state>indiana</state>
+    <state>illinois</state>
+    <state>wisconsin</state>
+</lake>
+<lake>
+    erie
+    <area>25667</area>
+    <state>new york</state>
+    <state>pennsylvania</state>
+    <state>ohio</state>
+    <state>michigan</state>
+</lake>
+<lake>
+    ontario
+    <area>19684</area>
+    <state>new york</state>
+</lake>
+<lake>
+    great salt lake
+    <area>5180</area>
+    <state>utah</state>
+</lake>
+<lake>
+    lake of the woods
+    <area>4391</area>
+    <state>minnesota</state>
+</lake>
+<lake>
+    iliamna
+    <area>2675</area>
+    <state>alaska</state>
+</lake>
+<lake>
+    okeechobee
+    <area>1810</area>
+    <state>florida</state>
+</lake>
+<lake>
+    pontchartrain
+    <area>1632</area>
+    <state>louisiana</state>
+</lake>
+<lake>
+    becharof
+    <area>1186</area>
+    <state>alaska</state>
+</lake>
+<lake>
+    red
+    <area>1169</area>
+    <state>minnesota</state>
+</lake>
+<lake>
+    st. clair
+    <area>1119</area>
+    <state>michigan</state>
+</lake>
+<lake>
+    champlain
+    <area>1114</area>
+    <state>vermont</state>
+    <state>new york</state>
+</lake>
+<lake>
+    rainy
+    <area>932</area>
+    <state>minnesota</state>
+</lake>
+<lake>
+    salton sea
+    <area>932</area>
+    <state>california</state>
+</lake>
+<lake>
+    teshekpuk
+    <area>816</area>
+    <state>alaska</state>
+</lake>
+<lake>
+    naknek
+    <area>630</area>
+    <state>alaska</state>
+</lake>
+<lake>
+    winnebago
+    <area>557</area>
+    <state>wisconsin</state>
+</lake>
+<lake>
+    mille lacs
+    <area>536</area>
+    <state>minnesota</state>
+</lake>
+<lake>
+    flathead
+    <area>510</area>
+    <state>montana</state>
+</lake>
+<lake>
+    tahoe
+    <area>497</area>
+    <state>nevada</state>
+    <state>california</state>
+</lake>
+</geobase>

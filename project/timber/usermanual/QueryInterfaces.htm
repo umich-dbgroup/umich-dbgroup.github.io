@@ -1,0 +1,988 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel=File-List href="./QueryInterfaces_files/filelist.xml">
+<link rel=Edit-Time-Data href="./QueryInterfaces_files/editdata.mso">
+<title>LogicalAlgebra</title>
+<style>
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:ËÎÌå;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#660000;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#003399;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1531264562;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1824406116 1636459798 -2114800982 -1718573890 2139684678 -371922424 -1168069552 339139956 784923980 -258728656;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+.style1 {font-family: Arial}
+-->
+</style>
+</head>
+
+<body bgcolor=#FFFFFF background="strbkgde.gif"
+lang=EN-US link="#660000" vlink="#003399" style='tab-interval:.5in'
+alink="#999933" text="#000000"><div class=Section1>
+<h1 style='margin-top:0in' mstheme><font face="Arial, Helvetica" color="#000000"><a name="_top" id="_top">Query 
+  Interfaces<o:p></o:p></a> </font></h1>
+
+<font face="Arial, Helvetica"> </font> 
+<h2 mstheme><font face="Arial, Helvetica" color="#000000"><span style='mso-bookmark:_top'> 
+  Contents<o:p></o:p></span> </font></h2>
+
+<font face="Arial, Helvetica"> 
+<p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:10.0pt;
+font-family:"Times New Roman";color:windowtext'><span style="mso-spacerun:
+yes">        </span> <img width=15 height=15
+src="./QueryInterfaces_files/image002.gif" alt="*" v:shapes="_x0000_i1025"> <img width=15 height=15
+src="./QueryInterfaces_files/image003.gif" v:shapes="_x0000_i1026"> <span
+style="mso-spacerun: yes">  </span></span></span><a
+href="QueryInterfaces.htm#_CommandLine"><span style='mso-bookmark:_top'>Command 
+  Line</span><span style='mso-bookmark:_top'></span></a><span style='mso-bookmark:
+_top'></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;tab-stops:list .5in'><span
+style='mso-bookmark:_top'><span style='font-size:10.0pt;font-family:"Times New Roman";
+color:windowtext'> <img
+border=0 width=15 height=15 src="./QueryInterfaces_files/image004.gif" alt="*"
+v:shapes="_x0000_i1027"> <img border=0 width=15 height=15
+src="./QueryInterfaces_files/image003.gif" v:shapes="_x0000_i1028"> <span
+style="mso-spacerun: yes">  </span></span></span><a
+href="QueryInterfaces.htm#_GUI"><span style='mso-bookmark:_top'>GUI</span></a></p>
+
+<p class=MsoNormal style='margin-left:.25in;tab-stops:list .5in'><span
+style='mso-bookmark:_top'><span style='font-size:10.0pt;font-family:"Times New Roman";
+color:windowtext'> <img
+border=0 width=15 height=15 src="./QueryInterfaces_files/image004.gif" alt="*"
+v:shapes="_x0000_i1027"> <img border=0 width=15 height=15
+src="./QueryInterfaces_files/image003.gif" v:shapes="_x0000_i1028"> <span
+style="mso-spacerun: yes">  </span></span></span><a href="QueryInterfaces.htm#_Whitespace">Whitespace 
+  Rules</a></p>
+
+<p class=MsoNormal style='margin-left:.25in;tab-stops:list .5in'>&nbsp;</p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;<o:p></o:p></span></p>
+
+</font> 
+<h2><font face="Arial, Helvetica" color="#000000"><span style='mso-bookmark:_top'><a name="_CommandLine"
+id="_CommandLine"></a>Command Line<o:p></o:p></span> </font></h2>
+
+ 
+<p mstheme><span class="style1" style='mso-bookmark:_top'>A user can interact with Timber directly through the Timber command line interface </span><font face="Arial, Helvetica"><span style='mso-bookmark:_top'><span style='font-family:Arial'>.</span></span></font><span style='mso-bookmark:_top'><span style='font-family:Arial'> The command line </span></span><font face="Arial, Helvetica"><span style='mso-bookmark:_top'><span style='font-family:Arial'>interface allows the loading of XML documents, building ind</span></span></font><span style='mso-bookmark:_top'><span style='font-family:Arial'>ices</span></span><font face="Arial, Helvetica"><span style='mso-bookmark:_top'><span style='font-family:Arial'>, and
+querying  the document with either a physical or logical plan (Refer to </span></span><a
+href="QueryTheDatabase.htm"><span style='mso-bookmark:_top'><span
+style='font-family:Arial'>Query the Database</span></span></a><span style='mso-bookmark:_top'><span
+style='font-family:Arial'> for types of queries supported by Timber).</span></span></font> <font face="Arial, Helvetica"><span style='mso-bookmark:_top'><span
+style='font-family:Arial'>The </span></span></font><span style='mso-bookmark:_top'><span
+style='font-family:Arial'>c</span></span><font face="Arial, Helvetica"><span style='mso-bookmark:_top'><span
+style='font-family:Arial'>omm</span></span></font><span style='mso-bookmark:_top'><span
+style='font-family:Arial'>and</span></span>
+<span style='mso-bookmark:_top'><span
+style='font-family:Arial'>l</span></span><font face="Arial, Helvetica"><span style='mso-bookmark:_top'><span
+style='font-family:Arial'>ine interface does not provide an interface for XQuery, please use the GUI </span></span></font><span style='mso-bookmark:_top'><span
+style='font-family:Arial'>and</span></span><font face="Arial, Helvetica"><span style='mso-bookmark:_top'><span
+style='font-family:Arial'>
+Soap server for that purpose.<o:p></o:p></span></span></font></p>
+
+<font face="Arial, Helvetica"><p class=MsoCaption><span style='mso-bookmark:_top'>Table 1. Required options<o:p></o:p></span></p>
+
+</font> 
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse: collapse; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0in 5.4pt 0in 5.4pt; border-style: none; border-width: medium'
+ bordercolorlight="#CCCC99" bordercolordark="#999966" width="909">
+ <tr>
+    <td width=119 valign=top style='border: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <p align=center style='text-align:center' mstheme><span style='mso-bookmark:_top'><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-language:ZH-CN'>Options</span></b></span><span
+  style='mso-bookmark:_top'><strong><span style='font-family:SimSun;mso-hansi-font-family:
+  "Times New Roman"'><o:p></o:p></span></strong></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=295 valign=top style='mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top: .5pt solid windowtext; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> 
+      <font face="Arial, Helvetica"> 
+      <p align=center style='text-align:center' mstheme><span style='mso-bookmark:_top'><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-language:ZH-CN'>Option Parameters<o:p></o:p></span></b></span></p>    </font> </td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=449 valign=top style='mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top: .5pt solid windowtext; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> 
+      <font face="Arial, Helvetica"> 
+      <p class=MsoNormal align=center style='text-align:center' mstheme>&nbsp;</p>
+      <p class=MsoNormal align=center style='text-align:center' mstheme><span
+  style='mso-bookmark:_top'><b><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>Parameter Explanation<o:p></o:p></span></b></span></p>    </font> </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+    <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> 
+      <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>-m<o:p></o:p></span></span></p>
+      </font></td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=295 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>load | append | reorganize| index 
+        | logical | physical</span><o:p></o:p></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=449 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'>&nbsp;<o:p></o:p></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+    <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'><font face="Arial, Helvetica"><span style="font-size: 9.0pt; mso-bidi-font-size: 12.0pt; font-family: Arial; mso-fareast-language: ZH-CN; mso-bookmark: _top">-a</span></font></td>
+    <td width=295 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"><span style="font-size: 9.0pt; mso-bidi-font-size: 12.0pt; font-family: Arial; mso-fareast-language: ZH-CN; mso-bookmark: _top">appendToFile</span></font> </td>
+    <td width=449 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"><span style="font-size: 9.0pt; mso-bidi-font-size: 12.0pt; font-family: Arial; mso-fareast-language: ZH-CN; mso-bookmark: _top">required for
+      append only, this is the internal filename (without path) to append the datafile
+      to</span></font> </td>
+ </tr>
+ <tr>
+    <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'><font face="Arial, Helvetica">
+<p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>-d<o:p></o:p></span></span></p>
+      </font></td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=295 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica">
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>datafile<o:p></o:p></span></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=449 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>required for load only, 
+        full or relative path name<o:p></o:p></span></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+    <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> 
+      <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>-i<o:p></o:p></span></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=295 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>indexfile<o:p></o:p></span></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=449 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>required for index only, 
+        full or relative path name<o:p></o:p></span></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+    <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> 
+      <font face="Arial, Helvetica"><span style="mso-bookmark: _top; mso-fareast-language: ZH-CN; font-family: Arial; mso-bidi-font-size: 12.0pt; font-size: 9.0pt">-id</span></font> </td>
+    <td width=295 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>indexfile<o:p></o:p></span>
+      </font> </td>
+    <td width=449 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"><span style="font-size: 9.0pt; mso-bidi-font-size: 12.0pt; font-family: Arial; mso-fareast-language: ZH-CN; mso-bookmark: _top">required for removing index only, full or relative path
+      name</span></font> </td>
+ </tr>
+ <tr>
+    <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> 
+      <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>-q<o:p></o:p></span></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=295 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>queryfile<o:p></o:p></span></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=449 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>required for logical or 
+        physical only, full or relative path name<o:p></o:p></span></span></p>
+      </font> </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+</table>
+
+<font face="Arial, Helvetica">
+
+<p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;
+mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>&nbsp;</span></span></p>
+
+<p class=MsoCaption><span style='mso-bookmark:_top'>Table 2. Optional options<o:p></o:p></span></p>
+
+</font>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse: collapse; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0in 5.4pt 0in 5.4pt; border-style: none; border-width: medium'
+ bordercolorlight="#CCCC99" bordercolordark="#999966" width="909">
+ <tr>
+    <td width=119 valign=top style='border: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> <font face="Arial, Helvetica"> 
+      <p align=center style='text-align:center' mstheme><span style='mso-bookmark:_top'><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-language:ZH-CN'>Options</span></b></span><span
+  style='mso-bookmark:_top'><strong><span style='font-family:SimSun;mso-hansi-font-family:
+  "Times New Roman"'><o:p></o:p></span></strong></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+    <td width=296 valign=top style='mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top: .5pt solid windowtext; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'> 
+      <font face="Arial, Helvetica"> 
+      <p align=center style='text-align:center' mstheme><span style='mso-bookmark:_top'><b><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+  mso-fareast-language:ZH-CN'>Option Parameters<o:p></o:p></span></b></span></p>
+      </font></td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=448 valign=top style='mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top: .5pt solid windowtext; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal align=center style='text-align:center' mstheme><span
+  style='mso-bookmark:_top'><b><span style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt'>Parameter Explanation<o:p></o:p></span></b></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+  <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>-r<o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=296 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>1 |
+  0&nbsp;</span><o:p></o:p></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=448 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>initialize
+  volume, 1 to initialize, 0 not to initialize, default 0</span><o:p></o:p></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+  <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>-u</span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=296 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>2|1 | 0 <o:p></o:p></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=448 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style="font-size: 9.0pt; mso-bidi-font-size: 12.0pt; font-family: Arial; mso-fareast-language: ZH-CN; mso-bookmark: _top">used in load
+  only; 1 to create updatable indices; 0 to create n on-updatable; 2 not to create index during
+  loading; default 0</span><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+  <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>-o<o:p></o:p></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=296 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>physical |
+  tree | xml | empty</span><o:p></o:p></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=448 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>what to
+  output, default xml<o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+  <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>&nbsp;-v</span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=296 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>volume</span></span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=448 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'><font face="Arial, Helvetica"><p class=MsoNormal mstheme><span style='mso-bookmark:_top'><b><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>volume&nbsp;</span></b></span><span
+  style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;mso-fareast-language:ZH-CN'> is the volume file where the data will be
+  stored, default is the one in Resource\example.conf</span></span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+    </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+  <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>&nbsp;-n</span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=296 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>#repeats</span></span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=448 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>default 1</span></span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+  <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>&nbsp;-f</span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=296 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>output file</span></span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=448 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>store the XML or
+  Physical plan into a file, for xml or phsyical only, default null</span></span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+  <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>&nbsp;-ci</span><span
+  style='mso-bookmark:_top'><span style='font-family:"Times New Roman"'>
+  <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=296 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>optional multi
+  color index</span></span><span style='mso-bookmark:_top'><span
+  style='font-family:"Times New Roman"'> <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+  <td width=448 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:
+  9.0pt;mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>for both load and
+  index, default null</span></span><span style='mso-bookmark:_top'><span
+  style='font-family:"Times New Roman"'> <o:p></o:p></span></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+ <tr>
+  <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>&nbsp;-cr:<o:p></o:p></span></p>
+  </font>
+  </td>
+  <td width=296 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>optional
+  multi color root id<o:p></o:p></span></p>
+  </font>
+  </td>
+  <td width=448 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica">
+  <p mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Arial;mso-fareast-language:ZH-CN'>for both
+  load and index, default null</span><o:p></o:p></span></p>
+  </font>
+  </td>
+ </tr>
+ <tr>
+  <td width=119 valign=top style='mso-border-top-alt: solid windowtext .5pt; border-left: .5pt solid windowtext; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica"><span style="font-size: 9.0pt; mso-bidi-font-size: 12.0pt; font-family: Arial; mso-fareast-language: ZH-CN; mso-bookmark: _top">-u</span></font>
+  </td>
+  <td width=296 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica"><span style="font-size: 9.0pt; mso-bidi-font-size: 12.0pt; mso-fareast-language: ZH-CN; mso-bookmark: _top">2
+  | 1 | 0&nbsp;</span></font>
+  </td>
+  <td width=448 valign=top style='mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; border-left-style: none; border-left-width: medium; border-right: .5pt solid windowtext; border-top-style: none; border-top-width: medium; border-bottom: .5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0in; padding-bottom: 0in'>
+  <font face="Arial, Helvetica"><span style="font-size: 9.0pt; mso-bidi-font-size: 12.0pt; mso-fareast-language: ZH-CN; mso-bookmark: _top">for
+  load only. 2: not to create index during loading; 1: to create updatable
+  indices; 0:&nbsp; to create non-updatable. default 0</span></font>
+  </td>
+ </tr>
+  <span style='mso-bookmark:_top'></span>
+  <span style='mso-bookmark:_top'></span>
+  <span style='mso-bookmark:_top'></span>
+</table>
+
+<font face="Arial, Helvetica">
+
+<p class=MsoNormal mstheme><span style='mso-bookmark:_top'><span style='font-size:9.0pt;
+mso-bidi-font-size:12.0pt;mso-fareast-language:ZH-CN'>&nbsp;</span><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+font-family:ËÎÌå;mso-fareast-language:ZH-CN'>&nbsp;&nbsp;&nbsp;</span><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+mso-fareast-language:ZH-CN'>&nbsp;</span><span
+style='font-size:9.0pt;mso-bidi-font-size:12.0pt;font-family:ËÎÌå;mso-fareast-language:
+ZH-CN'><br>
+</span><b>Important Note:<o:p></o:p></b></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span
+style='mso-bookmark:_top'><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·</span><span style='font-size:
+7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:Arial'>Provide a path (full or
+relative)&nbsp;for <i> datafile</i>, <i>indexfile</i>, and
+<i>queryfile</i> (except when building an index or reorganizing a file).<o:p></o:p></span></span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span
+style='mso-bookmark:_top'><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·</span><span style='font-size:
+7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:Arial'>See the page <a href="index.idx">here</a> for an example of <i> indexfile</i>, and types of
+indices currently supported<i>.</i><o:p></o:p></span></span></p>
+
+</font>
+<p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><font face="Arial, Helvetica"><span
+style='mso-bookmark:_top'><span style='font-family:Symbol;mso-bidi-font-family:
+Arial'>·</span><span style='font-size:
+7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:Arial'>If <i> outfile</i> is
+specified, the result is put into </span></span></font><span class="style1"
+style='mso-bookmark:_top'><font face="Arial, Helvetica"><span
+style='mso-bookmark:_top'><span style='font-family:Arial'><i>outfile</i></span></span></font>, and will not be shown on the screen </span><font face="Arial, Helvetica"><span
+style='mso-bookmark:_top'><span style='font-family:Arial'>.</span></span></font></p>
+
+<font face="Arial, Helvetica">
+<p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style='font-family:Arial'><o:p></o:p></span><span style='font-family: Symbol; mso-bidi-font-family: Arial; mso-bookmark: _top'>·</span><span style='font-size: 7.0pt; mso-bookmark: _top'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-family: Arial; mso-bookmark: _top">Whitespace handling
+for both data parsing and query parsing in Timber follows the rules given <a href="#_Whitespace">here</a>.</span></p>
+
+<p class=MsoNormal><a
+href="QueryInterfaces.htm#_top"><span style='mso-bookmark:_top'>Back to top</span></a></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'> &nbsp;<o:p></o:p></span></p>
+
+</font>
+
+<h3><font face="Arial, Helvetica" color="#000000"><span style='mso-bookmark:_top'>Examples <span style="mso-spacerun:
+yes"> </span><o:p></o:p></span></font></h3>
+
+<font face="Arial, Helvetica">
+
+<p class=MsoNormal mstheme><span style='mso-bookmark:_top'>Following are simple examples
+of using Timber through the command line interface:</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+</font>
+<p class=MsoNormal><font face="Arial, Helvetica"><b><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">Example1:</span></b> Load a data file and initialize the volume (<font size="2">an </font></font><font size="2" face="Arial, Helvetica">element
+tag name index will be created automatically during the loading process by
+default; you can change the default setting by set the optional parameter
+&quot;-u&quot; to &quot;1&quot; or &quot;2&quot;. 2 indicates that no indices should be built, and 1 indicates that indices optimized for updates should be built):&nbsp;</font></p>
+
+<font face="Arial, Helvetica"><blockquote>
+  <blockquote>
+    <blockquote>
+      <p class=MsoNormal>&nbsp;<font size="2">timber -m load -r 1 -d ..\Data\sbook.xml</font></p>
+
+    </blockquote>
+  </blockquote>
+</blockquote>
+<p class=MsoNormal><b><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">Example2:</span></b> build index:&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p class=MsoNormal><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+timber -m index -i ..\Data\sbook.idx</font></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</font>
+<p class=MsoNormal><font face="Arial, Helvetica"><span style="mso-bookmark: _top"><font size="2">The sample
+index file can be found <a href="index.idx">here</a>. Note that </font></span><font size="2">some indices may be created when loading data (depending on the -u option), and you may not require additional indices, depending on your queries.</font></font></p>
+
+<font face="Arial, Helvetica"><p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>
+<b><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">Example3:</span></b> query using physical plan:&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font size="2">timber -m physical -q ..\Data\sbook.qry</font></p>
+
+<p class=MsoNormal><br>
+<b><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">Example4:</span></b> query using logical plan and return physical plan:&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+timber -m logical -o physical -q ..\Data\sbook.log</font></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><a
+href="QueryInterfaces.htm#_top"><span style='mso-bookmark:_top'>Back to top</span><span
+style='mso-bookmark:_top'></span></a><span style='mso-bookmark:_top'></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;<o:p></o:p></span></p>
+
+</font>
+
+<h2><font face="Arial, Helvetica" color="#000000"><span style='mso-bookmark:_top'><a name="_GUI" id="_GUI"></a>GUI<o:p></o:p></span></font></h2>
+
+<font face="Arial, Helvetica"></font>
+
+<h3 mstheme><font face="Arial, Helvetica" color="#000000"><span style='mso-bookmark:_top'>Set up GUI <o:p></o:p></span></font></h3>
+
+<font face="Arial, Helvetica">
+
+<p class=MsoNormal style='text-indent:.5in' mstheme><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+</font>
+<p class=MsoNormal><font face="Arial, Helvetica"><span style='mso-bookmark:_top'>To use the GUI, first you have
+to follow the steps below:</span></font></p>
+
+<font face="Arial, Helvetica"><p class=MsoNormal>&nbsp;</p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='mso-bookmark:_top'>Compile TimberSoap in the Timber Project </span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='mso-bookmark:_top'>Compile XQueryParser </span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='mso-bookmark:_top'>Copy the file “xquery.cgt” under the folder “<i>tobeReplacedByRealPath</i>/XQueryParser/resources”
+     into the folder where the MainGUI.exe located (“<i>tobeReplacedByRealPath</i>/XQueryParser/MainGUI”)
+     </span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='mso-bookmark:_top'>Load any files that you would like to query into
+     Timber, and build indices needed by your queries (from the command line or
+  GUI), if you have not done so yet. <b>Important note: </b>You can only build
+  the join index from the command line, not from the GUI. For information on how to load data and build indices using the
+  command line, read the </span><a
+href="QueryInterfaces.htm#_CommandLine"><span style='mso-bookmark:_top'>Command
+Line</span></a><span style="mso-bookmark: _top"> query interface for details.</span><span
+     style='mso-bookmark:_top'><o:p></o:p></span></li>
+</ol>
+
+</font>
+
+<h3><font face="Arial, Helvetica" color="#000000"><span style='mso-bookmark:_top'>Use the GUI <o:p></o:p></span></font></h3>
+
+<font face="Arial, Helvetica">
+
+<p class=MsoNormal style='text-indent:.5in' mstheme><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>Start up the GUI by
+double-clicking the icon of MainGUI.exe.</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'> <img border=0 width=367 height=298
+src="./QueryInterfaces_files/image006.jpg" v:shapes="_x0000_i1029"> </span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+</font>
+<p class=MsoNormal><font face="Arial, Helvetica"><span style='mso-bookmark:_top'>The start-up GUI window appears
+as follows.</span></font></p>
+
+<font face="Arial, Helvetica"><p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'> <img border=0 width=575 height=337
+src="./QueryInterfaces_files/image008.jpg" v:shapes="_x0000_i1030"> </span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>Start the soap server of
+Timber by choosing menu “main – Start Server” in the GUI.</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;<o:p></o:p></span></p>
+
+</font>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'
+ bordercolorlight="#CCCC99" bordercolordark="#999966">
+ <tr>
+  <td width=422 valign=top style='width:4.4in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <font face="Arial, Helvetica">
+      <p class=MsoNormal mstheme><span style='mso-bookmark:_top'> <img border=0 width=408 height=239
+  src="./QueryInterfaces_files/image010.jpg" v:shapes="_x0000_i1031"> <o:p></o:p></span></p>
+  </font>
+  </td>
+  <span style='mso-bookmark:_top'></span>
+ </tr>
+</table>
+
+<font face="Arial, Helvetica">
+
+<p class=MsoNormal mstheme><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>The GUI will then prompt you
+to select the soap server executable – simply locate and choose TimberSoap.exe.</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'> <img border=0 width=575 height=337
+src="./QueryInterfaces_files/image012.jpg" v:shapes="_x0000_i1032"> </span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>The GUI will then ask you to
+select the database device to use – simply locate and choose the device that contains the loaded file you would like to query.</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'> <img border=0 width=575 height=336
+src="./QueryInterfaces_files/image014.jpg" v:shapes="_x0000_i1033"> </span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>The soap server should now
+be successfully started.&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'> <img border=0 width=575 height=336
+src="./QueryInterfaces_files/image016.jpg" v:shapes="_x0000_i1034"> </span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>Congratulations! You may now use the GUI
+to query (and build indices).</span> <font size="2"><span style="mso-bookmark: _top">Refer to <a
+href="QueryTheDatabase.htm"><span
+style='font-family:Arial'>Query the Database</span></a><span
+style='font-family:Arial'> for the types of queries supported by Timber).</span></span></font></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_top'>&nbsp;</span></p>
+
+<p class=MsoNormal> <span style='mso-ignore:vglayout;position:
+absolute;z-index:2;margin-left:432px;margin-top:200px;width:195px;height:60px'><img
+width=195 height=60 src="./QueryInterfaces_files/image017.gif"
+alt="Rounded Rectangular Callout: 5. Result of your query" v:shapes="_x0000_s1062"></span> 
+  <span
+style='mso-bookmark:_top'></span> 
+  <span style='mso-ignore:vglayout;position:
+absolute;z-index:3;margin-left:276px;margin-top:318px;width:207px;height:62px'><img
+width=207 height=62 src="./QueryInterfaces_files/image018.gif"
+alt="Rounded Rectangular Callout: 3. Choose the type of output you want"
+v:shapes="_x0000_s1063"></span> 
+</td>
+   </tr>
+  </table>
+  <span style='mso-ignore:vglayout;position:
+absolute;z-index:1;margin-left:18px;margin-top:317px;width:189px;height:63px'><img
+width=189 height=63 src="./QueryInterfaces_files/image019.gif"
+alt="Rounded Rectangular Callout: 2. Choose the type of your input" v:shapes="_x0000_s1048"></span> 
+
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>1.
+    Input your query here<o:p></o:p></span></p>
+    </div>
+
+  
+<span style='mso-ignore:vglayout;position:
+absolute;z-index:0;margin-left:315px;margin-top:8px;width:180px;height:84px'><img
+width=180 height=84 src="./QueryInterfaces_files/image020.gif"
+alt="Rounded Rectangular Callout: 1. Input your query here" v:shapes="_x0000_s1047"></span> 
+<img border=0 width=575 height=335
+src="./QueryInterfaces_files/image021.jpg" v:shapes="_x0000_i1035">  
+<p class=MsoNormal><span style='mso-ignore:vglayout;position:
+relative;z-index:4'><span style='position:absolute;left:514px;top:-16px;
+width:197px;height:85px'><img width=197 height=85
+src="./QueryInterfaces_files/image022.gif"
+alt="Rounded Rectangular Callout: 4. Click Button to run the query" v:shapes="_x0000_s1064"></span></span> 
+  <![endif]>
+  &nbsp; <br style='mso-ignore:vglayout' clear=ALL>
+<p class=MsoNormal><a href="QueryInterfaces.htm#_top">Back to top</a></p>
+  <p class=MsoNormal>&nbsp;</p>
+  <h2><font face="Arial, Helvetica" color="#000000"><span style='mso-bookmark:_top'><a name="_Whitespace"
+id="_Whitespace"></a>Whitespace rules</span></font></h2>
+  <font face="Arial, Helvetica"> 
+  <p style='margin-left:.0in;text-indent:-.0n;tab-stops:list .5in'><font size="3" face="Arial, Helvetica, sans-serif">Timber 
+    will remove or transform whitespace characters for both data parsing and query 
+    parsing according to the following rules:</font></p>
+  <p style='margin-left:.0in;text-indent:0.0in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial"><b>RULE 
+    1</b>: <span class="quoted1">Leading/trailing whitespace characters are skipped 
+    (<i>lf</i>, <i>space</i>, <i>tab</i>, <i>cr</i>, <i> new line</i>, <i> vertical 
+    tab</i>, or <i>formfeed</i>).</span></span></p>
+  </font>
+<blockquote>
+  <p class=MsoNormal style="margin-left:.0in;text-indent:-.25in;tab-stops:list .5in"><font face="Arial, Helvetica"><b><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">Example 
+    5: Skip leading whitespace </span></b><span style="font-family: Arial; font-size: 10.0pt; mso-bidi-font-size: 12.0pt; mso-fareast-font-family: Times New Roman; color: black; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><b>characters</b></span><span class="quoted1">&nbsp;</span></font></blockquote>
+<p class=MsoNormal><font face="Arial, Helvetica">
+  <p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial" class="quoted1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    A data file with the following content:</span></p>
+  <p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial" class="quoted1"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    [CR][TAB]&lt;book&gt;&lt;title&gt;Hello&lt;/title&gt;&lt;/book&gt;</font></span></p>
+  <p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial" class="quoted1">&nbsp;&nbsp;&nbsp;&nbsp; 
+    is treated as&nbsp;</span></p>
+  <blockquote> 
+    <p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial" class="quoted1"><font size="2">&lt;book&gt;&lt;title&gt;Hello&lt;/title&gt;&lt;/book&gt;</font></span></p>
+  </blockquote>
+  <p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial" class="quoted1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    The two whitespace characters (cr, tab) at the beginning of the document is 
+    discarded at the data parsing time when</span> <span style="mso-bookmark: _top; font-family: Arial" class="quoted1">the 
+    file is loaded into Timber.<br>
+    </span></p>
+  <p style='margin-left:.0n;text-indent:-.0in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial"><b>RULE 
+    2</b>: For non-leading/trailing whitespace characters (<i>lf, tab, cr, new 
+    line, vertical tab, </i> or<i> formfeed</i>), if the character before or after 
+    it is also a whitespace character, it is removed; otherwise it is converted 
+    into space, all <i>space</i>s are preserved. </span></p>
+  </font>
+<blockquote> 
+  <p class=MsoNormal style="margin-left:.0in;text-indent:-.25in;tab-stops:list .5in"><font face="Arial, Helvetica"><b><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">Example 
+    6: Non-leading whitespace characters</span></b></font></blockquote>
+<p class=MsoNormal><font face="Arial, Helvetica">
+  <p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial" class="quoted1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    A data file with the following content:</span></p>
+  <p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style="font-family: Arial; mso-bookmark: _top" class="quoted1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span><span style="mso-bookmark: _top; font-family: Arial" class="quoted1"><font size="2"><span style="mso-bookmark: _top; font-family: Arial">&lt;book&gt;[CR]<br>
+    &nbsp;&nbsp; [TAB]&lt;title&gt;[TAB]Hello[SP]&nbsp;World[TAB]![TAB][SP] &lt;/title&gt;[CR]<br>
+    &nbsp;&nbsp; &lt;/book&gt;</span></font></span></p>
+  <p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial" class="quoted1">&nbsp;&nbsp;&nbsp;&nbsp; 
+    is treated as&nbsp;</span></p>
+  <blockquote> 
+    <p style='margin-left:.5in;text-indent:-.25in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial" class="quoted1"><font size="2">&lt;book&gt;&lt;title&gt;[SP]Hello[SP]World[SP]![SP]&lt;/title&gt;&lt;/book&gt;</font></span></p>
+  </blockquote>
+  <p style='margin-left:.0in;text-indent:-.0in;tab-stops:list .5in'><span style="mso-bookmark: _top; font-family: Arial" class="quoted1">The 
+    first two whitespace characters (<i>cr, tab</i>) in the document is discarded 
+    as they are neighbors to each other. All the <i>space</i>s are preserved. 
+    The first <i> tab</i> is transformed into space, as it is in between non-whitespace 
+    characters, while the last <i> tab</i> is discarded because it is followed 
+    by a <i>space</i>.</span> </p>
+  <p class=MsoNormal>&nbsp;</p>
+  <p class=MsoNormal><a href="#_top">Back to top</a></p>
+  <p class=MsoNormal>&nbsp;</p>
+  </font>
+<p class=MsoNormal><font face="Arial, Helvetica">Last updated: 07/20/2004</font></p>
+  <font face="Arial, Helvetica"><p class=MsoNormal><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt'>&nbsp;</span></p> 
+  </font> 
+</body>
+
+</html>

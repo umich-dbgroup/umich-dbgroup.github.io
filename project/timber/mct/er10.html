@@ -1,0 +1,580 @@
+<html>
+<head>
+<title>ER 10 West Florida Mall</title>
+</head>
+<body>
+<div align="center"><h2>ER 10 West Florida Mall</h2></div>
+Source: Database Design Using Entity-Relationship Diagrams: Bagui Sikha, and Earp Richard 
+
+<p></p>
+<p><b>ER characteristics</b></p>
+7 entities<br>
+
+7 relationships: 1 of 1:1, 5 of 1:m, 1 of ISA<br>
+<img width=564 height=462
+src="er10_files/image002.jpg" v:shapes="_x0000_i1025">
+<br>
+<p><b>XML Schema</b></p>
+
+DEEP<br>
+<img width=337 height=528
+src="er10_files/image004.jpg" v:shapes="_x0000_i1026">
+<br>
+AF<br>
+<img width=391 height=504
+src="er10_files/image006.jpg" v:shapes="_x0000_i1027">
+<br>
+SHALLOW<br>
+<img width=552 height=291
+src="er10_files/image008.jpg" v:shapes="_x0000_i1028">
+<br>
+EN: 3 colors<br>
+<img width=480 height=395
+src="er10_files/image010.jpg" v:shapes="_x0000_i1029">
+
+<br>
+MCMR: 3 colors<br>
+<img width=576 height=368
+src="er10_files/image012.jpg" v:shapes="_x0000_i1030">
+<br>
+DR: 5 colors<br>
+<img width=576 height=368
+src="er10_files/image013.jpg" v:shapes="_x0000_i1031"><br>
+<img width=576 height=370
+src="er10_files/image015.jpg" v:shapes="_x0000_i1032"><<br>
+
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+<b>Q1 Return the name of person id = 2</b>
+DEEP
+For $a in DISTINCT //person[@id="2"]
+Return $a/name
+
+SHALLOW, AF
+For $a in //person[@id="2"]
+Return $a/name
+
+EN, MCMR, DR
+For $a in //{c3}person[@id="2"]
+Return $a/{c3}name
+
+<b>Q2 Return the department address of all departments of store id= 1</b>
+DEEP, AF
+For $a in //store[@id="1"]//department
+Return $a/address
+
+SHALLOW
+For $a in //store[@id ="1"]
+For $b in //department
+where $a/dept_of/@idref = $b/@id
+return $b/address
+
+EN, MCMR, DR
+For $a in //{c1}store[@id="1"]//{c1}department
+Return $a/{c1}address
+
+<b>Q3 Return all departments whose last employee’s manager has at least twice salary as the last employee</b>
+DEEP
+For $a in //department
+Where $a//works_for[last()]/employee/salary * 2 &lt;= $a/works_for[last()]/employee/manages/employee/salary
+Return $a
+
+AF
+For $a in //department
+For $b in $a/works_for[last()]/employee
+For $c in $a/works_for/employee
+where $c/manages/@idref = $b/@id
+and $c/salary &gt;= 2* $b/salary
+return $a
+
+SHALLOW
+For $a in //department
+For $b in //employee
+For $c in //employee
+where $b/@id = $c/manages/@idref
+and $a/works_for[last()]/@idref = $b/@id
+and $c/salary &gt;= 2* $b/salary
+and $c/@id = $a/works_for/@idref
+return $a
+
+EN, MCMR, DR
+For $a in //{c1}department
+For $b in $a/{c1}works_for[last()]/{c1}employee
+For $c in //employee
+where $b/{c1}manages = $c/{c2}manages
+and $b/{c1}salary *2 &lt;= $c/{c2}salary
+return $a
+
+<b>Q4 List the department name where a certain employee work before another</b>
+DEEP, AF
+For $a in //department
+Where $a/works_for[employee/@id="1"]/date &lt; $a/works_for[employee/@id="2"]/date
+Return $a
+
+SHALLOW
+For $a in //department
+For $b in //employee[@id="1"]
+For $c in //employee[@id="2"]
+For $d in $a/works_for
+For $e in $a/works_for
+where $d.date &lt; $e/date
+and $d/@idref = $b/@id
+and $e/@idref = $c/@id
+return $a
+
+EN, MCMR, DR
+For $a in //{c1}department
+Where $a/{c1}works_for[{c1}employee/@id="1"]/{c1}start_date &lt; $a/{c1}works_for[{c1}employee/@id="2"]/{c1}start_date
+Return $a
+
+<b>Q5 How many malls have more than 1 stores?</b>
+DEEP, AF, SHALLOW
+COUNT (For $a in //mall
+Let $b := $a/located_in
+where count($b) &gt;1
+return $a)
+
+EN, MCMR, DR
+COUNT (For $a in //{c1}mall
+Let $b := $a/{c1}located_in
+where count($b) &gt;1
+return $a)
+
+<b>Q6 How many stores owned by owner id=1?</b>
+DEEP
+COUNT(For $a in //store[//owner[@id="1"]
+Return $a)
+
+AF, SHALLOW
+COUNT (For $a in //store
+For $b in //owner[@id="1"]
+where $a/owns/@idref = $b/@id
+Return $a)
+
+EN 
+COUNT(For $a in //store
+For $b in //{c2}owner[@id="1"]
+where $a/{c1}owns = $b/{c2}owns
+return $a)
+
+MCMR, DR
+For $a in //{c2}owner[@id="1"]
+Return count($a//{c2}store)
+
+<b>Q7 How may pieces of prose in the database</b>
+DEEP
+For $a in  //
+Return count(DISTINCT $a//person) + count($a//mall) + count($a//store) + count($a//department) 
+
+SHALLOW, AF, EN, MCMR, DR
+For $a in  //
+Return count($a//person) + count($a//mall) + count($a//store) + count($a//department) 
+EN, MCMR, DR
+For $a in  //
+Return count($a//{c3}person) + count($a//{c1}mall) + count($a//{c1}store) + count($a//{c1}department) 
+
+<b>Q8 List the name of who owns store [id=1]</b>
+DEEP
+For $a in //store[@id="1"]
+Return $a//owner/name
+
+SHALLOW, AF
+For $a in //store[@id="1"]
+For $b in //owner
+where $a/owns/@idref = $b/@id
+return $b/name
+
+EN
+For $a in //{c1}store[@id="1"]
+For $b in //{c2}owns
+where $a/{c1}owns = $b/{c2}owns
+return $b/name
+
+MCMR,DR
+For $a in //{c2}owner[//{c2}store/@id="1"]
+Return $a/{c2}name
+
+<b>Q9 List the name of store owner of the mall id=1</b>
+DEEP
+For $a in //mall[@id="1"]//owner
+Return $a
+
+AF
+For $a in //mall[@id="1"]//owns
+For $b in //owner
+where $a/@idref = $b/@id
+return $b
+
+SHALLOW
+For $a in //mall[@id="1"]
+For $b in //store
+For $c in //owner
+where $a/located_in/@idref = $b/@id
+and $b/owns/@idref = $c/@id
+return $c
+
+EN, MCMR, DR
+For $a in //{c1}mall[@id="1"]//{c1}owns
+For $b in //{c2}owner
+where $a = $b/{c2}owns
+return $b
+
+<b>Q10 List all employees according to their manager status</b>
+DEEP
+For $a in DISTINCT-VALUES( //employee/status)
+Let $b := Let $c in //employee
+	Where $c/manages/employee/status = $a
+	Return $c
+Return $a, $b
+
+AF, SHALLOW
+For $a in DISTINCT-VALUES(//employee/status)
+Let $b := For $c in //employee
+  Let $d in //employee
+	  Where $c/manages/@idref = $d/@id
+	  And $c/status = $a
+	  Return $d
+Return $a, $b
+
+EN, MCMR, DR
+For $a in DISTINCT-VALUES(//{c2}employee/{c2}status}
+Let $b := For $c in //{c2}employee
+  Let $d := //{c1}employee
+	  Where $c/{c2}/status = $a
+	  And $d/{c1}manages = $c/{c2}manages
+	  Return $d
+Return $a, $b
+
+<b>Q11 For each employee, show the department they works for</b>
+DEEP, AF
+For $a in //employee
+For $b in //department
+where $a/@id = $b/employee/@id
+return $a, $b
+
+SHALLOW
+For $a in //employee
+For $b in //department
+where $a/@id = $b/works_for/@idref
+return $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}employee
+For $b in //{c1}department
+where $a/@id = $b/{c1}employee/@id
+return $a, $b
+
+<b>Q12 For each temporary employee, show the department they works for</b>
+DEEP, AF
+For $a in //employee[{c1}status="temporary"]
+For $b in //department
+where $a/@id = $b/employee/@id
+return $a, $b
+
+SHALLOW
+For $a in //employee[{c1}status="temporary"]
+For $b in //department
+where $a/@id = $b/works_for/@idref
+return $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}employee[{c1}status="temporary"]
+For $b in //{c1}department
+where $a/@id = $b/{c1}employee/@id
+return $a, $b
+
+<b>Q13 List the store name of owner [1] along with description</b>
+DEEP
+For $a in //store[//owner/@id="1"]
+Return $a/name, $a/description
+
+SHALLOW, AF
+For $a in //owner[id=1]
+For $b in  //store
+where $b/owns/@idref = $a/@id
+return $b/name, $b/description
+
+EN
+For $a in //{c1}store
+For $b in //{c2}owner[@id=1]
+where $b/{c2}owns = $a/{c1}owns
+return $a/{c1}name, $a/{c1}description
+
+MCMR, DR
+For $a in //{c2}owner[id=1]//{c2}store
+Return $a/{c2}name, $a/{c2}description
+
+<b>Q14 Return the name of all stores whose description contain the words "accessories"</b>
+DEEP, AF, SHALLOW
+For $a in //store
+Where CONTAINS ($a/description , "accessories")
+Return $a/name
+
+EN, MCMR, DR
+For $a in //{c1}store
+Where CONTAINS ($a/{c1}description , "accessories")
+Return $a/{c1}name
+
+<b>Q15 For mall id 1, print the employee name and his manager</b>
+DEEP
+For $a in //mall[@id="1"]//employee
+For $b in $a/manages/employee
+return $a, $b
+
+AF
+For $a in //mall[@id="1"]//employee
+For $b in //employee
+where $a/manages/@idref = $b/@id
+return $a, $b
+
+SHALLOW
+For $a in //mall[@id="1"]
+For $b in //store
+For $c in //department
+For $d in //employee
+For $e in //employee
+where $a/located_in/@idref = $b/@id
+and $b/dept_of/@idref = $c/@id
+and $c/works_for/@idref = $d
+and $e/manages/@idref = $d
+return $d, $e
+
+EN, MCMR, DR
+For $a in //{c1}mall[@id="1"]//{c1}employee
+For $b in //{c2}employee
+where $a/{c1}manages = $b/{c2}manages
+return $a, $b
+
+<b>Q16 Return the id of all malls that have at least 5 stores</b>
+DEEP, AF, SHALLOW
+For $a in //mall
+Let $b := $a/located_in
+Where count($b) &gt; 5
+return $a
+
+EN, MCMR, DR
+For $a in //{c1}mall
+Let $b := $a/{c1}located_in
+Where count($b) &gt; 5
+return $a
+
+<b>Q17 Which person don’t have a homepage?</b>
+DEEP, AF, SHALLOW
+For $a in //person
+Where EMPTY($a//homepage)
+Return $a/name
+
+EN, MCMR, DR
+For $a in //{c3}person
+Where EMPTY($a//{c3}homepage)
+Return $a/name
+
+<b>Q18 Convert currency of all department renovation budget</b>
+DEEP, AF, SHALLOW
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $a in //department
+Return CONVERT($a/budget)
+
+EN, MCMR, DR
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $a in //{c1}department
+Return CONVERT($a/{c1}budget)
+
+
+<b>Q19 Give an alphabetically list of all stores along with their store manager</b>
+DEEP, AF
+For $a in //store
+ORDER BY $a/name
+Return $a/name, $a//store_manager
+
+SHALLOW
+For $a in //store
+For $b in //store_manager
+Where $a/manages/@idref = $b/@id
+ORDER BY $a/name
+Return $a/name, $b
+
+EN, MCMR, DR
+For $a in //{c1}store
+ORDER BY $a/{c1}name
+Return $a/name, $a//store_manager
+
+<b>Q20 Group person by their status</b>
+DEEP
+&lt;owner&gt;
+ COUNT(DISTINCT //owner)
+&lt;/ owner&gt;
+&lt;store_manager&gt;
+COUNT(DISTINCT //store_manager)
+&lt;/ store_manager &gt;
+&lt;employee&gt;
+COUNT(DISTINCT //employee)
+&lt;/employee&gt;
+
+AF, SHALLOW
+&lt;owner&gt;
+ COUNT(//owner)
+&lt;/ owner&gt;
+&lt;store_manager&gt;
+COUNT(//store_manager)
+&lt;/ store_manager &gt;
+&lt;employee&gt;
+COUNT(//employee)
+&lt;/employee&gt;
+
+EN, MCMR, DR
+&lt;owner&gt;
+ COUNT(//{c2}owner)
+&lt;/ owner&gt;
+&lt;store_manager&gt;
+COUNT(//{c1}store_manager)
+&lt;/ store_manager &gt;
+&lt;employee&gt;
+COUNT(//{c1}employee)
+&lt;/employee&gt;
+
+<b>U1 Insert new store id 333 of mall id 10</b>
+DEEP, AF
+For $a in //mall[@id="10"]
+Insert &lt;located_in&gt;&lt;store id=333&gt;&lt;/store&gt;&lt;/located_in&gt; into $a
+
+SHALLOW
+For $a in //mall[10]
+Insert &lt;located_in idref=33&gt; into $a
+Insert &lt;store&gt; into $b in //
+
+EN, MCMR, DR
+For $a in //{c1}mall[@id="10"]
+Insert &lt;located_in&gt;&lt;store id=333&gt;&lt;/store&gt;&lt;/located_in&gt; into $a
+
+<b>U2 Delete the last worker of department id=0</b>
+DEEP
+For $a in //department[@id="0"]
+Delete $a//works_for[last()]
+For $b in //employee
+Where $b/@id = $a//works_for[last()]/employee/@id
+Delete $b
+
+AF
+For $a in //department[@id="0"]
+For $b in $a//employee
+For $c in $b/manages
+where $c/@idref = $a/works_for[last()]/employee
+delete $a/works_for[last], $c
+
+SHALLOW
+For $a in //department[@id="0"]
+Delete $a/works_for[last()]
+For $b in //employee
+For $c in //employee
+For $d in $c/manages
+where $b/@id = $a/works_for[last()]
+and $d/@idref =$b/@Id
+delete $b, $d
+
+EN, MCMR, DR
+For $a in //{c1}department[@id="0"]
+Delete $a/{c1}works_for/last()
+
+<b>U3 replace address information of person id= 0</b>
+DEEP, AF, SHALLOW
+For $a in //person[@id="0"]
+Replace $a/address with &lt;address&gt;new&lt;/address&gt;
+
+EN, MCMR, DR
+For $a in //{c3}person[@id="0"]
+Replace $a/{c3}address with &lt;address&gt;new&lt;/address&gt;
+
+<b>U4 If mall id 4 exist, change its name, else insert</b>
+DEEP, AF, SHALLOW
+If For $a in //mall[@id="4"] Exist
+Then change $a/name/text() to "New name"
+Else insert &lt;mall id=4&gt;&lt;/mall&gt; into //
+
+EN, MCMR, DR
+If For $a in //{c1}mall[@id="4"] Exist
+Then change $a/{c1}name/text() to "New name"
+Else insert &lt;mall id=4&gt;&lt;/mall&gt; into //{c1}
+
+<b>U5 For all departments, insert a count of total worker as new count element</b>
+DEEP, AF, SHALLOW
+For $a in //department
+Insert &lt;count&gt;count($a/works_for)&lt;/count&gt; into $a
+
+EN, MCMR, DR
+For $a in //{c1}department
+Insert &lt;count&gt;count($a/{c1}works_for)&lt;/count&gt; into $a
+
+<b>U6 Delete all departments for stores managed by manager name David</b>
+DEEP, AF
+For $a in //store[//store_manager/name="David"]//dept_of
+Delete $a
+
+SHALLOW
+For $a in //store_manager[name="David"]
+For $b in //store
+For $c in //department
+For $d in //employee
+where $a/@id = $b/manages/@idref
+and $b/dept_of /@idref= $c/@id
+and $c/works_for/@idref = $d/@id
+delete $b/dept_of, $c, $d
+
+EN, MCMR, DR
+For $a in //{c1}store[//{c1}store_manager/{c1}name="David"]//{c1}dept_of
+Delete $a
+
+<b>U7 remove mall id= 3</b>
+DEEP, AF
+For $a in //mall[@id="3"]
+Delete Subtree $a
+
+SHALLOW
+For $a in //mall[@id="3"]
+For $b in //store
+For $c in //owner
+For $d in /department
+For $e in //employee
+For $f in //storemanger
+where $a/located_in/@idref = $b/@id
+and $c/@id = $b/owns/@idref
+and $f/@id = $b/manges/@idref
+and $e/@id = $d/works_for/@idref
+and $d/@id = $b/dept_of/@idref
+delete $a, $b, $c, $d, $e, $f
+
+EN, MCMR, DR
+For $a in //{c1}mall[@id="3"]
+Delete  Subtree $a
+
+<b>U8 For each owner, compute the total number of stores owned, insert this total</b>
+DEEP
+For $a in DISTINCT(//owner)
+Let $b := //store
+Let $c := //owns
+Where $b/owns/@id = $a/@id
+and $c/@id = $a/@id
+insert &lt;total&gt;count($b)&lt;/total&gt; into $c
+
+AF, SHALLOW
+For $a in //owner
+Let $b := owns
+Where $a/@id = $b/@idref
+Insert &lt;total&gt;count($b)&lt;/total&gt; into $a
+
+EN, MCMR, DR
+For $a in //{c2}owner
+Insert &lt;total&gt;count($a/owns)&lt;/total&gt; into $a
+</pre>
+</body>
+</html>

@@ -1,0 +1,674 @@
+<html>
+<head>
+<title>ER5 Testing Software and Test Score Database</title>
+</head>
+<body>
+<div align="center"><h2>ER5 Testing Software and Test Score Database</h2></div>
+
+Source: example from an ER drawing program
+
+<p></p>
+<p><b>ER characteristics</b></p>
+10 entities<br>
+13 relationships: 1 of 1:1, 7 of 1:m, 5 of m:n<br>
+
+<img width=576 height=720
+src="er5_files/image002.jpg" v:shapes="_x0000_i1025"><br>
+<p><b>XML Schema</b></p>
+DEEP<br>
+<img width=403 height=461
+src="er5_files/image004.jpg" v:shapes="_x0000_i1026">
+<br>
+AF<br>
+<img width=444 height=328
+src="er5_files/image006.jpg" v:shapes="_x0000_i1027"><br>
+
+SHALLOW<br>
+<img width=576 height=277
+src="er5_files/image008.jpg" v:shapes="_x0000_i1028">
+<br>
+
+EN: 2 colors<br>
+<img width=540 height=341
+src="er5_files/image010.jpg" v:shapes="_x0000_i1029">
+<br>
+MCMR: 2 colors<br>
+<img width=576 height=324
+src="er5_files/image012.jpg" v:shapes="_x0000_i1030">
+<br>
+DR: 3 colors<br>
+<img width=576 height=324
+src="er5_files/image013.jpg" v:shapes="_x0000_i1031"><br>
+<img width=420 height=294
+src="er5_files/image015.jpg" v:shapes="_x0000_i1032">
+<br>
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+<b>Q1 Return the name of student id = 0</b>
+DEEP, AF, SHALLOW
+For $a in //student [id = "0"]
+Return $a/name/text()
+
+EN, MCMR, DR
+For $a in //{c1}student [id = "0"]
+Return $a/{c1}name/text()
+
+<b>Q2 Return the first enroll of all class</b>
+DEEP, AF
+For $a in //class
+Return $a/enrolled[first()]
+
+SHALLOW
+$a in //class
+$b in //student/enrolled
+Let $c := //student/enrolled
+Where $b/@idref = $a/@id
+And $c/@idref = $a/@id
+And $b/date &lt;= MIN ($c/date)
+Return $b
+
+EN, MCMR, DR
+For $a in //{c1}class
+Return $a/{c1}enrolled[first()]
+
+<b>Q3 Return the ids of all student whose first score at least twice last score</b>
+DEEP
+For $a in //student
+Where $a/has5/score/first() &gt;= 2* $a/has5/score/last()
+Return $a/@id
+
+SHALLOW
+For $a in //student
+For $b in //score
+For $c in //score
+Where $b/@id = $a/has5[first()]/@idref
+And $c/@id = $a/has5[last()]/@idref
+And $b &gt;= 2* $c
+Return $a/@id
+
+AF
+For $a in //student
+Where $a//score/first() &gt;= 2* $a//score/last()
+Return $a/@id
+
+EN, MCMR, DR
+For $a in //{c1}student
+Where $a//{c1}score/first() &gt;= 2* $a//{c1}score/last()
+Return $a/@id
+
+<b>Q4 List the class where a certain teacher is a prime, another is secondary</b>
+DEEP
+For $a in //class
+Where EXISTS $a//teaches[type="prime"]/teacher[id = "1"] 
+And EXISTS $a//teaches[type="secondary"]/teacher[id = "2"] 
+Return $a
+
+AF, SHALLOW
+For $a in //class
+For $b in //teacher[id = "1"]
+For $c in //teacher[id = "2"]
+Where $a/teaches[type = "prime"]/@idref = $b
+And $a/teaches[type = "secondary"]/@idref = $c
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}class
+For $b in //{c2}teacher[@id = "1"]
+For $c in //{c2}teacher[@id = "2"]
+Where $a/{c1}teaches[type = "prime"] = $b/{c2}teaches
+And $a/{c1}teaches[type = "secondary"] = $c/{c2}teaches
+Return $a
+
+<b>Q5 How many grading are A?</b>
+DEEP, AF, SHALLOW
+COUNT(For $a in //grade[value = "A"]
+Return $a)
+
+EN, MCMR, DR
+COUNT(For $a in //{c2}grade[{c2}value = "A"]
+Return $a)
+
+<b>Q6 How many teachers create equal or more than 5 tests?</b>
+DEEP
+COUNT (For $a in DISTINCT //teacher
+	  Let $b := $a//test
+	  Where count($b) &gt;= 5
+	 Return $a)
+
+AF
+COUNT (For $a in //teacher
+	  Let $b := $a//test
+	  Where count($b) &gt;= 5
+	 Return $a)
+
+SHALLOW
+COUNT (For $a in //teacher
+	 For $b := //test
+	Where $b/@id = $a/has1/@idref
+	Count ($b) &gt;= 5
+	Return $a)
+
+EN, MCMR, DR
+COUNT (For $a in //{c1}teacher
+	  Let $b := $a//{c1}test
+	  Where count($b) &gt;= 5
+	 Return $a)
+
+<b>Q7 How many pieces of prose in the database?</b>
+SHALLOW, AF
+For $a in //
+Return count($a//class) + count($a//teacher) + count($a//student)+ count($a//Software)
+
+DEEP
+For $a in //
+Return count($a//class) + count(DISTINCT $a//teacher) + count(DISTINCT $a//student)+ count($a//Software)
+
+EN, MCMR, DR
+For $a in //
+Return count($a//{c1}class) + count($a//{c1}teacher) + count($a//{c1}student)+ count($a//{c1}Software)
+
+<b>Q8 List the name of the student and the number of grade F they got</b>
+DEEP
+For $a in distinct-values(//student)
+Return $a/name, count($a//grade[value = "F"])
+
+AF
+For $a in //student
+Return $a/name, count($a//grade[value = "F"])
+
+SHALLOW
+For $a in //student
+Let $b := //grade[value = "F"]
+Where $a/has6/@idref = $b/@id
+Return $a/name, count($b)
+
+EN, MCMR, DR
+For $a in //{c1}student
+Return $a/name, count($a//{c1}grade[{c1}value = "F"])
+
+<b>Q9 List the name of the student and the number of grade they got that correlate with the score generated from Software=MS</b>
+DEEP 
+For $a in //student
+Let $b :=  For $c in //grade
+	For $d in //Software[company = "MS"]
+	Where $c//score/@id = $d/score/@id
+	Return $c
+Return $a/name, count($b)
+
+AF
+For $a in //student
+Let $b := For $c in $a//grade
+	For $d in //score
+	For $e in //Software[company = "MS"]
+	Where $d/@id = $e/generates/@idref
+	And $d/correlates/@idref = $c/@id
+	Return $c
+Return $a/name, count($b)
+
+SHALLOW
+For $a in //student
+Let $b := For $c in //grade
+	For $d in //score
+	For $e in //Software[company = "MS"]
+	Where $d/@id = $e/generates/@idref
+	And $d/correlates/@idref = $c/@id
+	And $c/@id = $a/has6/@idref
+       Return $c
+Return $a/name, count($b)
+
+EN
+For $a in //{c1}student
+Let $b := For $c in $a/{c1}grade
+	For $d in $c/{c2}correlates
+	For $e in //{c2}score
+ 	For $f in $e/{c2}generates
+	For $g in //{c1}Software[{c1}company = "MS"]
+	Where $e/{c1}correlates = $d
+	And $f = $g/{c1}generates
+       Return $c
+Return $a/{c1}name, count($b)
+
+MCMR,DR
+For $a in //{c2}student
+Let $b := For $c in //{c1}score
+	For $d in //{c2}Software[{c2}company = "MS"]
+	Where $d//{c2}score = $c
+	And $a/{c2}correlates = $c/{c1}correlates
+	Return $c
+Return $a/{c2}name, count($b)
+
+<b>Q10 List all students according to their student answer’s attribute</b>
+DEEP, AF
+For $a in distinct-values(//student_answer/attribute)
+Let $b := //student
+Where $a//student_answer/attribute = $a
+Return $a, DISTINCT($b)
+
+EN, MCMR, DR
+For $a in distinct-values(//{c1}student_answer/{c1}attribute)
+Let $b := //{c1}student
+Where $a//{c1}student_answer/{c1}attribute = $a
+Return $a, DISTINCT($b)
+
+SHALLOW 
+For $a in distinct-values(//student_answer /attribute)
+Let $b := For $c in //student
+	For $d in // student_answer
+	Where $d/attributes = $a
+	And $d/@id = $c/gives/@idref
+	Return $c
+Return $a, DISTINCT($b)
+
+<b>Q11 For each student, list teachers who has him whose address is in the same city</b>
+DEEP, AF
+For $a in //student
+For $b in //teacher
+Where $b/student/@id = $a/@id
+And $b/address/city = $a/address/city
+Return $a, $b
+
+SHALLOW
+For $a in //student
+For $b in //teacher
+Where $b/has1/@idref =$a/@id
+And $b/address/city = $a/address/city
+Return $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}student
+For $b in //{c1}teacher
+Where $b/{c1}student = $a
+And $b/{c1}address/{c1}city = $a/{c1}address/{c1}city
+Return $a, $b
+
+<b>Q12 For each student in Michigan, list teachers who has him whose address is in the same city</b>
+DEEP, AF
+For $a in //student[address/state = "MI"]
+For $b in //teacher
+Where $b/student/@id = $a/@id
+And $b/address/city = $a/address/city
+Return $a, $b
+
+SHALLOW
+For $a in //student[address/state = "MI"]
+For $b in //teacher
+Where $b/has1/@idref =$a/@id
+And $b/address/city = $a/address/city
+Return $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}student[{c1}address/{c1}state = "MI"]
+For $b in //{c1}teacher
+Where $b/{c1}student = $a
+And $b/{c1}address/{c1}city = $a/{c1}address/{c1}city
+Return $a, $b
+
+<b>Q13 List the name of teacher produces at least 10 questions for each test</b>
+DEEP
+For $a in DISTINCT //teacher
+For $b in $a//test
+For $c := $c//question
+Where count($c) &gt;= 10
+Return $a/name
+
+AF
+For $a in //teacher
+For $b in $a//test
+For $c := $c//question
+Where count($c) &gt;= 10
+Return $a/name
+
+SHALLOW
+For $a in //teacher
+For $b in //test
+For $c := $b/has2
+Where count($c) &gt;=10
+And $a/create/@idref = $b/@id
+Return $a/name
+
+EN, MCMR, DR
+For $a in //{c1}teacher
+$b in $a//{c1}test
+$c := $c//{c1}question
+Where count($c) &gt;= 10
+Return $a/name
+
+<b>Q14 Return the name of all teachers whose description contains the word "Ph.D."</b>
+DEEP
+For $a in DISTINCT //teacher
+Where CONTAINS($a/description,"Ph.D.")
+Return $a/name
+
+SHALLOW, AF
+For $a in //teacher
+Where CONTAINS($a/description,"Ph.D.")
+Return $a/name
+
+EN, MCMR, DR
+For $a in //{c1}teacher
+Where CONTAINS($a/{c1}description,"Ph.D.")
+Return $a/{c1}name
+
+<b>Q15 Print the score correlated to each grade of student id =1</b>
+DEEP
+For $a in //student[@id = "1"]//grade
+Return $a, $a/score
+
+AF, SHALLOW
+For $a in //student[@id = "1"]//grade
+$b := //score
+Where $b/correlates/@idref = $a/@id
+Return $a, $b
+
+EN
+For $a in //{c1}student[@id = "1"]//{c1}grade
+For $a in //{c2}grade
+For $b := //{c1}score
+Where $a{c2}/correlates = $b/{c1}correlates
+Return $a, $b
+
+MCMR,DR
+For $a in //{c2}student[@id = "1"]//{c2}grade
+For $b := //{c1}score
+Where $a{c2}/correlates = $b/{c1}correlates
+Return $a, $b
+
+<b>Q16 Return the grade whose at least one correct answer is A</b>
+DEEP
+For $a in //grade
+For $b in //correct_answer[answer = "A"]
+For $c //compares
+Where $b/compares = $c
+And $c/score = $a/score
+Return $a
+
+AF
+For $a in //grade
+For $b in //score
+For $c in //compare[correct_answer/answer = "A"]
+Where $a/@id = $b/correlates/@idref
+And $c//generates/@idref = $b/@id
+Return $a
+
+SHALLOW
+For $a in //grade
+For $b in //score
+For $c in //Software
+For $d in //student_answer
+For $e in //correct_answer[answer = "A"]
+Where $a/@id = $b/correlates/@idref
+And $c//generates/@idref = $b/@id
+And $d/compare/@idref = $c/@id
+And $d/compare/@idref = $e/@id
+Return $a
+
+EN
+For $a in //{c2}grade
+For $b in //{c1}score
+For $b in //{c2}score
+For $c in //{c1}compares
+Where $a/{c2}correlates = $b/{c1}correlates
+And $b/{c2}generates = $c//{c1}generates
+And $c/{c1}correct_answer/{c1}answer = "A"
+Return $a
+
+MCMR, DR
+For $a in //{c2}grade
+For $b in //{c1}score
+For $c in //{c2}compares
+Where $a/{c2}correlates = $b/{c1}correlates
+And $b = $c//{c2}score
+And $c/{c2}correct_answer/{c2}answer = "A"
+Return $a
+
+<b>Q17 which student doesn’t have homepage?</b>
+DEEP
+For $a in DISTINCT //student
+Where EMPTY ($a/homepage)
+Return $a
+
+AF, SHALLOW
+For $a in //student
+Where EMPTY ($a/homepage)
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}student
+Where EMPTY ($a/{c1}homepage)
+Return $a
+
+<b>Q18 Convert the class room number to formatted floor + room</b>
+DEEP, AF, SHALLOW
+FUNCTION CONVERT($v)
+{
+	RETURN expose($v, ",")
+}
+For $i in //class
+RETURN CONVERT ($i/room_number)
+
+EN, MCMR, DR
+FUNCTION CONVERT($v)
+{
+	RETURN expose($v, ",")
+}
+For $i in //{c1}class
+RETURN CONVERT ($i/{c1}room_number)
+
+<b>Q19 Give and alphabetically ordered list of all teachers along with the address</b>
+DEEP, AF, SHALLOW
+For $a in // teacher
+ORDER BY $a/name
+Return $a, $a/address
+
+EN, MCMR, DR
+For $a in //{c1}teacher
+ORDER BY $a/{c1}name
+Return $a, $a/{c1}address
+
+<b>Q20 Group student by their average student answer and output cardinality in each group</b>
+DEEP, AF
+&lt;result&gt;
+&lt;A&gt;
+	count(For $a in //student
+	Where 	AVG ($a//student_answer) = "A"
+	Return $a)
+&lt;/A&gt;
+&lt;B&gt;
+	count(For $a in //student
+	Where 	AVG ($a//student_answer) = "B"
+	Return $a)
+
+
+&lt;/B&gt;
+&lt;/result&gt;
+
+SHALLOW
+&lt;result&gt;
+&lt;A&gt;
+	count(For $a in //student
+	Let $b := //student_answer
+	Where 	AVG ($b) = "A"
+	And $b/@id = $a/gives/@idref
+	Return $a)
+
+&lt;/A&gt;
+&lt;B&gt;
+	count(For $a in //student
+	Let $b := //student_answer
+	Where 	AVG ($b) = "B"
+	And $b/@id = $a/gives/@idref
+	Return $a)
+
+
+&lt;/B&gt;
+&lt;/result&gt;
+
+EN, MCMR, DR
+&lt;result&gt;
+&lt;A&gt;
+	count(For $a in //{c1}student
+	Where 	AVG ($a//{c1}student_answer) = "A"
+	Return $a)
+&lt;/A&gt;
+&lt;B&gt;
+	count(For $a in //student
+	Where 	AVG ($a//{c1}student_answer) = "B"
+	Return $a)
+
+
+&lt;/B&gt;
+&lt;/result&gt;
+
+<b>U1 Insert a new teacher into database</b>
+DEEP, SHALLOW, AF
+Insert in into //
+&lt;teacher /&gt;
+
+EN, MCMR, DR
+Insert in into //{c1}
+&lt;teacher /&gt;
+
+<b>U2 Delete the last enroll student having class id = AA000</b>
+DEEP
+For $a in //class[id = "aa000"] 
+Delete $a/enrolled/last()
+Move //student to //
+
+AF
+For $a in //class[id = "aa000"]
+Delete $a/enrolled/last()
+
+SHALLOW
+For $a in //class[id = "aa000"]
+For $b in //student/enrolled
+Let $c := //student/enrolled
+Where $b/@idref= $a
+And $c/@idref = $a
+And $b/date &gt;= MAX ($c/date)
+Delete $b
+
+EN, MCMR, DR
+For $a in //{c1}class[id = "aa000"]
+Delete $a/{c1}enrolled/last()
+
+<b>U3 Replace interest of student id = 0</b>
+DEEP, AF, SHALLOW
+Replace //student[id = "0"]/interest
+With &lt;interest/&gt;
+
+EN, MCMR, DR
+Replace //{c1}student[id = "0"]/{c1}interest
+With &lt;interest/&gt;
+
+<b>U4 If question "Limited" of test 1 exist, change its title to "Limited" else inset a new question to test 1</b>
+DEEP, AF
+If
+For $a in //test[id = "1"]//question[title = "Limited"]
+Replace $a/title with &lt;title&gt;Limited&lt;/title&gt;
+Else
+Insert &lt;&lt;has2&gt;&lt;question/&gt;&lt;/has2&gt; to $b in //test[id = "1"]
+
+SHALLOW
+If
+For $a in //test[id = "1"]
+For $b in //question[title = "Limited"]
+Where $a/has2/@idref = $b/@id
+Return $b
+Replace $b/title with &lt;title&gt;Limited&lt;/title&gt;
+Else
+Insert &lt;has2/&gt; to $c //test[id = "1"]
+Insert &lt;question/&gt; to $d //
+
+EN, MCMR, DR
+If
+For $a in //{c1}test[id = "1"]// {c1}question[{c1}title = "Limited"]
+Replace $a/title with &lt;title&gt;Limited&lt;/title&gt;
+Else
+Insert &lt;has2&gt;&lt;question/&gt;&lt;/has2&gt; to $b in //{c1}test[id = "1"]
+
+<b>U5 For all classes, insert a total number of enrollment students</b>
+DEEP, AF
+For $a in //class
+Insert &lt;count&gt;count($a/enrolled)&lt;/count&gt; as last() into $a
+
+SHALLOW
+For $a in //class
+Let $b := //enrolled
+Where $b/@idref = $a
+Insert &lt;count&gt;count($b)&lt;/count&gt; as last() into $a
+
+EN, MCMR, DR
+For $a in //{c1}class
+Insert &lt;count&gt;count($a/{c1}enrolled)&lt;/count&gt; as last() into $a
+
+<b>U6 Delete all classes’ enrollment of student id = 0</b>
+DEEP
+Delete $a //enrolled[student/@id = "0"]
+Move $b in //student to  //
+
+AF
+Delete $a in //enrolled[@idref = "0"]
+
+SHALLOW
+Delete $a in //student[id = "0"/enrolled
+
+EN, MCMR, DR
+Delete $a in //{c2}student[id = "0"]/{c2}enrolled
+
+<b>U7 Remove all questions that student answer is wrong</b>
+DEEP
+For $a in //question[compares/result = "wrong"]
+Delete $a
+
+AF, SHALLOW
+For $a in //question
+$b in //student_answer[compare/result = "wrong"]
+Where $a/has4/@idref = $b
+Delete $a
+
+EN
+For $a in //{c1}question
+For $b in //{c2}student_answer
+For $b In //{c1}student_answer
+Where $b/{c1}/compares/result = "wrong"
+And $a/{c1}has4 = $b/{c2}has4
+Delete $a
+
+MCMR,DR
+For $a in //{c1}question
+For $b in //{c2}student_answer[{c2}compare/{c2}result = "wrong"]
+Where $a/{c1}has4 = $b/{c2}has4
+Delete $a
+
+<b>U8 For each student, compute the total GPA from grade and insert it into his element child</b>
+DEEP
+For $a in DISTINCT //student
+Let $b :=  For $c in //student
+	Where $c/@id = $a/@id
+       Return $c//grade
+Insert &lt;GPA&gt;GPA($b)&lt;/GPA&gt;
+ into $d in //student where $d/@id = $a/@id , 
+
+AF
+For $a in // student
+Let $b : = $a//grade
+Insert &lt;GPA&gt;GPA($b)&lt;/GPA&gt; into $a
+ 
+SHALLOW
+For $a in //student
+Let $b := //grade
+Where $a/has6/@idref  = $b/@id
+Insert &lt;GPA&gt;GPA($b)&lt;/GPA&gt; into $a
+
+EN, MCMR, DR
+For $a in //{c1}student
+Let $b : = $a//{c1}grade
+Insert &lt;GPA&gt;GPA($b)&lt;/GPA&gt; into $a
+
+</pre>
+</body>
+</html>

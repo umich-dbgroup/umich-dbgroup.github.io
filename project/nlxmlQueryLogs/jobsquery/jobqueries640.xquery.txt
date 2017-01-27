@@ -1,0 +1,1919 @@
+what jobs are there for web developer who know 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/title = "web developer" and $j/language = "CPP" return $j
+
+what systems analyst jobs are there in Austin ?
+for $j in document("jobsdata.xml")//job where $j/title = "systems analyst" and $j/city = "Austin" return $j
+
+what jobs pay 60000 are located in Austin and desire a BSCS ? (what jobs pay 60000 are located in Austin and require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 60000 and $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+what jobs pay 60000 are located in Austin and desire a degree ? (what jobs pay 60000 are located in Austin and require a degree ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 60000 and $j/city = "Austin" and $j/desired_degree != null return $j
+
+what jobs are there for Pascal programmers who don't know 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "Pascal" and every $l in $j/language satisfies $l != "CPP" return $j
+
+what jobs use COBOL on IBM machines and pay 70000 ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL" and $j/platform = "IBM" and $j/salary = 70000 return $j
+
+what jobs use 'C++' on Mac and pay 70000 ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/platform = "Mac" and $j/salary = 70000 return $j
+
+what jobs desire a degree but don't use 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/desired_degree != null and $j/language != "CPP" return $j
+
+show me the jobs using 'C++' that desire a BSCS and a MSCS ? (show me the jobs using 'C++' that require a BSCS but desire a MSCS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/desired_degree = "BSCS" and $j/desired_degree = "MSCS" return $j
+
+what are the software engineering jobs available using Ada ?
+for $j in document("jobsdata.xml")//job where $j/title = "software engineer" and $j/language = "Ada" return $j
+
+what jobs are there programming Lisp for AutoCAD ? (what jobs are there working for Microsoft programming Lisp for AutoCAD ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" and $j/application = "AutoCAD" return $j
+
+which system administrator jobs in Dallas require 2 years experience and pay 50000 ?
+for $j in document("jobsdata.xml")//job where $j/title = "system administrator" and $j/city = "Dallas" and $j/required_experience = 2 and $j/salary = 50000 return $j
+
+what jobs on PC are for programming Assembly and desire 5 years experience ?
+for $j in document("jobsdata.xml")//job where $j/platform = "PC" and $j/language = "Assembly" and $j/desired_experience = 5 return $j
+
+show me jobs requiring experience on UNIX ? (show me jobs for Dell requiring experience on UNIX ?)
+for $j in document("jobsdata.xml")//job where $j/platform = "UNIX" return $j
+
+show me New York jobs desiring a BSCS ? (show me New York jobs requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "New York" and $j/desired_degree = "BSCS" return $j
+
+show me Austin jobs desiring a BSCS ? (show me Austin jobs requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+show me jobs requiring no experience and desiring a BSCS ? (show me jobs at Dell requiring no experience and a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/required_experience = 0 and $j/desired_degree = "BSCS" return $j
+
+show me systems analyst jobs ? (show me systems analyst jobs at Tivoli ?)
+for $j in document("jobsdata.xml")//job where $j/title = "systems analyst" return $j
+
+show me programmer jobs requiring no experience on UNIX ?
+for $j in document("jobsdata.xml")//job where $j/platform != "UNIX" return $j
+
+show me Austin jobs with a salary of 50000 ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/salary = 50000 return $j
+
+find all network administration jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/title = "network administrator" and $j/city = "Austin" return $j
+
+find all 'C++' jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/city = "Austin" return $j
+
+show me a job in Austin desiring a BSCS ? (show me a Dell job in Austin requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+show me a job not requiring Java and not in Austin ?
+for $j in document("jobsdata.xml")//job where $j/language != "Java" and $j/city != "Austin" return $j
+
+which jobs in Austin offer for students fresh out of college in networking ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/required_experience = 0 and $j/area = "networking" return $j
+
+which jobs in Houston offer over 50000 in graphics ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/salary > 50000 and $j/area = "graphics" return $j
+
+which jobs use Visual 'J++' as their development tool ?
+for $j in document("jobsdata.xml")//job where $j/language = "VJPP" return $j
+
+which jobs deal with 'C++' ? (which jobs at Trilogy deal with 'C++' ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" return $j
+
+which jobs are for BSEE majors with at least 5 years experience in Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSEE" and $j/required_experience >= 5 and $j/platform = "Windows NT" return $j
+
+what are the positions that pay 40000 per year ? (what are the positions within HP that pay 40000 per year ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 return $j
+
+what are the positions that desire BSCS ? (what are the positions within Dell that requires BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+what jobs in Boston have openings for a 'C++' programmer ?
+for $j in document("jobsdata.xml")//job where $j/city = "Boston" and $j/language = "CPP" return $j
+
+what jobs desire a BSCS, require 4 years of experience pay 50000 and are in San Jose ? (what jobs require a BSCS 4 years of experience pay 50000 and are in San Jose ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/required_experience = 4 and $j/salary = 50000 and $j/city = "San Jose" return $j
+
+show me the job application for IC design engineer ?
+for $j in document("jobsdata.xml")//job where $j/title = "IC design engineer" return $j
+
+are there any jobs specializing in AI ? (are there any jobs specializing in AI with JPL ?)
+for $j in document("jobsdata.xml")//job where $j/area = "AI" return $j
+
+what jobs are being hired for ? (what jobs are Longhorn employment hiring for ?)
+for $j in document("jobsdata.xml")//job return $j
+
+are there any jobs for people in Austin that want to program in Lisp but do not have a degree ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/language = "Lisp" and $j/desired_degree = null return $j
+
+show me the jobs concerning game developer on a PlayStation ?
+for $j in document("jobsdata.xml")//job where $j/area = "games" and $j/platform = "PlayStation" return $j
+
+what jobs in Austin have a salary of 60000 ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/salary > 60000 return $j
+
+show me jobs desiring a BSCS on Suns ? (show me jobs requiring a BSCS on Suns ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/platform = "Sun" return $j
+
+show me programmer jobs in Tulsa ?
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" and $j/city = "Tulsa" return $j
+
+show me 'C++' jobs desiring a BSCS in Austin ? (show me 'C++' jobs requiring a BSCS in Austin ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/desired_degree = "BSCS" and $j/city = "Austin" return $j
+
+show me jobs desiring a ma in Austin ? (show me jobs desiring a ma in Austin with Microsoft ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "ma" and $j/city = "Austin" return $j
+
+what jobs are there doing computer graphics on Silicon Graphics machines ?
+for $j in document("jobsdata.xml")//job where $j/area = "computer graphics" and $j/platform = "Silicon Graphics" return $j
+
+which jobs pay 60000 that do not require a PhD ?
+for $j in document("jobsdata.xml")//job where $j/salary = 60000 and $j/desired_degree != "PhD" return $j
+
+what job is there for 'C++' but not Visual 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and every $l in $j/language satisfies $l != "VCPP" return $j
+
+what are the jobs using 'C++' with salaries of 50000 ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/salary = 50000 return $j
+
+what jobs in Houston desire a BACS ? (what jobs in Houston require a BACS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/desired_degree = "BACS" return $j
+
+what jobs are available using Apache with a specialty area of networking ?
+for $j in document("jobsdata.xml")//job where $j/application = "Apache" and $j/area = "networking" return $j
+
+show me the jobs using Perl in Colorado ? (show me the jobs using Perl with Lockheed Martin aeronautics in Colorado ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Perl" and $j/state = "Colorado" return $j
+
+what jobs pay 40000 per year that desire a BSCS ? (what jobs pay 40000 per year that require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 and $j/desired_degree = "BSCS" return $j
+
+show me all of the Software QA jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/area = "QA" and $j/city = "Austin" return $j
+
+show me the jobs in Texas using AI on UNIX ?
+for $j in document("jobsdata.xml")//job where $j/state = "Texas" and $j/area = "AI" and $j/platform = "UNIX" return $j
+
+are there any jobs at Dell that require no experience and pay 50000 ?
+for $j in document("jobsdata.xml")//job where $j/required_experience = 0 and $j/salary = 50000 return $j
+
+list all jobs using 'C++' and Java in California ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/language = "Java" and $j/state = "California" return $j
+
+show all positions in Texas with network and Java ? (show all intern positions in Texas with network and Java ?)
+for $j in document("jobsdata.xml")//job where $j/state = "Texas" and $j/area = "network" and $j/language = "Java" return $j
+
+show me jobs in Austin using Solaris that do not desire a BSCS ? (show me jobs in Austin using Solaris that do not require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/platform = "Solaris" and $j/desired_degree != "BSCS" return $j
+
+give me the jobs using 'C++' that don't require Windows ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/platform != "Windows" return $j
+
+are there any jobs desiring a BSCS in Seattle ? (are there any jobs requiring a BSCS for Boeing in Seattle ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/city = "Seattle" return $j
+
+what jobs in Austin only desire a BSCS and require no experience ? (what jobs in Austin only require a BSCS and no experience ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" and $j/required_experience = 0 return $j
+
+what jobs are being recruited for ? (what jobs have a recruiter named Phil Smith ?)
+for $j in document("jobsdata.xml")//job return $j
+
+what system administrator jobs are available ? (what system administrator jobs are available from Dell ?)
+for $j in document("jobsdata.xml")//job where $j/title = "system administrator" return $j
+
+what jobs using Java and Perl are available in Dallas and pay 50000 a year ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/language = "Perl" and $j/city = "Dallas" and $j/salary = 50000 return $j
+
+are there any jobs in the US with the title verification engineer ?
+for $j in document("jobsdata.xml")//job where $j/country = "USA" and $j/title = "verification engineer" return $j
+
+list the positions that require a knowledge of Microsoft Excel ?
+for $j in document("jobsdata.xml")//job where $j/application = "Excel" return $j
+
+show me positions in web programming ?
+for $j in document("jobsdata.xml")//job where $j/title = "web programmer" return $j
+
+give some jobs in Dallas on a Sun system ?
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" and $j/platform = "Sun" return $j
+
+show me jobs using Lisp that desire a BSCS and require a MSEE ? (show me jobs using Lisp that require a BSCS and desire a MSEE ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" and $j/desired_degree = "BSCS" and $j/desired_degree = "MSEE" return $j
+
+what jobs in Austin require 5 years of experience but desire 10 years of experience ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/required_experience = 5 and $j/desired_experience = 10 return $j
+
+what AI jobs are there in Texas that pay 65000 ?
+for $j in document("jobsdata.xml")//job where $j/area = "AI" and $j/state = "Texas" and $j/salary = 65000 return $j
+
+what jobs desire a BSCS ? (what jobs at Dell require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+what jobs in Austin require no experience ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/required_experience = 0 return $j
+
+what jobs are there with a salary of 40000 ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 return $j
+
+what 'C++' jobs are in Austin ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/city = "Austin" return $j
+
+what are the 'C++' jobs in Austin desiring a BSCS ? (what are the 'C++' jobs in Austin requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+what jobs are there in Texas that use Java and require no experience ?
+for $j in document("jobsdata.xml")//job where $j/state = "Texas" and $j/language = "Java" and $j/required_experience = 0 return $j
+
+show me the jobs in Austin that desire 3 years of experience and use 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_experience = 3 and $j/language = "CPP" return $j
+
+show me jobs requiring no experience ?
+for $j in document("jobsdata.xml")//job where $j/required_experience = 0 return $j
+
+show me jobs in Texas ?
+for $j in document("jobsdata.xml")//job where $j/state = "Texas" return $j
+
+show me jobs earning 60000 ? (show me jobs at Dell earning 60000 ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 60000 return $j
+
+show me jobs not involving 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language != "CPP" return $j
+
+show me graphics jobs ? (show me graphics jobs which Phil Smith is recruiting for ?)
+for $j in document("jobsdata.xml")//job where $j/area = "graphics" return $j
+
+what AI positions desire only a BSCS ? (what AI positions require only a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/area = "AI" and $j/desired_degree = "BSCS" return $j
+
+are there any positions that don't require experience ? (does National Instruments have any positions that don't require experience ?)
+for $j in document("jobsdata.xml")//job where $j/required_experience = 0 return $j
+
+I want a job that doesn't use Windows ?
+for $j in document("jobsdata.xml")//job where $j/platform != "Windows" return $j
+
+I want a job that use 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" return $j
+
+show me the jobs with 30000 salary ?
+for $j in document("jobsdata.xml")//job where $j/salary = 30000 return $j
+
+show me the research assistant job in Austin ?
+for $j in document("jobsdata.xml")//job where $j/title = "research assistant" and $j/city = "Austin" return $j
+
+show me the jobs that require 1 year of experience but desire 2 years of experiences ?
+for $j in document("jobsdata.xml")//job where $j/required_experience = 1 and $j/desired_experience = 2 return $j
+
+are there any computer jobs for the PlayStation ?
+for $j in document("jobsdata.xml")//job where $j/platform = "PlayStation" and $j/description = "computer_science" return $j
+
+show me Austin jobs desiring a BSCS ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+any jobs available using database ?
+for $j in document("jobsdata.xml")//job where $j/area = "database" return $j
+
+are there any jobs with a salary of 100000 ?
+for $j in document("jobsdata.xml")//job where $j/salary = 100000 return $j
+
+show me the jobs with a salary of 50000 ?
+for $j in document("jobsdata.xml")//job where $j/salary = 50000 return $j
+
+are there any project manager positions open ?
+for $j in document("jobsdata.xml")//job where $j/title = "project manager" return $j
+
+what Java jobs are there in Austin ? (what Java jobs are there with Tivoli in Austin ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/city = "Austin" return $j
+
+are there any AutoCAD jobs open ?
+for $j in document("jobsdata.xml")//job where $j/application = "AutoCAD" return $j
+
+are there any jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" return $j
+
+what jobs pay 40000 ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 return $j
+
+what jobs do not desire a BSCS ? (what Microsoft jobs do not require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree != "BSCS" return $j
+
+what jobs require using Java on Commodores ? (what IBM jobs require using Java on Commodores ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/platform = "Commodore" return $j
+
+what jobs require 10 years of experience desire a PhD are in COBOL and are located in Texas ? (what jobs require 10 years of experience require a PhD in CS are in COBOL and are located in Texas ?)
+for $j in document("jobsdata.xml")//job where $j/required_experience = 10 and $j/desired_degree = "PhD" and $j/language = "COBOL" and $j/state = "Texas" return $j
+
+what jobs are being recruited for ? (what jobs does LCS recruit for ?)
+for $j in document("jobsdata.xml")//job return $j
+
+show me Houston jobs using C in the specialty area of oil pipeline modeling ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/language = "C" and $j/area = "oil pipeline modeling" return $j
+
+show me jobs in Tulsa using FORTRAN on VAX desiring a BSCS ? (show me jobs in Tulsa using FORTRAN on VAX requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Tulsa" and $j/language = "FORTRAN" and $j/platform = "VAX" and $j/desired_degree = "BSCS" return $j
+
+show me jobs with the PlayStation in the specialty area of animation ?
+for $j in document("jobsdata.xml")//job where $j/platform = "PlayStation" and $j/area = "animation" return $j
+
+show me management jobs in Boston desiring an MBA and the knowledge of Visual Basic ? (show me management jobs in Boston requiring an MBA and the knowledge of Visual Basic ?)
+for $j in document("jobsdata.xml")//job where $j/description = "management" and $j/city = "Boston" and $j/desired_degree = "MBA" and $j/language = "Visual Basic" return $j
+
+show me jobs in computer graphics desiring a BA and knowledge of Speedy 3D Graphics ? (show me jobs in computer graphics requiring a BA in art and knowledge of Speedy 3D Graphics ?)
+for $j in document("jobsdata.xml")//job where $j/area = "computer graphics" and $j/desired_degree = "BA" and $j/application = "Speedy 3D Graphics" return $j
+
+show me the jobs at companies in Austin that want a degree in BSCS ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+show the jobs offering 40000 working with C on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 and $j/language = "C" and $j/platform = "Windows NT" return $j
+
+show the jobs with the title systems analyst requiring 2 years of experience ?
+for $j in document("jobsdata.xml")//job where $j/title = "systems analyst" and $j/required_experience = 2 return $j
+
+show the jobs using Lisp not desiring a degree in CS ? (show the jobs using Lisp not requiring a degree in CS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" and $j/desired_degree != "BSCS" return $j
+
+what positions are there in networking ?
+for $j in document("jobsdata.xml")//job where $j/area = "networking" return $j
+
+show me all job that are available ?
+for $j in document("jobsdata.xml")//job return $j
+
+show the jobs for BSCS in Austin ?
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/city = "Austin" return $j
+
+what are the jobs for programmer in Austin that has salary 50000 that uses 'C++' and not related with AI ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/salary = 50000 and $j/language = "CPP" and $j/area != "AI" return $j
+
+what are the jobs that require experience with Microsoft Word ?
+for $j in document("jobsdata.xml")//job where $j/application = "Microsoft Word" return $j
+
+are there any jobs using 'C++' ? (are there any jobs using 'C++' with Dell ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" return $j
+
+are there Ada jobs outside Austin ?
+for $j in document("jobsdata.xml")//job where $j/language = "Ada" and $j/city != "Austin" return $j
+
+show me the jobs using Java with salaries greater than 50000 per year ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/salary > 50000 return $j
+
+show me the jobs that require 2 years experience ?
+for $j in document("jobsdata.xml")//job where $j/required_experience = 2 return $j
+
+list the jobs requiring Java, 2 years experience and desire a BSCS ? (list the jobs requiring Java a BSCS 2 years experience ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/desired_degree = "BSCS" and $j/required_experience = 2 return $j
+
+are there any programmer jobs open ?
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" return $j
+
+are there any jobs that do not require 5 years of experience ?
+for $j in document("jobsdata.xml")//job where $j/required_experience < 5 return $j
+
+what jobs are in Seattle ? (what jobs are in Seattle that are not at Microsoft ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Seattle" return $j
+
+what jobs as an sql engineer pay 100000 ?
+for $j in document("jobsdata.xml")//job where $j/language = "sql" and $j/salary = 100000 return $j
+
+are there any jobs using Java that don't desire a BSCS ? (are there any jobs using Java that don't require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/desired_degree != "BSCS" return $j
+
+show me the 'C++' jobs in Nashville that desire 2 years experience ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/city = "Nashville" and $j/desired_experience = 2 return $j
+
+show me the jobs using Lisp desiring a BSCS ? (show me the jobs using Lisp requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" and $j/desired_degree = "BSCS" return $j
+
+are there any jobs in 'C++' that the salary is 50000 ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/salary = 50000 return $j
+
+show me the jobs that are not in Haskell ?
+for $j in document("jobsdata.xml")//job where $j/city != "Haskell" return $j
+
+are there any jobs at applied materials that desire a BSCS ? (are there any jobs at applied materials that require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/area = "applied materials" and $j/desired_degree = "BSCS" return $j
+
+show me the jobs requiring 3 years of experience ? (show me the jobs requiring 3 years of experience at Tivoli ?)
+for $j in document("jobsdata.xml")//job where $j/required_experience = 3 return $j
+
+what jobs using FORTRAN are there in Los Alamos ?
+for $j in document("jobsdata.xml")//job where $j/language = "FORTRAN" and $j/city = "Los Alamos" return $j
+
+show me the networking jobs in Houston with a salary of 50000 ?
+for $j in document("jobsdata.xml")//job where $j/area = "networking" and $j/city = "Houston" and $j/salary = 50000 return $j
+
+show me the senior software developer jobs which desire a Master ? (show me the senior software developer jobs which require a Master ?)
+for $j in document("jobsdata.xml")//job where $j/title = "senior software developer" and $j/desired_degree = "ms" return $j
+
+what jobs desire 2 years of experience with PowerBuilder on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/desired_experience = 2 and $j/language = "PowerBuilder" and $j/platform = "Windows NT" return $j
+
+show me Houston jobs using 'C++' on PC ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/language = "CPP" and $j/platform = "PC" return $j
+
+what Oracle jobs are there in Houston using PC ? (what Oracle jobs are there with Compaq in Houston using PC ?)
+for $j in document("jobsdata.xml")//job where $j/application = "Oracle" and $j/city = "Houston" return $j
+
+are there any jobs in Austin desiring at least a BSCS and knowing latex ? (are there any jobs in Austin requiring at least a BSCS and knowing latex ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" and $j/language = "latex" return $j
+
+what are the jobs in Washington that require at least 5 years of experience ?
+for $j in document("jobsdata.xml")//job where $j/state = "Washington" and $j/required_experience >= 5 return $j
+
+are there any jobs using Java ? (are there any jobs using Java that are not with Tivoli ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" return $j
+
+show me the jobs that operate on Sun ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Sun" return $j
+
+are there any Mac programmer jobs ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Mac" and $j/title = "programmer" return $j
+
+what are the jobs that pay 50000 per year ?
+for $j in document("jobsdata.xml")//job where $j/salary = 50000 return $j
+
+show jobs in Austin that desire a BSCS ? (show jobs in Austin that require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+give me jobs desiring BS ? (give me jobs requiring BS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BS" return $j
+
+show the jobs on Sun ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Sun" return $j
+
+what jobs are there on AIX ?
+for $j in document("jobsdata.xml")//job where $j/platform = "AIX" return $j
+
+what jobs are there in ODBC ?
+for $j in document("jobsdata.xml")//job where $j/area = "ODBC" return $j
+
+list jobs desiring BSEE ? (list jobs requiring BSEE ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSEE" return $j
+
+tell me jobs in networking ?
+for $j in document("jobsdata.xml")//job where $j/area = "networking" return $j
+
+are there any jobs on Sun ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Sun" return $j
+
+are there any jobs desiring BSCS ? (are there any jobs requiring BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+are there any jobs for a graphics specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "graphics" return $j
+
+list jobs on VMS ?
+for $j in document("jobsdata.xml")//job where $j/platform = "VMS" return $j
+
+what jobs are there in USA ?
+for $j in document("jobsdata.xml")//job where $j/country = "USA" return $j
+
+list the jobs in 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" return $j
+
+show jobs using Visual Basic ?
+for $j in document("jobsdata.xml")//job where $j/language = "Visual Basic" return $j
+
+tell me the jobs using PowerBuilder ?
+for $j in document("jobsdata.xml")//job where $j/language = "PowerBuilder" return $j
+
+show jobs using PowerBuilder ?
+for $j in document("jobsdata.xml")//job where $j/language = "PowerBuilder" return $j
+
+list the jobs for a database specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "database" return $j
+
+show the jobs desiring BA ? (show the jobs requiring BA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BA" return $j
+
+are there any jobs desiring BA ? (are there any jobs requiring BA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BA" return $j
+
+what jobs are there desiring BS ? (what jobs are there requiring BS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BS" return $j
+
+list the jobs for a client server specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "client/server" return $j
+
+are there any jobs on Novell ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Novell" return $j
+
+show jobs using CICS ?
+for $j in document("jobsdata.xml")//job where $j/language = "CICS" return $j
+
+show the jobs on VMS ?
+for $j in document("jobsdata.xml")//job where $j/platform = "VMS" return $j
+
+what jobs are there using 'VC++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "VCPP" return $j
+
+are there any jobs on IBM ?
+for $j in document("jobsdata.xml")//job where $j/platform = "IBM" return $j
+
+list the jobs in San Antonio ?
+for $j in document("jobsdata.xml")//job where $j/city = "San Antonio" return $j
+
+show the jobs for a COM specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "COM" return $j
+
+show jobs in HTML ?
+for $j in document("jobsdata.xml")//job where $j/language = "HTML" return $j
+
+give me jobs in COBOL II ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL II" return $j
+
+tell me jobs using HTML ?
+for $j in document("jobsdata.xml")//job where $j/language = "HTML" return $j
+
+what jobs are there for a database specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "database" return $j
+
+tell me the jobs on MVS ?
+for $j in document("jobsdata.xml")//job where $j/platform = "MVS" return $j
+
+what jobs are there in data warehousing ?
+for $j in document("jobsdata.xml")//job where $j/area = "data warehousing" return $j
+
+list the jobs using COBOL II ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL II" return $j
+
+list the jobs using COBOL II ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL II" return $j
+
+give me the jobs in Visual 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "VCPP" return $j
+
+list jobs using Java ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" return $j
+
+give me the jobs on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Windows NT" return $j
+
+list jobs desiring BA ? (list jobs requiring BA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BA" return $j
+
+what jobs are there using COBOL II ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL II" return $j
+
+give me the jobs on Novell ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Novell" return $j
+
+what jobs are there for a GUI specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "GUI" return $j
+
+show the jobs in Visual 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "VCPP" return $j
+
+what jobs are there in Houston ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" return $j
+
+what jobs are there in SQL ?
+for $j in document("jobsdata.xml")//job where $j/language = "SQL" return $j
+
+show the jobs desiring BS in USA ? (show the jobs requiring BS in USA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BS" and $j/country = "USA" return $j
+
+are there any jobs in USA ?
+for $j in document("jobsdata.xml")//job where $j/country = "USA" return $j
+
+give me jobs using Visual 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "VCPP" return $j
+
+what jobs are there in games ?
+for $j in document("jobsdata.xml")//job where $j/area = "games" return $j
+
+list the jobs in database ?
+for $j in document("jobsdata.xml")//job where $j/area = "database" return $j
+
+what jobs are there on x86 ?
+for $j in document("jobsdata.xml")//job where $j/platform = "x86" return $j
+
+show the jobs using HTML ?
+for $j in document("jobsdata.xml")//job where $j/language = "HTML" return $j
+
+tell me the jobs desiring BS ? (tell me the jobs requiring BS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BS" return $j
+
+are there any jobs in San Antonio ?
+for $j in document("jobsdata.xml")//job where $j/city = "San Antonio" return $j
+
+are there any jobs using SQL ?
+for $j in document("jobsdata.xml")//job where $j/language = "SQL" return $j
+
+show the jobs on PC ?
+for $j in document("jobsdata.xml")//job where $j/platform = "PC" return $j
+
+tell me the jobs on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Windows NT" return $j
+
+list jobs in WAN ?
+for $j in document("jobsdata.xml")//job where $j/area = "WAN" return $j
+
+are there any jobs on PC ?
+for $j in document("jobsdata.xml")//job where $j/platform = "PC" return $j
+
+what jobs are there using RPG ?
+for $j in document("jobsdata.xml")//job where $j/language = "RPG" return $j
+
+show the jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" return $j
+
+show the jobs desiring BSEE ? (show the jobs requiring BSEE ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSEE" return $j
+
+tell me jobs desiring BSCS ? (tell me jobs requiring BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+give me the jobs in Houston ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" return $j
+
+are there any jobs in San Antonio ?
+for $j in document("jobsdata.xml")//job where $j/city = "San Antonio" return $j
+
+what jobs are there for a graphics specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "graphics" return $j
+
+tell me jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" return $j
+
+what jobs are there desiring BSEE ? (what jobs are there requiring BSEE ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSEE" return $j
+
+give me the jobs for a games specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "games" return $j
+
+list jobs using COBOL II ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL II" return $j
+
+list the jobs desiring BS ? (list the jobs requiring BS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BS" return $j
+
+are there any jobs for a client server specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "client/server" return $j
+
+are there any jobs using PowerBuilder ?
+for $j in document("jobsdata.xml")//job where $j/language = "PowerBuilder" return $j
+
+are there any jobs desiring BSCS ? (are there any jobs requiring BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+list jobs on Sun ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Sun" return $j
+
+tell me the jobs desiring BS in USA ? (tell me the jobs requiring BS in USA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BS" and $j/country = "USA" return $j
+
+list jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" return $j
+
+show the jobs for a ODBC specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "ODBC" return $j
+
+list jobs using SQL ?
+for $j in document("jobsdata.xml")//job where $j/language = "SQL" return $j
+
+show the jobs in Dallas ?
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" return $j
+
+are there any jobs desiring BS ? (are there any jobs requiring BS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BS" return $j
+
+give me the jobs using C ?
+for $j in document("jobsdata.xml")//job where $j/language = "C" return $j
+
+list jobs desiring BA ? (list jobs requiring BA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BA" return $j
+
+are there any jobs desiring BS ? (are there any jobs requiring BS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BS" return $j
+
+give me the jobs desiring BSEE ? (give me the jobs requiring BSEE ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSEE" return $j
+
+show jobs on Windows ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Windows" return $j
+
+what jobs are there for a '3d' Graphics specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "3d Graphics" return $j
+
+what jobs are there desiring BSCS ? (what jobs are there requiring BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+what jobs are there on Windows 95 ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Windows 95" return $j
+
+list the jobs using CICS ?
+for $j in document("jobsdata.xml")//job where $j/language = "CICS" return $j
+
+tell me jobs on Windows 95 in MFC ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Windows 95" and $j/area = "MFC" return $j
+
+list the jobs on UNIX ?
+for $j in document("jobsdata.xml")//job where $j/platform = "UNIX" return $j
+
+tell me jobs desiring BA ? (tell me jobs requiring BA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BA" return $j
+
+tell me jobs on Sun ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Sun" return $j
+
+what jobs are there desiring BA ? (what jobs are there requiring BA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BA" return $j
+
+are there any jobs on Windows ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Windows" return $j
+
+tell me the jobs using 'VC++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "VCPP" return $j
+
+give me the jobs in 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" return $j
+
+what jobs are there for a networking specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "networking" return $j
+
+give me jobs for a data warehousing specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "data warehousing" return $j
+
+are there any jobs for a ODBC specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "ODBC" return $j
+
+list jobs on Windows ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Windows" return $j
+
+give me jobs in Dallas ?
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" return $j
+
+list jobs using SQL ?
+for $j in document("jobsdata.xml")//job where $j/language = "SQL" return $j
+
+give me the jobs for a LAN specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "LAN" return $j
+
+list jobs in client server ?
+for $j in document("jobsdata.xml")//job where $j/area = "client/server" return $j
+
+are there any jobs in LAN ?
+for $j in document("jobsdata.xml")//job where $j/area = "LAN" return $j
+
+show jobs in USA ?
+for $j in document("jobsdata.xml")//job where $j/country = "USA" return $j
+
+are there any jobs using 'VC++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "VCPP" return $j
+
+what jobs are there on IBM ?
+for $j in document("jobsdata.xml")//job where $j/platform = "IBM" return $j
+
+give me the jobs using COBOL ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL" return $j
+
+are there any jobs for a data warehousing specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "data warehousing" return $j
+
+show the jobs using PowerBuilder ?
+for $j in document("jobsdata.xml")//job where $j/language = "PowerBuilder" return $j
+
+are there any jobs in TCP IP ?
+for $j in document("jobsdata.xml")//job where $j/area = "TCP/IP" return $j
+
+what jobs are there using COBOL ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL" return $j
+
+show jobs for a COM specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "COM" return $j
+
+what jobs are there on VMS ?
+for $j in document("jobsdata.xml")//job where $j/platform = "VMS" return $j
+
+what jobs are there for a COM specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "COM" return $j
+
+tell me jobs using Visual Basic ?
+for $j in document("jobsdata.xml")//job where $j/language = "Visual Basic" return $j
+
+what jobs are there in USA on IBM ?
+for $j in document("jobsdata.xml")//job where $j/platform = "IBM" and $j/country = "USA" return $j
+
+show jobs desiring BA ? (show jobs requiring BA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BA" return $j
+
+give me jobs in San Antonio ?
+for $j in document("jobsdata.xml")//job where $j/city = "San Antonio" return $j
+
+give me jobs desiring BS ? (give me jobs requiring BS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BS" return $j
+
+what jobs are there on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Windows NT" return $j
+
+list the jobs using HTML for a games specialist ?
+for $j in document("jobsdata.xml")//job where $j/language = "HTML" and $j/area = "games" return $j
+
+are there any jobs desiring BA ? (are there any jobs requiring BA ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BA" return $j
+
+what jobs are there on x86 ?
+for $j in document("jobsdata.xml")//job where $j/platform = "x86" return $j
+
+tell me jobs for a MFC specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "MFC" return $j
+
+give me the jobs on UNIX ?
+for $j in document("jobsdata.xml")//job where $j/platform = "UNIX" return $j
+
+what jobs are there using 'Tcl/Tk' ?
+for $j in document("jobsdata.xml")//job where $j/language = "Tcl/Tk" return $j
+
+are there any jobs using Assembly in USA ?
+for $j in document("jobsdata.xml")//job where $j/language = "Assembly" and $j/country = "USA" return $j
+
+give me the jobs for a database specialist in USA ?
+for $j in document("jobsdata.xml")//job where $j/area = "database" and $j/country = "USA" return $j
+
+list jobs in USA ?
+for $j in document("jobsdata.xml")//job where $j/country = "USA" return $j
+
+give me the jobs desiring BSCS ? (give me the jobs requiring BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+give me the jobs for a games specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "games" return $j
+
+are there any jobs using COBOL ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL" return $j
+
+give me jobs in Dallas ?
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" return $j
+
+tell me the jobs in LAN ?
+for $j in document("jobsdata.xml")//job where $j/platform = "LAN" return $j
+
+tell me the jobs in USA ?
+for $j in document("jobsdata.xml")//job where $j/country = "USA" return $j
+
+tell me the jobs using Visual Basic ?
+for $j in document("jobsdata.xml")//job where $j/language = "Visual Basic" return $j
+
+list jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" return $j
+
+what jobs are there using SQL ?
+for $j in document("jobsdata.xml")//job where $j/language = "SQL" return $j
+
+give me the jobs for a OLE specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "OLE" return $j
+
+list the jobs in Visual 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language = "VCPP" return $j
+
+are there any jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" return $j
+
+give me jobs for a games specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "games" return $j
+
+give me the jobs on VMS in Assembly ?
+for $j in document("jobsdata.xml")//job where $j/platform = "VMS" and $j/language = "Assembly" return $j
+
+are there any software developer jobs desiring BS ? (are there any software developer jobs requiring BS ?)
+for $j in document("jobsdata.xml")//job where $j/title = "software developer" and $j/desired_degree = "BS" return $j
+
+tell me the jobs in '3d' Graphics ?
+for $j in document("jobsdata.xml")//job where $j/area = "3d Graphics" return $j
+
+give me jobs on VMS using SQL ?
+for $j in document("jobsdata.xml")//job where $j/platform = "VMS" and $j/language = "SQL" return $j
+
+are there any jobs desiring BSEE ? (are there any jobs requiring BSEE ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSEE" return $j
+
+list the jobs using Assembly ?
+for $j in document("jobsdata.xml")//job where $j/language = "Assembly" return $j
+
+give me the jobs in Dallas ?
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" return $j
+
+list jobs using Assembly ?
+for $j in document("jobsdata.xml")//job where $j/language = "Assembly" return $j
+
+show the jobs on PC desiring BSCS ? (show the jobs on PC requiring BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/platform = "PC" and $j/desired_degree = "BSCS" return $j
+
+are there any jobs desiring BSEE ? (are there any jobs requiring BSEE ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSEE" return $j
+
+show the jobs in client server ?
+for $j in document("jobsdata.xml")//job where $j/area = "client/server" return $j
+
+tell me jobs for a device driver specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "device driver" return $j
+
+what jobs are there for a '3d' Graphics specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "3d Graphics" return $j
+
+give me the jobs using SQL ?
+for $j in document("jobsdata.xml")//job where $j/language = "SQL" return $j
+
+list jobs desiring BSCS using Java ? (list jobs requiring BSCS using Java ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/language = "Java" return $j
+
+show jobs for a data warehousing specialist ?
+for $j in document("jobsdata.xml")//job where $j/area = "data warehousing" return $j
+
+tell me jobs using COBOL II ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL II" return $j
+
+give me jobs in USA ?
+for $j in document("jobsdata.xml")//job where $j/country = "USA" return $j
+
+what jobs are there using CICS ?
+for $j in document("jobsdata.xml")//job where $j/language = "CICS" return $j
+
+show the jobs on MVS ?
+for $j in document("jobsdata.xml")//job where $j/platform = "MVS" return $j
+
+what jobs are there using Visual Basic ?
+for $j in document("jobsdata.xml")//job where $j/language = "Visual Basic" return $j
+
+show jobs desiring BSEE ? (show jobs requiring BSEE ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSEE" return $j
+
+tell me the jobs requiring BA using COBOL ?
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BA" and $j/language = "COBOL" return $j
+
+give me jobs in San Antonio using COBOL ?
+for $j in document("jobsdata.xml")//job where $j/city = "San Antonio" and $j/language = "COBOL" return $j
+
+list jobs in COBOL II ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL II" return $j
+
+show the jobs in San Antonio ?
+for $j in document("jobsdata.xml")//job where $j/city = "San Antonio" return $j
+
+are there any jobs on VAX ?
+for $j in document("jobsdata.xml")//job where $j/platform = "VAX" return $j
+
+show me the jobs which use Excel ?
+for $j in document("jobsdata.xml")//job where $j/application = "Excel" return $j
+
+what jobs are there that don't desire a degree but use Perl ? (what jobs are there that don't require a degree but use Perl ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = null and $j/language = "Perl" return $j
+
+what jobs desire a BSCS ? (what jobs require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+I would like to find a job using Java ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" return $j
+
+show me what needs experience ?
+for $j in document("jobsdata.xml")//job where $j/required_experience > 0 return $j
+
+are there any UNIX jobs ?
+for $j in document("jobsdata.xml")//job where $j/platform = "UNIX" return $j
+
+what database jobs are there ?
+for $j in document("jobsdata.xml")//job where $j/area = "database" return $j
+
+are there any jobs for a programmer ?
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" return $j
+
+what jobs can I find ? (what jobs can I find with Tivoli ?)
+for $j in document("jobsdata.xml")//job return $j
+
+show me something that requires Oracle ?
+for $j in document("jobsdata.xml")//job where $j/application = "Oracle" return $j
+
+what jobs need at least 2 years of experience ?
+for $j in document("jobsdata.xml")//job where $j/required_experience >= 2 return $j
+
+is FORTRAN required for any jobs ?
+for $j in document("jobsdata.xml")//job where $j/language = "FORTRAN" return $j
+
+does anyone still use MVS ?
+for $j in document("jobsdata.xml")//job where $j/platform = "MVS" return $j
+
+what jobs are there for a test engineer using Java ?
+for $j in document("jobsdata.xml")//job where $j/title = "test engineer" and $j/language = "Java" return $j
+
+are there any jobs involving SQL ? (are there any jobs with Microsoft involving SQL ?)
+for $j in document("jobsdata.xml")//job where $j/language = "SQL" return $j
+
+are there any jobs that require a knowledge of Linux in San Antonio ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Linux" and $j/city = "San Antonio" return $j
+
+give me jobs on the Mac using Perl ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Mac" and $j/language = "Perl" return $j
+
+what jobs are there for a Visual Basic developer ?
+for $j in document("jobsdata.xml")//job where $j/language = "Visual Basic" return $j
+
+what jobs are there on Novell involving the internet ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Novell" and $j/area = "internet" return $j
+
+give me 'C++' jobs on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/platform = "Windows NT" return $j
+
+what kind of jobs could I find for an old COBOL programmer ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL" return $j
+
+who might offer me 50000 for web development ?
+for $j in document("jobsdata.xml")//job where $j/salary = 50000 and $j/title = "web developer" and $j/area = "web" return $j
+
+I wish there were some Perl jobs in Boston ?
+for $j in document("jobsdata.xml")//job where $j/language = "Perl" and $j/city = "Boston" return $j
+
+what do you have paying over 40000 on the VAX ?
+for $j in document("jobsdata.xml")//job where $j/salary > 40000 and $j/platform = "VAX" return $j
+
+could I have some jobs using SQL with Oracle ?
+for $j in document("jobsdata.xml")//job where $j/language = "SQL" and $j/application = "Oracle" return $j
+
+I sure do wish there were Java Assembly jobs out there '.' can you help ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/language = "Assembly" return $j
+
+is anyone offering 40000 for AI work ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 and $j/area = "AI" return $j
+
+can you offer anything with at least 60000 on a Sun ?
+for $j in document("jobsdata.xml")//job where $j/salary > 60000 and $j/platform = "Sun" return $j
+
+do you have any jobs involving 'C++' on AIX ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/platform = "AIX" return $j
+
+who gives 50000 for FORTRAN ?
+for $j in document("jobsdata.xml")//job where $j/salary = 50000 and $j/language = "FORTRAN" return $j
+
+what's available on VAX and near Austin ?
+for $j in document("jobsdata.xml")//job where $j/platform = "VAX" and $j/city = "Austin" return $j
+
+what can I find using Java on UNIX ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/platform = "UNIX" return $j
+
+could a senior consulting engineer find work in Boston ?
+for $j in document("jobsdata.xml")//job where $j/title = "senior consulting engineer" and $j/city = "Boston" return $j
+
+what are all the jobs ?
+for $j in document("jobsdata.xml")//job return $j
+
+show me what jobs there are ?
+for $j in document("jobsdata.xml")//job return $j
+
+can you show me all the jobs ?
+for $j in document("jobsdata.xml")//job return $j
+
+could you list all the jobs ?
+for $j in document("jobsdata.xml")//job return $j
+
+give me a list of all the jobs ?
+for $j in document("jobsdata.xml")//job return $j
+
+what jobs do you have ?
+for $j in document("jobsdata.xml")//job return $j
+
+tell me what jobs there are ?
+for $j in document("jobsdata.xml")//job return $j
+
+what work do you have available ?
+for $j in document("jobsdata.xml")//job return $j
+
+I would like to see all the jobs ?
+for $j in document("jobsdata.xml")//job return $j
+
+show me jobs in Austin that use Java on UNIX for a developer paying at least 50000 ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/language = "Java" and $j/platform = "UNIX" and $j/title = "developer" and $j/salary > 50000 return $j
+
+what jobs are there for Windows NT developers that know Oracle ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Windows NT" and $j/application = "Oracle" return $j
+
+is there anything for an old COBOL programmer on MVS ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL" and $j/platform = "MVS" return $j
+
+I sure would like a Perl job involving databases ? (I sure would like a Perl job at Microsoft involving databases ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Perl" and $j/area = "database" return $j
+
+what jobs use 'C++' with the web on Macs ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/area = "web" and $j/platform = "Mac" return $j
+
+what kinds of jobs are available for Visual Basic consultants in Boston ?
+for $j in document("jobsdata.xml")//job where $j/language = "Visual Basic" and $j/title = "consultant" and $j/city = "Boston" return $j
+
+show me what's out there for Perl developers on Windows ?
+for $j in document("jobsdata.xml")//job where $j/language = "Perl" and $j/platform = "Windows" return $j
+
+what jobs can a Delphi developer find in San Antonio on Windows ?
+for $j in document("jobsdata.xml")//job where $j/language = "Delphi" and $j/city = "San Antonio" and $j/platform = "Windows" return $j
+
+what jobs in California pay 60000 for SQL development ?
+for $j in document("jobsdata.xml")//job where $j/state = "California" and $j/salary = 60000 and $j/language = "SQL" return $j
+
+can you show me VB jobs with 50000 salary with databases and Excel ?
+for $j in document("jobsdata.xml")//job where $j/language = "VB" and $j/salary = 50000 and $j/area = "database" and $j/application = "Excel" return $j
+
+id like to see the jobs in Houston for a Prolog programmer making at least 50000 a year involving databases ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/language = "Prolog" and $j/salary = 50000 and $j/area = "database" return $j
+
+what jobs in Austin are for a Lisp programmer that involve UNIX and the internet ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/language = "Lisp" and $j/platform = "UNIX" and $j/area = "internet" return $j
+
+what's in Dallas that pays over 60000 on Linux with graphics and Java ?
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" and $j/salary > 60000 and $j/platform = "Linux" and $j/area = "graphics" and $j/language = "Java" return $j
+
+show me everything ?
+for $j in document("jobsdata.xml")//job return $j
+
+what's all there ?
+for $j in document("jobsdata.xml")//job return $j
+
+what jobs are there ?
+for $j in document("jobsdata.xml")//job return $j
+
+what is out there ?
+for $j in document("jobsdata.xml")//job return $j
+
+what jobs are available ?
+for $j in document("jobsdata.xml")//job return $j
+
+id like to see everything ?
+for $j in document("jobsdata.xml")//job return $j
+
+all the jobs please ?
+for $j in document("jobsdata.xml")//job return $j
+
+all of it ?
+for $j in document("jobsdata.xml")//job return $j
+
+all ?
+for $j in document("jobsdata.xml")//job return $j
+
+everything ?
+for $j in document("jobsdata.xml")//job return $j
+
+there must be some jobs out there for a 'C++' programmer that thinks in UNIX databases ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/platform = "UNIX" and $j/area = "database" return $j
+
+MVS COBOL and databases ? (MVS COBOL and databases are the key to Tivoli ?)
+for $j in document("jobsdata.xml")//job where $j/platform = "MVS" and $j/language = "COBOL" and $j/area = "database" return $j
+
+what jobs in San Jose offer a Java programmer for 40000 a year ?
+for $j in document("jobsdata.xml")//job where $j/city = "San Jose" and $j/language = "Java" and $j/salary = 40000 return $j
+
+test engineer in need of 40000 in Seattle on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/title = "test engineer" and $j/salary = 40000 and $j/city = "Seattle" and $j/platform = "Windows NT" return $j
+
+what jobs in California require Java and internet experience ?
+for $j in document("jobsdata.xml")//job where $j/state = "California" and $j/language = "Java" and $j/area = "internet" return $j
+
+are there jobs using VB in Seattle with SQL server and on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/language = "VB" and $j/city = "Seattle" and $j/application = "SQL server" and $j/platform = "Windows NT" return $j
+
+I wonder what is done on UNIX with Prolog and VAX ? (I wonder what JPL does on UNIX with Prolog and VAX ?)
+for $j in document("jobsdata.xml")//job where $j/platform = "UNIX" and $j/language = "Prolog" and $j/platform = "VMS" return $j
+
+Prolog AI and Lisp and graphics ?
+for $j in document("jobsdata.xml")//job where ($j/language = "Prolog" and $j/area = "AI") or $j/language = "Lisp" or $j/area = "graphics" return $j
+
+are there any jobs in Austin developing games in x86 using Assembly ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/area = "games" and $j/platform = "x86" return $j
+
+moving to Canada need a job with UNIX Java and IBM ?
+for $j in document("jobsdata.xml")//job where $j/country = "Canada" and $j/platform = "UNIX" and $j/platform = "IBM" and $j/language = "Java" return $j
+
+only Microsoft VB Windows NT and Excel and 70000 dollars can satiate me ?
+for $j in document("jobsdata.xml")//job where $j/language = "VB" and $j/platform = "Windows NT" and $j/application = "Excel" and $j/salary = 70000 return $j
+
+greed for 80000 and Java plagues developer wanting to live in San Jose ? (greed for 80000 and Java plagues developer wanting to live in San Jose at Apple ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 80000 and $j/language = "Java" and $j/city = "San Jose" return $j
+
+if I moved to California and learned SQL on Oracle could I find anything for 30000 on UNIX ?
+for $j in document("jobsdata.xml")//job where $j/state = "California" and $j/language = "SQL" and $j/application = "Oracle" and $j/salary = 30000 and $j/platform = "UNIX" return $j
+
+vanity wants 5000 a month with buzzwords like Java internet and California ? (vanity wants 5000 a month with buzzwords like Java Apple internet and California ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 60000 and $j/language = "Java" and $j/area = "internet" and $j/state = "California" return $j
+
+what jobs give me 40000 to work in Houston on internet and web with Perl ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 and $j/city = "Houston" and $j/area = "internet" and $j/area = "web" and $j/language = "Perl" return $j
+
+which jobs offer me 40000 to work on internet and web with Perl ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 and $j/area = "internet" and $j/area = "web" and $j/language = "Perl" return $j
+
+show me the jobs which use Excel ?
+for $j in document("jobsdata.xml")//job where $j/application = "Excel" return $j
+
+what jobs are there that don't require a degree but use Perl ?
+for $j in document("jobsdata.xml")//job where $j/desired_degree = null and $j/language = "Perl" return $j
+
+what jobs are there for web developer who know 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/title = "web developer" and $j/language = "CPP" return $j
+
+what jobs pay 60000 are located in Austin and desire a degree ? (what jobs pay 60000 are located in Austin and require a degree ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 60000 and $j/city = "Austin" and $j/desired_degree != null return $j
+
+what jobs are there for Pascal programmers who don't know 'C++'
+for $j in document("jobsdata.xml")//job where $j/language = "Pascal" and every $l in $j/language satisfies $l != "CPP" return $j
+
+what jobs use COBOL on IBM machines and pay 70000 ?
+for $j in document("jobsdata.xml")//job where $j/language = "COBOL" and $j/platform = "IBM" and $j/salary = 70000 return $j
+
+what jobs desire a degree but don't use 'C++'
+for $j in document("jobsdata.xml")//job where $j/desired_degree != null and $j/language != "CPP" return $j
+
+show me the jobs using 'C++' that desire a BSCS and a MSCS ? (show me the jobs using 'C++' that require a BSCS but desire a MSCS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/desired_degree = "BSCS" and $j/desired_degree = "MSCS" return $j
+
+what are the software engineer jobs available using Ada ?
+for $j in document("jobsdata.xml")//job where $j/title = "software engineer" and $j/language = "Ada" return $j
+
+what jobs are there programming Lisp for AutoCAD ? (what jobs are there working for Microsoft programming Lisp for AutoCAD ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" and $j/application = "AutoCAD" return $j
+
+are there any jobs ? (are there any jobs with Microsoft ?)
+for $j in document("jobsdata.xml")//job return $j
+
+which system administrator jobs in Dallas require 2 years experience and pay 50000 ?
+for $j in document("jobsdata.xml")//job where $j/title = "system administrator" and $j/city = "Dallas" and $j/required_experience = 2 and $j/salary = 50000 return $j
+
+what jobs on PC are for programming Assembly and desire 5 years experience ?
+for $j in document("jobsdata.xml")//job where $j/platform = "PC" and $j/language = "Assembly" and $j/desired_experience = 5 return $j
+
+show me jobs requiring experience on UNIX ? (show me jobs are Dell requiring experience on UNIX ?)
+for $j in document("jobsdata.xml")//job where $j/platform = "UNIX" return $j
+
+show me New York jobs desiring a BSCS ? (show me New York jobs requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "New York" and $j/desired_degree = "BSCS" return $j
+
+show me jobs at Dell requiring no experience and desiring a BSCS ? (show me jobs at Dell requiring no experience and a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/required_experience = 0 and $j/desired_degree = "BSCS" return $j
+
+show me systems analyst jobs ? (show me systems analyst jobs at IBM ?)
+for $j in document("jobsdata.xml")//job where $j/title = "systems analyst" return $j
+
+show me programmer jobs requiring no experience on UNIX ?
+for $j in document("jobsdata.xml")//job where $j/platform != "UNIX" return $j
+
+show me Austin jobs with a salary of 50000
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/salary = 50000 return $j
+
+find all network administration jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/title = "network administrator" and $j/city = "Austin" return $j
+
+show me a Dell job in Austin desiring a BSCS ? (show me a Dell job in Austin requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+show me a job not requirng Java and not in Austin ?
+for $j in document("jobsdata.xml")//job where $j/language != "Java" and $j/city != "Austin" return $j
+
+which jobs in Austin offer for students fresh out of college in networking ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/required_experience = 0 and $j/area = "networking" return $j
+
+which jobs in Houston offer over 50000 in graphics ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/salary > 50000 and $j/area = "graphics" return $j
+
+which jobs use Visual 'J++' as their development tool ?
+for $j in document("jobsdata.xml")//job where $j/language = "VJPP" return $j
+
+which jobs deal with 'C++' ? (which jobs at Trilogy deal with 'C++' ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" return $j
+
+which jobs are for BSEE majors with at least 5 years experience in Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSEE" and $j/required_experience >= 5 and $j/platform = "Windows NT" return $j
+
+what are the positions that pay 40000 per year ? (what are the positions within HP that pay 40000 per year ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 return $j
+
+what jobs in Boston have openings for a 'C++' programmer ?
+for $j in document("jobsdata.xml")//job where $j/city = "Boston" and $j/language = "CPP" return $j
+
+what jobs desire a BSCS require 4 years of experience pay 50000 and are in San Jose ? (what jobs require a BSCS 4 years of experience pay 50000 and are in San Jose ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/required_experience = 4 and $j/salary = 50000 and $j/city = "San Jose" return $j
+
+are there any jobs specializing in AI with JPL ?
+for $j in document("jobsdata.xml")//job where $j/area = "AI" return $j
+
+what jobs are being hired for ? (what jobs are Longhorn employment hiring for ?)
+for $j in document("jobsdata.xml")//job return $j
+
+are there any jobs for people in Austin that want to program in Lisp but do not have a degree ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/language = "Lisp" and $j/desired_degree = null return $j
+
+show me the jobs concerning games development on a PlayStation ?
+for $j in document("jobsdata.xml")//job where $j/area = "games" and $j/platform = "PlayStation" return $j
+
+where can I work with a BSCS and no experience ?
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/required_experience = 0 return $j
+
+what jobs in Austin have a salary of 60000 ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/salary > 60000 return $j
+
+which jobs require knowledge of Lisp but don't specialize in AI ?
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" and $j/area != "AI" return $j
+
+do any jobs exist programming on PDP11s ? (do any jobs exist programming for Apple on PDP11s ?)
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" and $j/platform = "PDP11" return $j
+
+what position do I need a PhD to work ? (what position in Microsoft do I need a PhD to work ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "PhD" return $j
+
+show me jobs desiring a BSCS on Sun ? (show me jobs requiring a BSCS on Sun ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/platform = "Sun" return $j
+
+show me programmer jobs in Tulsa ?
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" and $j/city = "Tulsa" return $j
+
+show me 'C++' jobs desiring a BSCS in Austin ? (show me 'C++' jobs requiring a BSCS in Austin ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/desired_degree = "BSCS" and $j/city = "Austin" return $j
+
+show me jobs desiring a MSCS in Austin ? (show me jobs desiring a MSCS in Austin with Microsoft ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "MSCS" and $j/city = "Austin" return $j
+
+what jobs are there doing computer graphics on Silicon Graphics machines ?
+for $j in document("jobsdata.xml")//job where $j/area = "computer graphics" and $j/platform = "Silicon Graphics" return $j
+
+show me the titles of the available jobs using Prolog in Houston ?
+for $j in document("jobsdata.xml")//job where $j/language = "Prolog" and $j/city = "Houston" return $j/title
+
+how much experience is wanted for a job ? (how much experience is wanted for a job at Microsoft ?)
+for $j in document("jobsdata.xml")//job return $j/desired_experience
+
+what programming languages are desired for a job as a programmer ? (what programming languages are desired for a job as a programmer at IBM ?)
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" return $j/language
+
+list the companies that desire 'C++' experience ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" return $j
+
+list the required experience for a job using Lisp ?
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" return $j/required_experience
+
+which jobs pay 60000 that do not desire a PhD ? (which jobs pay 60000 that do not require a PhD ?)
+for $j in document("jobsdata.xml")//job where $j/salary = 60000 and $j/desired_degree != "PhD" return $j
+
+what are the jobs using 'C++' with salaries of 50000 ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/salary = 50000 return $j
+
+what jobs in Houston desire a BACS ? (what jobs in Houston require a BACS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/desired_degree = "BACS" return $j
+
+what locations offer jobs using Java on Sun ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/platform = "Sun" return $j/city
+
+what jobs are available using Apache with a specialty area of networking ?
+for $j in document("jobsdata.xml")//job where $j/application = "Apache" and $j/area = "networking" return $j
+
+what positions are there that use 'C++' and Java ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/language = "Java" return $j
+
+show me the jobs using Perl in Colorado ? (show me the jobs using Perl with Lockheed Martin aeronautics in Colorado ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Perl" and $j/state = "Colorado" return $j
+
+what jobs pay 40000 per year that desire a BSCS ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 and $j/desired_degree = "BSCS" return $j
+
+show me all of the software engineer jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/title = "software engineer" and $j/city = "Austin" return $j
+
+show me the jobs in Texas using AI on UNIX ?
+for $j in document("jobsdata.xml")//job where $j/state = "Texas" and $j/area = "AI" and $j/platform = "UNIX" return $j
+
+are there any jobs that require no experience and pay 50000 ? (are there any jobs at Dell that require no experience and pay 50000 ?)
+for $j in document("jobsdata.xml")//job where $j/required_experience = 0 and $j/salary = 50000 return $j
+
+list all jobs using 'C++' and Java in California ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/state = "California" return $j
+
+show all positions in Texas with network and Java ? (show all intern positions in Texas with network and Java ?)
+for $j in document("jobsdata.xml")//job where $j/state = "Texas" and $j/area = "network" and $j/language = "Java" return $j
+
+show me jobs in Austin using Solaris that do not require a BSCS ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/platform = "Solaris" and $j/desired_degree != "BSCS" return $j
+
+are there any software engineer positions ? (does Apple have any software engineer positions ?)
+for $j in document("jobsdata.xml")//job where $j/title = "software engineer" return $j
+
+give me the jobs using 'C++' that don't require Windows ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/platform != "Windows" return $j
+
+are there any jobs desiring a BSCS in Seattle ? (are there any jobs requiring a BSCS for Boeing in Seattle ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/city = "Seattle" return $j
+
+show me the hardware platforms associated with a NetWare administrator ? (show me the hardware platforms associated with a NetWare administrator with IBM ?)
+for $j in document("jobsdata.xml")//job where $j/title = "network administrator" and $j/application = "NetWare" return $j/platform
+
+what programmer positions in Austin require no experience ?
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" and $j/city = "Austin" and $j/required_experience = 0 return $j
+
+what jobs in Austin only desire a BSCS and require no experience ? (what jobs in Austin only require a BSCS and no experience ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" and $j/required_experience = 0 return $j
+
+what system administrator jobs are available ? (what system administrator jobs are available from Dell ?)
+for $j in document("jobsdata.xml")//job where $j/title = "system administrator" return $j
+
+what jobs using Java and Perl are available in Dallas and pay 50000 a year ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/language = "Perl" and $j/city = "Dallas" and $j/salary = 50000 return $j
+
+what are the degree preferences for a software engineer ? (what are the degree requirements for a software engineer ?)
+for $j in document("jobsdata.xml")//job where $j/title = "software engineer" return $j/desired_degree
+
+list the positions that require a knowledge of Microsoft Excel ?
+for $j in document("jobsdata.xml")//job where $j/application = "Excel" return $j
+
+show me positions in web programming ?
+for $j in document("jobsdata.xml")//job where $j/title = "web programmer" return $j
+
+give some jobs in Dallas on a Sun system ?
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" and $j/platform = "Sun" return $j
+
+show me jobs using Lisp that desire a BSCS and a MSEE ? (show me jobs using Lisp that require a BSCS and desire a MSEE ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" and $j/desired_degree = "BSCS" and $j/desired_degree = "MSEE" return $j
+
+what jobs in Austin require 5 years of experience but desire 10 years of experience ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/required_experience = 5 and $j/desired_experience = 10 return $j
+
+what AI jobs are there in Texas that pay 65000 ?
+for $j in document("jobsdata.xml")//job where $j/area = "AI" and $j/state = "Texas" and $j/salary = 65000 return $j
+
+what jobs desire a BSCS ? (what jobs at Dell require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+what jobs in Austin require no experience ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/required_experience = 0 return $j
+
+what jobs are there with a salary of 40000 ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 return $j
+
+what 'C++' jobs are in Austin ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/city = "Austin" return $j
+
+what are the 'C++' jobs in Austin desiring a BSCS ? (what are the 'C++' jobs in Austin requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+what jobs are there in Texas that use Java and require no experience ?
+for $j in document("jobsdata.xml")//job where $j/state = "Texas" and $j/language = "Java" and $j/required_experience = 0 return $j
+
+show me the jobs in Austin that desire 3 years of experience and use 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_experience = 3 and $j/language = "CPP" return $j
+
+show me jobs requiring no experience
+for $j in document("jobsdata.xml")//job where $j/required_experience = 0 return $j
+
+show me jobs in Texas
+for $j in document("jobsdata.xml")//job where $j/state = "Texas" return $j
+
+show me jobs earning 60000 (show me jobs at Dell earning 60000)
+for $j in document("jobsdata.xml")//job where $j/salary = 60000 return $j
+
+show me jobs not involving 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/language != "CPP" return $j
+
+show me graphics jobs ? (show me graphics jobs which Phil Smith is recruiting for ?)
+for $j in document("jobsdata.xml")//job where $j/area = "graphics" return $j
+
+what AI positions desire only a BSCS ? (what AI positions require only a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/area = "AI" and $j/desired_degree = "BSCS" return $j
+
+are there any positions that don't require experience ? (does National Instruments have any positions that don't require experience ?)
+for $j in document("jobsdata.xml")//job where $j/required_experience = 0 return $j
+
+what level of experience is desired ? (what level of experience does IBM desire ?)
+for $j in document("jobsdata.xml")//job return $j/desired_experience
+
+show me the jobs with 30000 salary
+for $j in document("jobsdata.xml")//job where $j/salary = 30000 return $j
+
+show me the research assistant job in Austin
+for $j in document("jobsdata.xml")//job where $j/title = "research assistant" and $j/city = "Austin" return $j
+
+show me the jobs that require 1 year of experience but desire 2 years of experiences
+for $j in document("jobsdata.xml")//job where $j/required_experience = 1 and $j/desired_experience = 2 return $j
+
+are there any computer jobs in the field of statistics ?
+for $j in document("jobsdata.xml")//job where $j/area = "statistics" and $j/description = "computer_science" return $j
+
+show me Austin jobs desiring a BSCS
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+any jobs available using database ?
+for $j in document("jobsdata.xml")//job return $j
+
+are there any jobs with a salary of 100000 ?
+for $j in document("jobsdata.xml")//job where $j/salary = 100000 return $j
+
+show me the jobs with a salary of 50000 ?
+for $j in document("jobsdata.xml")//job where $j/salary = 50000 return $j
+
+are there any project manager positions open ?
+for $j in document("jobsdata.xml")//job where $j/title = "project manager" return $j
+
+what Java jobs are there in Austin ? (what Java jobs are there with IBM in Austin ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/city = "Austin" return $j
+
+are there any AutoCAD jobs open ?
+for $j in document("jobsdata.xml")//job where $j/application = "AutoCAD" return $j
+
+are there any jobs in Houston ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" return $j
+
+what jobs pay 40000 ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 return $j
+
+what jobs do not desire a BSCS ? (what Microsoft jobs do not require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree != "BSCS" return $j
+
+what jobs require using Java on Commodores ? (what IBM jobs require using Java on Commodores ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/platform = "Commodore" return $j
+
+what jobs require 10 years of experience desire a PhD are in COBOL and are located in Texas ? (what jobs require 10 years of experience require a PhD are in COBOL and are located in Texas ?)
+for $j in document("jobsdata.xml")//job where $j/required_experience = 10 and $j/desired_degree = "PhD" and $j/language = "COBOL" and $j/state = "Texas" return $j
+
+what jobs are being recruited for ? (what jobs does Microsoft recruit for ?)
+for $j in document("jobsdata.xml")//job return $j
+
+show me Houston jobs using C in the specialty area of oil pipeline modeling ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/language = "C" and $j/area = "oil pipeline modeling" return $j
+
+show me jobs in Tulsa using FORTRAN on VAX desiring a BSCS ? (show me jobs in Tulsa using FORTRAN on VAX requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Tulsa" and $j/language = "FORTRAN" and $j/platform = "VAX" and $j/desired_degree = "BSCS" return $j
+
+show me management jobs in Boston desiring an MBA and the knowledge of Visual Basic ? (show me management jobs in Boston requiring an MBA and the knowledge of Visual Basic ?)
+for $j in document("jobsdata.xml")//job where $j/description = "management" and $j/city = "Boston" and $j/desired_degree = "MBA" and $j/language = "Visual Basic" return $j
+
+show me jobs in computer graphics desiring a BA and knowledge of 'Speedy 3D Graphics' ? (show me jobs in computer graphics requiring a BA in art and knowledge of 'Speedy 3D Graphics' ?)
+for $j in document("jobsdata.xml")//job where $j/area = "computer graphics" and $j/desired_degree = "BA" and $j/application = "Speedy 3D Graphics" return $j
+
+show me the jobs at companies in Austin that want a degree in BSCS
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+show the jobs offering 40000 working with C on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/salary = 40000 and $j/language = "C" and $j/platform = "Windows NT" return $j
+
+show the jobs with the title systems programmer requiring 2 years of experience
+for $j in document("jobsdata.xml")//job where $j/title = "systems programmer" and $j/required_experience = 2 return $j
+
+show the jobs using Lisp not desiring a BSCS (show the jobs using Lisp not requiring a BSCS)
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" and $j/desired_degree != "BSCS" return $j
+
+show me all job that are available
+for $j in document("jobsdata.xml")//job return $j
+
+show the companies that are looking for BSCS in Austin
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/city = "Austin" return $j
+
+what are the jobs that require experience with Microsoft Word ?
+for $j in document("jobsdata.xml")//job where $j/application = "Microsoft Word" return $j
+
+are there any jobs using 'C++' ? (are there any jobs using 'C++' with Dell ?)
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" return $j
+
+are there Ada jobs outside Austin ?
+for $j in document("jobsdata.xml")//job where $j/language = "Ada" and $j/city != "Austin" return $j
+
+show me the jobs using Java with salaries greater than 50000
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/salary > 50000 return $j
+
+show me the jobs that require 2 years experience
+for $j in document("jobsdata.xml")//job where $j/required_experience = 2 return $j
+
+list the jobs requiring Java 2 years experience and desiring a BSCS (list the jobs requiring Java a BSCS 2 years experience)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/desired_degree = "BSCS" and $j/required_experience = 2 return $j
+
+are there any programmer jobs open ?
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" return $j
+
+what jobs are in Seattle ? (what jobs are in Seattle that are not at Microsoft ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Seattle" return $j
+
+what jobs as manufacturing manager pay 100000 ?
+for $j in document("jobsdata.xml")//job where $j/title = "manufacturing manager" and $j/salary > 100000 return $j
+
+are there any jobs using Java that don't desire a BSCS ? (are there any jobs using Java that don't require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/desired_degree != "BSCS"  return $j
+
+show me the 'C++' jobs in Nashville that desire 2 years experience
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/city = "Nashville" and $j/desired_experience = 2 return $j
+
+show me the jobs using Lisp desiring a BSCS ? (show me the jobs using Lisp requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Lisp" and $j/desired_degree = "BSCS" return $j
+
+are there any jobs in 'C++' that the salary is 50000 ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/salary = 50000 return $j
+
+show me the jobs that are not in Haskell ?
+for $j in document("jobsdata.xml")//job where $j/city != "Haskell" return $j
+
+are there any jobs at applied materials that desire a BSCS ? (are there any jobs at applied materials that require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/area = "applied materials" and $j/desired_degree = "BSCS" return $j
+
+are there any jobs that require the knowledge of Linux platform ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Linux" return $j
+
+show me the jobs requiring 3 years of experience ? (show me the jobs requiring 3 years of experience at IBM ?)
+for $j in document("jobsdata.xml")//job where $j/required_experience = 3 return $j
+
+what jobs using FORTRAN are there in Houston ?
+for $j in document("jobsdata.xml")//job where $j/language = "FORTRAN" and $j/city = "Houston" return $j
+
+show me the networking jobs in Houston with a salary of 50000 ?
+for $j in document("jobsdata.xml")//job where $j/area = "networking" and $j/city = "Houston" and $j/salary = 50000 return $j
+
+show me the senior development engineer jobs which desire a Master ? (show me the senior development engineer jobs which require a Master ?)
+for $j in document("jobsdata.xml")//job where $j/title = "senior development engineer" and $j/desired_degree = "ms" return $j
+
+what jobs desire 2 years of experience with PowerBuilder on Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/desired_experience = 2 and $j/language = "PowerBuilder" and $j/platform = "Windows NT" return $j
+
+show me Houston jobs using 'C++' on PC ?
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/language = "CPP" and $j/platform = "PC"  return $j
+
+what Oracle jobs are there in Houston using PCs ? (what Oracle jobs are there with Compaq in Houston using PCs ?)
+for $j in document("jobsdata.xml")//job where $j/application = "Oracle" and $j/city = "Houston" and $j/platform = "PC" return $j
+
+are there any jobs in Austin desiring at least a MSCS and knowing latex ? (are there any jobs in Austin requiring at least a MSCS and knowing latex ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "MSCS" and $j/language = "latex" return $j
+
+what are the jobs in Washington that require at least 5 years of experience ?
+for $j in document("jobsdata.xml")//job where $j/state = "Washington" and $j/required_experience >= 5 return $j
+
+are there any jobs using Java ? (are there any jobs using Java that are not with IBM ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Java" return $j
+
+show me the jobs that operate on Sun ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Sun" return $j
+
+are there any Mac programmer jobs ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Mac" and $j/title = "programmer" return $j
+
+what are the jobs that pay 50000 per year ?
+for $j in document("jobsdata.xml")//job where $j/salary = 50000 return $j
+
+show jobs in Austin that desire a BSCS ? (show jobs in Austin that require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+what jobs are there for 'C++' UNIX developer ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/platform = "UNIX" return $j
+
+what jobs are there in Austin for project manager area games on Mac using Pascal ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/title = "project manager" and $j/area = "games" and $j/platform = "Mac" and $j/language = "Pascal" return $j
+
+what jobs are there for Assembly programmer that desire a BSCS ? (what jobs are there for Assembly programmer that require a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/language = "Assembly" and $j/desired_degree = "BSCS" return $j
+
+what software engineer jobs are there that use 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/title = "software engineer" and $j/language = "CPP" return $j
+
+what jobs in Austin do not desire a degree ? (what jobs in IBM in Austin do not need a degree ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = null return $j
+
+what jobs in Austin need knowledge in UNIX ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/platform = "UNIX" return $j
+
+what jobs are there in Austin desiring a PhD ? (what jobs are there in Austin requiring a PhD ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "PhD" return $j
+
+what jobs require knowledge of 'C++' but not Perl ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and every $l in $j/language satisfies $l != "Perl" return $j
+
+what are the jobs in Austin requiring knowledge of Oracle ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/application= "Oracle" return $j
+
+show me jobs with a salary greater than 50000 dollars a year ?
+for $j in document("jobsdata.xml")//job where $j/salary > 50000 return $j
+
+what jobs are there for Austin Mac programmer using 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/platform = "Mac" and $j/language = "CPP" return $j
+
+show jobs that are not in Austin pay less than 10000 require knowledge of 'C++' Pascal and Java and desire a PhD ?
+for $j in document("jobsdata.xml")//job where $j/city != "Austin" and $j/salary < 10000 and $j/language = "CPP" and $j/language = "Pascal" and $j/language = "Java" and $j/desired_degree = "PhD" return $j
+
+what jobs in San Antonio require the use of COBOL ?
+for $j in document("jobsdata.xml")//job where $j/city = "San Antonio" and $j/language = "COBOL" return $j
+
+give me jobs that require ethernet experience but no HTML ?
+for $j in document("jobsdata.xml")//job where $j/area = "ethernet" and $j/language != "HTML" return $j
+
+what jobs are available that require Java but not internet experience or AI experience ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and ($j/required_experience = 0 or every $a in $j/area satisfies ($a != "internet" and $a != "AI")) return $j
+
+what jobs are there in Dallas that desire a MSCS ? (what jobs are there in Dallas that requires a MSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" and $j/desired_degree = "MSCS" return $j
+
+what jobs are there in Austin that requires experience with UNIX ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/platform = "UNIX" return $j
+
+show me developer jobs requiring experience with Mac ?
+for $j in document("jobsdata.xml")//job where $j/title = "developer" and $j/platform = "Mac" return $j
+
+what are the jobs that require experience with AIX but not Windows NT ?
+for $j in document("jobsdata.xml")//job where $j/platform = "AIX" and every $p in $j/platform satisfies $p != "Windows NT" return $j
+
+show a list of jobs requiring experience in 'C++' or Java ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" or $j/language = "Java" return $j
+
+what jobs are there with a salary of more than 50000 dollars per year ?
+for $j in document("jobsdata.xml")//job where $j/salary > 50000 return $j
+
+what jobs in Austin or Dallas desire a degree ?
+for $j in document("jobsdata.xml")//job where ($j/city = "Austin" or $j/city = "Dallas") and $j/desired_degree != null return $j
+
+what jobs in Austin require 10 years of experience ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/required_experience = 10 return $j
+
+what jobs in Austin require knowledge of the platform UNIX ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/platform = "UNIX" return $j
+
+show me jobs located in Austin for 'C++' programmers ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/language = "CPP" return $j
+
+show jobs for a shell programmer familiar with the UNIX environment ?
+for $j in document("jobsdata.xml")//job where $j/language = "shell" and $j/platform = "UNIX" return $j
+
+show jobs that do not desire a degree for Visual Basic programmers ? (show jobs that do not require a degree for Visual Basic programmers ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = null and $j/language = "Visual Basic" return $j
+
+what jobs in Austin use 'C++' and Java ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/language = "CPP" and $j/language = "Java" return $j
+
+what jobs desire a BSCS degree and an MSCS degree ? (what jobs require a BSCS degree and desire an MSCS degree ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/desired_degree = "MSCS" return $j
+
+what Austin jobs that use COBOL do not require any experience ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/language = "COBOL" and $j/required_experience = 0 return $j
+
+what jobs require knowledge of 'C++' but not Perl ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and every $l in $j/language satisfies $l != "Perl" return $j
+
+what jobs in Dallas require experience with UNIX ?
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" and $j/platform = "UNIX" return $j
+
+are there any systems administrator jobs in Austin ?
+for $j in document("jobsdata.xml")//job where $j/title = "systems administrator" and $j/city = "Austin" return $j
+
+what jobs need knowledge of 'C++' or Java ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" or $j/language = "Java" return $j
+
+show me Austin jobs desiring a BSCS degree with a salary greater than 50000 per year ? (show me Austin jobs requiring a BSCS degree with a salary greater than 50000 per year ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" and $j/salary > 50000 return $j
+
+show me jobs desiring a BSCS degree ? (show me jobs at Dell requiring a BSCS degree ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+what jobs in Houston are there that desire a BSCS with 1 year of experience ? (what jobs in Houston are there that requires a BSCS with 1 year of experience ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Houston" and $j/desired_degree = "BSCS" and $j/required_experience = 1 return $j
+
+what jobs in Austin are there that pay at least 100000 per year ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/salary > 100000 return $j
+
+what jobs are there in Austin with a salary of at least 100000 per year ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/salary > 100000 return $j
+
+what jobs desire a MSEE and pay more than 100000 per year ? (what jobs require a MSEE and pays more than 100000 per year ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "MSEE" and $j/salary > 100000 return $j
+
+what jobs do not desire a degree but pay more than 60000 ? (what jobs do not require a degree but pay more than 60000 ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = null and $j/salary > 60000 return $j
+
+what jobs are available for someone who knows Oracle on Solaris ?
+for $j in document("jobsdata.xml")//job where $j/application = "Oracle" and $j/platform = "Solaris" return $j
+
+what jobs are available for a Solaris systems administrator ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Solaris" and $j/title = "systems administrator" return $j
+
+what web developer jobs are there in Austin ?
+for $j in document("jobsdata.xml")//job where $j/title = "web developer" and $j/city = "Austin" return $j
+
+what jobs use HTML but do not desire a degree ? (what jobs use HTML but do not require a degree ?)
+for $j in document("jobsdata.xml")//job where $j/language = "HTML" and $j/desired_degree = null return $j
+
+show me Dallas jobs desiring a BSCS ? (show me Dallas jobs requiring a BSCS ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" and $j/desired_degree = "BSCS" return $j
+
+what web related jobs desire a BSCS but no experience ? (what web related jobs require a BSCS but no experience ?)
+for $j in document("jobsdata.xml")//job where $j/area = "web" and $j/desired_degree = "BSCS" and $j/required_experience = 0 return $j
+
+what jobs are there that desire a BSCS degree ? (what Tivoli jobs are there that require a BSCS degree ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" return $j
+
+what jobs are there in Austin for people with knowledge of the application Oracle ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/application = "Oracle" return $j
+
+what jobs are there for programmers that know Assembly ?
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" and $j/language = "Assembly" return $j
+
+are there any Mac programmer jobs open in Austin ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Mac" and $j/title = "programmer" and $j/city = "Austin" return $j
+
+are there any Mac jobs open ?
+for $j in document("jobsdata.xml")//job where $j/platform = "Mac" return $j
+
+are there any jobs in Austin paying over 100000 per year ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/salary > 100000 return $j
+
+what jobs are there in Austin that desire a BSCS degree ? (what jobs are there in Austin that require a BSCS degree ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" return $j
+
+what jobs are there in Austin that require 5 years experience ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/required_experience = 5 return $j
+
+what project manager jobs are there that require experience ?
+for $j in document("jobsdata.xml")//job where $j/title = "project manager" and $j/required_experience > 0 return $j
+
+which jobs require C and 'C++' but not Java ?
+for $j in document("jobsdata.xml")//job where $j/language = "C" and $j/language = "CPP" and every $l in $j/language satisfies $l != "Java" return $j
+
+what Austin area web jobs require Java and 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/area = "web" and $j/language = "Java" and $j/language = "CPP" return $j
+
+what jobs in Dallas desire a BSCS and require 'C++' but not Java ? (what jobs in Dallas require a BSCS and 'C++' but not Java ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" and $j/desired_degree = "BSCS" and $j/language = "CPP" and every $l in $j/language satisfies $l != "Java" return $j
+
+what jobs desire a degree for Pascal programmers who do not know 'C++' ? (what jobs require a degree for Pascal programmers who do not know 'C++' ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree != null and $j/language = "Pascal" and every $l in $j/language satisfies $l != "CPP" return $j
+
+what jobs have a salary greater than 20 and hour ?
+for $j in document("jobsdata.xml")//job where $j/salary > 40000 return $j
+
+what developer jobs in Austin desire a BSCS and require 'C++' ? (what developer jobs in Austin require a BSCS and 'C++' ?)
+for $j in document("jobsdata.xml")//job where $j/title = "developer" and $j/city = "Austin" and $j/desired_degree = "BSCS" and $j/language = "CPP" return $j
+
+what jobs desire a BSCS and require experience with Oracle ? (what jobs require a BSCS and experience with Oracle ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/application = "Oracle" return $j
+
+what jobs in Austin require 'C++' and UNIX ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/language = "CPP" and $j/platform = "UNIX" return $j
+
+what are the jobs for a 'C++' programmer in Austin ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/city = "Austin" return $j
+
+show me a job that requires 'C++' and Java and is in Austin ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/language = "Java" and $j/city = "Austin" return $j
+
+what job is there for a BSCS with 5 years of experience ?
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/desired_experience = 5 return $j
+
+show me jobs that require 3 years work experience in 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/required_experience = 3 and $j/language = "CPP" return $j
+
+what jobs are there which require Java on Windows and UNIX ?
+for $j in document("jobsdata.xml")//job where $j/language = "Java" and $j/platform = "Windows" and $j/platform = "UNIX" return $j
+
+what jobs are there for 'C++' programmers which pay more than 60000 per year ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/salary > 60000 return $j
+
+what jobs are there outside Austin which pay less than 60000 per year ?
+for $j in document("jobsdata.xml")//job where $j/city != "Austin" and $j/salary < 60000 return $j
+
+what jobs require experience in 'C++' and Java but not Perl ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/language = "Java" and every $l in $j/language satisfies $l != "Perl" return $j
+
+what jobs desire a BSCS and no experience ? (what jobs require a BSCS and no experience ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/required_experience = 0 return $j
+
+show me web developer job openings ? (show me web developer job openings at Trilogy ?)
+for $j in document("jobsdata.xml")//job where $j/title = "web developer" return $j
+
+what programming jobs are there in Austin that uses Java ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/language = "Java" return $j
+
+show me jobs paying greater than 50000 per year ?
+for $j in document("jobsdata.xml")//job where $j/salary > 50000 return $j
+
+what jobs require at least 1 year of experience in 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/required_experience >= 1 and $j/language = "CPP" return $j
+
+what jobs require 'C++' and pays a salary greater than 90000 per year ?
+for $j in document("jobsdata.xml")//job where $j/language = "CPP" and $j/salary > 90000 return $j
+
+I hold a degree in BSCS in Austin are there any jobs for me ?
+for $j in document("jobsdata.xml")//job where $j/desired_degree = "BSCS" and $j/city = "Austin" return $j
+
+what jobs in Austin desire a BSCS degree and deal with 'TCP/IP' ? (what jobs in Austin require a BSCS degree and deal with 'TCP/IP' ?)
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" and $j/area = "TCP/IP" return $j
+
+what engineer positions in telecommunications companies in Dallas do not require 'C++' ?
+for $j in document("jobsdata.xml")//job where $j/title = "engineer" and $j/area = "telecommunications" and $j/city = "Dallas" and $j/language != "CPP" return $j
+
+what web jobs are available that need Mac experience and no degree ?
+for $j in document("jobsdata.xml")//job where $j/area = "web" and $j/platform = "Mac" and $j/desired_degree = null return $j
+
+what jobs pay at least 80000 dollars per year ?
+for $j in document("jobsdata.xml")//job where $j/salary >= 80000 return $j
+
+can I find a job making more than 40000 a year without a degree ?
+for $j in document("jobsdata.xml")//job where $j/salary > 40000 and $j/desired_degree = null return $j
+
+is anyone hiring C programmers who know UNIX in Austin (is IBM hiring C programmers who know UNIX in Austin)
+for $j in document("jobsdata.xml")//job where $j/language = "C" and $j/platform = "UNIX" return $j
+
+what jobs are there for programmers who know Java ?
+for $j in document("jobsdata.xml")//job where $j/title = "programmer" and $j/language = "Java" return $j
+
+what jobs in Austin desiring a BSCS are there for a 'C++' programmer ?
+for $j in document("jobsdata.xml")//job where $j/city = "Austin" and $j/desired_degree = "BSCS" and $j/language = "CPP" return $j
+
+are there jobs that do not desire a degree in Houston ? (are there jobs that do not require a degree in Houston ?)
+for $j in document("jobsdata.xml")//job where $j/desired_degree = null and $j/city = "Houston" return $j
+
+show me jobs in Dallas requiring knowledge of Linux and pays more than 50000 a year ?
+for $j in document("jobsdata.xml")//job where $j/city = "Dallas" and $j/platform = "Linux" and $j/salary > 50000 return $j
+
+what jobs as a senior software developer are available in Houston but not San Antonio ?
+for $j in document("jobsdata.xml")//job where $j/title = "senior software developer" and $j/city = "Houston" and every $C in $j/city satisfies $C != "San Antonio" return $j

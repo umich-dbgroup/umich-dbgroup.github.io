@@ -1,0 +1,588 @@
+<html>
+<head>
+<title>ER11 The Database Derby</title>
+</head>
+<body>
+<div align="center"><h2>ER11 The Database Derby</h2></div>
+Source: The Database Derby. 4th E.R. Conference, Chicago, IL., USA. October 29, 1985.
+<p></p>
+<p><b>ER characteristics</b></p>
+6 entities<br>
+7 relationships: 1 of 1:1(recursive), 10 of 1:m (2 recursive), 4 of ISA<br>
+<img width=612 height=514
+src="er11_files/image002.jpg" v:shapes="_x0000_i1025">
+
+<p><b>XML Schema</b></p>
+DEEP<br>
+<img width=576 height=369
+src="er11_files/image004.jpg" v:shapes="_x0000_i1026">
+
+<br>
+AF<br>
+<img width=575 height=334
+src="er11_files/image006.jpg" v:shapes="_x0000_i1027">
+<br>
+
+SHALLOW<br>
+<img width=576 height=232
+src="er11_files/image008.jpg" v:shapes="_x0000_i1028">
+<br>
+
+EN: 7 colors<br>
+<img width=576 height=403
+src="er11_files/image010.jpg" v:shapes="_x0000_i1029">
+<br>
+MCMR, DR: 7 colors<br>
+<img width=576 height=392
+src="er11_files/image012.jpg" v:shapes="_x0000_i1030">
+<br>
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+
+<b>Q1 Find the rank of Employee Dorian Mahoney</b>
+DEEP
+For $a in distinct-values(//staff[name="Dorian Mahoney"])
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+Return $a/rank
+
+AF, SHALLOW
+For $a in //staff[name="Dorian Mahoney"]
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+Return $a/rank
+
+EN, MCMR, DR
+For $a in //{c1}employee[{c1}name="Dorian Mahoney"]
+Return $a/{c1}rank
+
+<b>Q2 Find all the dependents of Jeffery W. Lands.</b>
+DEEP
+For $a in distinct-values(//staff[name="Jeffery W. Lands"])
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+Return $a//dependent
+
+AF
+For $a in //staff[name="Jeffery W. Lands"]
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+Return $a//dependent
+
+SHALLOW
+For $a in //staff[name="Jeffery W. Lands"]
+Let $b := //dependent
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+And $b/@id = $a/supports/@idref
+Return $a//dependent
+
+EN, MCMR, DR
+For $a in //{c1}employee[{c1}name="Jeffery W. Lands"]
+Return $a//{c1}dependent
+
+<b>Q3 What is the average age of the dependents of Employee Steve Champion</b>
+DEEP
+For $a in distinct-values(//staff[name="Steve Champion"])
+Let $b := $a//dependent
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+Return AVG($b/age)
+
+AF
+For $a in //staff[name="Steve Champion"]
+Let $b := $a//dependent
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+Return AVG($b/age)
+
+SHALLOW
+For $a in //staff[name="Steve Champion"]
+Let $b := $a//dependent
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+And $a/supports/@idref = $b/@id
+Return AVG($b/age)
+
+EN, MCMR, DR
+For $a in //{c1}employee[{c1}name="Jeffery W. Lands"]
+Return AVG($a//{c1}dependent/{c1}age)
+
+<b>Q4 Accept Transactions For Staff Members or any of its subtypes. However, for supertypes Staff Member and Employee, further qualify the request by inquiring about the subtype.</b>
+This is a sole rule specification which is not relevant to making the difference on the query specifications in the same system.
+ 
+<b>Q5 Do not accept an "add dependent" transaction for a contractor.</b>
+This is a sole rule specification which is not relevant to making difference on the query specifications in the same system.
+
+<b>Q6 Find all Hourly Employees who supervise Contractors?</b>
+DEEP
+For $a in distinct-values(//staff[type="Hourly Employee"])
+For $b in //staff[type="Contractor"]
+Where $a/supervises/@idref = $b/@id
+Return $a
+
+SHALLOW, AF
+For $a in //staff[type="Hourly Employee"]
+For $b in //staff[type="Contractor"]
+Where $a/supervises/@idref = $b/@id
+Return $a
+
+EN, MCMR, DR
+For $a in //{c4}staff
+For $b in $a//{c4}staff
+For $a in //{c6}Hourly_Employee
+For $b in //{c2}Contractor
+Return $a
+
+<b>Q7 Find the average age of all Employees. (Can you use synonyms in queries?)</b>
+DEEP
+For $a in distinct-values(//staff)
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+Return AVG($a/age)
+
+AF, SHALLOW
+For $a in //staff
+Where $a/emptype = "Salaried Employee" or $a/emptype = "Hourly Employee"
+Return AVG($a/age)
+
+EN, MCMR, DR
+For $a in //{c1}employee
+Return AVG($a/{c1}age)
+
+<b>Q8 Find all the people (Dependents and Staff Members) younger than 40 years of age.</b>
+DEEP
+For $a in distinct-values(//staff)
+Where $a/age < 40
+Return $a
+UNION
+For $a in distinct-values(//dependent)
+Where $a/age < 40
+Return $a
+
+AF, SHALLOW
+For $a in //staff
+Where $a/age < 40
+Return $a
+UNION
+For $a in //dependent
+Where $a/age < 40
+Return $a
+EN, MCMR, DR
+For $a in //{c7}staff
+Where $a/{c7}age < 40
+Return $a
+UNION
+For $a in //{c1}dependent
+Where $a/{c1}age < 40
+Return $a
+
+<b>Q9 Reject a transaction for Contractor Chuck Lowes Jr. to borrow a third loanable computer in his Bonded Responsibility for the New Project Study, "Vice President Position".</b>
+DEEP
+If
+For $a in //staff[type="Contractor" and name="Chuck Lowes Jr."]
+For $b in $a//responsibility[type="Bonded"]
+Where $b//project/name = "Vice President Position"
+Return $b//loanable_computer[2]
+Exist then Reject
+
+AF
+If 
+For $a in //project[name="Vice President Position"]
+For $b in //staff[type="Contractor" and name="Chuck Lowes Jr."]
+For $c in $a/responsibility[type="Bonded"]
+Where $c/fulfilledbyA/@idref = $b/@id
+Return $c//loanable_computer[2]
+Exist then reject
+
+SHALLOW
+If
+For $a in //staff[type="Contractor" and name="Chuck Lowes Jr."]
+For $b in //responsibility[type="Bonded"]
+For $c in //project[name="Vice President Position"]
+Let $d := //loanable_computer
+Where count($d) = 2
+And $a/@id = $b/fulfilledA/@idref
+And $b/requires/@idref = $c/@id
+And $d/borrowed_by/@idref = $b/@id
+Return $a
+Exist then reject
+
+EN, MCMR, DR
+If
+For $a in //{c1}project[{c1}name="Vice President Position"]//{c1}responsibility
+For $a in //{c2}contractor[{c2}name="Chuck Lowes Jr."]/bonded_responsibility
+Return $a/{c2}loanable_computer[2]
+Exist then reject
+
+<b>Q10 Find all the Computers on loan to Contractors in the Customer Service System Project.</b>
+DEEP
+For $a in //responsibility[type="Bonded"]
+Where $a//project/name="Customer Service System"
+Return $a//loanable_computer
+
+AF
+For $a in //project[name="Customer Service System"]
+Return $a//loanable_computer
+
+SHALLOW
+For $a in //project[name="Customer Service System"]
+For $b in //responsibility[type="Bonded"]
+For $c in //loanable_computer
+Where $a/@id = $b/requires/@idref
+And $c/borrowed_by/@idref = $b/@id
+Return $c
+
+EN
+For $a in //{c1}project[{c1}name="Customer Service System"]/responsiblity
+For $a in //{c2}bonded_responsibility
+Return $a//{c2}loanable_computer
+
+MCMR, DR
+For $a in //{c1}project[{c1}name="Customer Service System"]
+Return $a//{c1}loanable_computer
+
+<b>Q11 Find all the computers on loan to contractors in the Customer Service System project who fulfill a responsibility for a job with a minimum rank of at least 10</b>
+DEEP
+For $a in //responsibility[type="Bonded"]
+Where $a//project/name="Customer Service System"
+And $a//salaried_job/rank >= 10
+Return $a//loanable_computer
+
+AF
+For $a in //project[name="Customer Service System"]
+For $b in $a//responsibility
+For $c in //job[rank>=10]
+Where $b/salaried_job/@idref = $c
+Return $b//loanable_computer
+
+SHALLOW
+For $a in //project[name="Customer Service System"]
+For $b in //responsibility[type="Bonded"]
+For $c in //job[type="Salaried" and rank >= 10]
+For $d in //loanable_computer
+Where $a/@id = $b/requires/@idref
+And $d/borrowed_by/@idref = $b/@id
+And $b/describedbyA/@idref =$c/@Id
+Return $d
+
+EN
+For $a in //{c1}project[{c1}name="Customer Service System"]/responsiblity
+For $a in //{c4}salaried_job[{c4}rank >=10]//bonded_responsibility
+Return $a//{c2}loanable_computer
+
+MCMR, DR
+For $a in //{c1}project[{c1}name="Customer Service System"]//responsibility
+For $a in //{c4}salaried_job[{c4}rank >=10]//bonded_responsibility
+Return $a//{c4}loanable_computer
+
+<b>Q12 Find all the computers on loan to contractors in the Customer Service System project who fulfill a responsibility for a job with a minimum rank of at least 10 and also who directly or indirectly supervise at least five Staff Members.</b>
+//Function to determine number of person it supervises
+Function:CountSup($input)
+{
+	count($input/supervises) + ( For $a in $input
+         For $b in //staff
+         Where $a/supervises/@idref = $b/@id
+	        Return  CountSup($b))
+}
+DEEP
+For $a in //staff[type="Contractor"]
+For $b in $a//responsibility[type="Bonded" and //project/name="Customer Service System"]
+Where $b//salaried_job/rank >= 10
+And CountSup($a) > 5
+Return $b//loanable_computer
+
+AF
+For $a in //project[name="Customer Service System"]
+For $b in $a//responsibility
+For $c in //job[rank>=10]
+For $d in //staff[type="contractor"]
+Where $b/salaried_job/@idref = $c
+And $d/@id = $b/fulfilledbyA/@idref
+And CountSup($d) > 5
+Return $b//loanable_computer
+
+SHALLOW
+For $a in //project[name="Customer Service System"]
+For $b in //responsibility[type="Bonded"]
+For $c in //job[type="Salaried" and rank >= 10]
+For $d in //loanable_computer
+For $e in //staff[type="Contractor"]
+Where $a/@id = $b/requires/@idref
+And $d/borrowed_by/@idref = $b/@id
+And $b/describedbyA/@idref =$c/@Id
+And $e/@id = $b/fulfilledbyA/@idref
+And CountSup($e) > 5
+Return $d
+
+EN, MCMR, DR
+For $a in //{c1}project[name="Customer Service System"]//{c1}responsibility
+For $a in //{c4}salaried_job[{c4}rank >=10]//{c4}bonded_responsibility
+For $b in //{c2}contractor
+For $b in //{c4}staff
+Where count($b//{c4}supervises) > 5
+And $b//bonded_responsibility = $a
+Return $a//{c2}loanable_computer
+
+<b>Q13 How many dollars would it cost the company over one year to immediately increase the Hourly Rate of all Hourly Employees by 10%?
+Assume 1) 45 hr. work week average with the distribution of hours equal in all ranks.
+	2) time and a half for overtime
+	3) no staff changes</b>
+DEEP
+SUM( For $a in distinct-values(//staff[emptype="Hourly Employee"])
+Return $a/hourly_rate) * 110% * 45 * 52
+
+AF, SHALLOW
+SUM( For $a in //staff[emptype="Hourly Employee"]
+Return $a/hourly_rate) * 110% * 45 * 52
+
+EN, MCMR, DR
+SUM( For $a in //{c6}hourly_employee
+Return $a/hourly_rate) * 110% * 45 * 52
+
+<b>Q14 Reject a transaction to change the maximum rank of Hourly Job Typist from 35 to 37 if there are any Hourly Employees fulfilling Typist responsibilities who have a higher rank than 37.</b>
+DEEP
+If
+For $a in //hourly_job[title ="Typist" and maxrank = 35]
+Where exist $a//rank > 37
+Return
+Then reject modify $a/maxrank to 37
+
+AF, SHALLOW
+If
+For $a in //job[type ="Hourly" and title="Typist" and maxrank = 35]
+Let $b := For $c in //staff[type="Hourly" and rank > 37]
+	  For $d in //responsibility
+	  Where $d/fulfilledbyC/@idref = $c/@id
+	  And $a/@id = $d/describedbyB/@Idref
+	  Return $d
+Where count($b) > 0
+return 
+Then reject modify $a/maxrank to 37
+
+EN, MCMR, DR
+If
+For $a in //{c5}hourly_job[{c5}title="Typist" and {c5}maxrank = 35]
+For $b in //{c6}hourly_employee[{c6}rank > 37]
+Where $a//{c5}hourly_responsibility = $b//{c6}hourly_responsibility
+Return
+Then reject modify $a/maxrank to 37
+
+<b>Q15 Fire Employee Steven Champion. Be sure to delete related dependents. Also modify the Supervisor, Spouse, Designated Parent, and Fulfilling Staff Member Id (Bonded Responsibility) attributes in other entity occurrences if related.</b>
+
+DEEP
+For $a in //staff[name="Steven Champion"]
+Delete subtree $a
+
+AF, SHALLOW
+For $a in //staff[name="Steven Champion"]
+For $b in //dependent
+For $c in //responsibility
+Where $b/supports/@idref = $a/@id
+And ($c/fulfilledbyA/@idref = $a/@id
+or $c/fulfilledbyB/@idref = $a/@id
+or $c/fulfilledbyC/@idref = $a/@id)
+delete subtree $a, $b, $c/fulfilledbyA, $c/fulfilledbyB, $c/fulfilledbyC
+
+(Deleting other dependents would be alike)
+
+EN, MCMR, DR
+For $a in //{c7}staff[{c7}name="Steven Champion"]
+Delete $a, $a//{c6}hourly_responsibility, $a//{c3}bonded_responsibility, $a//{c1}dependent
+
+(Deleting other dependents would be alike)
+
+<b>Q16 Find all the computers on loan to Hourly Employees (Note: Hourly Employees may not borrow computers. What kind of feedback can you give to a query that does not make sense?)</b>
+DEEP
+For $a in distinct-values(//employee[type="Hourly"])
+Return $a//loanable_computer
+
+AF, SHALLOW
+For $a in //employee[type="Hourly"]
+For $b in //responsibility
+Where $b/fulfilledbyB/@idref = $a/@id
+Return $b//loanable_computer
+
+EN, MCMR, DR
+For $a in //{c6}hourly_employee
+Return $a//{c6}hourly_responsibility//{c2}loanable_computer
+
+<b>Q17 Reject a transaction to cancel the Project "New Product Study" if it would leave a Contractor or Salaried Employee fulfilling no responsibilities.</b>
+DEEP
+If
+For $a in distinct-values(//employee[type="Contractor"])
+Let $b := $a//responsibility[type="Bonded"]
+Let $c := $a//responsibility[type="Bonded" and //project/name="New Product Study"]
+Where count($b) = count($c)
+Return $a
+Then reject
+
+OR
+
+If
+For $c in //responsibility[type="Bonded" and //project/name="New Product Study"]
+For $d in $c/employee
+Let $e := //employee[type="Salaried Employee"]
+Where $e/@id = $d/@id
+And count($e) = 1
+Return $c
+Then reject
+
+AF
+If
+For $a in //employee[type="Contractor"]
+Let $b := For $c in //project[name="New Product Study"]//responsibility
+	 Where $c/fulfilledbyB/@idref = $a/@id
+	 Return $c
+Let $d := For $e in //responsibility
+	 Where $e/fulfilledbyB/@idref = $a/@id
+	 Return $e
+Where count($b) = count($d)
+Return $a
+Then reject
+
+(Alike, for the salaried employee)
+
+SHALLOW
+If
+For $a in //employee[type="Contractor"]
+Let $b := For $c in //project[name="New Product Study"]
+	  For $d in //responsibility
+	  Where $d/fulfilledbyB/@idref = $a/@id
+	And $c/@id = $d/requires/@idref
+	Return $d
+Let $e := For $f in //responsibility
+	  Where  $f/fulflledbyB/@idref = $a/@id
+	  Return $d
+Where count($b) = count($e)
+Return $a
+Then reject
+
+(Alike, for the salaried employee)
+
+EN, MCMR, DR
+For $a in //{c2}contractor
+Let $b := $a//{c2}bonded_responsiblity
+Let $c := For $d in //{c1}project[{c1}name="New Product Study"]//responsibility
+	        $d in $a//{c2}bonded_responsibility
+	 Return $d
+Where count ($b) = count($c)
+Return $a
+
+(Alike, for the salaried employee)
+
+
+<b>Before accepting any transaction to change the database, issue a warning message if the transaction would leave a Staff Member as a direct or indirect supervisor of :
+Q18 another Staff member who is their child</b>
+//Recursively Find $a supervises $b, depth first search
+Fn($a, $b) {
+   If $a/supervises/@idref = $b/@id
+   Or
+   For $c in //staff
+   Where $a/supervises/@idref = $c/@id
+   Return Fn($c, $b)
+   Return true;
+}
+
+//Recursively find $a ancerstor $b
+Fn2($a, $b)
+{
+ If $a/parent/@idref = $b/@id
+    Or
+  	For $c in //staff
+	Where $a/parent/@idref = $c/@id
+	Return Fn2($c,$b)
+Return true;
+Else return false;
+}
+
+//Relative in the chain
+Fn3($a, $b, $c)
+{
+If  Fn2($c, $a)
+	And
+    Fn2($c,$b)
+Then return true;
+Else return false;
+}
+
+
+DEEP, AF, SHALLOW
+If
+For $a in //staff
+For $b in //staff
+Where $b/parent/@idref = $a/@id
+And Fn($a,$b)
+Return $a
+Then reject
+
+EN, MCMR, DR
+If 
+For $a in //{c4}staff
+For $b in $a//{c4}staff   //$a supervises $b
+For $a in //{c5}staff //$a parent $b
+For $b in $a/{c5}staff
+Return $a
+Then reject
+
+
+<b>Q19 another Staff member who is their parent</b>
+DEEP, AF SHALLOW
+If
+For $a in //staff  //find $a parent $b
+For $b in //staff
+Where $b/parent/@idref = $a/@id
+And Fn($a, $b)
+Return $a
+Then reject
+
+EN, MCMR, DR
+If
+For $a in //{c4}staff
+For $b in $a//{c4}staff  //$a supervises $b
+For $b in //{c5}staff //$b parent $a
+For $a in $b/{c5}staff
+Return $a
+Then reject
+
+<b>Q20 another Staff member who is a relative</b>
+(The above query expressions from Q18 and Q19 (OR together) OR the following:)
+
+DEEP, AF, SHALLOW
+If
+For $a in //staff
+For $b in //staff
+Where $a/married/@idref = $b/@id
+And Fn($a, $b)
+Return $a
+Then reject
+
+OR
+If
+For $a in //staff
+For $b in //staff
+For $c in //staff
+Where Fn($a, $b) and
+Fn3($a, $b, $c)
+Return $a
+Then reject
+
+EN, MCMR, DR
+If
+For $a in //{c4}staff
+For $b in $a//{c4}staff //$a supervises $b
+For $a in //{c6}staff
+For $b in $a//{c6}staff //married
+Return $a
+Then reject
+
+OR
+
+//X – Y – a
+// |-  b - a
+If
+For $c in //{c4}staff
+For $d in $c//{c4}staff
+For $e in //{c5}staff
+For $c in $e//{c6}staff
+For $d in $e//{c6}staff
+Return $c
+Then reject
+</pre>
+</body>
+</html>

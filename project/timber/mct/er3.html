@@ -1,0 +1,575 @@
+<html>
+<head>
+<title>ER3 TPC-C, TPC-H</title>
+</head>
+<body>
+<div align="center"><h2>ER3 TPC-C, TPC-H</h2></div>
+
+<p></p>
+<p><b>ER characteristics</b></p>
+6 entities<br>
+6 relationships: 4 of 1:m, 2 of m:n<br>
+<img width=502 height=535
+src="er3_files/image002.jpg" v:shapes="_x0000_i1025"><br>
+<p><b>XML Schema</b></p>
+
+DEEP<br>
+<img width=300 height=444
+src="er3_files/image004.jpg" v:shapes="_x0000_i1026"><br>
+
+AF<br>
+<img width=321 height=348
+src="er3_files/image006.jpg" v:shapes="_x0000_i1027">
+<br>
+SHALLOW<br>
+<img width=552 height=187
+src="er3_files/image008.jpg" v:shapes="_x0000_i1028">
+<br>
+EN: 2 colors<br>
+<img width=480 height=292
+src="er3_files/image010.jpg" v:shapes="_x0000_i1029"><br>
+MCMR: 2 colors<br>
+<img width=528 height=345
+src="er3_files/image012.jpg" v:shapes="_x0000_i1030"><br>
+DR: 3 colors<br>
+<img width=564 height=351
+src="er3_files/image014.jpg" v:shapes="_x0000_i1031"><br>
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+<b>Q1 Return the order info of id = 0</b>
+DEEP, AF, SHALLOW
+For $a in //order[@id = "0"]
+Return $a
+
+EN,MCMR,DR
+For $a in //{c1}order[@id = "0"]
+Return $a
+
+<b>Q2 Return the first lineitem price of all partsupplier</b>
+DEEP, AF
+For $a in //partsupplier
+Return $a/lineitem[1]/price
+
+SHALLOW
+For $a in //partsupplier
+Let $b := //lineitem
+For $c in //lineitem
+Where $a/@id = $b/@idref
+And $c/date_invoiced = MIN($b/date_invoiced)
+And $a/@id = $c/@idref
+Return $c
+
+EN, MCMR, DR
+For $a in //{c1}partsupplier
+Return $a/{c1}lineitem[1]/{c1}price
+
+<b>Q3 Return the id of all partsupplier whose lineitem average discount to 5%</b>
+DEEP, AF
+For $a in //partsupplier
+Let $b :=  $a/lineitem
+Where AVG($b/discount) = 5%
+Return $a/@id
+
+SHALLOW
+For $a in //partsupplier
+Let $b := //lineitem
+Where $a/@id = $b/@idref
+And AVG($b/discount) = 5%
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}partsupplier
+Let $b :=  $a/{c1}lineitem
+Where AVG($b/{c1}discount) = 5%
+Return $a/@id
+
+<b>Q4 List the number in stock of all partsupplier where a certain customer order before another</b>
+DEEP
+For $a in //customer[@id = "1"]//order
+For $b //customer[@id = "2"]//order
+where $a/date &lt; $b/date
+return $a/partsupplier/stock_number
+
+AF
+For $a in //partsupplier
+For $b in //customer[@id = "1"]//order
+For $c in //customer[@id = "2"]//order
+Where $b/date &lt; $c/date
+And $a/lineitem/@idref = $b/@id
+Return $a/stock_number
+
+SHALLOW
+For $a in //partsupplier
+For $b in //order
+For $c in //order
+For $d in //customer[@id = "1"]
+For $e in //customer[@id= "2"]
+Where $d/make/@idref = $b/@id
+And $e/make/@idref = $c/@id
+And $b/date &lt; $c/date
+And $b/lineitem/@idref = $a/@id
+return $a/stock_number
+
+EN
+For $a in //{c1}customer[@id = "1"]//{c1}order
+For $b in //{c1}customer[@id = "2"]//{c1}order
+For $a in //{c2}order
+For $c in //{c1}partsupplier
+Where $a/{c1}date &lt; $b/{c1}date
+And $a/{c2}lineitem = $c/{c1}lineitem
+Return $c/{c1}stock_number
+
+MCMR,DR
+For $a in //{c2}customer[@id = "1"]//{c2}order
+For $b in //{c2}customer[@id = "2"]// {c2}order
+For $c //{c1}partsupplier
+Where $a/{c2}date &lt; $b/{c2}date
+And $a/{c2}lineitem = $c/{c1}lineitem
+return $c/{c1}stock_number
+
+<b>Q5 How many lineitem sold more than $40 ?</b>
+DEEP, AF, SHALLOW
+COUNT(For $a //lineitem
+Where $a/price &gt;= 40
+Return $a)
+
+EN,MCMR,DR
+COUNT(For $a //{c1}lineitem
+Where $a/{c1}price &gt;= 40
+Return $a)
+
+<b>Q6 How many supplier for each region?</b>
+DEEP, AF
+For $a //region
+Return $a, COUNT($a//supplier)
+
+SHALLOW
+For $a //region
+Let $b := For $c in //nation
+	 Let $d := //supplier 
+	where $c/@id = $a/group/@idref
+	and $d/@id = $c/contains/@idref
+	return $d
+return $a, count($b)
+
+EN, MCMR, DR
+For $a //{c1}region
+Return $a, COUNT($a//{c1}supplier)
+
+<b>Q7 How many pieces of prose in our database?</b>
+DEEP
+For $a in //
+Return count($a/region) + count($a/nation) + count($a/supplier) + count($a/customer) + count($a/order) + count(distinct($a/part))
+
+AF, SHALLOW
+For $a in //
+Return count($a/region) + count($a/nation) + count($a/supplier) + count($a/customer) + count($a/order) + count($a/part)
+
+EN, MCMR, DR
+For $a in //
+Return count($a/{c1}region) + count($a/{c1}nation) + count($a/{c1}supplier) + count($a/{c1}customer) + count($a/{c1}order) + count($a/{c1}part)
+
+<b>Q8 List the part name and the number of times they are ordered</b>
+DEEP
+For $a in DISTINCT //part
+Let $b := For $c in //partsupplier
+	  Let $d := $b/lineitem
+	  Where $c/part/@id = $a/@id
+	  Return $d
+Return $a/name, count($b)
+
+AF
+For $a in //part
+Return $a/name, count($a//lineitem)
+
+SHALLOW
+For $a in //part
+Let $b := //lineitem
+Where $b/@idref = $a/partsupplier/@id
+Return $a/name, count($b)
+
+EN, MCMR, DR
+For $a in //{c1}part
+Return $a/{c1}name, count($a//{c1}lineitem)
+
+<b>Q9 List the part name and the name of supplied supplier in Europe</b>
+DEEP
+For $a in DISTINCT //part
+Let $b := For $c in //region[name = "Europe"]//supplier
+	  Where $c//part/@id = $a/@id
+	  Return $c
+Return $a/name, $b
+
+AF
+For $a in //part
+Let $b := For $c in //region[name= "Europe"]//supplier
+	  Where $c/@id = $a/partsupplier/@idref
+	  Return $c
+Return $a/name, $b
+
+SHALLOW
+For $a in //part
+Let $b := For $c in //region[name = "Europe"]
+	 For $d in //nation
+	For $e in //supplier
+	where $c/group/@idref = $d/@id
+	and $d/contains/@idref = $e/@id
+	and $e/@id = $a/partsupplier/@id
+	return $e
+return $a/name, $b
+
+EN
+For $a in //{c1}part
+Let $b := For $c in //{c1}region[{c1}name = "Europe"]// {c1}supplier
+	  For $c in //{c2}supplier
+	  Where $c/{c2}partsupplier = $a/{c1}partsupplier
+	  Return $c
+Return $a/{c1}name, $b
+
+
+MCMR, DR
+For $a in //{c1}part
+Let $b := For $c in //{c2}region[{c2}name = "Europe"]// {c2}supplier
+	  Where $c/{c2}partsupplier = $a/{c1}partsupplier
+	  Return $c
+Return $a/{c1}name, $b
+
+<b>Q10 List all orders according to their customer’s nation</b>
+DEEP, AF
+For $a in //nation
+Return $a, $a//order
+
+SHALLOW
+For $a in //nation
+Let $b := For $c in //customer
+	For $d in //order
+	 Where $a/has/@idref = $c/@id
+	And $c/make/@idref = $d/@id
+	Return $d
+Return $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}nation
+Return $a, $a//{c1}order
+
+<b>Q11 For each order list the item (partsupplier) whose price take 50% of the whole order</b>
+DEEP
+For $a in //order
+Let $b := For $c in $a//partsupplier
+	 Where $c/price &gt;= 0.5 * $a/total
+	 Return $c
+Return $a, $b
+
+AF
+For $a in //order
+Let $b := For $c in //partsupplier
+	 Where $c/price &gt;= 0.5 * $a/total
+	 And $c/lineitem/@idref = $a/@id
+	 Return $c
+Return $a, $b
+
+SHALLOW
+For $a in //order
+Let $b := For $c in //partsupplier
+	 Where $c/price &gt;= 0.5 * $a/total
+	 And $c /@id = $a/lineitem/@idref
+	 Return $c
+Return $a, $b
+
+EN, MCMR,DR
+For $a in //{c2}order
+Let $b := For $c in //{c1}partsupplier
+	 Where $c/{c1}price &gt;= 0.5 * $a/{c1}total
+	 And $c/{c1}lineitem = $a/{c2}lineitem
+	 Return $c
+Return $a, $b
+
+
+<b>Q12 For each order above 100$ list the item (partsupplier) whose price take 50% of the whole order</b>
+DEEP
+For $a in //order[total &gt; 100]
+Let $b := For $c in $a//partsupplier
+	 Where $c/price &gt;= 0.5 * $a/total
+	 Return $c
+Return $a, $b
+
+AF
+For $a in //order[total &gt; 100]
+Let $b := For $c in //partsupplier
+	 Where $c/price &gt;= 0.5 * $a/total
+	 And $c/lineitem/@idref = $a/@id
+	 Return $c
+Return $a, $b
+
+SHALLOW
+For $a in //order[total &gt; 100]
+Let $b := For $c in //partsupplier
+	 Where $c/price &gt;= 0.5 * $a/total
+	 And $c /@id = $a/lineitem/@idref
+	 Return $c
+Return $a, $b
+
+EN, MCMR,DR
+For $a in //{c2}order[{c2}total &gt; 100]
+Let $b := For $c in //{c1}partsupplier
+	 Where $c/{c1}price &gt;= 0.5 * $a/{c1}total
+	 And $c/{c1}lineitem = $a/{c2}lineitem
+	 Return $c
+Return $a, $b
+
+<b>Q13 List the name of supplier in Australia along with their description</b>
+DEEP, AF
+For $a in //nation[name = "Australia"]//supplier
+Return $a, $a/description
+
+SHALLOW
+For $a in //nation[name = "Australia"]
+For $b in //supplier
+where $a/contains/@idref = $b/@id
+Return $b, $b/description
+
+EN, MCMR, DR
+For $a in //{c1}nation[{c1}name = "Australia"]// {c1}supplier
+Return $a, $a/{c1}description
+
+<b>Q14 Return the name of all supplier whose description contains the word "Limited Company"</b>
+DEEP, AF, SHALLOW
+For $a in //supplier
+Where CONTAINS ($a/description,"LIMITED COMPANY")
+Return $a/name/text()
+
+EN, MCMR, DR
+For $a in //{c1}supplier
+Where CONTAINS ($a/{c1}description,"LIMITED COMPANY")
+Return $a/{c1}name/text()
+
+<b>Q15 Print the lineitem’s price</b>
+DEEP, AF, SHALLOW
+For $a in //lineitem
+Return $a/price
+
+EN, MCMR, DR
+For $a in //{c2}lineitem
+Return $a/{c2}price
+
+<b>Q16 Return the ID of those lineitem that oordered by a hugh price order</b>
+DEEP, AF, SHALLOW
+For $a in //order[total &gt; 10000]//lineitem
+Return $a
+
+EN, MCMR, DR
+For $a in //{c2}order[{c2}total &gt; 10000]// {c2}lineitem
+Return $a
+
+<b>Q17 Which part do not have supplier?</b>
+DEEP
+For $a in DISTINCT //part
+Let $b := For $c in //partsupplier
+	  Where $a/part/@id = $a/@id
+	  Return $c
+Where EMPTY ($b)
+Return $a
+
+AF, SHALLOW
+For $a in //part
+Where EMPTY($a/partsupplier)
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}part
+Where EMPTY($a/{c1}partsupplier)
+Return $a
+
+<b>Q18 Convert the currency of all partsupplier’s price to another currency</b>
+DEEP, AF, SHALLOW
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $i in //partsupplier
+RETURN CONVERT ($i/price)
+
+EN, MCMR, DR
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $i in //{c1}partsupplier
+RETURN CONVERT ($i/{c1}price)
+
+<b>Q19 Give an alphabetically orderd list of all supplier along with their address</b>
+DEEP, AF, SHALLOW
+For $a in //supplier
+ORDER BY $a/name
+Return $a, $a/address
+
+EN, MCMR, DR
+For $a in //{c2}supplier
+ORDER BY $a/{c2}name
+Return $a, $a/{c2}address
+
+<b>Q20 Group order by their total price and output cardinality</b>
+DEEP, AF, SHALLOW
+&lt;result&gt;
+&lt;high&gt;
+	COUNT(//order[total&gt; 1000])
+&lt;/high&gt;
+&lt;low&gt;
+	COUNT(//order[total&lt;= 1000])
+&lt;/low&gt;
+&lt;/result&gt;
+
+EN, MCMR, DR
+&lt;result&gt;
+&lt;high&gt;
+	COUNT(//{c1}order[{c1}total&gt; 1000])
+&lt;/high&gt;
+&lt;low&gt;
+	COUNT(//{c1}order[{c1}total&lt;= 1000])
+&lt;/low&gt;
+&lt;/result&gt;
+
+<b>U1 Insert supplier with ID= 100 of USA into database</b>
+DEEP, AF
+Insert as last child of $a //nation[name = "USA"] &lt;contains&gt;&lt;supplier @id="100"&gt;..&lt;/supplier&gt;&lt;/contains&gt;
+
+EN, MCMR, DR
+Insert as last child of $a //{c1}nation[{c1}name = "USA"] &lt;contains&gt;&lt;supplier @id="100"&gt;..&lt;/supplier&gt;&lt;/contains&gt;
+
+
+SHALLOW
+Insert &lt;supplier id = "100"/&gt; into $a in //
+Insert &lt;contains @idref = "100"/&gt; into $b in //nation[name = "USA"]
+
+<b>U2 Delete the last partsupplier of part id = 0</b>
+DEEP
+For $a in //part[id = "0"]
+For $c in //partsupplier
+Let $b := //partsupplier
+Where $b/part/@id = $a/@id
+$c/date = MAX ($b/date)
+Delete $c
+
+
+AF, SHALLOW
+Delete $a //part[id=0]/partsupplier/last()
+
+EN, MCMR, DR
+Delete $a //{c1}part[id=0]/ {c1}partsupplier/last()
+
+<b>U3 Replace part information of part no. 1</b>
+DEEP, AF, SHALLOW
+Replace $a in //part[id = "1"]/info with &lt;info/&gt;
+
+EN, MCMR, DR
+Replace $a in //{c1}part[id = "1"]/{c1}info with &lt;info/&gt;
+
+<b>U4 If nation 1 exists change its name to Thailand</b>
+Otherwise insert a new nation (in Asia (region))
+DEEP, AF
+If For $a in //nation[@id = "1"] EXIST
+Then Replace $a/name with &lt;name = "Thailand"&gt;
+Else
+For $b in //region[Asia]
+Insert &lt;group&gt;&lt;nation&gt;Thailand&lt;/&gt;&lt;/&gt; into last element of $b
+
+SHALLOW
+If For $a in //nation[@id = "1"] EXIST
+Then Replace $a/name with &lt;name = "Thailand"&gt;
+Else
+Insert &lt;nation&gt;Thailand&lt;/nation into $b in //
+Insert &lt;group&gt; into $c in //region[ASIA]
+
+EN, MCMR, DR
+If For $a in //{c1}nation[@id = "1"] EXIST
+Then Replace $a/{c1}name with &lt;name = "Thailand"&gt;
+Else
+For $b in //{c1}region[Asia]
+Insert &lt;group&gt;&lt;nation&gt;Thailand&lt;/&gt;&lt;/&gt; into $b
+
+<b>U5 For all partsupplier inset a count of the total number of lineitems as new element</b>
+DEEP, AF
+For $a in //partsupplier
+Let $b := $a/lineitem
+Insert COUNT($b) into $a/lastchild()
+
+SHALLOW
+For $a in //partsupplier
+Let $b := //lineitem
+Where $b/@idref = $a/@id
+Insert COUNT($b) into $a/lastchild()
+
+EN, MCMR, DR
+For $a in //{c1}partsupplier
+Let $b := $a/{c1}lineitem
+Insert COUNT($b) into $a/lastchild()
+
+<b>U6 Delete all partsupplier for a part id = 2</b>
+DEEP
+For $a in //partsupplier[part/@id = "2"]
+For $b in //lineitem 
+where $b/partsupplier = $a
+Delete $a, $b
+Insert //part[id = "2"]
+
+AF
+For $a in //part[@id = "2"]/partsupplier
+Delete $a
+
+SHALLOW
+For $a in //part[@id = "2"]/partsupplier
+Let $b := //lineitem[@idref = $a/@id]
+Delete $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}part[@id = "2"]/{c1}partsupplier
+Delete $a
+
+<b>U7 Remove nation id = 8 Remove all associations to it</b>
+DEEP, AF
+For $a in //nation[id = "8"]
+Delete $a
+Move $a/customer to //
+Move $a//supplier to //
+
+SHALLOW
+For $a in //nation[id = "8"]
+Let $b := //group[@idref = "8"]
+Delete $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}nation[id = "8"]
+Delete $a
+
+<b>U8 For each part, compute the total ordered price and insert it into it’s information</b>
+DEEP
+For $a in DISTINCT //part
+Let $b := For $c in //partsupplier
+	  Let $d = $c/lineitem   
+       Where $c/part/@id = $a/@id
+        Return $d
+Insert &lt;sum&gt;SUM($b)&lt;/sum&gt; into $a
+	  
+AF
+For $a in //part
+Let $b := $a//lineitem
+Insert &lt;sum&gt;SUM($b)&lt;/sum&gt; into $a
+
+SHALLOW
+For $a in //part
+Let $b in //lineitem
+Where $b/@idref = $a/partsupplier
+Insert &lt;sum&gt;SUM($b)&lt;/sum&gt; into $a
+
+EN, MCMR, DR
+For $a in //{c1}part
+Let $b := $a//{c1}lineitem
+Insert &lt;sum&gt;SUM($b)&lt;/sum&gt; into $a
+
+</pre>
+</body>
+</html>

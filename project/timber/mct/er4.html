@@ -1,0 +1,530 @@
+<html>
+<head>
+<title>ER4 University Database</title>
+</head>
+<body>
+<div align="center"><h2>ER4 University Database</h2></div>
+Source: Figure 2.1 for Exercise 2.3 in textbook "Database Management System, Raghu Ramakrishnan, and Johannes Gehrke" solutions manual
+
+<p></p>
+<p><b>ER characteristics</b></p>
+4 entities<br>
+8 relationships: 5 of 1:m, 3 of m:n<br>
+<img width=696 height=435
+src="er4_files/image002.jpg" v:shapes="_x0000_i1025"><br>
+
+<p><b>XML Schema</b></p>
+DEEP<br>
+
+<img width=360 height=325
+src="er4_files/image004.jpg" v:shapes="_x0000_i1026"><br>
+AF<br>
+<img width=384 height=337
+src="er4_files/image006.jpg" v:shapes="_x0000_i1027"><br>
+
+SHALLOW<br>
+
+<img width=516 height=239
+src="er4_files/image008.jpg" v:shapes="_x0000_i1028"><br>
+EN: 2 colors<br>
+<img width=575 height=241
+src="er4_files/image010.jpg" v:shapes="_x0000_i1029"><br>
+
+MCMR: 2 colors<br>
+<img width=575 height=240
+src="er4_files/image012.jpg" v:shapes="_x0000_i1030"><br>
+
+DR: 3 colors<br>
+<img width=575 height=392
+src="er4_files/image014.jpg" v:shapes="_x0000_i1031"><br>
+
+<pre style="{white-space: -moz-pre-wrap;  /* Mozilla, supported since 1999 */
+ white-space: -pre-wrap;      /* Opera 4 - 6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ white-space: pre-wrap;       /* CSS3 - Text module (Candidate Recommendation)
+                                 http://www.w3.org/TR/css3-text/#white-space */
+ word-wrap: break-word;      /* IE 5.5+ */ }">
+<b>Q1 Return the name of the project with ID="0"</b>
+DEEP, AF,SHALLOW
+For $a in //project[@id ="0"]
+Return $a/name/text()
+
+EN,MCMR,DR
+For $a in //{c1}project[@id="0"]
+Return $a/{c1}name/text()
+
+<b>Q2 Return the id of all graduate who works on the project ID = "2"</b>
+DEEP
+For $ a in //project[@id = "2"]
+Return $a//graduate/@id
+
+AF,SHALLOW
+For $a in //project[@id = "2"]
+For $b  in //graduate
+Where $b/@id = $a/work_grad
+Return $b
+
+EN,MCMR,DR
+For $a in //{c2}project[@id = "2"]
+For $b in //{c1}graduate
+where $b/{c1}work_grad = $a/{c2}work_grad
+return $b
+
+<b>Q3 Return the hour paid of all work_grad whose graduate has income &gt; 20K</b>
+DEEP
+For $a in //work_grad[graduate/income &gt; 20K]
+Return $a/hour
+
+AF, SHALLOW
+For $a in //work_grad
+For $b in //graduate[income &gt; 20K]
+where $a/@idref = $b/@id
+return $a/hour
+
+EN, MCMR, DR
+For $a in //{c1}graduate[income &gt; 20K]// {c1}work_grad
+Return $a/{c1}hour
+
+<b>Q4 List the project where a certain graduate worked before another</b>
+DEEP
+For $a in //project
+For $b in $a/date[graduate/@id = "1"]
+For $c in $a/date[graduate/@id = "2"]
+Where $b &lt; $c
+Return $a
+
+AF, SHALLOW
+For $a in //project
+For $b in //graduate[@id = "1"]
+For $c in //graduate[@id = "2"]
+For $d in $a/work_grad
+For $e in $a/work_grad
+where $d/date &lt; $e/date
+and $b/@id = $d/@idref
+and $c/@id = $e/@idref
+return $A
+
+EN, MCMR, DR
+For $a in //{c1}graduate[@id=1]/{c1}work_grad
+For $b in //{c1}graduate[@id=2]/{c1}work_grad
+For $c in //{c2}project
+where $a/{c1}date &lt; $b/{c1}date
+and $c/{c2}work_grad = $b
+and $c/{c2}work_grad = $a
+return $a
+
+<b>Q5 How many professor has salary more than 100K?</b>
+DEEP
+COUNT(For $a in DISTINCT /professor[salary &gt; 100K]
+
+SHALLOW, AF
+COUNT(For $a in //professor[salary &gt; 100K]
+
+EN, MCMR, DR
+COUNT(For $a in //{c1}professor[{c1}salary &gt; 100K]
+
+<b>Q6 How many professor work on more than 1 project?</b>
+DEEP
+COUNT(For $a in DISTINCT //professor
+Let $b:= //work_on
+Where $b/professor/@id = $a/@id
+Return $a)
+
+AF, SHALLOW
+For $a in //project
+Return COUNT($a/work_on)
+
+EN, MCMR, DR
+For $a in //{c1}project
+Return COUNT($a/{c1}work_on)
+
+<b>Q7 How many proses in database?</b>
+DEEP
+For $a in //
+Return count(distinct $a/professor) + count(distinct $a//dept) + count(distinct $a//graduate) + count ($a//project)
+
+AF, SHALLOW
+For $a in //
+Return count($a/professor) + count($a//dept) + count($a//graduate) + count($a//project)
+
+EN, MCMR, DR
+Return count($a/{c1}professor) + count($a//{c1}dept) + count($a//{c1}graduate) + count ($a//{c1}project)
+
+<b>Q8 List the name of project and the number of professor supervised it</b>
+DEEP
+For $a in //project
+Return $a/name, COUNT(DISTINCT $a//supervises/professor)
+
+SHALLOW, AF
+For $a in //project
+Let $b :=  //professor
+Where $b/@id = $a//supervises/@idref
+Return $a/name, COUNT($b)
+
+EN,MCMR,DR
+For $a in //{c2}project
+Let $b := //{c1}professor
+Where $b/{c1}supervises = $a//{c3}supervises
+Return $a/{c2}name, COUNT($b)
+
+<b>Q9 List the name of project and the number of professor, who run "EECS" department
+, supervised it </b>
+DEEP
+For $a in //project
+Let $b := For $c in $a//supervises/professor
+	For $d in /professor[runs/dept/name = "EECS"]
+	 Where $c/@id = $d/@id
+	Return $c
+Return $a/name, COUNT(DISTINCT $b)
+
+AF
+For $a in //project
+Let $b :=  //professor[//dept/name = "EECS"]
+Where EXISTS $b/@id = $a//supervises/@idref
+Return $a/name, COUNT($b)
+
+SHALLOW
+For $a in //project
+Let $b :=  For $c in //professor
+	  For $d in //dept[name = "EECS"]
+	 Where $c/runs/@idref = $d
+	 AND EXISTS $c/@id = $a//supervises/@idref
+	  Return $d
+Return $a/name, COUNT($b)
+
+EN, MCMR,DR
+For $a in //{c2}project
+Let $b := //{c1}professor.[//dept/name= "EECS"]
+Where $b/{c1}supervises = $a//{c2}supervises
+Return $a/{c2}name, COUNT($b)
+
+<b>Q10 List all project according to their professors who manage it</b>
+DEEP, AF
+For $a in //professor
+Return $a, $a//project
+
+SHALLOW
+For $a in //professor
+Let $b := //project
+Where $a/manage/@idref = $b
+Return $a, $b
+
+EN, MCMR, DR
+For $a in //{c1}professor
+Return $a, $a//{c1}project
+
+<b>Q11 For each project list the number of professor supervise it whose salary do not exceed project budget.</b>
+DEEP
+For $a //project
+Let $b := For $c in $a//supervises/professor
+	  Where $c/salary &lt; $a/budget
+	 Return $c
+Return $a, COUNT(DISTINCT($b))
+
+AF, SHALLOW
+For $a //project
+Let $b := For $c in //professor
+	  Where $c/salary &lt; $a/budget
+	  And $c/@id = $a//supervises/@idref
+	 Return $c
+Return $a, COUNT($b)
+
+EN,MCMR,DR
+For $a //{c2}project
+Let $b := For $c in //{c1}professor
+	  Where $c/{c1}salary &lt; $a/{c2}budget
+	  And $c/{c1}supervises = $a//{c2}supervises
+	 Return $c
+Return $a, COUNT($b)
+
+<b>Q12 For each rich project list the number of professor supervise it whose salary do not exceed project</b>
+DEEP
+For $a //project[budget &gt; 50K]
+Let $b := For $c in $a//supervises/professor
+	  Where $c/salary &lt; $a/budget
+	 Return $c
+Return $a, COUNT(DISTINCT($b))
+
+AF, SHALLOW
+For $a //project[budget &gt; 50K]
+Let $b := For $c in //professor
+	  Where $c/salary &lt; $a/budget
+	  And $c/@id = $a//supervises/@idref
+	 Return $c
+Return $a, COUNT($b)
+
+EN,MCMR,DR
+For $a //{c2}project[budget &gt; 50K]
+Let $b := For $c in //{c1}professor
+	  Where $c/{c1}salary &lt; $a/{c2}budget
+	  And $c/{c1}supervises = $a//{c2}supervises
+	 Return $c
+Return $a, COUNT($b)
+
+<b>Q13 List the name of professors work at EECS</b>
+DEEP, 
+For $a in //professor[dept/name = "EECS"]
+Return $a
+
+AF, SHALLOW
+For $a in //professor
+For $b in //dept[name = "EECS"]
+where $a/work_at/@idref = $b/@id
+return $a
+
+EN, MCMR,DR
+For $a in //{c1}professor
+For $b in //{c2}dept[{c2}name = "EECS"]
+where $a/{c1}work_at = $b/{c2}work_at
+return $a
+
+<b>Q14 Return the name of all graduates supervised by all professors whose name contains the word "John"</b>
+DEEP
+For $a in DISTINCT //professor
+Let $b := For $c in //work_grad
+         For $d in //graduate
+         Where $c//professor/@id = $a/@id
+         Return $d
+Where CONTAINS($a/name,"John")
+Return $a/name, distinct-values($b)
+
+SHALLOW, AF
+For $a in //professor
+Let $b := For $c in //work_grad
+         For $d in //graduate
+         Where $c//supervises/@id = $a/@id
+         Return $d
+Where CONTAINS($a/name,"John")
+Return $a/name, distinct-values($b)
+
+EN, MCMR
+For $a in //{c1}professor
+Let $b:= For $c in //{c1}graduate
+	For $d in $a/{c1}supervises
+	For $d in $c/{c1}work_grad/{c2}supervises
+	Return $c
+where CONTAINS($a/{c1}name,"John")
+Return $a/{c1}name, $b
+
+DR
+For $a in //{c3}professor
+Let $b := //{c1}graduate
+Where $b/{c1}work_grad = $a//{c3}work_grad
+and CONTAINS($a/{c3}name,"John")
+Return $a/{c3}/name, $b
+
+<b>Q15 Print the name of graduate advisee</b>
+DEEP
+For $a in //graduate
+Where NOT EMPTY ($a//graduate)
+Return $a//graduate/name/text()
+
+AF, SHALLOW
+For $a in //graduate
+Let $b := //advise
+Where NOT EMPTY ($a/@id = $b/@idref)
+Return $a//graduate/name/text()
+
+EN, MCMR, DR
+For $a in //{c1}graduate
+Where NOT EMPTY ($a/{c1}advise)
+Return $a/{c1}name/text()
+
+<b>Q16 Return the work_on of professor that manage project id =1</b>
+DEEP
+For $a in //work_on
+For $b in //professor[/manage/project/@id = "1"]
+Where $a/professor/@id = $b/@id
+Return $a
+
+SHALLOW
+For $a in //work_on
+For $b in //professor
+For $c in //project[@id = "1"]
+where $a/@idref = $b/@id
+and $c/@id = $b/manage/@idref
+return $a
+
+AF
+For $a in //work_on
+For $b in //professor[//project/@id = "1"]
+where $a/@idref = $b/@id
+return $a
+
+EN
+For $a in //{c1}professor[//{c1}project/@i1]
+For $a in //{c2}professor
+Return $a/{c2}work_on
+
+MCMR, DR
+For $a in //{c2}professor[//{c2}project/@id = "1"]/{c2}work_on
+Return $a
+
+<b>Q17 Which project doesn’t have lab</b>
+DEEP, SHALLOW, AF
+For $a in //project
+Where EMPTY ($a/lab)
+Return $a
+
+EN, MCMR, DR
+For $a in //{c1}project
+Where EMPTY ($a/{c1}lab)
+Return $a
+
+<b>Q18 Convert the work_grad payment to another currency</b>
+DEEP, SHALLOW, AF
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $i in //work_grad
+RETURN CONVERT ($i/payment)
+
+EN, MCMR, DR
+FUNCTION CONVERT($v)
+{
+	RETURN 40 * $v
+}
+For $i in //{c1}work_grad
+RETURN CONVERT ($i/{c1}payment)
+
+<b>Q19 Give and alphabetically ordered list of all professors along with the address</b>
+DEEP
+For $a in DISTINCT //professor
+ORDER BY $a/name
+Return $a, $a/address
+
+AF, SHALLOW
+For $a in //professor
+ORDER BY $a/name
+Return $a, $a/address
+
+EN, MCMR, DR
+For $a in //{c1}professor
+ORDER BY $a/{c1}name
+Return $a, $a/{c1}address
+
+<b>Q20 Group project by their budget and output cardinality in each group</b>
+DEEP, SHALLOW, AF
+&lt;result&gt;
+&lt;high&gt;
+	COUNT(//project[budget&gt; 1000])
+&lt;/high&gt;
+&lt;low&gt;
+	COUNT(//project[budget &lt;= 1000])
+&lt;/low&gt;
+&lt;/result&gt;
+
+EN, MCMR, DR
+&lt;result&gt;
+&lt;high&gt;
+	COUNT(//{c1}project[{c1}budget&gt; 1000])
+&lt;/high&gt;
+&lt;low&gt;
+	COUNT(//{c1}project[{c1}budget &lt;= 1000])
+&lt;/low&gt;
+&lt;/result&gt;
+
+<b>U1 Insert professor id=100 into database</b>
+DEEP, SHALLOW, AF
+Insert into $a in // &lt;professor id=100&gt;&lt;/&gt;
+
+EN, MCMR, DR
+Insert into $a in //{c1} &lt;professor id=100&gt;&lt;/&gt;
+
+<b>U2 Delete the last schedule of work_grad [id=1]</b>
+DEEP, SHALLOW, AF
+Delete for $a in //work_grad[id = "1"]/schedule[last()]
+
+EN, MCMR, DR
+Delete for $a in //{c1}work_grad[id = "1"]/{c1}schedule[last()]
+
+<b>U3 Replace project budget[id=0] with a new budget information</b>
+DEEP, SHALLOW, AF
+Replace $a in //project[id = "0"]/budget with &lt;budget/&gt;
+
+EN, MCMR, DR
+Replace $a in //{c1}project[id = "0"]/{c1}budget with &lt;budget/&gt;
+
+<b>U4 If deparment4 exist, change name, otherwise insert a new department run by professor id 0</b>
+DEEP, AF
+If $a in //dept[id = "4"] exist
+Then replace $a/name with &lt;name/&gt;
+Else For $b in //professor[id = "0"]
+Insert &lt;runs&gt;&lt;dept id=4&gt;…..&lt;dept/&gt;&lt;/runs&gt; into $b
+
+SHALLOW
+If $a in //dept[id = "4"] exist
+Then replace $a/name with &lt;name/&gt;
+Else insert &lt;dept id=4 /&gt; into $b in //
+Insert &lt;runs idref=4&gt;&lt;/runs&gt; into $c in //professor[id = "0"]
+
+EN, MCMR, DR
+If $a in //{c1}dept[id = "4"] exist
+Then replace $a/{c1}name with &lt;name/&gt;
+Else For $b in //{c1}professor[id = "0"]
+Insert &lt;runs&gt;&lt;dept id=4&gt;&lt;dept/&gt;&lt;/runs&gt; into $b
+
+<b>U5 For all project, insert a count of total number of student graduate participate</b>
+DEEP
+For $a in //project
+Let $b := $a//graduate
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; into $a
+
+SHALLOW, AF
+For $a in //project
+Let $b := $a//work_grad
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; into $a
+
+EN, MCMR, DR
+For $a in //{c2}project
+Let $b := $a//{c2}work_grad
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; into $a
+
+<b>U6 Delete all work_grad for project [id=1]</b>
+DEEP, AF, SHALLOW
+For $a in //project[id = "1"]
+Delete $a/work_grad
+
+EN, MCMR, DR
+For $a in //{c2}project[id = "1"]
+Delete $a/{c2}work_grad
+
+<b>U7 Remove department id = 0  and all associations</b>
+DEEP
+Move $a//dept[@id=0]//graduate to //
+Delete $a in //runs[dept/@id = "0"]
+Delete $b in //workat[dept/@id = "0"]
+
+AF
+Move $a//dept[@id=0]//graduate to //
+Delete $a in //runs[dept/@id = "0"]
+For $b in //work_at
+Where $b/@idref = $a
+Delete $b
+
+SHALLOW
+Delete for $a in //dept[id = "0"]
+Delete $b //work_at[@idref = "0"]
+Delete $c //runs[@idref = "0"]
+Delete $d //major[@idref = "0"]
+
+EN, MCMR, DR
+Move $a//{c1}graduate to //
+Delete $b in //{c2}dept[@id = "0"]{c2}work_at
+Delete $a in //runs[dept/@id = "0"]
+
+<b>U8 For each project, compute total work_on professor and insert it as element child of project</b>
+DEEP, SHALLOW, AF
+For $a in //project
+Let $b := $a/work_on
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; to $a
+
+EN, MCMR, DR
+For $a in //{c1}project
+Let $b := $a/{c1}work_on
+Insert &lt;count&gt;COUNT($b)&lt;/count&gt; to $a
+
+</pre>
+</body>
+</html>
