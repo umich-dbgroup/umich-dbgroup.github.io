@@ -21,17 +21,8 @@ $(document).ready(function() {
   // Rudimentary hack at DBLP search
   if (window.location.pathname === "/publications") {
     loadPubs();
-  } else {
-    pingProxyServer();
   }
 });
-
-// Heroku free servers sleep after 30 min of inactivity
-// To expedite loading when clicking 'Publications', we will wake the
-// proxy server when loading any page.
-function pingProxyServer() {
-  $.get('https://umdb-proxy.herokuapp.com/http://google.com/')
-}
 
 function loadPubsError() {
   $("#publications").html("Error loading publications! Leave a note with <a href='mailto:dbgroup@umich.edu'>dbgroup@umich.edu</a>.");
@@ -45,13 +36,13 @@ function loadPubs() {
 
   $.ajax({
     type: 'GET',
-    dataType: 'json',
-    // Needed a cors proxy, so set one up.
-    url: 'https://umdb-proxy.herokuapp.com/http://dblp.org/search/publ/api',
+    dataType: 'jsonp',
+    callback: 'callback',
+    url: 'http://dblp.org/search/publ/api',
     data: {
       // Can find these on dblp.org/search
       q: ':author:Barzan_Mozafari:|:author:Michael_J._Cafarella:|:author:H._V._Jagadish:',
-      format: 'json',
+      format: 'jsonp',
       h: maxResultsCount
     }, success: function (data) {
       if (data && 'result' in data && 'hits' in data.result && 'hit' in data.result.hits) {
