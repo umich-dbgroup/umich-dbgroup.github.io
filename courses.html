@@ -3,5 +3,8 @@ permalink: /courses
 ---
 <div id="courses">
   <h2>Database-Related Courses</h2>
-  <p>Coming soon.</p>
+  {% for c in site.data.courses.courses %}
+    <h4>{{ c.code }}: {{ c.name }}</h4>
+    <p>{{ c.desc }}</p>
+  {% endfor %}
 </div>
