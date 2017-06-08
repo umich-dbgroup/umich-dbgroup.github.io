@@ -25,6 +25,28 @@ permalink: /people
     </div>
     {% endfor %}
   </ul>
+  <h3>Post-Docs</h3>
+    {% for p in site.data.people.postdocs %}
+    <div class="people-photo media">
+      {% if p.photo %}
+      <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="{{ p.photo }}" />
+        </a>
+      </div>
+      {% endif %}
+      <div class="media-body">
+        <h4 class="media-heading">
+        {% if p.url %}
+          <a href="{{ p.url }}">{{ p.name }}</a>
+        {% else %}
+          {{ p.name }}
+        {% endif %}
+        </h4>
+      </div>
+    </div>
+    {% endfor %}
+  </ul>
   <h3>Graduate Students</h3>
     {% for p in site.data.people.grad_students %}
     <div class="people-photo media">

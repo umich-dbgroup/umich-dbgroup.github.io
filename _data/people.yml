@@ -12,6 +12,12 @@ faculty:
     url: https://web.eecs.umich.edu/~mozafari/
     photo: /images/people/mozafari.jpg
 
+postdocs:
+  -
+    name: Yongjoo Park
+    url: http://yongjoopark.com
+    photo: /images/people/pyongjoo.jpg
+
 grad_students:
   -
     name: Mike Anderson
@@ -22,15 +28,9 @@ grad_students:
     url: https://web.eecs.umich.edu/~dol/
     photo: /images/people/dol.png
   -
-    name: Yongjoo Park
-    url: http://yongjoopark.com
-    photo: /images/people/pyongjoo.jpg
-  -
     name: Fei Li
     url: https://web.eecs.umich.edu/~lifei/
     photo: /images/people/lifei.jpg
-  -
-    name: Chun-Hung Hsiao
   -
     name: Chris Baik
     photo: /images/people/cjbaik.jpg
@@ -38,6 +38,8 @@ grad_students:
     name: Zhongjun "Mark" Jin
     url: http://markjin1990.github.io/
     photo: /images/people/markjin.jpg
+  -
+    name: Chun-Hung Hsiao
   -
     name: Nikita Bhutani
   -
