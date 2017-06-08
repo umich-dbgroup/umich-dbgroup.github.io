@@ -2,7 +2,8 @@
 permalink: /people
 ---
 <div id="people">
-  <h2>Faculty</h2>
+  <h2>People</h2>
+  <h3>Faculty</h3>
     {% for p in site.data.people.faculty %}
     <div class="people-photo media">
       {% if p.photo %}
@@ -24,9 +25,7 @@ permalink: /people
     </div>
     {% endfor %}
   </ul>
-
-
-  <h2>Graduate Students</h2>
+  <h3>Graduate Students</h3>
     {% for p in site.data.people.grad_students %}
     <div class="people-photo media">
       {% if p.photo %}
