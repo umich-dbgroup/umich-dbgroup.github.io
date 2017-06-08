@@ -2,8 +2,15 @@
 permalink: /people
 ---
 <div id="people">
+  <ul class="nav nav-pills pull-right">
+    <li role="presentation"><a href="#faculty">Faculty</a></li>
+    <li role="presentation"><a href="#postdocs">Post-Docs</a></li>
+    <li role="presentation"><a href="#students">Graduate Students</a></li>
+    <li role="presentation"><a href="#recognized_alumni">Recognized Alumni</a></li>
+    <li role="presentation"><a href="#recent_alumni">Recent Alumni</a></li>
+  </ul>
   <h2>People</h2>
-  <h3>Faculty</h3>
+  <h3 id="faculty">Faculty</h3>
     {% for p in site.data.people.faculty %}
     <div class="people-photo media">
       {% if p.photo %}
@@ -25,7 +32,7 @@ permalink: /people
     </div>
     {% endfor %}
   </ul>
-  <h3>Post-Docs</h3>
+  <h3 id="postdocs">Post-Docs</h3>
     {% for p in site.data.people.postdocs %}
     <div class="people-photo media">
       {% if p.photo %}
@@ -47,7 +54,7 @@ permalink: /people
     </div>
     {% endfor %}
   </ul>
-  <h3>Graduate Students</h3>
+  <h3 id="students">Graduate Students</h3>
     {% for p in site.data.people.grad_students %}
     <div class="people-photo media">
       {% if p.photo %}
@@ -68,4 +75,31 @@ permalink: /people
       </div>
     </div>
     {% endfor %}
+
+  <h3 id="recognized_alumni">Most Recognized Alumni</h3>
+  <ul>
+    {% for p in site.data.people.recognized_alumni %}
+      <li>
+        {% if p.url %}
+          <a href="{{ p.url }}">{{ p.name }}</a>
+        {% else %}
+          {{ p.name }}
+        {% endif %}
+        {% if p.degree %} ({{ p.degree }}){% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h3 id="recent_alumni">Recent Alumni</h3>
+  <ul>
+    {% for p in site.data.people.recent_alumni %}
+      <li>
+        {% if p.url %}
+          <a href="{{ p.url }}">{{ p.name }}</a>
+        {% else %}
+          {{ p.name }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
 </div>
