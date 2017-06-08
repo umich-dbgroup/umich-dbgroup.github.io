@@ -3,11 +3,18 @@ permalink: /alumni
 ---
 <div id="alumni">
   <h2>Most Recognized Alumni</h2>
-  <p>
+  <ul>
     {% for p in site.data.people.recognized_alumni %}
-      {% if p.url %}<a href="{{ p.url }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}{% if p.degree %} ({{ p.degree }}){% endif %};
+      <li>
+        {% if p.url %}
+          <a href="{{ p.url }}">{{ p.name }}</a>
+        {% else %}
+          {{ p.name }}
+        {% endif %}
+        {% if p.degree %} ({{ p.degree }}){% endif %}
+      </li>
     {% endfor %}
-  </p>
+  </ul>
 
   <h2>Recent Alumni</h2>
   <ul>
