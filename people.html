@@ -3,29 +3,48 @@ permalink: /people
 ---
 <div id="people">
   <h2>Faculty</h2>
-  <ul>
     {% for p in site.data.people.faculty %}
-      <li>
+    <div class="people-photo media">
+      {% if p.photo %}
+      <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="{{ p.photo }}" />
+        </a>
+      </div>
+      {% endif %}
+      <div class="media-body">
+        <h4 class="media-heading">
         {% if p.url %}
           <a href="{{ p.url }}">{{ p.name }}</a>
         {% else %}
           {{ p.name }}
         {% endif %}
-      </li>
+        </h4>
+      </div>
+    </div>
     {% endfor %}
   </ul>
 
 
   <h2>Graduate Students</h2>
-  <ul>
     {% for p in site.data.people.grad_students %}
-      <li>
+    <div class="people-photo media">
+      {% if p.photo %}
+      <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="{{ p.photo }}" />
+        </a>
+      </div>
+      {% endif %}
+      <div class="media-body">
+        <h4 class="media-heading">
         {% if p.url %}
           <a href="{{ p.url }}">{{ p.name }}</a>
         {% else %}
           {{ p.name }}
         {% endif %}
-      </li>
+        </h4>
+      </div>
+    </div>
     {% endfor %}
-  </ul>
 </div>

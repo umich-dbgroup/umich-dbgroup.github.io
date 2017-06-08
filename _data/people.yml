@@ -2,35 +2,42 @@ faculty:
   -
     name: Michael J. Cafarella
     url: https://web.eecs.umich.edu/~michjc/
+    photo: /images/people/cafarella.jpg
   -
-    name: H V Jagadish
+    name: H. V. Jagadish
     url: https://web.eecs.umich.edu/~jag/
+    photo: /images/people/jag.jpg
   -
     name: Barzan Mozafari
     url: https://web.eecs.umich.edu/~mozafari/
+    photo: /images/people/mozafari.jpg
 
 grad_students:
   -
     name: Mike Anderson
     url: https://web.eecs.umich.edu/~mrander/
+    photo: /images/people/mrander.jpg
   -
     name: Dolan Antenucci
     url: https://web.eecs.umich.edu/~dol/
-  -
-    name: Chris Baik
-  -
-    name: Nikita Bhutani
-  -
-    name: Chun-Hung Hsiao
-  -
-    name: Zhongjun "Mark" Jin
-    url: https://sites.google.com/site/umichjin/
-  -
-    name: Fei Li
-    url: https://web.eecs.umich.edu/~lifei/
+    photo: /images/people/dol.png
   -
     name: Yongjoo Park
     url: http://yongjoopark.com
+    photo: /images/people/pyongjoo.jpg
+  -
+    name: Fei Li
+    url: https://web.eecs.umich.edu/~lifei/
+    photo: /images/people/lifei.jpg
+  -
+    name: Chun-Hung Hsiao
+  -
+    name: Chris Baik
+    photo: /images/people/cjbaik.jpg
+  -
+    name: Nikita Bhutani
+  -
+    name: Zhongjun "Mark" Jin
   -
     name: Shahab Tajik
   -
