@@ -103,7 +103,8 @@ hover: 00274c bg, color=ffcb05
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #ffffff;
+  /*border-color: #ffffff;*/
+  border: 0;
 }
 .navbar-default .navbar-link {
   color: #ffffff;
