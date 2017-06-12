@@ -1,5 +1,9 @@
 active:
   -
+    name: Verdict
+    url: "http://verdictdb.org"
+    description: ""
+  -
     name: Raccoon
     url: ""
     description: ""
