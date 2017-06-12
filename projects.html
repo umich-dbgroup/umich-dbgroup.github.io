@@ -5,7 +5,7 @@ permalink: /projects
 <div id="projects">
   <h2>Current Projects</h2>
   {% for p in site.data.projects.active %}
-    <li>{{ p.name }}</li>
+    <li><a href={{ p.url }}>{{ p.name }}</a></li>
   {% endfor %}
 
 
