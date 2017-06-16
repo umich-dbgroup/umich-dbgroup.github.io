@@ -39,13 +39,9 @@ grad_students:
     url: http://markjin1990.github.io/
     photo: /images/people/markjin.jpg
   -
-    name: Chun-Hung Hsiao
-  -
     name: Nikita Bhutani
   -
     name: Jie Song
-  -
-    name: Shahab Tajik
   -
     name: Dong Young Yoon
 
@@ -94,6 +90,13 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Ahmad Shahab Tajik
+    degree: MSE'17
+  -
+    name: Chun-Hung Hsiao
+    degree: PhD'17
+    where: Mesosphere
   -
     name: Shirley Zhe Chen
     degree: PhD'16
