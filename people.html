@@ -99,6 +99,7 @@ permalink: /people
         {% else %}
           {{ p.name }}
         {% endif %}
+        {% if p.degree %} ({{ p.degree }}){% endif %}
       </li>
     {% endfor %}
   </ul>
