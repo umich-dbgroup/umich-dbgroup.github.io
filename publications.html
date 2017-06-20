@@ -3,6 +3,13 @@ permalink: /publications
 ---
 
 <div id="publications">
-  <!-- Loaded from main.js -->
+  <!-- DBLP data loaded from main.js -->
 </div>
 <a href="http://dblp.uni-trier.de/search?q=%3Aauthor%3ABarzan_Mozafari%3A%7C%3Aauthor%3AMichael_J._Cafarella%3A%7C%3Aauthor%3AH._V._Jagadish%3A">&gt;&gt; See more publications...</a>
+
+<!-- Additional publications (i.e. affiliated faculty, etc. ) -->
+{% for y in site.data.publications %}
+  {% for p in y[1] %}
+    <input type="hidden" class="affiliated-pub" data-year="{{ y[0] }}" data-title="{{ p.title }}" data-url="{{ p.url }}" data-venue="{{ p.venue }}" data-authors="{{ p.authors }}" />
+  {% endfor %}
+{% endfor %}

@@ -4,9 +4,10 @@ active:
     url: "http://verdictdb.org"
     description: ""
   -
+    name: Infiniswap
+    url: "http://github.com/infiniswap/infiniswap"
+  -
     name: Raccoon
-    url: ""
-    description: ""
 
 inactive:
   -

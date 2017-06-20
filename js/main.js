@@ -90,6 +90,36 @@ function sortPubsByYear(hits) {
   return pubsByYear;
 }
 
+function getPubHTML(pub) {
+  htmlString = '<li><strong>';
+  if ("url" in pub) {
+    htmlString += '<a href=' + pub.url + '>' + pub.title + '</a>';
+  } else {
+    htmlString += pub.title;
+  }
+
+  htmlString += '</strong> ';
+  htmlString += pub.authors + '. ';
+  htmlString += '<em>' + pub.venue + '</em></li>'
+
+  return htmlString;
+}
+
+function getAffiliatedPubHTML(el) {
+  console.log($(el).data('title'));
+  pub = {
+      title: $(el).data('title'),
+      url: $(el).data('url'),
+      authors: $(el).data('authors'),
+      venue: $(el).data('venue')
+  }
+
+  if (!pub.venue.endsWith('.')) {
+    pub.venue += '.';
+  }
+  return getPubHTML(pub);
+}
+
 function renderPubs(pubsByYear) {
   $('#publications').html('');
 
@@ -106,17 +136,11 @@ function renderPubs(pubsByYear) {
     var htmlString = '<ul>';
     for (var pub of pubsList) {
       // add individual publication per year
-      htmlString += '<li><b>';
-      if ("url" in pub) {
-        htmlString += '<a href=' + pub.url + '>' + pub.title + '</a>';
-      } else {
-        htmlString += pub.title;
-      }
-
-      htmlString += '</b> ';
-      htmlString += pub.authors + '. ';
-      htmlString += '<i>' + pub.venue + '</i></li>'
+      htmlString += getPubHTML(pub);
     }
+    $('.affiliated-pub[data-year="' + year + '"]').each(function () {
+      htmlString += getAffiliatedPubHTML(this);
+    });
     htmlString += '</ul>';
     $('#publications').append(htmlString);
   }

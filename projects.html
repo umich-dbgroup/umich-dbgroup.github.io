@@ -5,12 +5,24 @@ permalink: /projects
 <div id="projects">
   <h2>Current Projects</h2>
   {% for p in site.data.projects.active %}
-    <li><a href={{ p.url }}>{{ p.name }}</a></li>
+    <li>
+      {% if p.url %}
+      <a href={{ p.url }}>{{ p.name }}</a>
+      {% else %}
+      {{ p.name }}
+      {% endif %}
+    </li>
   {% endfor %}
 
 
   <h2>Past Projects</h2>
   {% for p in site.data.projects.inactive %}
-    <li><a href={{ p.url }}>{{ p.name }}</a></li>
+    <li>
+      {% if p.url %}
+      <a href={{ p.url }}>{{ p.name }}</a>
+      {% else %}
+      {{ p.name }}
+      {% endif %}
+    </li>
   {% endfor %}
 </div>
