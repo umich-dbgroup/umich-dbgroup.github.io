@@ -8,6 +8,21 @@ body {
   color: #222;
 }
 
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4 {
+  margin: 15px 0;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #777;
+}
+
 #wrap {
   min-height: 100%;
   background-color: #f0f0f0;
@@ -132,9 +147,10 @@ hover: 00274c bg, color=ffcb05
 /** people page **/
 
 .people-photo {
+  margin-top: 0;
   margin-left: 20px;
   padding: 15px 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
 .people-photo img {
@@ -148,8 +164,12 @@ hover: 00274c bg, color=ffcb05
   padding: 20px 10px;
 }
 
-.people-photo h4 {
+.people-photo h5 {
   font-size: 16px;
+}
+
+.people-section {
+  margin-bottom: 25px;
 }
 
 /** footer **/

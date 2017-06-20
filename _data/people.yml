@@ -12,6 +12,12 @@ faculty:
     url: https://web.eecs.umich.edu/~mozafari/
     photo: /images/people/mozafari.jpg
 
+affiliated:
+  -
+    name: Mosharaf Chowdhury
+    url: http://mosharaf.com
+    photo: /images/people/mosharaf.jpg
+
 postdocs:
   -
     name: Yongjoo Park
