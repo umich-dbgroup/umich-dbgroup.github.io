@@ -4,6 +4,10 @@ active:
     url: "http://verdictdb.org"
     description: ""
   -
+    name: Foofah
+    url: "https://github.com/markjin1990/foofah"
+    description: "a programming-by-example data transformation (wrangling) program synthesizer"
+  -
     name: Infiniswap
     url: "http://github.com/infiniswap/infiniswap"
   -
