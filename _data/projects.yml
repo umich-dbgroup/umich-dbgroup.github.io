@@ -7,6 +7,10 @@ active:
     name: Raccoon
     url: ""
     description: ""
+  -
+    name: Foofah
+    url: "https://github.com/markjin1990/foofah"
+    description: "a programming-by-example data transformation (wrangling) program synthesizer"
 
 inactive:
   -
