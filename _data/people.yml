@@ -17,6 +17,10 @@ affiliated:
     name: Mosharaf Chowdhury
     url: http://mosharaf.com
     photo: /images/people/mosharaf.jpg
+  -
+    name: Danai Koutra
+    url: http://web.eecs.umich.edu/~dkoutra/
+    photo: /images/people/dkoutra.jpg
 
 postdocs:
   -

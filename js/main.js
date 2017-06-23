@@ -41,7 +41,7 @@ function loadPubs() {
     url: 'http://dblp.org/search/publ/api',
     data: {
       // Can find these on dblp.org/search
-      q: ':author:Barzan_Mozafari:|:author:Michael_J._Cafarella:|:author:H._V._Jagadish:',
+      q: ':author:Barzan_Mozafari:|:author:Michael_J._Cafarella:|:author:H._V._Jagadish:|:author:Danai_Koutra:',
       format: 'jsonp',
       h: maxResultsCount
     }, success: function (data) {
