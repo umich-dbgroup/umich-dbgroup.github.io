@@ -11,6 +11,10 @@ permalink: /projects
       {% else %}
       {{ p.name }}
       {% endif %}
+
+      {% if p.description %}
+      : {{ p.description }}
+      {% endif %}
     </li>
   {% endfor %}
 
@@ -22,6 +26,10 @@ permalink: /projects
       <a href={{ p.url }}>{{ p.name }}</a>
       {% else %}
       {{ p.name }}
+      {% endif %}
+
+      {% if p.description %}
+      : {{ p.description }}
       {% endif %}
     </li>
   {% endfor %}
