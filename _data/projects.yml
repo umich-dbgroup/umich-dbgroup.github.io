@@ -12,8 +12,23 @@ active:
     url: "http://github.com/infiniswap/infiniswap"
   -
     name: Raccoon
+  -
+    name: MUSIC: Model-driven Usable System for Information Querying
+    url: "/project/usable"
 
 inactive:
+  -
+    name: Senbazuru
+    description: A Prototype Spreadsheet Database Management System
+    url: "/project/sheets"
+  -
+    name: THINK Back
+    description: KNowledge-based Interpretation of High Throughput data.
+    url: "/project/think"
+  -
+    name: MiMI
+    desciption: Michigan Molecular Interaction Database
+    url: "/project/mimi"
   -
     name: Timber
     url: "/project/timber"
@@ -34,3 +49,7 @@ inactive:
     name: Regular Expression Learning
     url: "/project/regexLearning"
     description: ""
+  -
+    name: MBench
+    description: Michigan Molecular Interaction Database
+    url: "/project/mbench"
