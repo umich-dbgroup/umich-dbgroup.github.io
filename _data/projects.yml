@@ -13,7 +13,8 @@ active:
   -
     name: Raccoon
   -
-    name: MUSIQ: Model-driven Usable System for Information Querying
+    name: MUSIQ
+    description: Model-driven Usable System for Information Querying
     url: "/project/usable"
 
 inactive:

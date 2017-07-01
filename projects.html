@@ -6,30 +6,47 @@ permalink: /projects
   <h2>Current Projects</h2>
   {% for p in site.data.projects.active %}
     <li>
-      {% if p.url %}
-      <a href={{ p.url }}>{{ p.name }}</a>
+      {% if p.description %}
+        {% if p.url %}
+          <a href={{ p.url }}>{{ p.name }}</a>:
+        {% else %}
+          {{ p.name }}:
+        {% endif %}
       {% else %}
-      {{ p.name }}
+        {% if p.url %}
+          <a href={{ p.url }}>{{ p.name }}</a>
+        {% else %}
+          {{ p.name }}
+        {% endif %}
       {% endif %}
 
       {% if p.description %}
-      : {{ p.description }}
+        {{ p.description }}:
       {% endif %}
     </li>
+
   {% endfor %}
 
 
   <h2>Past Projects</h2>
   {% for p in site.data.projects.inactive %}
     <li>
-      {% if p.url %}
-      <a href={{ p.url }}>{{ p.name }}</a>
+      {% if p.description %}
+        {% if p.url %}
+          <a href={{ p.url }}>{{ p.name }}</a>:
+        {% else %}
+          {{ p.name }}:
+        {% endif %}
       {% else %}
-      {{ p.name }}
+        {% if p.url %}
+          <a href={{ p.url }}>{{ p.name }}</a>
+        {% else %}
+          {{ p.name }}
+        {% endif %}
       {% endif %}
 
       {% if p.description %}
-      : {{ p.description }}
+        {{ p.description }}:
       {% endif %}
     </li>
   {% endfor %}
