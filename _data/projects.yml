@@ -28,7 +28,7 @@ inactive:
     url: "/project/think"
   -
     name: MiMI
-    desciption: Michigan Molecular Interaction Database
+    description: Michigan Molecular Interaction Database
     url: "/project/mimi"
   -
     name: Timber
@@ -52,5 +52,5 @@ inactive:
     description: ""
   -
     name: MBench
-    description: Michigan Molecular Interaction Database
     url: "/project/mbench"
+    description: The Michigan XML Benchmark
