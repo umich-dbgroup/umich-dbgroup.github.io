@@ -33,7 +33,7 @@ inactive:
   -
     name: Timber
     url: "/project/timber"
-    description: ""
+    description: "A Native XML Store"
   -
     name: Intranet Transactional Search
     url: "/project/transactionalSearch"
