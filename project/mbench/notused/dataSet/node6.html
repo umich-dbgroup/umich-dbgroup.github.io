@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Generating the String Attributes and Element Content</TITLE>
+<META NAME="description" CONTENT="Generating the String Attributes and Element Content">
+<META NAME="keywords" CONTENT="dataSet">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dataSet.css">
+
+<LINK REL="next" HREF="node7.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="dataSet.html">
+<LINK REL="next" HREF="node7.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html75"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html73"
+  HREF="dataSet.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html67"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html76"
+  HREF="node7.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html74"
+  HREF="dataSet.html">dataSet</A>
+<B> Previous:</B> <A NAME="tex2html68"
+  HREF="node5.html">Schema of Benchmark Data</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00003000000000000000"></A>
+<A NAME="sec:strings"></A>
+<BR>
+Generating the String Attributes and Element Content
+</H2>
+
+<P>
+The element content of each <I>BaseType</I> element is a long
+string. Since this string is meant to simulate a piece of text in
+a natural language, it is not appropriate to generate this string
+from a uniform distribution. 
+Selecting pieces of text from real sources, however,
+involves many difficulties, such as how to maintain roughly
+constant size for each string, how to avoid idiosyncrasies associated
+with the specific source, and how to generate more strings as required for
+a scaled benchmark.
+  Moreover, we would like to have
+benchmark results applicable to a wide variety of languages and domain
+vocabularies.
+
+<P>
+To obtain the string value that has the distribution similar to the distribution of a natural language text, we generate these long strings
+synthetically, in a carefully stylized manner.  We begin by creating a
+pool of  (over sixty thousands)
+ synthetic words. The words
+are divided into 16 buckets, with exponentially growing bucket
+occupancy.
+Bucket  has  words.
+For example, the first bucket has only one word, the second has two
+words, the third has four words, and so on.
+The words are not meaningful in  any language,
+	but simply contains
+information about the bucket from which it is drawn and the word
+number in the bucket.
+For example, ``15twentynineB14'' indicates that
+this is the 1,529th word from the fourteenth bucket.  To keep the size
+of the vocabulary in the last bucket at roughly 30,000 words, words
+in the last bucket are
+derived from words in the other buckets by adding the suffix ``ing''
+(to get exactly  words in the sixteenth bucket, we add the
+dummy word ``oneB0ing'').
+
+<P>
+The value of the long string is generated from
+the template shown below.
+<CENTER>
+<TABLE CLASS="eg" WIDTH="60%" BORDER="1" CELLPADDING="5" BGCOLOR="#99FFFF">
+<TR>
+<TD>
+<PRE>
+   Sing a song of PickWord,
+   A pocket full of PickWord
+   Four and twenty PickWord
+   All baked in a PickWord.
+
+   When the PickWord was opened,
+   The PickWord began to sing;
+   Wasn't that a dainty PickWord
+   To set before the PickWord?
+
+   The King was in his PickWord,
+   Counting out his PickWord;
+   The Queen was in the PickWord
+   Eating bread and PickWord.
+
+   The maid was in the PickWord
+   Hanging out the PickWord;
+   When down came a PickWord,
+   And snipped off her PickWord!
+</PRE>
+</TD>
+</TR>
+</TABLE>
+</CENTER>
+
+``PickWord'' is actually a placeholder for a word
+picked from the word pool described above.  To pick a word for
+``PickWord'', a bucket is chosen, with each bucket equally likely, and
+then a word is picked from the chosen bucket, with each word equally
+likely. Thus, we obtain a discrete Zipf distribution of parameter
+roughly 1.  We use the Zipf distribution since it seems to reflect
+word occurrence probabilities accurately in a wide variety of
+situations.
+The value of <I>aString</I> attribute is simply the first line of the long string that
+is stored as the element content.
+
+<P>
+Through the above procedures, we now have the data set that has the structure
+that facilitates the study of the impact of data characteristics on
+system performance and the element/attribute content that simulates a piece
+of text in a natural language.
+
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html75"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html73"
+  HREF="dataSet.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html67"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html76"
+  HREF="node7.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html74"
+  HREF="dataSet.html">dataSet</A>
+<B> Previous:</B> <A NAME="tex2html68"
+  HREF="node5.html">Schema of Benchmark Data</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

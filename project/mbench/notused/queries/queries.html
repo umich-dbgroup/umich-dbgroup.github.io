@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>queries</TITLE>
+<META NAME="description" CONTENT="queries">
+<META NAME="keywords" CONTENT="queries">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="queries.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Selection Queries</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+In creating the data set above, we make it possible
+to tease apart data with different characteristics, and to issue
+queries with well-controlled yet vastly differing data access
+patterns.  
+We are more interested in the evaluating the cost of individual pieces of core query functionality than in the evaluating the composite performance of queries that are of application-level.   Knowing the costs of individual basic operations, we can estimate the cost of any
+complex query by just adding up relevant piecewise costs (keeping in
+mind the pipelined nature of evaluation, and the changes in sizes of
+intermediate results when operators are pipelined).
+
+<P>
+One clean way to decompose complex queries is by means of an algebra.
+While the benchmark is not tied to any particular algebra, we find it
+useful to refer to queries as ``selection queries'', ``join queries''
+and the like, to clearly indicate the functionality 
+of each query.  A complex query that involves many of these
+simple operations can take time that varies monotonically
+with the time required for these simple components.
+
+<P>
+In the following subsections, we describe each of these different types of queries in detail.
+In these queries, the types of the nodes are assumed to be <I>BaseType</I> 
+(<code>eNest</code> nodes) unless specified otherwise.
+
+<P>
+Each of the benchmark queries was carefully chosen to have a desired
+selectivity.  
+For this purpose, we will frequently need to determine the probability of
+``PickWord'', based on the uniform distribution of buckets and words in each
+bucket, as described in Section&nbsp;<A HREF="#sec:strings"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="icons/crossref.png"></A>.  For example, if
+``PickWord'' is <I>``oneB1''</I>, this indicates that this ``PickWord'' is the first
+word in bucket 1.  Since there are 16 buckets, and there is only one word in
+the first bucket the probability of <I>``oneB1''</I> being picked is 1/16 <!-- MATH
+ $(1/16
+\times 1)$
+ -->
+.  Since there are eight words in the fourth bucket (), the
+probability of <I>``oneB4''</I> being picked is 1/128  <!-- MATH
+ $(1/16 \times 1/8)$
+ -->
+. 
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Selection Queries</A>
+<UL>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">Returned Structure</A>
+<LI><A NAME="tex2html6"
+  HREF="node3.html">Simple Selection Queries</A>
+<LI><A NAME="tex2html7"
+  HREF="node4.html">Structural Selection Queries</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html8"
+  HREF="node5.html">Value-Based Join Queries</A>
+<LI><A NAME="tex2html9"
+  HREF="node6.html">Pointer-based Join Queries</A>
+<LI><A NAME="tex2html10"
+  HREF="node7.html">Aggregate Queries</A>
+<LI><A NAME="tex2html11"
+  HREF="node8.html">Updates</A>
+<LI><A NAME="tex2html12"
+  HREF="node9.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Selection Queries</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Kanda Runapongsa
+2002-02-22
+</ADDRESS>
+</BODY>
+</HTML>

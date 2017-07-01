@@ -1,0 +1,33 @@
+Several proposals for generating synthetic XML data have been
+proposed~\cite{FK99, Aboulnaga01generating}. In the latest
+proposal~\cite{Aboulnaga01generating}, a data generator accepts a
+number of parameters to allow a user to control the properties of the
+generated data.  The user needs to define at least twenty parameters
+to generate a data set.  It is difficult to understand how some of
+these parameters affect the over all properties of the data. An
+example of these parameters is the fraction of path tree nodes with
+repetition in the tag name and no restrictions on internal or leaf.
+Furthermore, the schema of generated data is not available for some
+systems that may be able to take advantage of it.
+
+Two benchmarks have been proposed for evaluating the performance of
+XML data management systems~\cite{xmach,xmark}.  Both benchmarks
+generate XML data that models data from particular applications.
+In~\cite{xmach}, the data is based on a web application that consists
+of text documents, schema-less data, and structured
+data. In~\cite{xmark}, the data is based on an Internet auction
+application that consists of relatively structured and data-oriented
+part.  Both of these benchmarks do not identify characteristics of XML
+data that affect the performance of the XML data management systems.
+The benchmark queries are defined, but these queries do not reflect
+how the performance of the system changes as the XML data characteristics 
+are varied.
+
+Most recently, a desiderata for a benchmark for XML databases that
+identifies components and operations that the benchmark should
+cover~\cite{SIGMODRECORD01Bench}.  Although our benchmark is not a
+general purpose benchmark, our benchmark queries cover all of the ten
+challenges that cover all performance critical aspects of XML processing.
+
+
+

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Aggregate Queries</TITLE>
+<META NAME="description" CONTENT="Aggregate Queries">
+<META NAME="keywords" CONTENT="queries">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="queries.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="queries.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html82"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html80"
+  HREF="queries.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html74"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html83"
+  HREF="node8.html">Updates</A>
+<B> Up:</B> <A NAME="tex2html81"
+  HREF="queries.html">queries</A>
+<B> Previous:</B> <A NAME="tex2html75"
+  HREF="node6.html">Pointer-based Join Queries</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00004000000000000000">
+Aggregate Queries</A>
+</H2>
+Aggregate queries are very important for data warehousing
+applications.  In XML, aggregation also has richer possibilities due to the
+structure.  These are explored in the next set of queries.
+
+<P>
+<B>QA1. Value Aggregation.</B> 
+Compute the average value for the <I>aSixtyFour</I>
+attribute of all nodes at level 15.  Note that about 1/4 of all nodes
+are at level 15. The number of returned nodes is 1. 
+
+<P>
+<B>QA2. Value Aggregation with Groupby.</B> Group nodes by level. 
+Compute the average value of the <I>aSixtyFour</I> attribute of all nodes at each level.  The return structure is a tree, with a dummy root and a child for
+each group.  Each leaf (child) node has one attribute for the level and one
+attribute for the average value.  The number of returned trees is 16. 
+
+<P>
+<B>QA3. Structural Aggregation.</B> Amongst the nodes at level 11,
+find the node(s) with the largest fanout.  1/64 of the nodes are at level 11.  
+Most nodes at this level have exactly two children.  But 1/64 of these nodes also have aq third child, of type <I>eOccasional</I>.  These are the nodes that must be returned. Thus, Selectivity is 1/64 * 1/64 = 1/4096 (0.02%).
+
+<P>
+<B>QA4. Value Aggregate Selection.</B> Select elements that have at
+least two occurrences of keyword ``<I>oneB1</I>'' in their content.
+There are 16 ``PickWord''s in the element content.  The probability that ``PickWord''
+is replaced with ``<I>oneB1</I>'' is 1/16, and the probability that ``PickWord''
+is not replaced with ``<I>oneB1</I>'' is 15/16.
+ $P_n(``{\sf oneB1}'')$
+ -->
+ be the probability that there are  occurrences of
+``<I>oneB1</I>.''   Then, <!-- MATH
+ $P_n(``{\sf oneB1}'')$
+ -->
+ = <!-- MATH
+ ${16\choose n} \times(1/16)^n\times(15/16)^{16-n}$
+ -->
+. 
+The probability that there are at least two occurrences of ``<I>oneB1</I>'' is 
+<!-- MATH
+ $1 - P_0(``{\sf oneB1}'') - P_1(``{\sf oneB1}'')$
+ -->
+ = 1 - 0.36 - 0.38 = 0.26.  
+Thus, the selectivity of this query is 0.26%. Selectivity is 0.26%. 
+
+<P>
+<B>QA5. Structural Aggregate Selection.</B> Select elements that have at
+least two children that satisfy <I>aFour = 1</I>.
+About 50% of the database nodes are at level 16 and have no children.
+Except about 2% of the remainder, all have exactly two children, and both
+must satisfy the predicate for the node to qualify.
+The selectivity of the predicate is 1/4.  So the overall
+selectivity of this query is 
+<!-- MATH
+ $(1/2) \times (1/4) \times (1/4) ~=~ 1/32 (3.1\%)$
+ -->
+.
+
+<P>
+<B>QA6. Structural Exploration.</B> For each node at level 7, determine
+the height of the sub-tree rooted at this node.  The returned structure is a
+tree with a dummy root that has a child for each node at level 7.  This child
+leaf node has one attribute that references the node at level 7, and another
+attribute that records the height of the sub-tree.
+There are only 2,704 nodes at
+level 7, irrespective of the database scaling.  Under each of these nodes, the
+sub-tree goes to level 16, and so is exactly ten levels high, again
+irrespective of the scaling.  However, determining this height may require
+exploring substantial parts of the database.  Nodes at leve 7 are 0.4% of all nodes, thus the selectivity of this query is 0.4%. 
+
+<P>
+There are also other functionalities, such as casting, which can
+be significant performance factors for engines that need to convert data types.  However, in this benchmark, we focus
+on testing the core functionality of the XML engines. 
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html82"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html80"
+  HREF="queries.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html74"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html83"
+  HREF="node8.html">Updates</A>
+<B> Up:</B> <A NAME="tex2html81"
+  HREF="queries.html">queries</A>
+<B> Previous:</B> <A NAME="tex2html75"
+  HREF="node6.html">Pointer-based Join Queries</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Kanda Runapongsa
+2002-02-22
+</ADDRESS>
+</BODY>
+</HTML>

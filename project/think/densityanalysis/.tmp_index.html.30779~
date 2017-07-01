@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>THINK Back :: KNowledge-based Interpretation of High Throughput data</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="../css/think.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="wrapper">
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="http://www.eecs.umich.edu/db/think/">THINK Back</a></h1>
+		<h2>KNowledge-based Interpretation of High Throughput data</h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="http://eecs.umich.edu/db/think/">Home</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/research.html">Research</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/software.html">Software</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/people.html">People</a></li>
+			<li class="last"><a href="http://eecs.umich.edu/db/think/contact.html">Contact</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post">
+			<h1 class="title">Density Analysis for Functional Enrichment Testing</h1>
+			<div class="entry">
+				<h2>Abstract:</h2>
+				<p>Use of biological knowledge has been shown to be of value in analyzing high throughput 
+				gene expression and other types of genomics data.  For instance, Gene Set Enrichment Analysis 
+				(GSEA) is widely used for analysis of data from gene expression microarrays. However, 
+				biological knowledge is typically introduced in a very simple way ---for example all genes in 
+				a biological pathway are defined to be in a gene set and considered equivalent for statistical purposes.</p>
+				
+				<p>We propose a more sophisticated analysis, called <em>Density Scoring</em>, in which the relative 
+				positions in a pathway of differentially expressed genes is taken into account. Thereby, we 
+				can identify the activation of portions of a pathway. For example, in our experiments over 
+				lung cancer microarray data, our density score ranked ErbB and Cytokine-cytokine receptor 
+				interaction pathways; these pathways are not discovered by previous well-established 
+				analysis methods. We also show that density scoring can more robustly replicate analysis 
+				results across studies.</p>
+				
+				<h2>Java Implementation:</h2>
+				<p>A Java implementation of the described techniques is available for download <a href="../files/density_analysis_1.0.zip">here</a>.</p>
+				<p><em>Disclaimer:</em> This software is made public "as-is", </p>
+			</div>
+		</div>
+	</div>
+	<!-- end content -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+</div>
+<!-- start footer -->
+<div id="footer">
+	<p id="legal">Copyright &copy; 2010. All Rights Reserved <a href="http://eecs.umich.edu">University of Michigan</a>.<br />
+	CSS template from <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div>
+<!-- end footer -->
+</body>
+</html>

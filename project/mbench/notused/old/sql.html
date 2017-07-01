@@ -1,0 +1,1222 @@
+<html>
+<head>
+	<title>SQL Queries in Mbench</title> 
+</head>
+<body>
+<H1>SQL Queries in Mbench</H1>
+<table><tr bgcolor="aqua"><td>
+The SQL schema is as follows:
+</td></tr></table>
+<pre>
+CREATE TABLE eNest(eNest_ID integer not null,
+                   eNest_parentID  integer not null,
+                   eNest_parentCODE varchar(50),
+                   eNest_childOrder integer not null,
+                   eNest_aUnique1 integer not null,
+                   eNest_aUnique2 integer not null,
+                   eNest_aLevel integer not null,
+                   eNest_aFour integer not null,
+                   eNest_aSixteen integer not null,
+                   eNest_aSixtyFour integer not null,
+                   eNest_aString varchar(40),
+                   eNest_val varchar(600),
+                   primary key (eNest_ID));
+
+CREATE TABLE eOccasional(eOccasional_ID integer not null,
+                   eOccasional_parentID  integer not null,
+                   eOccasional_parentCODE varchar(50),
+                   eOccasional_childOrder integer not null,
+                   eOccasional_aRef integer not null,
+                   eOccasional_val varchar(550),
+                   primary key (eOccasional_ID));
+</pre>
+<!-- QR1 -->
+<table><tr bgcolor="aqua"><td>
+-- QR1: Select all elements with aSixtyFour = 2  (Return only the element in question)
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest
+where eNest_aSixtyFour = 2;
+</pre>
+<br/>
+<pre>
+
+<!-- QR2 -->
+<table><tr bgcolor="aqua"><td>
+-- QR2: Select all elements with aSixtyFour = 2  (Return the element and all
+-- its immediate children)
+</td></tr></table>
+<pre>
+create table tmp2_qr2(aUnique1ID integer, ID integer);
+create table tmp1_qr2(parentID integer, childID integer);
+
+-- contains all elements with aSixtyFour = 2
+delete from tmp2_qr2;
+insert into tmp2_qr2
+select eNest_aUnique1, eNest_ID
+from eNest
+where eNest_aSixtyFour = 2;
+
+-- contains elements with aSixtyFour = 2 that have eNest children
+delete from tmp1_qr2;
+insert into tmp1_qr2
+select p.aUnique1ID as parentID, c.eNest_aUnique1 as childID
+from tmp2_qr2 p
+left outer join
+     eNest c
+on p.ID = c.eNest_parentID;
+
+insert into tmp1_qr2
+select p.aUnique1ID as parentID, c.eOccasional_aRef as childID
+from tmp2_qr2 p,
+     eOccasional c
+where p.ID = c.eOccasional_parentID;
+
+select parentID, count(childID)
+from tmp1_qr2
+group by parentID;
+</pre>
+<br/>
+
+<!-- QR3 -->
+<table><tr bgcolor="aqua"><td>
+-- QR3: Select all elements with aSixtyFour = 2  (Return the entire subtree)
+</td></tr></table>
+
+<pre>
+drop view tmp1_qr3;
+create view tmp1_qr3 as
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'descendant'  to
+-- store the descendants of 'eNest' nodes with
+-- 'aSixtyFour' = 2
+select rootID, ID
+from descendant;
+
+select r.eNest_aUnique1, count(d.eNest_aUnique1)
+from eNest r, eNest d, tmp1_qr3
+where r.eNest_ID = tmp1_qr3.rootID
+and d.eNest_ID = tmp1_qr3.ID
+group by r.eNest_aUnique1;
+</pre>
+
+<!-- QR4 -->
+<table><tr bgcolor="aqua"><td>
+-- QR4: Select all elements with aSixtyFour = 2 and selected descendants
+with aFour = 1
+</td></tr></table>
+<pre>
+create table tmp2_qr4(aUnique1 integer, numD integer);
+create table tmp3_qr4(aUnique1 integer, numD integer);
+
+drop view tmp1_qr4;
+create view tmp1_qr4 as
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'descendant'  to
+-- store the descendants with 'aFour' = 1 with
+-- 'eNest' nodes with 'aSixtyFour' = 2
+select rootID, ID
+from descendant;
+
+delete from tmp2_qr4;
+insert into tmp2_qr4
+select r.eNest_aUnique1, count(d.eNest_aUnique1)
+from eNest r, eNest d, tmp1_qr4
+where r.eNest_ID = tmp1_qr4.rootID
+and d.eNest_ID = tmp1_qr4.ID
+and d.eNest_aFour = 1
+group by r.eNest_aUnique1;
+
+delete from tmp3_qr4;
+insert into tmp3_qr4
+select eNest_aUnique1,0
+from eNest
+where eNest_aSixtyFour = 2;
+
+select t1.aUnique1, t2.numD
+from tmp3_qr4 t1
+left outer join
+tmp2_qr4 t2
+on t1.aUnique1 = t2.aUnique1;
+</pre>
+
+<!-- QS1 -->
+<table><tr bgcolor="aqua"><td>
+-- QS1: Select elements with aString = 'Sing a song of oneB4' 
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest e
+where eNest_aString = 'Sing a song of oneB1';
+</pre>
+
+<!-- QS2 -->
+<table><tr bgcolor="aqua"><td>
+-- QS2: Select elements with aString = 'Sing a song of oneB1' 
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest e
+where eNest_aString = 'Sing a song of oneB4';
+</pre>
+
+
+<!-- QS3 -->
+<table><tr bgcolor="aqua"><td>
+-- QS3: Select elements with aLevel = 10 
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest e
+where eNest_aLevel = 10;
+</pre>
+
+
+<!-- QS4 -->
+<table><tr bgcolor="aqua"><td>
+-- QS4: Select elements with aLevel = 13
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest e
+where eNest_aLevel = 13;
+</pre>
+
+<!-- QS5 -->
+<table><tr bgcolor="aqua"><td>
+-- QS5: Select nodes that have aSixtyFour between 5 and 8.
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest
+where eNest_aSixtyFour between 5 and 8; 
+</pre>
+
+<!-- QS6 -->
+<table><tr bgcolor="aqua"><td>
+-- QS6: Select nodes with aLevel = a13 and have the returned
+nodes sorted by aSixtyFour attribute. 
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest
+where eNest_aLevel = 13
+order by eNest_aSixtyFour;
+</pre>
+
+<!-- QS7 -->
+<table><tr bgcolor="aqua"><td>
+-- QS7: Select nodes with aSixteen = 1 and aFour = 1.
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest e
+where eNest_aFour = 1
+and eNest_aSixteen = 1;
+</pre>
+
+
+<!-- QS8 -->
+<table><tr bgcolor="aqua"><td>
+-- QS8: Selection based on the element name, eOccasional
+</td></tr></table>
+<pre>
+select eOccasional_aRef
+from eOccasional e;
+</pre>
+
+<!-- QS9 -->
+<table><tr bgcolor="aqua"><td>
+-- QS9: Select the second child of every node with aLevel = 7
+</td></tr></table>
+<pre>
+select eChild.eNest_aUnique1
+from eNest eParent, eNest eChild
+where eParent.eNest_aLevel = 7
+and eChild.eNest_childOrder = 2
+and eParent.eNest_ID = eChild.eNest_parentID
+and eChild.eNest_parentCODE = 'eNest';
+</pre>
+
+<!-- QS10 -->
+<table><tr bgcolor="aqua"><td>
+-- QS10: Select the second child of every node with aLevel = 9
+</td></tr></table>
+<pre>
+select eChild.eNest_aUnique1
+from eNest eParent, eNest eChild
+where eParent.eNest_aLevel = 9
+and eChild.eNest_childOrder = 2
+and eParent.eNest_ID = eChild.eNest_parentID
+and eChild.eNest_parentCODE = 'eNest';
+</pre>
+
+<!-- QS11 -->
+<table><tr bgcolor="aqua"><td>
+-- QS10: Get 'eOccasional' nodes that have element content 
+-- contains "oneB4"
+</td></tr></table>
+<pre>
+select eOccasional_aRef
+from eOccasional e
+where eOccasional_val like '%oneB4%';
+</pre>
+
+<!-- QS12 -->
+<table><tr bgcolor="aqua"><td>
+-- QS9: Get nodes that have element content contains "oneB4"
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest e
+where eNest_val like '%oneB4%';
+</pre>
+
+
+<!-- QS13 -->
+<table><tr bgcolor="aqua"><td>
+-- QS14: select all nodes with element content that the distance between
+<br/>
+-- 	 keyword "oneB5" and the keyword "twenty" is not more than four
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest
+where eNest_val like '%oneB5%'
+and isRightDist(eNest_val, 'twenty ', 'oneB5',4) = 1;
+</pre>
+
+
+<!-- QS14 -->
+<table><tr bgcolor="aqua"><td>
+-- QS13: select all nodes with element content that the distance between
+<br/>
+-- 	 keyword "oneB2" and the keyword "twenty" is not more than four
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest
+where eNest_val like '%oneB2%'
+and isRightDist(eNest_val, 'twenty ', 'oneB2',4) = 1;
+</pre>
+
+<!-- QS15 -->
+<table><tr bgcolor="aqua"><td>
+-- QS15: Moderate selectivity of both parent and child.  Select nodes with
+<br/>
+-- 	 aLevel = 13 that have a child with attribute aSixteen = 3
+</td></tr></table>
+<pre>
+select eParent.eNest_aUnique1
+from eNest eParent, eNest eChild
+where eParent.eNest_aLevel =  13
+and eChild.eNest_aSixteen = 3
+and eParent.eNest_ID = eChild.eNest_parentID
+and eChild.eNest_parentCODE = 'eNest';
+</pre>
+
+
+<!-- QS16 -->
+<table><tr bgcolor="aqua"><td>
+-- QS16: High selectivity of parent and low selectivity of child.  
+<br/>
+--       Select nodes with  aLevel = 15 that have a child with 
+<br/>
+--	 attribute aSixtyFour = 3
+</td></tr></table>
+<pre>
+select eParent.eNest_aUnique1
+from eNest eParent, eNest eChild
+where eParent.eNest_aLevel =  15
+and eChild.eNest_aSixtyFour = 3
+and eParent.eNest_ID = eChild.eNest_parentID
+and eChild.eNest_parentCODE = 'eNest';
+</pre>
+
+<!-- QS17 -->
+<table><tr bgcolor="aqua"><td>
+-- QS17: Low selectivity of parent and high selectivity of child.  
+<br/>
+--	 Select nodes with  aLevel = 11 that have a child with 
+<br/>
+-- 	 attribute aFour = 3
+</td></tr></table>
+<pre>
+select eParent.eNest_aUnique1
+from eNest eParent, eNest eChild
+where eParent.eNest_aLevel =  11
+and eChild.eNest_aFour = 3
+and eParent.eNest_ID = eChild.eNest_parentID
+and eChild.eNest_parentCODE = 'eNest';
+</pre>
+
+
+<!-- QS18 -->
+<table><tr bgcolor="aqua"><td>
+-- QS18: Local ordering.  Select the second element with aFour = 1 below
+<br/>
+-- 	 each element with aFour = 1 if that second element also has aFour = 1
+</td></tr></table>
+<pre>
+select eChild.eNest_aUnique1
+from eNest eParent, eNest eChild
+where eParent.eNest_aFour =  1
+and eChild.eNest_aFour = 1
+and eParent.eNest_ID = eChild.eNest_parentID
+and eChild.eNest_parentCODE = 'eNest'
+and eChild.eNest_childOrder = 2;
+</pre>
+
+
+<!-- QS19 -->
+<table><tr bgcolor="aqua"><td>
+-- QS19: Global ordering.  Select the second element with aFour = 1 below
+<br/>
+--	 any element with aSixtyFour = 1
+<br/>
+-- 1) Select element with aSixtyFour = 1
+<br/>
+-- 2) Select the second element of the element in 1) and fetch only 
+<br/>
+--    the first row
+</td></tr></table>
+<pre>
+select eChild.eNest_aUnique1
+from eNest eChild,
+(select eParent.eNest_ID
+from eNest eParent
+where eParent.eNest_aSixtyFour = 1) as tmp(eParentID)
+where eChild.eNest_aFour = 1
+and eChild.eNest_childOrder = 2
+and eChild.eNest_parentID = eParentID
+and eChild.eNest_parentCODE = 'eNest'
+fetch first 1 rows only;
+</pre>
+
+
+<!-- QS20 -->
+<table><tr bgcolor="aqua"><td>
+-- QS20: Reverse ordering. Select the last element with aSixteen = 1
+<br/>
+--	 below each element with aLevel = 13
+<br/>
+-- 1) find the ID of element that has the last order
+<br/>
+-- 2) get the element that has the matching ID found in 1) and 
+<br/>
+--    that has aSixteen = 1
+</td></tr></table>
+<pre>
+drop view tmp1_qs20;
+create view tmp1_qs20(parentID, ID, cOrder) as
+select eChild.eNest_parentID, eChild.eNest_ID, eChild.eNest_childOrder
+from eNest eParent, eNest eChild
+where eParent.eNest_aLevel = 13
+and eChild.eNest_aSixteen = 1
+and eChild.eNest_parentID = eParent.eNest_ID
+and eChild.eNest_parentCODE = 'eNest';
+
+
+drop view tmp3_qs20;
+create view tmp3_qs20(parentID, ID) as
+select t1.parentID, ID
+from tmp1_qs20 t1,
+(select parentID, max(cOrder)
+from tmp1_qs20 t2 
+group by t2.parentID) as tmp2_qs20(parentID, order)
+where t1.parentID = tmp2_qs20.parentID
+and t1.cOrder = tmp2_qs20.order; 
+
+select eNest_aUnique1
+from eNest c, tmp3_qs20
+where c.eNest_ID = tmp3_qs20.ID;
+select eParent.eNest_aUnique1
+from eNest eParent, eNest eChild
+where eParent.eNest_aFour =  1
+and eChild.eNest_aFour = 1
+and eParent.eNest_ID = eChild.eNest_parentID
+and eChild.eNest_parentCODE = 'eNest'
+and eChild.eNest_childOrder = 2;
+</pre>
+
+
+<!-- QS21 -->
+<table><tr bgcolor="aqua"><td>
+-- QS21: Moderate selectivity of both ancestor and descendant.  Select
+<br/>
+-- 	 nodes with aLevel = 13 that have a descendant with aSixteen = 3
+</td></tr></table>
+<pre>
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'ancestor' to
+-- store the ancestor of 'eNest' nodes
+-- with 'aSixteen' = 3
+select distinct eNest_aUnique1
+from eNest, ancestor
+where eNest.eNest_ID = ancestor.ID
+and eNest.eNest_aLevel = 13;
+</pre>
+
+<!-- QS22 -->
+<table><tr bgcolor="aqua"><td>
+-- QS22: High selectivity of ancestor and low selectivity of descendant 
+<br/>
+-- 	 Select nodes with aLevel = 15 that have a descendant with 
+<br/>
+-- 	 aSixtyFour = 3
+</td></tr></table>
+<pre>
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'ancestor' to
+-- store the ancestor of 'eNest' nodes
+-- with 'aSixteen' = 3
+select distinct eNest_aUnique1
+from eNest, ancestor
+where eNest.eNest_ID = ancestor.ID
+and eNest.eNest_aLevel = 15;
+</pre>
+
+
+<!-- QS23 -->
+<table><tr bgcolor="aqua"><td>
+-- QS23: Low selectivity of ancestor and high selectivity of descendant 
+<br/>
+-- 	 Select nodes with aLevel = 11 that have a descendant with 
+<br/>
+-- 	 aFour = 3
+</td></tr></table>
+<pre>
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'descendant' to
+-- store the descendants of 'eNest' nodes
+-- with 'aLevel' = 11
+select distinct e1.eNest_aUnique1
+from descendant d, eNest e1, eNest e2
+where d.rootID = e1.eNest_ID
+and e1.eNest_aLevel = 11
+and d.ID = e2.eNest_ID
+and e2.eNest_aFour = 3;
+</pre>
+
+
+<!-- QS24 -->
+<table><tr bgcolor="aqua"><td>
+-- QS24: Moderate selectivity of both ancestor and descendant.
+<br/>
+-- 	 Select nodes with aSixteen = 3 that have a descendant with
+<br/>
+-- 	 aSixteen = 5
+</td></tr></table>
+
+<pre>
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'ancestor' to
+-- store the ancestor of 'eNest' nodes with 'aSixteen' = 5
+select distinct eNest_aUnique1
+from eNest, ancestor
+where eNest.eNest_ID = ancestor.ID
+and eNest.eNest_aSixteen = 3;
+</pre>
+
+<!-- QS25 -->
+<table><tr bgcolor="aqua"><td>
+-- QS25: High selectivity of ancestor and low selectivity of descendant
+<br/>
+-- 	 Select nodes with aFour = 3 that have a descendant with
+<br/>
+-- 	 aSixtyFour= 3
+</td></tr></table>
+<pre>
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'tmp1_qs25' to
+-- store the ancestor of 'eNest' nodes
+-- with 'aSixtyFour' = 3
+select distinct eNest_aUnique1
+from eNest, ancestor
+where eNest.eNest_ID = ancestor.ID
+and eNest.eNest_aFour = 3;
+</pre>
+
+<!-- QS26 -->
+<table><tr bgcolor="aqua"><td>
+-- QS26: Low selectivity of ancestor and high selectivity of descendant
+<br/>
+-- 	 Select nodes with aSixtyFour = 9 that have a descendant with
+<br/>
+-- 	 aFour = 3
+</td></tr></table>
+<pre>
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'descendant' to
+-- store the descendants of 'eNest' nodes
+-- with 'aFour' = 3
+select distinct eNest_aUnique1
+from eNest e1, eNest e2, descendant d
+where d.rootID = e1.eNest_ID
+and e1.eNest_aSixtyFour = 9
+and d.ID = e2.eNest_ID
+and eNest.eNest_aFour = 3;
+</pre>
+
+<!-- QS27 -->
+<table><tr bgcolor="aqua"><td>
+-- QS27: Low selectivity of ancestor and high selectivity of descendant
+<br/>
+-- 	 Select nodes with aSixtyFour = 9 that have a descendant with
+<br/>
+-- 	 aFour = 3. Return a pair of ancestor and descendant nodes.
+</td></tr></table>
+<pre>
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'descendant' to
+-- store the ancestor of 'eNest' nodes
+-- with 'aFour' = 3
+select distinct e1.eNest_aUnique1, e2.eNest_aUnique1
+from eNest e1, eNest e2, descendant d
+where d.rootID = e1.eNest_ID
+and e1.eNest_aSixtyFour = 9
+and d.ID = e2.eNest_ID
+and eNest.eNest_aFour = 3;
+</pre>
+
+
+<!-- QS28 -->
+<table><tr bgcolor="aqua"><td>
+-- QS28: One chain query with three parent-child joins with the selectivity
+<br/>
+-- 	 pattern: high-low-low-high, to test the choice of join order in
+<br/>
+--	 evaluating a complex query.  To achieve the desired selectivities,
+<br/>
+--	 we use the following predicates: aFour = 3, aSixteen = 3,
+<br/>
+--	 aSixteen = 5, and aLevel = 16
+</td></tr></table>
+<pre>
+select distinct node1.eNest_aUnique1  
+from eNest node1, eNest node2, eNest node3, eNest node4
+where node1.eNest_aFour = 3
+and node2.eNest_aSixteen = 3
+and node3.eNest_aSixteen = 5
+and node4.eNest_aLevel = 16
+and node2.eNest_parentID = node1.eNest_ID
+and node2.eNest_parentCODE = 'eNest'
+and node3.eNest_parentID = node2.eNest_ID
+and node3.eNest_parentCODE = 'eNest'
+and node4.eNest_parentID = node3.eNest_ID
+and node4.eNest_parentCODE = 'eNest';
+</pre>
+
+<!-- QS29 -->
+<table><tr bgcolor="aqua"><td>
+-- QS29: One twig query with two parent child selection, low seletivity of
+<br/>
+-- 	 parent aLevel = 11, high selectivity of left child aFour = 3, 
+<br/>
+--	 and low selectivity of right child aSixtyFour = 3
+</td></tr></table>
+<pre>
+select distinct eParent.eNest_aUnique1
+from eNest eParent, eNest eChild1, eNest eChild2
+where eParent.eNest_aLevel = 11 
+and eChild1.eNest_aFour = 3
+and eChild2.eNest_aSixtyFour = 3
+and eChild1.eNest_parentID = eParent.eNest_ID
+and eChild1.eNest_parentCODE = 'eNest'
+and eChild2.eNest_parentID = eParent.eNest_ID
+and eChild2.eNest_parentCODE = 'eNest'
+and eChild1.eNest_ID <> eChild2.eNest_ID;
+</pre>
+
+<!-- QS30 -->
+<table><tr bgcolor="aqua"><td>
+-- QS29: One twig query with two parent child selection, low seletivity of
+<br/>
+-- 	 parent aLevel = 11, high selectivity of left child aFour = 3, 
+<br/>
+--	 and low selectivity of right child aSixtyFour = 3
+</td></tr></table>
+<pre>
+select distinct eParent.eNest_aUnique1
+from eNest eParent, eNest eChild1, eNest eChild2
+where eParent.eNest_aLevel = 11 
+and eChild1.eNest_aFour = 3
+and eChild2.eNest_aSixtyFour = 3
+and eChild1.eNest_parentID = eParent.eNest_ID
+and eChild1.eNest_parentCODE = 'eNest'
+and eChild2.eNest_parentID = eParent.eNest_ID
+and eChild2.eNest_parentCODE = 'eNest'
+and eChild1.eNest_ID <> eChild2.eNest_ID;
+</pre>
+
+
+<!-- QS31 -->
+<table><tr bgcolor="aqua"><td>
+-- QS31: One chain query with three ancestor-descendant joins with the selectivity
+<br/>
+--       pattern: high-low-low-high, to test the choice of join order in
+<br/>
+--       evaluating a complex query.  To achieve the desired selectivities,
+<br/>
+--       we use the following predicates: aFour = 3, aSixteen = 3,
+<br/>
+--       aSixteen = 5, and aLevel = 16
+</td></tr></table>
+<pre>
+create table tmp2_qs31(aID integer);
+create table tmp3_qs31(aID integer);
+create table tmp4_qs31(aID integer);
+create table tmp5_qs31(ID integer);
+
+drop view tmp1_qs31
+create view tmp1_qs31(aID) as
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'ancestor1' to
+-- store the ancestors of 'eNest' nodes
+-- with 'aLevel' = 16
+select distinct ID
+from ancestor1;
+
+
+delete from tmp2_qs31;
+insert into tmp2_qs31
+select a.eNest_ID as aID
+from eNest a, tmp1_qs31
+where a.eNest_ID = tmp1_qs31.ID
+and a.eNest_aSixteen = 5;
+
+
+delete from tmp3_qs31;
+insert into tmp3_qs31
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'tmp2_qs31' to
+-- store the ancestors of 'eNest' nodes
+-- with 'aLevel' = 16 that have ancestor nodes
+-- with 'aSixteen' = 5 in 'tmp3_qs31'
+select distinct ID
+from ancestor2;
+
+delete from tmp4_qs31;
+insert into tmp4_qs31
+select a.eNest_ID as aID
+from eNest a, tmp3_qs31
+where a.eNest_ID = tmp3_qs31.ID
+and a.eNest_aSixteen = 3;
+
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'tmp4_qs31' to
+-- store the ancestors of 'eNest' nodes with
+-- 'aLevel' = 16 that have ancestor nodes with
+-- 'aSixteen' = 5, and that have ancestor nodes with
+-- 'aSixteen' = 3 in 'tmp5_qs31'
+select distinct a.eNest_aUnique1
+from eNest a, tmp5_qs31
+where a.eNest_ID = tmp5_qs31.ID
+and a.eNest_aFour =  3;
+</pre>
+
+
+<!-- QS32 -->
+<table><tr bgcolor="aqua"><td>
+-- QS32: One twig query with two ancestor descendant selection, low selectivity 
+<br/>
+-- 	 of ancestor aLevel = 11, high selectivity of one descendant aFour = 3,
+<br/>
+--	 and low selectivity of another descendant aSixtyFour = 3
+</td></tr></table>
+<pre>
+create table tmp1_qs32(aUnique1 integer);
+create table tmp2_qs32(aUnique1 integer);
+
+delete from tmp1_qs32;
+insert into tmp1_qs32
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'tmp1_qs32' to
+-- store the ancestors of 'eNest' nodes
+-- with 'aSixtyFour' = 3
+select distinct eNest_aUnique1
+from ancestor, eNest
+where eNest_aLevel = 11
+and eNest_ID = ID;
+
+delete from tmp2_qs32;
+insert into tmp2_qs32
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'tmp2_qs32' to
+-- store the ancestors of 'eNest' nodes
+-- with 'aFour' = 3
+select distinct eNest_aUnique1
+from ancestor, eNest
+where eNest_aLevel = 11
+and eNest_ID = ID;
+
+select tmp1_qs32.aUnique1
+from tmp1_qs32, tmp2_qs32
+where tmp1_qs32.aUnique1 = tmp2_qs32.aUnique1;
+</pre>
+
+
+<!-- QS33 -->
+<table><tr bgcolor="aqua"><td>
+-- QS33: One twig query with two ancestor descendant selection, low selectivity 
+<br/>
+-- 	 of ancestor aFour = 1, low selectivity of one descendant aLevel = 11,
+<br/>
+--	 and low selectivity of another descendant aSixtyFour = 3
+</td></tr></table>
+<pre>
+drop view tmp1_qs33;
+create view tmp1_qs33(ID, aUnique1) as
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'ancestor' to
+-- store the ancestors of 'eNest' nodes
+-- with 'aLevel' = 11
+select distinct ID, eNest_aUnique1
+from ancestor, eNest
+where eNest_aFour = 1
+and eNest_ID = ID;
+
+drop view tmp2_qs33;
+create view tmp2_qs33(ID, aUnique1) as
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'ancestor' to
+-- store the ancestors of 'eNest' nodes
+-- with 'aSixtyFour' = 3
+select distinct ID, eNest_aUnique1
+from ancestor, eNest
+where eNest_aFour = 1
+and eNest_ID = ID;
+
+select tmp1_qs33.aUnique1
+from tmp1_qs33, tmp2_qs33
+where tmp1_qs33.ID = tmp2_qs33.ID;
+</pre>
+
+<!-- QS34 -->
+<table><tr bgcolor="aqua"><td>
+-- QS34: One twig query with two ancestor descendant selection, low selectivity 
+<br/>
+-- 	 of ancestor aFour = 1, low selectivity of a child with aLevel = 11,
+<br/>
+--	 and low selectivity of another descendant aSixtyFour = 3
+</td></tr></table>
+<pre>
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'ancestor' to
+-- store the ancestors of 'eNest' nodes
+-- with 'aSixtyFour' = 3
+select distinct a.eNest_aUnique1
+from eNest a, ancestor, eNest c
+where a.eNest_ID = ancestor.ID
+and c.eNest_parentID = a.eNest_ID
+and c.eNest_parentCODE = 'eNest'
+and c.eNest_aLevel = 11
+and a.eNest_aFour = 1;
+</pre>
+
+<!-- QS35 -->
+<table><tr bgcolor="aqua"><td>
+-- QS35: Missing Elements.  Find all BaseType elements that there is
+<br/>
+-- 	no OccasionalType elements below them.
+<br/>
+-- 1) Find all BaseType elements that there is some OccasionalType
+<br/>
+--    elements below them.
+<br/>
+-- 2) Return elements that are not in 1)
+</td></tr></table>
+<pre>
+create table tmp1(ID integer, hasOccasional integer);
+
+delete from tmp1;
+insert into tmp1;
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'subeNest' to
+-- store 'eNest' nodes that have 'eOccasional'
+-- as descendants
+select distinct ID, hasOccasional
+from subeNest;
+
+drop view tmp2;
+create view tmp2(aUnique1, hasOccasional) as
+select eNest_aUnique1, t.hasOccasional
+from eNest c
+left outer join
+tmp t
+on t.ID = c.eNest_ID;
+
+select aUnique1 from tmp2
+where hasOccasional is null;
+</pre>
+
+<!-- QJ1 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ1: Low selectivity join: select nodes based on aSixtyFour = 2 and join
+<br/>
+-- with nodes with aSixtyFour = 3
+</td></tr></table>
+<pre>
+select e1.eNest_aUnique1, e2.eNest_aUnique1
+from eNest e1, eNest e2
+where e1.eNest_aSixtyFour = 2
+and e1.eNest_aSixtyFour = e2.eNest_aSixtyFour
+and e1.eNest_aUnique1 = e2.eNest_aUnique1;
+</pre>
+
+<!-- QJ2 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ2: Low selectivity join: select nodes based on aSixteen = 2 and join
+<br/>
+-- with nodes with aSixteen = 3
+</td></tr></table>
+<pre>
+select e1.eNest_aUnique1, e2.eNest_aUnique1
+from eNest e1, eNest e2
+where e1.eNest_aSixteen = 2
+and e1.eNest_aSixteen = e2.eNest_aSixteen
+and e1.eNest_aUnique1 = e2.eNest_aUnique1;
+</pre>
+
+
+<!-- QJ3 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ3: Low selectivity join: select all OccasionalType nodes that point to
+<br/>
+-- 	a node with aSixtyFour = 3
+</td></tr></table>
+<pre>
+select eOccasional_aRef
+from eOccasional, eNest
+where eNest_aSixtyFour = 3
+and eNest_aUnique1 = eOccasional_aRef;
+</pre>
+
+<!-- QJ4 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ4: Low selectivity join: select all OccasionalType nodes that point to
+<br/>
+-- 	a node with aFour = 3
+</td></tr></table>
+<pre>
+select eOccasional_aRef
+from eOccasional, eNest
+where eNest_aFour = 3
+and eNest_aUnique1 = eOccasional_aRef;
+</pre>
+
+<!-- QA1 -->
+<table><tr bgcolor="aqua"><td>
+-- QA1: Over all nodes at level 15, compute the average value for the
+<br/>
+-- 	aSixtyFour attribute
+</td></tr></table>
+<pre>
+select avg(eNest_aSixtyFour)
+from eNest 
+where eNest_aLevel = 15;
+</pre>
+
+
+<!-- QA2 -->
+<table><tr bgcolor="aqua"><td>
+-- QA2: Over all nodes at all levels, compute the average value for the
+<br/>
+-- 	aSixtyFour attribute
+</td></tr></table>
+<pre>
+select eNest_aLevel, avg(eNest_aSixtyFour)
+from eNest 
+group by eNest_aLevel;
+</pre>
+
+
+<!-- QA3 -->
+<table><tr bgcolor="aqua"><td>
+-- QA3: Select elements that have at least two occurrences of keyword "oneB1"
+<br/>
+in their content
+</td></tr></table>
+<pre>
+select eNest_aUnique1
+from eNest
+where eNest_val like '%oneB1%'
+and isNumKeysGTE(eNest_val,'oneB1',2) = 1;
+</pre>
+
+
+<!-- QA4 -->
+<table><tr bgcolor="aqua"><td>
+-- QA3: Amongst the nodes at level 11, find the node(s) with the largest
+<br/>
+--      fanout.
+<br/>
+-- 	1) find number of children of each node at level 11
+<br/>
+-- 	2) find nodes that have the number of children equal to the 
+<br/>
+--	   the largest number of children.
+</td></tr></table>
+<pre>
+CREATE TABLE tmp1_qa3(pID integer, cID integer);
+CREATE TABLE tmp2_qa3(pID integer, numC integer);
+
+delete from tmp1_qa3;
+insert into tmp1_qa3;
+select distinct p.eNest_ID, c.eNest_ID
+from eNest p, eNest c
+where c.eNest_parentID = p.eNest_ID
+and p.eNest_aLevel = 11
+union
+select distinct p.eNest_ID, c.eOccasional_aRef
+from eNest p, eOccasional c
+where c.eOccasional_parentID = p.eNest_ID
+and p.eNest_aLevel = 11;
+
+delete from tmp2_qa3;
+insert into tmp2_qa3
+select pID, count(cID)
+from tmp1_qa3
+group by pID;
+
+drop view tmp3_qa3;
+create view tmp3_qa3(maxNumC) as
+select distinct max(numC)
+from tmp2_qa3;
+
+select distinct eNest_aUnique1
+from eNest, tmp2_qa3, tmp3_qa3
+where eNest.eNest_ID = tmp2_qa3.pID
+and numC = maxNumC;
+</pre>
+
+
+
+
+<!-- QA5 -->
+<table><tr bgcolor="aqua"><td>
+-- QA5:  select elements that have at least two children that satisfy 
+<br/>
+--       aFour = 1
+</td></tr></table>
+<pre>
+select distinct eParent.eNest_aUnique1
+from eNest eParent, eNest eChild1, eNest eChild2
+where eChild1.eNest_aFour = 1
+and eChild2.eNest_aFour = 1
+and eChild1.eNest_parentID = eParent.eNest_ID
+and eChild1.eNest_parentCODE = 'eNest'
+and eChild2.eNest_parentID = eParent.eNest_ID
+and eChild2.eNest_parentCODE = 'eNest'
+and eChild1.eNest_ID <> eChild2.eNest_ID;
+</pre>
+
+
+<!-- QA6 -->
+<table><tr bgcolor="aqua"><td>
+-- QA6: For each node at level 7 (7,3), determine the height of the
+<br/>
+--      sub-tree rooted at this node
+</td></tr></table>
+<pre>
+drop view tmp1_qa6;
+create view tmp1_qa6 as
+select max(eNest_aLevel) as maxLevel
+from eNest;
+
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'tmp1_qa6'  to 
+-- store the ancestors of 'eNest' nodes that have maximum level
+-- and keep track the height of each node.  At the
+-- end, output the ID and the height of nodes with 'aLevel' = 7
+</pre>
+
+
+<!-- QU1 -->
+<table><tr bgcolor="aqua"><td>
+-- QU1: Point Insert. Insert a new node below the node with 
+<br/>
+-- aUnique1 = 10102. <br/>
+</td></tr></table>
+<pre>
+drop view tmp1_qu1;
+create view tmp1_qu1(parentID, stringVal) as
+select eNest_ID, eNest_val
+from eNest
+where eNest_aUnique1 = 10102;
+
+insert into eNest
+select 70000, parentID, 'eNest', 1, 70000, 3000, 10, 3, 15, 60,
+'Sing a song of oneB11', stringVal
+from tmp1_qu1;
+</pre>
+
+
+<!-- QU2 -->
+<table><tr bgcolor="aqua"><td>
+-- QU2: Delete the node with aUnique1<br/>
+-- = 10102 and transfer all its children to its parent.<br/>
+</td></tr></table>
+<pre>
+update eNest
+set eNest_parentID =
+(select eNest_parentID
+from eNest
+where eNest_aUnique1 = 10102)
+where eNest_parentID =
+(select eNest_ID
+from eNest
+where eNest_aUnique1 = 10102);
+
+-- delete the node with aUnique1 = 10102
+delete from eNest
+where eNest_aUnique1 = 10102;
+</pre>
+
+
+<!-- QU3 -->
+<table><tr bgcolor="aqua"><td>
+-- QU3: Insert a new node below each node<br/>
+-- with aSixtyFour = 1.  Each new node has attributes identical<br/>
+-- to its parent, except for aUnique1, which is set to some new<br/>
+-- large, unique value, not necessarily contiguous with the values<br/>
+-- already assigned in the database.<br/>
+</td></tr></table>
+<pre>
+drop view tmp1_qu3;
+create view tmp1_qu3(eNest_ID, eNest_parentID, eNest_parentCODE,
+                    eNest_childOrder, eNest_aUnique1, eNest_aUnique2,
+                    eNest_aLevel, eNest_aFour, eNest_aSixteen,
+                    eNest_aSixtyFour, eNest_aString, eNest_val) as
+select eNest_ID + 70000, eNest_ID, eNest_parentCODE, eNest_childOrder,
+        eNest_aUnique1, eNest_aUnique2, eNest_aLevel, eNest_aFour,
+        eNest_aSixteen, eNest_aSixtyFour, eNest_aString, eNest_val
+from eNest
+where eNest_aSixtyFour = 1;
+
+insert into eNest
+select *
+from tmp1_qu3;
+</pre>
+
+
+<!-- QU4 -->
+<table><tr bgcolor="aqua"><td>
+-- QU4. Bulk Delete. Delete all leaf nodes with <br/>
+-- aSixteen = 3. <br/>
+</td></tr></table>
+<pre>
+delete from eNest
+where eNest_parentID not in
+(select eNest_ID
+from eNest)
+and eNest_aSixteen = 3;
+</pre>
+
+<!-- QU4 -->
+<table><tr bgcolor="aqua"><td>
+-- QU4. Bulk Delete. Delete all leaf nodes with <br/>
+-- aSixteen = 3. 
+</td></tr></table>
+<pre>
+delete from eNest
+where eNest_parentID not in
+(select eNest_ID
+from eNest)
+and eNest_aSixteen = 3;
+</pre>
+
+<!-- QU5 -->
+<table><tr bgcolor="aqua"><td>
+-- QU5:  Load the original data set from a (set of) document(s).
+</td></tr></table>
+<pre>
+load from eNest.txt of del modified by coldel| insert into eNest;
+load from eOccasional.txt of del modified by coldel| insert into eOccasional;
+</pre>
+
+<!-- QU6 -->
+<table><tr bgcolor="aqua"><td>
+-- QU6: Return a set of documents,<br/>
+-- one for each sub-tree rooted at nodes with aLevel=11<br/>
+-- and with a child of type eOccasional.
+</td></tr></table>
+<pre>
+-- vendor specific call for recursive query removed
+-- recursive join 'eNest' table and 'descendant'  to
+-- store the descendants of 'eNest' nodes with
+-- 'aLevel' = 11
+select e.eNest_aUnique1, count(a.ID)
+from ancestor a, eNest e
+where a.rootID = e.eNest_ID
+group by e.eNest_aUnique1;
+</pre>
+
+<!-- QU7 -->
+<table><tr bgcolor="aqua"><td>
+-- QU7: For a node $u$ of type eOccasional, let $v$ be the parent of $u$, and<br/>
+-- $w$ be the parent of $v$ in the database.  For each such node $u$, make $u$ a<br/>
+-- direct child of $w$ in the same position as $v$, and place $v$ (along with<br/>
+-- the sub-tree rooted at $v$) under $u$.<br/>
+</td></tr></table>
+<pre>
+drop table tmp1_qu7;
+
+create table tmp1_qu7(eNest_ID integer, eNest_parentCODE varchar(50),
+eNest_childOrder integer,
+eNest_aUnique1 integer, eNest_aUnique2 integer, eNest_aLevel integer,
+eNest_aFour integer,
+eNest_aSixteen integer, eNest_aSixtyFour integer,
+eNest_aString varchar(40), eNest_val varchar(550));
+
+insert into tmp1_qu7
+select eNest_ID, eNest_parentCODE, eNest_childOrder, eNest_aUnique1,
+eNest_aUnique2, eNest_aLevel, eNest_aFour, eNest_aSixteen,
+eNest_aSixtyFour, eNest_aString, eNest_val
+from eNest, eOccasional
+where eNest_ID = eOccasional_parentID;
+
+drop table tmp2_qu7;
+
+create table tmp2_qu7(ID integer, parentID integer);
+
+insert into tmp2_qu7
+select eNest_ID as ID, eOccasional_ID as parentID
+from eOccasional, eNest
+where eNest_ID = eOccasional_parentID;
+
+drop table tmp3_qu7;
+
+create table tmp3_qu7(eNest_ID integer, eNest_parentID integer,
+eNest_parentCODE varchar(50),
+eNest_childOrder integer,
+eNest_aUnique1 integer, eNest_aUnique2 integer, eNest_aLevel integer,
+eNest_aFour integer,
+eNest_aSixteen integer, eNest_aSixtyFour integer,
+eNest_aString varchar(40), eNest_val varchar(550));
+
+insert into tmp3_qu7
+select t1.eNest_ID, t2.parentID, t1.eNest_parentCODE, t1.eNest_childOrder,
+t1.eNest_aUnique1,
+t1.eNest_aUnique2, t1.eNest_aLevel, t1.eNest_aFour, t1.eNest_aSixteen,
+t1.eNest_aSixtyFour, t1.eNest_aString, t1.eNest_val
+from tmp1_qu7 t1, tmp2_qu7 t2
+where t1.eNest_ID = t2.ID;
+
+delete from eNest
+where eNest_ID in
+(select eOccasional_parentID
+from eOccasional);
+
+insert into eNest
+select * from tmp3_qu7;
+
+update eOccasional u
+set u.eOccasional_parentID =
+(select v.eNest_parentID
+from eNest v
+where v.eNest_ID = u.eOccasional_parentID);
+</pre>
+</body>
+</html>

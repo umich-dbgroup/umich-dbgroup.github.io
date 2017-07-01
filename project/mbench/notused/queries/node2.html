@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Returned Structure</TITLE>
+<META NAME="description" CONTENT="Returned Structure">
+<META NAME="keywords" CONTENT="queries">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="queries.css">
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html34"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html32"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html26"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html35"
+  HREF="node3.html">Simple Selection Queries</A>
+<B> Up:</B> <A NAME="tex2html33"
+  HREF="node1.html">Selection Queries</A>
+<B> Previous:</B> <A NAME="tex2html27"
+  HREF="node1.html">Selection Queries</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00001100000000000000">
+Returned Structure</A>
+</H3>
+In a relation, once a tuple is selected, the tuple is returned. In
+XML, as we saw in the example above, once an element is selected, one may
+return the element, as well as some structure related to the element, such as
+the sub-tree rooted at the element.  Query performance can be 
+significantly affected by how the data is
+stored and when the returned result is materialized.
+
+<P>
+To understand the role of returned structure in query performance, we
+use the query,
+select all elements with <I>aSixtyFour = 2</I>. The selectivity of this
+query is 1/64 (1.6%).  These queries have a selectivity of 1/64 since they
+are selected based on <I>aSixtyFour</I> attribute which has a probability of 1/64. 
+
+<P>
+This
+query is run  in the following cases:
+
+<UL>
+<LI><B>QR1.</B> Return only the elements in question, not including any
+sub-elements.   
+</LI>
+<LI><B>QR2.</B> Return the elements and all their immediate children.
+</LI>
+<LI><B>QR3.</B> Return the entire sub-tree rooted at the elements.
+</LI>
+<LI><B>QR4.</B> Return the elements and their selected descendants with <I>aFour =1</I>.
+</LI>
+</UL>
+
+<P>
+The remaining queries in the benchmark simply return the
+selected nodes (i.e., QR1), except when explicitly specified
+otherwise.
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html34"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html32"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html26"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html35"
+  HREF="node3.html">Simple Selection Queries</A>
+<B> Up:</B> <A NAME="tex2html33"
+  HREF="node1.html">Selection Queries</A>
+<B> Previous:</B> <A NAME="tex2html27"
+  HREF="node1.html">Selection Queries</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

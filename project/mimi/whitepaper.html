@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>WDMBIO Jagadish White Paper</title>
+</head>
+<h2>
+Effective Integration of Protein Data through Better Data Modeling
+</h2>
+<h3>
+Adriane Chapman, Cong Yu, and H. V. Jagadish
+<br>
+Univ. of Michigan
+</h3>
+<P>
+There is a proliferation of data sources in biology.  Each research group and
+each new experimental technique seems to generate yet another source of
+valuable data.  This data is not represented in any standard format.
+Usually it is not possible to define a tightly-specified standard format that
+is general enough to anticipate the needs of this new data sources.
+Even when open standards such as XML are used to represent data, they are
+frequently in the form of customized, source-specific, schemas.  Moreover,
+schemas themselves change frequently, as knowledge in the field evolves, and
+new attributes are found to be of importance.  Researchers relying on the
+integration of data from multiple such sources need help.
+<P>
+Even researchers conducting experiments, and therefore quite likely
+interested in a comparatively limited class of sources of data, need help.
+Since experiments are expensive to conduct, reuse of data is desirable
+whenever possible, for instance by patching together information derived from
+multiple previous experiments conducted for possibly different purposes.
+Effectively performing such data integration requires good metadata
+annotation with respect to experimental conditions and similar other
+information regarding each data set in question.  However, such annotations
+are frequently missing.  Even when present, they are frequently incomplete
+and never standardized.
+<P>
+Some standards for meta-data specification are beginning to emerge.  For
+instance, MESH is used widely to annotate medical literature, and UMLS has
+been proposed as the next step beyond it.  Drug ontologies have been
+developed based on chemical components and on functional characterization.
+While development of a standardized domain-specific ontology is of value,
+there is much information that such ontologies are not likely to capture.  For
+instance, details of the experimental conditions, possibly considered
+trivial at the time of the experiment itself, may turn out to be crucial
+at a later time.  No ontology is likely to have a priori captured such
+detail.
+<P>
+In addition to metadata regarding the environment, the experiment, and
+so forth, there is also considerable local metadata that could be
+associated with individual data items (or sets of data items).  For
+instance, scientists may often wish to annotate specific readings, by
+way of explanation, or to record an insight not evident from just the
+numbers.  Similarly, data can be of variable quality, due to
+experimental error of various sorts, and also because science progresses
+by advancing hypotheses not all of which are eventually substantiated.
+We should provide facilities to maintain data provenance to enable
+tracing the derivation of each item in a database.  We should also keep
+track of reliability quantitatively, through the association of
+probabilities, and similar other quantitative expressions.
+<P>
+At the University of Michigan, we have been studying these issues, and
+currently have partial solutions in place, based on our
+<a href="http://www.eecs.umich.edu/db/timber">Timber</a>  XML data
+management project.  Specifically, we are able to
+capture quantitative and qualitative reliability information associated with
+facts at any granularity
+[<a href="http://www.eecs.umich.edu/db/timber/files/protdb.pdf">ProTDB</a>].
+We are also able to represent the experimental technique used to obtain the
+data, along with relevant environmental factors that may be important in
+future interpretation of the data.
+<P>
+Using the above as a basis, we have begun to address the problem of
+integrating the large amount of  web accessible data available to the
+biological enterprise, focusing specifically on protein interaction data.
+We find that there is significant overlap in content among sources as well as
+innumerable links connecting the source contents to each other.  We are
+developing new data representation and integration techniques that permit
+effective integrated representation of such disparate overlapping data, along
+with all of the environmental and reliability annotations mentioned above.
+
+
+</body>
+</html>

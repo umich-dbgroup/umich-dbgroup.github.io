@@ -1,0 +1,802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0036)http://www.eecs.umich.edu/db/usable/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>Database Usability Research at University of Michigan</title>
+ 
+ <meta name="keywords" content="Database Usability, usable database, user interface"> 
+</head>
+<body bgcolor="#AFBED1">
+<table width="75%" border="0" align="center">
+  <tbody><tr> 
+    <td bgcolor="#003399"><div align="center"> 
+        <p><strong><font color="#FFFFFF" size="5" face="Verdana, Arial, Helvetica, sans-serif">
+          Model-driven Usable Systems for Information Querying</font></strong></p>
+      </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF"><blockquote>
+<p align="center"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          <a href="http://www.eecs.umich.edu/db/usable#introduction">Introduction</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="http://www.eecs.umich.edu/db/usable#people">People</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <a href="http://www.eecs.umich.edu/db/usable#publication">Publications</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="http://www.eecs.umich.edu/db/usable#demo">Demonstrations</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="http://www.eecs.umich.edu/db/usable#bib">Usability Bibliography</a>
+
+</strong></font></p>
+
+<hr>
+
+        <p align="justify"><font color="#000000" size="4" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          <a name="introduction">Introduction</a></strong></font></p>
+	<p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+          Database researchers have striven to improve the capability of a database in terms of both 
+        performance and functionality.  We believe that the usability of a database is as important as its 
+        capability.  However, modern database systems are very difficult to
+          use. In the MUSIQ (Model-driven Usable Systems for Information
+          Querying) project, we address some of the challenges in making
+          database systems more usable.  In particular, our focus is on
+          issues in the data modeal and database design, rather than in
+          issues of graphical user interface design.</font></p> 
+
+	<p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	  For an overview of the issues, please download Prof. Jagadish's 
+        <a href="http://www.eecs.umich.edu/db/usable/usability-sigmod.ppt">keynote  
+        talk at SIGMOD 2007</a> and the <a href="http://www.eecs.umich.edu/db/usable/usability.pdf">accompanying  
+        paper</a>, or watch the <a href="http://portal.acm.org/ft_gateway.cfm?id=1247483&type=mov&coll=GUIDE&dl=GUIDE&CFID=33434379&CFTOKEN=46851263">video</a>.
+	  This work has been supported in part by NSF grants
+<a href="http://www.eecs.umich.edu/db/usable/presentation.html">IIS 0741620</a> and IIS 1017296</font>.</p>
+
+<hr>
+        
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="4"> 
+          <a name="people">People</a></font></strong></font></p>
+	<p></p>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><font color="#000000" size="2"> 
+          Faculty</font></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/~jag">Prof. H.V. Jagadish</a> 
+	        </font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><font color="#000000" size="2"> 
+          Graduate Students</font></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		Manish Singh
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://web.eecs.umich.edu/~lifei/">Fei Li</a> 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		Nikita Bhutani
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><font color="#000000" size="2"> 
+          Alumni</font></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://web.eecs.umich.edu/~eql/">Li Qian</a> (Ph.D. '12, Facebook)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		Anna Shaverdian (PhD. '12, IBM)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://binliu.org/index.html">Bin Liu</a> (Ph.D. '11, Google Research)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.arnab.org/">Arnab Nandi</a> (Ph.D. '11, Ohio State University)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/~mjayapan">Magesh Jayapandian</a> (Ph.D. '08, IBM Silicon Valley Laboratory)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.ageworld.net/">Adriane Chapman</a> (Ph.D. '08, MITRE)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.almaden.ibm.com/cs/people/yunyaoli/index.html">Yunyao Li</a> (Ph.D. '07, IBM Almaden Research Center)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/~congy">Cong Yu</a> (Ph.D. '07, Google Research)
+		</font></li>
+          </ul>
+        </div>
+
+<hr>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="4"> 
+          <a name="publication">Publications (by topic)</a></font></strong></font></p>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Overview</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/usable/usability.pdf">Making Database Systems Usable</a>. H.V. Jagadish, Adriane Chapman, Aaron Elkiss, Magesh Jayapandian, Yunyao Li, Arnab Nandi, and Cong Yu. In SIGMOD, 2007.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Direct Manipulation Querying of Database Systems</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/~binliu/pub/vldb10.pdf">Automatic Rule Refinement for Information Extraction</a>. Bin Liu, Laura Chiticariu, Vivian Chu, H. V. Jagadish, and Frederick R. Reiss. In VLDB, 2010.
+		</font></li>
+		            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+				    <a href="http://www.eecs.umich.edu/~binliu/pub/ieee-deb2010.pdf">Refining Information Extraction Rules Using Data Provenance</a>. Bin Liu, Laura Chiticariu, Vivian Chu, H. V. Jagadish, and Frederick R. Reiss. In IEEE Data Engineering Bulletin, 2010.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/~binliu/pub/vldb09.pdf">Using Trees to Depict a Forest</a>. Bin Liu, H. V. Jagadish. In VLDB, 2009.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/~binliu/pub/icde09.pdf">A Spreadsheet Algebra for a Direct Data Manipulation Query Interface</a>. Bin Liu, H. V. Jagadish. In ICDE, 2009.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Natural Language Interfaces</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.eecs.umich.edu/db/files/PVLDB14LF.pdf">Constructing an Interactive Natural Language Interface for Relational Databases</a>. Fei Li and H. V. Jagadish. 
+                In PVLDB, 2014.
+            </font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.eecs.umich.edu/db/files/AAAI07LiY.pdf">Enabling Domain-Awareness for a Generic 
+                Natural Language Interface</a>. Yunyao Li, Ishan Chaudhuri, Huahai Yang, Satinder Singh and H. V. Jagadish. 
+                In AAAI, 2007.
+            </font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/files/NaLIX_TODS.pdf">NaLIX: A Generic Natural Language Search Environment for XML Data</a>. Yunyao Li, Huahai Yang and H.V. 
+                Jagadish. In ACM TODS, November, 2007.
+            </font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/files/NaLIX_EDBT.pdf">Constructing a Generic Natural Language 
+                Interface for an XML Database</a>. Yunyao Li, Huahai Yang and H.V. Jagadish. In EDBT, 2006.
+            </font></li>
+          </ul><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+        </font></div><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	
+        <p align="justify"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Addressing Unknown Schema</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.eecs.umich.edu/db/files/SIGMOD14LFa.pdf">Schema-Free SQL</a>. Fei Li, Tianyin Pan and H. V. Jagadish. In SIGMOD, 2014.
+            </font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.springerlink.com/content/7hh85l8314515n74/">Enabling Schema-Free XQuery with Meaningful 
+                Query Focus</a>. Yunyao Li, Cong Yu and H. V. Jagadish. In VLDB Journal, 2006.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/mlcas.pdf">Schema-Free XQuery</a>. Yunyao Li, Cong Yu and 
+                H. V. Jagadish. In VLDB, 2004.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/yu-sigmod03.pdf">Querying Structured Text in an XML 
+                Database</a>. Shurug Al-Khalifa, Cong Yu and H. V. Jagadish. In SIGMOD, 2003.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong> 
+          Addressing Complex Schema</strong></font></p>
+        <div align="justify"> 
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/yu-vldb07a.pdf">Querying Complex Structured Database</a>. Cong Yu and H. V. Jagadish. In VLDB, 2007.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/yu-vldb06a.pdf">Schema Summarization</a>. 
+                Cong Yu and H. V. Jagadish. In VLDB, 2006.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+         Answering Imprecise Queries</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="http://www.vldb.org/pvldb/vol4/p1466-nandi.pdf">Guided Interaction: Rethinking the Query-Result Paradigm</a>. Arnab Nandi, H. V. Jagadish. PVLDB 2011. </font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="http://www-db.cs.wisc.edu/cidr/cidr2009/Paper_35.pdf">Qunits: Queried Units for Database Search</a>. Arnab Nandi and H. V. Jagadish. In CIDR, 2009.</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="http://www.eecs.umich.edu/db/files/fcpaper07.pdf">Effective Phrase Prediction</a>. Arnab Nandi and H. V. Jagadish. In VLDB, 2007.</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Managing Provenance</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/db/files/ChapmanSIGMOD09.pdf">Why NOT?</a> Adriane Chapman and H. V. Jagadish. In SIGMOD 2009 (to appear).
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/ipaw08.pdf">Provenance and the Price of Identity</a>. Adriane Chapman and H. V. Jagadish. In IPAW, 2008.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/chapman-efficient.pdf">Efficient Provenance Storage</a>. Adriane Chapman, H. V. Jagadish and Prakash Ramanan. In SIGMOD, 2008.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/chapman07.pdf">Issues in Building Practical Provenance Systems</a>. Adriane Chapman and H. V. Jagadish. In IEEE Data Engineering Bulletin, 2007.
+
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/ipaw06.pdf">A Provenance Model for Manually Curated Data</a>. Peter Buneman, Adriane Chapman, James Cheney and Stijn Vansummeren. In IPAW, 2006.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/copypaste.pdf">Provenance Management in Curated Databases</a>. Peter Buneman, Adriane Chapman and James Cheney. In SIGMOD, 2006.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Musiq Form: Adaptive Form-Based Interfaces</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/files/p695-jayapandian.pdf">Automated Creation of a Forms-based Database Query Interface</a>. Magesh Jayapandian and H. V. Jagadish. In VLDB, 2008.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/files/edbt08.pdf">Expressive Query Specification through Form Customization</a>. Magesh Jayapandian and H. V. Jagadish. In EDBT, 2008.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/files/icde06form.pdf">Automating the Design and Construction of Query Forms</a>. Magesh Jayapandian and H. V. Jagadish. In ICDE, 2006.
+		</font></li>
+          </ul>
+        </div>
+        
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Reducing the Burden in Data Organization</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://web.eecs.umich.edu/~michjc/papers/qian_sigmod12.pdf">Sample-Driven Schema Mapping</a>. Li Qian, Michael J. Cafarella, H. V. Jagadish. In SIGMOD, 2012.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://web.eecs.umich.edu/~eql/paper/p81-qian.pdf">CRIUS: User-Friendly Database Design</a>. Li Qian, Kristen LeFevre, H. V. Jagadish. In PVLDB, 2011.
+		</font></li>
+          </ul>
+        </div>
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Visualizing Query Results</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/files/skimmer_sigmod2012.pdf">Skimmer: Rapid Scrolling of Relational Query Results</a>. Manish Singh, Arnab Nandi and H. V. Jagadish. In SIGMOD, 2012.
+		</font></li>
+          </ul>
+        </div>
+<hr>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="4"> 
+          <a name="demo">System Demonstrations</a></font></strong></font></p>
+
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.eecs.umich.edu/db/files/SIGMOD14LFb.pdf">NaLIR: An Interactive Natural Language Interface for Querying Relational Databases</a>. Fei Li and H. V. Jagadish. In SIGMOD, 2014.
+            </font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/db/files/LiuSIGMOD09.pdf">DataLens: Making a Good First Impression</a>. Bin Liu and H. V. Jagadish. In SIGMOD (demo), 2009 (to appear).
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/prompt07.pdf">Assisted Querying using Instant-Response Interfaces</a>. Arnab Nandi and H. V. Jagadish. In SIGMOD (demo), 2007.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.eecs.umich.edu/db/files/danalix.pdf">
+                DaNaLIX: a Domain-adaptive Natural Language Interface for Querying XML</a>. Yunyao Li, Ishan Chaudhuri, 
+                Huahai Yang, Satinder Singh, H. V. Jagadish. In SIGMOD (demo), 2007
+                </font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/files/130NaLIX.pdf">NaLIX: an Interactive Natural Language Interface 
+                for Querying XML</a>. Yunyao Li, Huahai Yang and H.V. Jagadish. In SIGMOD, 2005. (best demo)
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/yu-si03demo.pdf">Querying XML Using Structures and Keywords 
+                in Timber</a>. Cong Yu, H. V. Jagadish, and Dragomir Radev. In SIGIR (demo), 2003.
+		</font></li>
+          </ul>
+        <div align="justify">
+            
+<hr>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="4"> 
+          <a name="bib">Usability Bibliography (by topic)</a></font></strong></font></p>
+          
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Workshops</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="https://sites.google.com/site/data4u2014/home">Data4U 2014</a> in conjunction with <a href="http://www.vldb.org/2014/">VLDB 2014</a>  
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Visual Query Specification Interface</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.101.2235">Visual Query Systems for Databases: a Survey</a>. Catarci, T., Costabile, M.F., Levialdi, S., Batini, C. Journal of Visual Languages and Computing, 1997.  
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://pages.cs.wisc.edu/~dbbook/openAccess/thirdEdition/qbe.pdf">Query-by-Example: a Database Language</a>. M. M. Zloof. IBM Systems Journal, 1977. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1071613&dl=ACM&coll=DL&CFID=221751282&CFTOKEN=52023805">XQBE (XQuery By Example): A Visual Interface to the Standard XML Query Language</a>. D. Braga, A. Campi, and S. Ceri. TODS 2005. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.wright.edu/~arijit.sengupta/Published/adl97.pdf">Query by Templates: A Generalized Approach for Visual Query Formulation for Text Dominated Databases</a>. A. Sengupta and A. Dillon. ADL 1997. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cs.man.ac.uk/~norm/papers/avi98.pdf">Kaleidoquery: A Visual Query Language for Object Databases</a>. N. Murray, N. Paton, and C. Goble. In Advanced Visual Interfaces, 1998.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.214.3467">Visionary: A Viewpoint-based Visual Language for Querying Relational Databases</a>. F. Benzi, D. Maio, S. Rizzi. Journal of Visual Languages and Computing, 1999.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=874349">A Visual Language for XML</a>. Martin Erwig. In IEEE Symposium on Visual Languages, 2000.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://db.ucsd.edu/pubsFileFolder/140.pdf">Mixing Querying and Navigation in MIX</a>. P. Mukhopadhyay and Y. Papakonstantinou. ICDE 2002.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=1410157&contentType=Conference+Publications">A Relationally Complete Visual Query Language for Heterogeneous Data Sources and Pervasive Querying</a>. Polyviou, G Samaras, P Evripidou. ICDE 2005.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cais.ntu.edu.sg/~assourav/papers/SIGMOD-10-Gblender.pdf">GBLENDER: Towards Blending Visual Query Formulation and Query Processing in Graph Databases</a>. Changjiu Jin, Sourav S. Bhowmick, Xiaokui Xiao, James Cheng, Byron Choi. SIGMOD 2010. 
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+         Form-based Query Interface</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=64125">NFQL: the Natural Forms Query Language</a>. David W. Embley. TODS 1989. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.bcs.org/upload/pdf/ewic_in96_paper15.pdf">DRIVE: An Environment for the Organized Construction of User-Interfaces to Databases</a>. K. Mitchell and J. Kennedy. In Interfaces to Databases (IDS-3), 1996.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=807068">XML and Objects - The Future for E-Forms on the Web</a>. A. Tornqvist, C. Nelson, and M. Johnsson. In WETICE. IEEE Computer Society, 1999.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=129636">A Form-based Approach for Database Analysis and Design</a>. Joobin Choobineh, Michael V. Mannino, Veronica P. Tseng. Communications of the ACM, 1992. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cse.buffalo.edu/~mpetropo/pubs/sigmod02.pdf">QURSED: Querying and Reporting Semistructured Data</a>. Y. Papakonstantinou, M. Petropoulos, and V. Vassalos. SIGMOD 2002.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://arxiv.org/pdf/cs/0110044v1.pdf">EquiX-A Search and Query Language for XML</a>. S. Cohen, Y. Kanza, Y. Kogan, Y. Sagiv, W. Nutt, and A. Serebrenik. JASIST 2002.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://web.engr.oregonstate.edu/~burnett/HCC03/AcceptedAbstracts/RobinAbraham-abstract.pdf">FoXQ: FoXQ-XQuery by Forms</a>. R. Abraham. In IEEE Symposium on Human Centric Computing Languages and Environments, 2003.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://link.springer.com/chapter/10.1007%2F978-3-642-24606-7_20#page-1">Automatically Mapping and Integrating Multiple Data Entry Forms into a Database</a>. Yuan An, Ritu Khare, Yeol Song, Xiaohua Hu. ER 2011. 
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Overview for Keyword-based Search</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.cse.unsw.edu.au/~weiw/project/ICDE11_KWS_tutorial_with_refs.pdf">Keyword-based Search and Exploration on Databases</a>. Yi Chen, Wei Wang, and Ziyang Liu. ICDE (tutorial), 2011. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.cse.unsw.edu.au/~weiw/project/keyword_sigmod09_tutorial.pdf">Keyword Search on Structured and Semi-structured Data</a>. Yi Chen, Wei Wang, Ziyang Liu, Xuemin Lin. SIGMOD (tutorial), 2009.  
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.morganclaypool.com/doi/abs/10.2200/S00231ED1V01Y200912DTM001?journalCode=dtm">Keyword Search in Databases</a>. Jeffrey Xu Yu, Lu Qin, and Lijun Chang. Synthesis Lectures on Data Management, Morgan &amp; Claypool Publishers, 2009. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.101.864">Integrating DB and IR Technologies: What is the Sound of One Hand Clapping</a>. Surajit Chaudhuri, Raghu Ramakrishnan, Gerhard Weikum. CIDR 2005. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://dl.acm.org/citation.cfm?id=1107514">Report on the DB/IR Panel at SIGMOD 2005</a>. Sihem Amer-Yahia, Pat Case, Thomas Rolleke, Jayavel Shanmugasundaram, and Gerhard Weikum. SIGMOD record 2005. 
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Keyword Search for Relational Databases</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://infolab.stanford.edu/lore/pubs/proximity-vldb98.pdf">Proximity Search in Databases</a>. Roy Goldman, Narayanan Shivakumar, Suresh Venkatasubramanian, and Hector Garcia-Molina. VLDB 1998.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                    <a href="http://www.vldb.org/conf/1998/p645.pdf">DTL's DataSpot: Database Exploration using Plain Language</a>. S. Dar, G. Entin, S. Geva, and E. Palmon. VLDB 1998.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cse.iitb.ac.in/~sudarsha/Pubs-dir/BanksICDE2002.pdf">Keyword Searching and Browsing in Databases using BANKS</a>. Arvind Hulgeri, Charuta Nakhe. ICDE 2002.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cs.washington.edu/education/courses/cse590q/04wi/papers/dbexplorer.pdf">DBXplorer: Enabling Keyword Search over Relational Databases</a>. Sanjay Agrawal, Surajit Chaudhuri, Gautam Das. SIGMOD 2002.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://db.ucsd.edu/pubsFileFolder/145.pdf">DISCOVER: Keyword Search in Relational Databases</a>. Vagelis Hristidis, Yannis Papakonstantinou. VLDB 2002.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.vldb.org/conf/2003/papers/S25P03.pdf">Efficient IR-Style Keyword Search over Relational Databases</a>. Vagelis Hristidis, Luis Gravano, and Yannis Papakonstantinou. VLDB 2003.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.vldb.org/conf/2004/RS15P2.PDF">ObjectRank: Authority-based Keyword Search in Databases</a>. Balmin, A., Hristidis, V., Papakonstantinou, Y. VLDB 2004.   
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://db.ucsd.edu/people/vagelis/publications/ObjectRankExtended.pdf">ObjectRank: a System for Authority-based Search on Databases</a>. Heasoo Hwang, Vagelis Hristidis, Yannis Papakonstantinou. SIGMOD 2006.  
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://db.ucsd.edu/pubsFileFolder/300.pdf">Authority-based keyword Search in Databases</a>. Vagelis Hristidis, Heasoo Hwang, Yannis Papakonstantinou. TODS 2008. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://research.microsoft.com/pubs/173815/vldb06nuits.pdf">Nuits: A Novel User Interface for Efficient Keyword Search over Databases</a>. S. Wang, Z. Peng, J. Zhang, L. Qin, S. Wang, J. X. Yu, and B. Ding. VLDB 2006. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://cs.binghamton.edu/~meng/pub.d/Sigmod06_Keyword.pdf">Effective Keyword Search in Relational Databases</a>. Liu, F., Yu, C.T., Meng, W., Chowdhury, A. SIGMOD 2006. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1142377">Finding and Approximating Top-k Answers in Keyword Proximity Search</a>. B. Kimelfeld and Y. Sagiv. PODS 2006. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cse.unsw.edu.au/~lxue/publication/icde07c.pdf">Finding Top-k Min-cost Connected Trees in Databases</a>. B. Ding, J. X. Yu, S. Wang, L. Qin, X. Zhang, and X. Lin. ICDE 2007. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://db.cs.duke.edu/papers/2007-SIGMOD-hwyy-kwgraph.pdf">BLINKS: Ranked Keyword Searches on Graphs</a>. Hao He, Haixun Wang, Jun Yang, and Philip S. Yu. SIGMOD 2007.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.mayssam.org/files/icde07-kite-CRC.pdf">Efficient Keyword Search across Heterogeneous Relational Databases</a>. Mayssam Sayyadian, Hieu LeKhac, AnHai Doan, and Luis Gravano. ICDE 2007.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1247549">Towards Keyword-driven Analytical Processing</a>. P. Wu, Y. Sismanis, and B. Reinwald. SIGMOD 2007. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://itee.uq.edu.au/~zxf/_papers/SIGMOD07.pdf">Spark: Top-K Keyword Query in Relational Databases</a>. Yi Luo, Xuemin Lin, Wei Wang, and Xiaofang Zhou. SIGMOD 2007.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cse.buffalo.edu/~mpetropo/CSE736-SP10/pubs/2008_vldbj.pdf">Pre'cis: From Unstructured Keywords as Queries to Structured Databases as Answers</a>. Alkis Simitsis, Georgia Koutrika, and Yannis E. Ioannidis. VLDB Journal 2008.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1376708">Keyword Proximity Search in Complex Data Graphs</a>. K. Golenberg, B. Kimelfeld, and Y. Sagiv. SIGMOD 2008.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cs.cmu.edu/~bbd/vldb2008.pdf">Keyword Search on External Memory Data Graphs</a>. B. B. Dalvi, M. Kshirsagar, and S. Sudarshan. PVLDB 2008.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www1.se.cuhk.edu.hk/~lqin/files/rdbms.pdf">Keyword Search in Databases: The Power of RDBMS</a>. L. Qin, J. X. Yu, and L. Chang. SIGMOD 2009. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www1.se.cuhk.edu.hk/~lqin/files/comm.pdf">Querying Communities in Relational Databases</a>. Lu Qin, Jeffrey Xu Yu, Lijun Chang, and Yufei Tao. ICDE 2009.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.iai.uni-bonn.de/~alex/papers/ICDE09-KWS.pdf">Reachability Indexes for Relational Keyword Search</a>. A. Markowetz, Y. Yang, and D. Papadias. ICDE 2009.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1516374">Answering Aggregate Keyword Queries on Relational Databases using Minimal Group-bys</a>. Bin Zhou, Jian Pei. EDBT 2009.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5447827&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5447827">Toward Industrial Strength Keyword Search Systems over Relational Data</a>. A. Baid, I. Rae, A. Doan, and J. Naughton. ICDE 2010.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Keyword Search for XML</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://db.ucsd.edu/pubsFileFolder/184.pdf">Keyword Proximity Search on XML Graphs</a>. Vagelis Hristidis, Yannis Papakonstantinou, Andrey Balmin. ICDE 2003. 
+            </font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.vldb.org/conf/2003/papers/S03P02.pdf">XSEarch: A Semantic Search Engine for XML</a>. Sara Cohen, Jonathan Mamou, Yaron Kanza, and Yehoshua Sagiv. VLDB 2003.  
+            </font></font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.cs.cornell.edu/bigreddata/people/www.cs.cornell.edu/~fshao/research/XRank.pdf">Xrank: Ranked Keyword Search over XML Documents</a>. Lin Guo, Feng Shao, Chavdar Botev, and Jayavel Shanmugasundaram. SIGMOD 2003.
+            </font></font></font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.cmpe.boun.edu.tr/courses/cmpe521/fall2005/Tarik_Karaoglu.pdf">Efficient keyword search for smallest LCAs in XML databases</a>. Yu Xu, Yannis Papakonstantinou. SIGMOD 2005. 
+            </font></font></font></font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.cs.ucr.edu/~vagelis/publications/Tkde-tree-search.pdf">Keyword Proximity Search in XML Trees</a>. Vagelis Hristidis, Nick Koudas, Yannis Papakonstantinou, Divesh Srivastava. TKDE 2006.
+            </font></font></font></font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.public.asu.edu/~ychen127/sigmod07.pdf">Identifying Meaningful Return Information for XML Keyword Search</a>. Ziyang Liu and Yi Chen. SIGMOD 2007. 
+            </font></font></font></font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.public.asu.edu/~ychen127/vldb08_maxmatch.pdf">Reasoning and Identifying Relevant Matches for XML Keyword Search</a>. Ziyang Liu and Yi Chen. VLDB 2008. 
+            </font></font></font></font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://dl.acm.org/citation.cfm?id=1321447">Effective Keyword Search for Valuable LCAS over XML Documents</a>. Guoliang Li, Jianhua Feng, JianyongWang, and Lizhu Zhou. CIKM 2007. 
+            </font></font></font></font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=4812431&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4812431">Effective XML Keyword Search with Relevance Oriented Ranking</a>. Zhifeng Bao, Tok Wang Ling, Bo Chen and Jiaheng Lu. ICDE 2009.  
+            </font></font></font></font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.edbt.org/Proceedings/2009-StPetersburg/edbt/papers/p0815-KONG.pdf">Retrieving Meaningful Relaxed Tightest Fragments for XML Keyword Search</a>. L. Kong, R. Gilleron, and A. Lemay. EDBT 2009.
+            </font></font></font></font></li><li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://tods.acm.org/accepted/2010/LiuImproving.pdf">Improving XML Search by Generating and Utilizing Informative Result Snippets</a>. Ziyang Liu, Yu Huang, and Yi Chen. TODS 2010  
+          </font></font></font></font></li></ul><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+        </font></font></font></div><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	
+        <p align="justify"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Keyword-based Search for Spatial Databases/Workflows/Heterogeneous Databases</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.cs.ucr.edu/~vagelis/publications/Keyword%20Search%20on%20Spatial%20Databases%20icde08.pdf">Keyword Search on Spatial Databases</a>. Ian De Felipe, Vagelis Hristidis, and Naphtali Rishe. ICDE 2008. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.comp.nus.edu.sg/~zhangdo/papers/zhang-spatial-keyword.pdf">Keyword Search in Spatial Databases: Towards Searching by Document</a>. Dongxiang Zhang, Yeow Meng Chee, Anirban Mondal, Anthony K. H.Tung, and Masaru Kitsuregawa. ICDE 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://web.njit.edu/~ychen/icde09_wise.pdf">Wise: A Workflow Information Search Engine</a>. Qihong Shao, Peng Sun, and Yi Chen. ICDE 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.public.asu.edu/~ychen127/pvldb10_wise.pdf">Searching Workflows with Hierarchical Views</a>. Ziyang Liu, Qihong Shao, and Yi Chen. PVLDB 2010. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://dbgroup.cs.tsinghua.edu.cn/ligl/papers/vldb2008-ease-demo.pdf">An Effective and Versatile Keyword Search Engine on Heterogenous Data Sources</a>. Guoliang Li, Jianhua Feng, Jianyong Wang, Lizhu Zhou. VLDB 2008.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://dl.acm.org/citation.cfm?id=1376706">EASE: Efficient and Adaptive Keyword Search on Unstructured, Semi-structured and Structured Data</a>. Guoliang Li, Beng Chin Ooi, Jianhua Feng, Jianyong Wang, Lizhu Zhou. SIGMOD 2008. 
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong> 
+          From Keyword Search to Standard Database Query</strong></font></p>
+        <div align="justify"> 
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://dl.acm.org/citation.cfm?id=1376705">SQAK: Doing More With Keywords</a>. Sandeep Tata, Guy M. Lohman. SIGMOD 2008. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://people.aifb.kit.edu/dtr/papers/keywordtopk.pdf">Top-k Exploration of Query Candidates for Efficient Keyword Search on Graph-Shaped (RDF) Data</a>. Thanh Tran, Haofen Wang, Sebastian Rudolph, Philipp Cimiano. ICDE 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://pages.cs.wisc.edu/~anhai/papers/chuSIGMOD09.pdf">Combining Keyword Search and Forms for Ad Hoc Querying of Databases</a>. E. Chu, A. Baid, X. Chai, A. Doan, and J. Naughton. SIGMOD 2009.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://dl.acm.org/citation.cfm?id=1640541.1640847">From Keywords to Semantic Queries-Incremental Query Construction on the Semantic Web</a>. Gideon Zenz, Xuan Zhou, Enrico Minack, Wolf Siberski, Wolfgang Nejdl. JWS 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5710925&url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F69%2F6138960%2F05710925.pdf%3Farnumber%3D5710925">A Probabilistic Scheme for Keyword-based Incremental Query Construction</a>. Elena Demidova, Xuan Zhou, and Wolfgang Nejdl. TKDE 2011. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://dl.acm.org/citation.cfm?id=1989383">Keyword Search over Relational Databases: A Metadata Approach</a>. Sonia Bergamaschi, Elton Domnori, Francesco Guerra, Raquel Trillo Lado, Yannis Velegrakis. SIGMOD 2011.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://vldb.org/pvldb/vol5/p932_lukasblunschi_vldb2012.pdf">SODA: Generating SQL for Business Users</a>. Lukas Blunschi, Claudio Jossen, Donald Kossmann, Magdalini Mori, Kurt Stockinger. PVLDB 2012. 
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+         Natural Language Query over Databases</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://arxiv.org/pdf/cmp-lg/9503016.pdf">Natural Language Interfaces to Databases - An Introduction</a>. Ion Androutsopoulos, Graeme D. Ritchie, Peter Thanisch. Natural Language Engineering 1995. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://turing.cs.washington.edu/papers/nli-iui03.pdf">Towards a Theory of Natural Language Interfaces to Databases</a>. Ana-Maria Popescu, Oren Etzioni, and Henry Kautz. IUI 2003. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://acl.ldc.upenn.edu/coling2004/MAIN/pdf/21-783.pdf">Modern Natural Language Interfaces to Databases: Composing Statistical Parsing with Semantic Tractability</a>. Ana-Maria Popescu, Alex Armanasu, Oren Etzioni, David Ko, and Alexander Yates. COLING 2004.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Query Relaxation</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.csd.uoc.gr/~hy561/Data/Papers/Amer-Yaia_EDBT02.pdf">Tree Pattern Relaxation</a>. S. Amer-Yahia et al. EDBT 2002.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1007581">FleXPath: Flexible Structure and Full-Text Querying for XML</a>. S. Amer-Yahia, L. V. S. Lakshmanan, and S. Pandit. SIGMOD 2004.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.mpi-inf.mpg.de/~mtb/pub/topx-vldb05.pdf">An Efficient and Versatile Query Engine for TopX Search</a>. Martin Theobald, Ralf Schenkel, Gerhard Weikum. VLDB 2005.  
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1321445">Self-Correcting Queries for XML</a>. Tali Brodianskiy, Sara Cohen. CIKM 2007.  
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1247541">Query Relaxation using Malleable Schemas</a>. Xuan Zhou, Julien Gaugaz, Wolf-Tilo Balke, Wolfgang Nejdl. SIGMOD 2007.  
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1516542">Retrieving XML Data from Heterogeneous Sources through Vague Querying</a>. Bettina Fazzinga, Sergio Flesca, Andrea Pugliese. TOIT 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cse.iitb.ac.in/~siddhanthjain/seminar/query%20answering%20on%20graph%20modeled.pdf">Flexible Query Answering on Graph-modeled Data</a>. Federica Mandreoli, Riccardo Martoglia, Giorgio Villani, Wilma Penzo, EDBT 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://research.microsoft.com/pubs/80005/sigmod513.pdf">Extending Autocompletion to Tolerate Errors</a>. Surajit Chaudhuri, Raghav Kaushik. SIGMOD 2009.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.sciencedirect.com/science/article/pii/S0306437910000141">Adaptive Relaxation for Querying Heterogeneous XML Data Sources</a>. Chengfei Liu, Jianxin Li, Jeffrey Xu Yu, Rui Zhou. Information Systems, 2010. 
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Query Recommendation/AutoCompletion Systems</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=4812469&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4812469">Recommending Join Queries via Query Log Analysis</a>. X. Yang, C. Procopiuc, D. Srivastava. ICDE 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://escience.washington.edu/sites/default/files/sqlshare_ssdbm2011.pdf">Database-as-a-Service for Long-Tail Science</a>. Bill Howe, Garrett Cole, Emad Souroush, Paraschos Koutris, Alicia Key, Nodira Khoussainova, Leilani Battle. SSDBM 2011.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://escience.washington.edu/sites/default/files/howe_starterqueries.pdf">Automatic Example Queries for ad-hoc Databases</a>. Bill Howe, Garrett Cole, Nodira Khoussainova, Leilani Battle. SIGMOD 2011. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.cs.washington.edu/education/courses/cse599c/10sp/lecture7/querie.pdf">Query Recommendations for Interactive Database Exploration</a>. G. Chatzopoulou, M. Eirinaki, and N. Polyzotis. SSDBM 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.comp.nus.edu.sg/~vldb2010/proceedings/files/papers/D21.pdf">SQL QueRIE Recommendations</a>. J. Akbarnejad, G. Chatzopoulou, M. Eirinaki, S. Koshy, S. Mittal, D. On, N. Polyzotis, and J. S. V. Varman. PVLDB 2010.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://arxiv.org/pdf/0909.1778.pdf">A Case for a Collaborative Query Management System</a>. N. Khoussainova, M. Balazinska, W. Gatterbauer, Y. Kwon, and D. Suciu. CIDR 2009.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.vldb.org/pvldb/vol4/p22-khoussainova.pdf">SnipSuggest: A Context-Aware SQL-Autocomplete System</a>. N. Khoussainova, Y. Kwon, M. Balazinska, and D. Suciu. PVLDB 2010.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Dealing with Complex Database Schema</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.vldb.org/pvldb/2/vldb09-784.pdf">Summarizing Relational Databases</a>. Xiaoyan Yang, Cecilia M. Procopiuc, Divesh Srivastava. VLDB 2009.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.research.att.com/techdocs/TD_100486.pdf">Summary Graphs for Relational Database Schemas</a>. Xiaoyan Yang, Cecilia M. Procopiuc, Divesh Srivastava. VLDB 2011.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://tods.acm.org/accepted/2010/FletcherSearch.pdf">Towards a Theory of Search Queries</a>. George H. L. Fletcher, Jan Van Den Bussche, Dirk Van Gucht, Stijn Vansummeren. TODS 2010. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.edbt.org/Proceedings/2011-Uppsala/papers/edbt/a11-liu.pdf">Efficient and Scalable Data Evolution with Column-oriented Databases</a>. Ziyang Liu, Bin He, Hui-I Hsiao, Yi Chen. EDBT 2011.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1891246">Improving the Usability of Standard Schemas</a>. Jiemin Zhang, April Webster, Michael Lawrence, Madhav Nepal, Rachel Pottinger, Sheryl Staub-French, Melanie Tory. Information Systems 2011. 
+		</font></li>
+          </ul>
+        </div>
+
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Query Explanation</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www-db.cs.wisc.edu/cidr/cidr2009/Paper_119.pdf">DBMSs Should Talk Back Too</a>. Alkis Simitsis, Yannis E. Ioannidis. CIDR 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.dblab.ece.ntua.gr/~asimi/publications/icde10_sql2nl.pdf">Explaining Structured Queries in Natural Language</a>. Georgia Koutrika, Alkis Simitsis, Yannis E. Ioannidis. ICDE 2010.  
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=2213929">Logos: A System for Translating Queries into Narratives</a>. Andreas Kokkalis, Panagiotis Vagenas, Alexandros Zervakis, Alkis Simitsis, Georgia Koutrika, Yannis E. Ioannidis. SIGMOD 2012. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.andrew.cmu.edu/user/gatt/download/edbt2011_QueryViz.pdf">QueryViz: Helping Users Understand SQL Queries and Their Patterns</a>. Jonathan Danaparamita, Wolfgang Gatterbauer. EDBT 2011. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.vldb.org/pvldb/vol4/p1498-gatterbauer.pdf">Databases will Visualize Queries too</a>. Wolfgang Gatterbauer. PVLDB 2011. 
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Database Personalization</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.csd.uoc.gr/~hy562/papers/preferences/stefanidis11.pdf">A Survey on Representation, Composition and Application of Preferences in Database Systems</a>. Kostas Stefanidis, Georgia Koutrika, Evaggelia Pitoura. TODS 2011. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.rakesh.agrawal-family.com/papers/sigmod00pref.pdf">A Framework for Expressing and Combining Preferences</a>. Rakesh Agrawal, Edward L. Wimmers. SIGMOD 2000.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.vldb.org/conf/2002/S09P04.pdf">Foundations of Preferences in Database Systems</a>. Werner Kiessling. PVLDB 2002. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.cse.buffalo.edu/~chomicki/papers-tods03.pdf">Preference Formulas in Relational Queries</a>. Jan Chomicki. TODS 2003. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://pdf.aminer.org/000/300/425/personalization_of_queries_in_database_systems.pdf">Personalization of Queries in Database Systems</a>. G. Koutrika and Y. Ioannidis. ICDE 2004.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.csd.uoc.gr/~hy562/papers/preferences/koutrika05.pdf">Personalized Queries under a Generalized Preference Model</a>. Georgia Koutrika, Yannis Ioannidis. ICDE 2005.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.cs.uiuc.edu/class/fa05/cs591han/sigmodpods05/sigmod/pdf/p73-koutrika.pdf">Constrained Optimalities in Query Personalization</a>. Georgia Koutrika, Yannis Ioannidis. SIGMOD 2005.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://homes.cs.washington.edu/~alon/files/cidr05.pdf">A Platform for Personal Information Management and Integration</a>. X. Dong and A. Halevy. CIDR 2005.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://ftp.almaden.ibm.com/cs/projects/iis/hdb/Publications/papers/sigmod2006_rank.pdf">Context-Sensitive Ranking</a>. Rakesh Agrawal, Ralf Rantzau, Evimaria Terzi. SIGMOD 2006. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.madgik.di.uoa.gr/sites/default/files/infsyst_v31.1.pp33-56.pdf">Conversational Querying</a>. Y. E. Ioannidis and S. Viglas. Information System 2006.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://userpages.umbc.edu/~zhchen/papers/sigmod07-chen-navigation.pdf">Addressing Diverse User Preferences in SQL-Query-Result Navigation</a>. Z. Chen and T. Li. SIGMOD 2007.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.cs.uoi.gr/~pitoura/distribution/icde07.pdf">Adding Context to Preferences</a>. Stefanidis, K., Pitoura, E., and Vassiliadis, P. ICDE 2007. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://wisdom.lip6.fr/uploads/Main/DE080058.PDF">Efficient Rewriting Algorithms for Preference Queries</a>. Periklis Georgiadis, Ioannis Kapantaidakis, Vassilis Christophides, Elhadji Mamadou Nguer, Nicolas Spyratos. ICDE 2008. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://dl.acm.org/citation.cfm?id=1516394">A Methodology for Preference-based Personalization of Contextual Data</a>. Antonio Miele, Elisa Quintarelli, Letizia Tanca. EDBT 2009. 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://ilpubs.stanford.edu:8090/940/2/complexPrefs.pdf">Personalizing Queries Based on Networks of Composite Preferences</a>. Georgia Koutrika, Yannis Ioannidis. TODS 2010.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5601724&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5601724">myOLAP: An Approach to Express and Evaluate OLAP Preferences</a>. Matteo Golfarelli, Stefano Rizzi, Paolo Biondi. TKDE 2011. 
+		</font></li>
+          </ul>
+        </div>
+        
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Other Works on Database Usablity</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://pages.cs.wisc.edu/~ericc/VLDB2007.pdf">A Relational Approach to Incrementally Extracting and Querying Structure in Unstructured Data</a>. Eric Chu, Akanksha Baid, Ting Chen, AnHai Doan, Jeffrey Naughton. VLDB 2007.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1453856.1453879">WYSIWYG Development of Data Driven Web Applications</a>. Fan Yang, Nitin Gupta, Chavdar Botev, Elizabeth F Churchill, George Levchenko, Jayavel Shanmugasundaram. VLDB 2008. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://users.soe.ucsc.edu/~tqtrung/sigmod09-qbo.pdf">Query by Output</a>. Quoc Trung Tran, Chee-Yong Chan, Srinivasan Parthasarathy. SIGMOD 2009. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dl.acm.org/citation.cfm?id=1807281">Pay-as-you-go: an Adaptive Approach to Provide full Context-aware Text Search over Document Content</a>. Zhen Hua Liu, Thomas Baby, Sukhendu Chakraborty, Junyan Ding, Anguel Novoselsky, Vikas Arora. SIGMOD 2010. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://dbgroup.cs.tsinghua.edu.cn/ligl/papers/cidr2011-dbease.pdf">DBease: Making Databases User-Friendly and Easily Accessible</a> (search as you type). Guoliang Li, Ju Fan, Hao Wu, Jiannan Wang, Jianhua Feng. CIDR 2011. 
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.sigmod.org/publications/sigmod-record/1109/pdfs/04.prototypes.buneman.pdf">The Database Wiki Project: A General-Purpose Platform for Data Curation and Collaboration</a>. Buneman, P. and Cheney, J. and Lindley, S. and Mueller, H. SIGMOD Record 2011. 
+		</font></li>
+          </ul>
+        </div>
+            
+<hr>
+	<p></p><center><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/">Database Research Group</a> |
+		<a href="http://www.eecs.umich.edu/cse/">Computer Science and Engineering</a> |
+		<a href="http://www.umich.edu/">University of Michigan</a></font></center><p></p><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+        <p></p><center><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+          Last update: June, 2013. Web site built by Bin Liu and maintained Fei Li. Feedback is welcome.</font></center><p></p>
+      </font></font></font></font></div></div></font></blockquote></td>
+  </tr>
+</tbody></table>
+<script src="./Database Usability Research at University of Michigan_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2263805-1";
+urchinTracker();
+</script>
+
+
+</body></html>

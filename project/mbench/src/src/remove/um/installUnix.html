@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>The Michigan Benchmark</title>
+</head>
+
+<body>
+
+<H1>Installing The Michigan Benchark Data Generator for Unix</H1>
+<H2>Unpacking the distribution</H2>
+You can unpack mbgen.tar.gz file using:
+<pre>
+	tar xvfz mbgen.tar.gz
+</pre>
+or
+<pre>
+	gunzip mbgen.tar.gz
+	tar xvf mbgen.tar
+</pre>
+
+<H2>Building the data generator</H2>
+Execute the following commands:
+<pre>
+        touch .depend
+	make
+</pre>
+
+After these commands executed, the generator is called 'mbgen' should
+be created.
+
+<H2>Running the data generator</H2>
+<pre>
+Program options:
+ -sf=scale_factor    Valid scale factors are {1,10,100} [default=1]
+ -rl=root_level      Set the root level of the data set
+                     Valid root levels are {1-16} [default=1]
+ -il=intermediate_level      Set the intermediate level of the data set
+                             Valid intermediate levels are {1-16} [default=1]
+ -dl=deepest_level   Set the deepest level of the data set
+                     Valid deepest levels are {1-16} [default=16]
+ -n=doc_name         Set document file name [default='doc']
+ -s | -S             Turn on/off schema support [default=on]
+ -c | -C 	     Turn on/off element content printed out [default=on]
+ -h | -H             Print available options
+</pre>
+
+<pre>
+Examples:
+1) %mbgen -h
+This command prints help information about the available options
+
+2) %mbgen
+This command generates an XML document, "doc1.xml", with scale factor =1
+
+3) %mbgen -n="data"
+This command generates an XML document, "data1.xml"
+
+
+4) %mbgen -s -rl=1 -il=2 -dl=4
+This command generate the top three nodes of the XML document that has
+a depth of 4.
+
+5) %mbgen -s -rl=3 -il=4 -dl=4
+This command generates four XML documents, "doc1.xml", "doc2.xml",
+"doc3.xml", and "doc4.xml".
+
+6) %mbten -s -rl=1 -il=4 -dl=4
+This command generate a single XML document with a depth of 4.
+
+Executing command 4) and 5) will produce the same data set as executing
+command 6)
+</pre>
+</body>
+</html>

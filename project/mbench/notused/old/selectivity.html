@@ -1,0 +1,202 @@
+<HTML>
+ <HEAD>
+	 <TITLE>Query Selectivity Computation</TITLE>
+</HEAD>
+<BODY>
+<H1>Query Selectivity Computation</H1>
+<P>
+Each of the benchmark queries was carefully chosen to have a desired selectivity. In this appendix, we describe
+the computation of these selectivities, analytically.
+</P>
+<P>
+For this purpose, we will frequently need to determine the probability of "PickWord", based on the uniform
+distribution of buckets and words in each bucket, as described in Section 3. 3. For example, if "PickWord" is
+"oneB1", this indicates that this "PickWord" is the first word in bucket 1. Since there are 16 buckets, and there
+is only one word in the first bucket the probability of "oneB1" being picked is 1/ 16 (1=16  1). Since there are
+eight words in the fourth bucket (2 4 ), the probability of "oneB4" being picked is 1/ 128 (1=16  1=8).
+</P>
+<P>
+<B>QR1-QR4. </B>Select all elements with aSixtyFour =1. These queries have a selectivity of 1/ 64 (1.6%) since
+they are selected based on aSixtyFour attribute which has a probability of 1/ 64.
+<P>
+<B>QS1. </B>Select nodes with aString = "Sing a song of oneB4". Selectivity is 1/ 128 (0.8%) since the probability
+of "oneB4" is 1/ 128.
+<P>
+<B>QS2. </B>Select nodes with aString = "Sing a song of oneB1". Selectivity is 1/ 16 (6.3%) since the probability
+of "oneB1" is 1/ 16.
+<P>
+<B>QS3. </B>Select nodes with aLevel = 10. Selectivity is 0.7% since the number of nodes at level 10 is 0.7% of
+the number of total nodes in the document.
+<P>
+<B>QS4. </B>Select nodes with aLevel = 13. Selectivity is 6.0% since the number of nodes at level 13 is 6.0% of
+the number of total nodes in the document.
+<P>
+<B>QS5. </B>Select nodes with aSixtyFour between 5 and 8. Selectivity is 4 x 1/64 = 1/16 (6.3%).
+<P>
+<B>QS6. </B>Select nodes with aLevel = 13 and have the returned nodes sorted by aSixtyFour attribute. Selectivity
+is 6.0%.
+<P>
+<B>QS7. </B>Select nodes with attributes aSixteen = 1 and aFour = 1. Selectivity is 1/16 x 1/4 = 1/64 (1.6)%
+sine the selectivity of nodes with aLevel = 13 is 6.0%.
+<P>
+<B>QS8. </B>Select nodes based on the element name, eOccasional. Selectivity is 1/64 (1.6%) since eOccasional
+appears nested under the element with aSixtyFour = 0 and the probability of aSixtyFour = 0 is 1/16.
+<P>
+<B>QS9. </B>Select the second child of every node with aLevel = 7. At level 7, each node has thirteen children.
+These children are at level 8 which has the number of nodes = 4.8% of all nodes. Thus, the selectivity of this
+query is 4.8% x 1/13 = 0.4%.
+<P>
+<B>QS10. </B>Select the second child of every node with aLevel = 9. At level 9, each node has two children. These
+children are at level 10 which has the number of nodes = 0.7% of all nodes. Thus, the selectivity of this query is
+0.7% x 1/ 2 = 0.4%.
+<P>
+<B>QS11. </B>Select OccasionalType nodes that have "oneB4" in the element content. Since there is approximately
+one OccasionalType node in every 64 BaseType nodes, the overall selectivity is (16/128) x (1/64) =
+1/512 (0.2%).
+<P>
+<B>QS12. </B>Select nodes that have "oneB4" as substring in element content. The probability of "oneB4" being
+picked 1/ 128. Although this string can also arise in bucket 16, the probability there is much smaller 2  ,and
+hence can be ignored. There are 16 "PickWord" s in the content of each element, so 16 opportunities for this
+predicate to be satisfied at each element, giving an overall selectivity of 16/128 (12.5%).
+<P>
+<B>QS13. </B>Select all nodes with element content that the distance between keyword "oneB5" and keyword
+"twenty" is not more than four. The probability of any one occurrence of "oneB5" being selected is 1/256.
+Thus, the overall selectivity is (1/256) x 2 = 1/128 (0.8%).
+<P>
+<B>QS14. </B>Select all nodes with element content that the distance between keyword "oneB2" and keyword
+"twenty" is not more than four. There are two occurrences of "PickWord" within four words of "twenty" and
+14 occurrences that are further away. The probability of any one occurrence of "oneB2" being selected is 1/32.
+Thus, the overall selectivity is (1/32) x 2 =1/16 (6.3%).
+<P>
+<B>QS15. </B>Select the second element below each element with aFour = 1 if that second element also has aFour
+=1. 
+Let n<SUB>l</SUB> be the number
+of nodes at level l and f<SUB>l</SUB> be the number of fanout at
+level l-1. Then, the number of the second element
+nodes is &sum;<SUP align="right">l=16</SUP><SUB align="right">l=2</SUB> (n<SUB>l
+</SUB>) x (1/f<SUB>l-1</SUB>) which is approximately 1/2.
+
+<P>
+Since the selectivity of the element with aFour =1 is
+1/ 4, the probability that the second element that has
+aFour = 1 and that its parent has aFour = 1 is 1/16.
+Thus, the overall selectivity of this query is (1/2) x
+(1/16) = 1/32 (3.1%).
+</P>
+<B>QS16. </B>Select the second element with aFour = 1 below any element with aSixtyFour = 1. This query
+returns at most one element.
+<P>
+<B>QS17. </B>Among the children with aSixteen = 1 of the parent element with aLevel = 13, select the last one.
+Approximately 5.95% of the nodes are at level 13, and each has two children. Almost 1/ 8 of these will have at
+least one child that satisfies the former predicate (from among whom the last one must be returned in this query).
+Thus, the overall query selectivity is 0.0595 x 1/8 = 0.7%.
+<P>
+<B>QS18. </B>Select nodes with aLevel = 13 that have a child with aSixteen = 3. The first predicate has a
+selectivity of 5.95%, and the second predicate has a selectivity of 1/16. Since each node at level 13 has two
+children, there are two opportunities to satisfy the child predicate. Therefore the overall selectivity of this query
+is 0.0595 x (1/16) x 2 = 0.7%.
+<P>
+<B>QS19. </B>Select nodes with aLevel = 15 that have a child with aSixtyFour = 3. The first predicate has a
+selectivity of 23.78%, and the second predicate has a selectivity of 1/ 64. Following the same argument as above,
+the selectivity of the query as a whole is still 0.7%.
+<P>
+<B>QS20. </B>Select nodes with aLevel = 11 that have a child with aFour = 3. The first predicate has a selectivity
+of 1.49%, and the second predicate has a selectivity of 1/ 4. Following the same argument as above, the selectivity
+of the query as a whole is still 0.7%.
+<P>
+<B>QS21. </B>Select nodes with aLevel = 13 that have a descendant with aSixteen = 3. The first predicate has
+selectivity of 0.0595. 
+Since each node at level 13 has
+14 descendants, the probability that none of these 14
+nodes satisfy the second predicate is (1 - (1/16))<SUP>14</SUP>.
+Thus, the probability that a given selected ancestor
+node has any descendant that satisfies the second predicate
+is 1 (1 - (1/16))<SUP>14</SUP>. Therefore, the overall
+selectivity is 0.0595 x (1 - (1 - (1/16))<SUP>14</SUP>) = 3.5%.
+<P>
+<B>QS22. </B>Select nodes with aLevel = 15 that have a descendant with aSixtyFour = 3. The first predicate
+has selectivity of 0.24. 
+Since a node at
+level 15 only has no descendant other than its own
+two children, the probability that none of these two
+nodes satisfy the second predicate is (1 - (1/64))<SUP>2</SUP>.
+The overall selectivity is 0.24 x (1 - (1 - (1/64))<SUP>2</SUP>)
+=0.7%.
+</P>
+
+<B>QS23. </B>Select nodes with aLevel = 11 that have a descendant with aFour = 3. The first predicate has
+selectivity of 1.5. 
+Since each level 11 node
+has 62 descendants, the probability that none of these
+62 nodes satisfy the second predicate is (1 - (1/4))<SUP>62</SUP>.
+The selectivity of the query as a whole is 1.5 x (1 -
+(1 - (1/4))<SUP>62</SUP>) = 1.5%.  Selectivity is 1.5%.
+</P>
+<P>
+<B>QS28. </B>This query is to test the choice of join order in evaluating a complex query. To achieve the desired
+selectivities, we use the following predicates: aFour =3, aSixteen= 3, aSixteen= 5 and aLevel= 16. The prob-ability
+of aFour = 3 is 1/4, and of aSixteen = 3(5) is 1/16, and the probability of aLevel = 16 is 0.47. Thus,
+the selectivity of this query is 1/4 x 1/16 x 1/16 x 0.47 = 0.0%.
+<P>
+<B>QS29. </B>Select parent nodes with aLevel= 11 that have a child with aFour= 3, and another child with
+aSixtyFour= 3. The probability of aLevel= 11 is 0.015, that of aFour= 3 is 1/4, and that of aSixtyFour= 3 is
+1/64. Thus, the selectivity of this query is 0.015 x 1/4 x 1/64 = 0.0%.
+<P>
+<B>QS30. </B>Select parent nodes with aFour= 1 that have a child with aLevel= 11 and another child with aSix-tyFour=
+3. The probability of aFour= 1 is 0.25, that of aLevel= 11 is 0.015, and that of aSixtyFour= 3 is 1/64.
+Thus, the selectivity of this query is 0.25 x 0.015 x 1/64 = 0.0%.
+<P>
+<B>QS32. </B>Select nodes with aLevel = 11 that have a descendant with aFour =3 and another descendant with
+aSixtyFour = 3. The first predicate has selectivity of 0.015. 
+Since a node at level 11 has 62 descendants. The probability
+that one of these descendants satisfy aFour= 3
+and aS ixtyFour = 3 are 1 62 and 1
+(1=64)) 62 ), respectively. Thus, the overall selectivity
+is 0.015 x (1 - (1 - (1/4))<SUP>62</SUP>) x (1 - (1 - (1/64))<SUP>62</SUP> )
+=0.9%.
+<P>
+<B>QJ1. </B>Select nodes with aSixtyFour = 2 and join with themselves based on the equality of aUnique1
+attribute. The probability of aSixtyFour = 2 is 1/64, thus the selectivity of this query is 1/64 (1.6%).
+<P>
+<B>QJ2. </B>Select nodes with aSixteen = 2 and join with themselves based on the equality of aLevel attribute.
+The probability of aSixteen = 2 is 1/ 16, thus the selectivity of this query is 1/ 16 (6.3%).
+<P>
+<B>QJ3. </B>Select all OccasionalType nodes that point to a node with aSixtyFour =3. This query returns 1/64
+of all the OccasionalType nodes, and the probability of OccasionalType nodes is 1/64. Thus, the selectivity
+of this query is 1/64 x 1/64 = 1/4096 (0.02%).
+<P>
+<B>QJ4. </B>Select all OccasionalType nodes that point to a node with aFour =3. This query returns 1/ 4 of all the
+eOccasional nodes, and the probability of OccasionalType nodes is 1/ 64. Thus, the selectivity of this query
+is 1/4 x 1/64 = 1/256 (0.4%).
+<P>
+<B>QA1. </B>Compute the average value for the aSixtyFour attribute for all nodes at level 15. This query returns
+only one node which contains the average value.
+<P>
+<B>QA2. </B>Compute the average value for the aSixtyFour attribute for all nodes at each level. This query returns
+16 nodes which contains the average values for 16 levels.
+<P>
+<B>QA3. </B>Amongst the nodes at level 11, find the node( s) with the largest fanout. 1/64 of the nodes are at level
+11. Most nodes at this level have exactly two children. But 1/64 of these nodes also have a third child, of type
+eOccasional. These are the nodes that must be returned. Thus, selectivity is 1/64 x 1/64 = 1/4096 (0.02%).
+<P>
+<B>QA4. </B>Select elements that have at least two occurrences of keyword "oneB1" in their content. There are
+16 "PickWord" s in the element content. The probability that "PickWord" is replaced with "oneB1" is 1/16, and
+the probability that "PickWord" is not replaced with "oneB1" is 15/ 16. 
+Let P<SUB>n</SUB>("oneB1") be the probability
+that there are n occurrences of "oneB1." Then,
+P<SUB>n</SUB>("oneB1") = (16 CHOOSE n) x (1/16)<SUP>n</SUP> x (15/16)<SUP>16-n</SUP>. The probability
+that there are at least two occurrences of "oneB1" is
+1 - P<SUB>0</SUB>("oneB1") - P<SUB>1</SUB>("oneB1") = 1 - 0.36 -0.38 = 0.26.
+Thus, the selectivity of this query is 0.26%.
+<P>
+<B>QA5. </B>Select elements that have at least two children that satisfy aFour = 1. About 50% of the database
+nodes are at level 16 and have no children. Except about 2% of the remainder, all have exactly two children,
+and both must satisfy the predicate for the node to qualify. The selectivity of the predicate is 1/4. So the overall
+selectivity of this query is (1/2) x (1/4) x (1/4) = 1/32 (3.1%)
+<P>
+<B>QA6. </B>For each node at level 7, determine the height of the sub-tree rooted at this node. Nodes at level 7 are
+0.4% of all nodes, thus the selectivity of this query is 0.4%.
+<P>
+</BODY>
+</HTML>
+

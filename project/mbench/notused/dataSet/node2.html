@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Depth and Fanout</TITLE>
+<META NAME="description" CONTENT="Depth and Fanout">
+<META NAME="keywords" CONTENT="dataSet">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dataSet.css">
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html37"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html35"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html29"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html38"
+  HREF="node3.html">Data Set Granularity</A>
+<B> Up:</B> <A NAME="tex2html36"
+  HREF="node1.html">A Discussion of the Data Characteristics</A>
+<B> Previous:</B> <A NAME="tex2html30"
+  HREF="node1.html">A Discussion of the DAta Characteristics</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00001100000000000000"></A><A NAME="sec:depthFanout"></A>
+<BR>
+Depth and Fanout
+</H3>
+Depth and fanout are two structural parameters important to
+tree-structured data.
+The depth of the data tree can have a
+significant performance impact when we are computing
+containment relationships which include an indirect containment between ancestor and descendant and
+a direct containment between parent and child.
+It is possible to have multiple nodes at different levels satisfying the
+ancestor and the descendant predicates.
+  Similarly,  the fanout of
+the node tree can affect
+the way in which the DBMS stores the data, and
+answers queries that are based on selecting children in a specific
+order (for example,  selecting the last child).
+
+<P>
+One potential way of testing fanout and depth is to
+generate a number of distinct data sets with different values for each
+of these parameters and then run queries against each data set. The
+drawback of this approach is that  the large number
+of data sets  makes the benchmark harder to run and 
+understand.  In this proposal,
+our approach is to
+create a base benchmark data set of a depth of 16. Then, using a ``level''
+attribute of an element, we can restrict the scope of the query to data sets of
+certain depth, thereby, quantifying the impact of the depth of the
+data tree.
+
+<P>
+To study the impact of fanout, we generate the data set in the
+following way.
+There are 16 levels
+in the tree, and each level has a fanout of 2, except levels 5, 6, 7, and 8.
+Levels 5, 6, and
+7 have a fanout of 13, whereas level 8 has a fanout of 1/13 (at level 8
+every thirteenth node has a single child). This variation in fanout is
+designed to permit queries that focus
+isolating the fanout factor.
+For instance, the number of nodes is 2,704 for nodes at levels 7 and 9. Nodes at
+level 7 have a fanout of 13, whereas nodes at level 9 have a fanout
+of 2. Queries against these two levels can be used to measure the
+impact of fanout.
+
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+        <TR>
+                <TH>Level</TH> <TH>Fanout</TH>
+                <TH>Nodes</TH> <TH>% of Nodes</TH>
+        </TR>
+        <TR ALIGN="right">
+                <TD>1</TD><TD>2</TD>
+                <TD>1</TD><TD>0.0</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>2</TD><TD>2</TD>
+                <TD>2</TD><TD>0.0</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>3</TD><TD>2</TD>
+                <TD>4</TD><TD>0.0</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>4</TD><TD>2</TD>
+                <TD>8</TD><TD>0.0</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>5</TD><TD>13</TD>
+                <TD>16</TD><TD>0.0</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>6</TD><TD>13</TD>
+                <TD>208</TD><TD>0.0</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>7</TD><TD>13</TD>
+                <TD>2,704</TD><TD>0.4</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>8</TD><TD>1/13</TD>
+                <TD>35,152</TD><TD>4.8</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>9</TD><TD>2</TD>
+                <TD>2,704</TD><TD>0.4</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>10</TD><TD>2</TD>
+                <TD>5,408</TD><TD>0.7</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>11</TD><TD>2</TD>
+                <TD>10,816</TD><TD>1.5</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>12</TD><TD>2</TD>
+                <TD>21,632</TD><TD>3.0</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>13</TD><TD>2</TD>
+                <TD>43,264</TD><TD>6.0</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>14</TD><TD>2</TD>
+                <TD>86,528</TD><TD>11.9</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>15</TD><TD>2</TD>
+                <TD>173,056</TD><TD>23.8</TD>
+        </TR>
+        <TR ALIGN="right">
+                <TD>16</TD><TD>-</TD>
+                <TD>346,112</TD><TD>47.6</TD>
+        </TR>
+</TABLE>
+</CENTER>
+
+<P>
+<HR>
+
+<!--Navigation Panel-->
+<A NAME="tex2html37"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html35"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html29"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html38"
+  HREF="node3.html">Data Set Granularity</A>
+<B> Up:</B> <A NAME="tex2html36"
+  HREF="node1.html">A Discussion of the Data Characteristics</A>
+<B> Previous:</B> <A NAME="tex2html30"
+  HREF="node1.html">A Discussion of the Data Characteristics</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

@@ -1,0 +1,1621 @@
+<html>
+<body>
+<CENTER>
+<H1>The Michigan Benchmark: Towards XML Query Performance
+	Diagnostics</H1>
+
+<H2>Kanda Runapongsa, Jignesh M. Patel, H. V. Jagadish, and  Shurug Al-Khalifa</H2>
+<H3>Department of Electrical Engineering and Computer Science<BR/>
+	The University of Michigan, Ann Arbor, MI 48109, USA<BR/>
+{krunapon, jignesh, jag, shurug}@eecs.umich. edu</H3>
+</CENTER>
+
+<H2><A name="abstract" target="_blank">Abstract</A></H2>
+<P>
+We propose a <i>micro-benchmark</i> for XML data management to aid
+engineers in designing improved XML processing engines.  This
+benchmark is inherently different from application-level benchmarks,
+which are designed to help users choose between alternative
+products. We primarily attempt to capture the rich variety of data
+structures and distributions possible in XML, and to isolate their
+effects, without imitating any particular application.  The benchmark
+specifies a single data set against which carefully specified queries
+can be used to evaluate system performance for XML data with various
+characteristics.
+</P>
+<P>
+We have used the benchmark to analyze the performance of two database
+systems: a native XML DBMS and a commercial ORDBMS.  The
+benchmark reveals key strengths and weaknesses of these systems.  We
+find that commercial relational techniques are effective for XML query
+processing in many cases, but are sensitive to query rewriting, and
+require better support for efficiently determining indirect structural
+containment.
+</P>
+
+
+<DIV CLASS="subtoc">
+<P><STRONG>Contents</STRONG></P>
+<OL>
+	<LI><A CLASS="tocxref" href="#intro">Introduction</A></LI>
+	<LI><A CLASS="tocxref" href="#relatedWork">Related Work</A></LI>
+	<LI><A CLASS="tocxref" href="#dataSet">Benchmark Data Set</A></LI>
+	<LI><A CLASS="tocxref" href="#queries">Benchmark Queries</A></LI>
+	<LI><A CLASS="tocxref" href="#performance">The Benchmark in Action</A></LI>
+	<LI><A CLASS="tocxref" href="#conclusions">Conclusions</A></LI>
+</OL>
+
+
+<H2><A name="intro" target="_blank">1. Introduction</A></H2>
+<P>
+XML query processing has taken on considerable importance recently, and several XML databases [3, 8? 10, 12, 24, 26] have been constructed on a variety of platforms. There has naturally been an interest in benchmarking the performance of these systems, and a number of benchmarks have been proposed [6, 19, 21]. The focus of currently proposed benchmarks is to assess the performance of a given XML database in performing a variety of representative tasks. Such benchmarks are valuable to potential users of a database system in providing an indication of the performance that the user can expect on their specific application. The challenge is to devise benchmarks that are sufficiently representative of the requirements of "most" users. The TPC series of benchmarks accomplished this, with reasonable success, for relational database systems. However, no benchmark has been successful in the realm of ORDBMS and OODBMS which have extensibility and user defined functions that lead to gr!
+eat heterogeneity in the nature of their use. It is too soon to say whether any of the current XML benchmarks will be successful in this respect -we certainly hope that they will.
+</P>
+
+<P>
+One aspect that current XML benchmarks do not focus on is the performance of the basic query evaluation operations such as selections, joins, and aggregations. A "micro-benchmark" that highlights the performance of these basic operations can be very helpful to a database developer in understanding and evaluating alternatives for implementing these basic operations. A number of questions related to performance may need to be answered: What are the strengths and weaknesses of specific access methods? Which areas should the developer focus attention on? What is the basis to choose between two alternative implementations? Questions of this nature are central to well-engineered systems. Application-level benchmarks, by their nature, are unable to deal with these important issues in detail. For relational systems, the Wisconsin benchmark [11] provided the database community with an invaluable engineering tool to assess the performance of individual operators and access methods. Th!
+e work presented in this paper is inspired by the simplicity and the effectiveness of the Wisconsin benchmark for measuring and understanding the performance of relational DBMSs. The goal of this paper is to develop a comparable benchmarking tool for XML data management systems. The benchmark that we propose to achieve this goal is called the Michigan benchmark.
+</P>
+
+<P>
+A challenging issue in designing any benchmark is the choice of the benchmark's data set. If the data is specified to represent a particular "real application", it is likely to be quite uncharacteristic for other applications with different data characteristics. Thus, holistic benchmarks can succeed only if they are able to find a real application with data characteristics that are reasonably representative for a large class of different applications.
+</P>
+
+<P>
+For a micro-benchmark, the challenges are different. The benchmark data set must be complex enough to incorporate data characteristics that are likely to have an impact on the performance of query operations.  However, at the same time, the benchmark data set must be simple so that it is not only easy to pose and understand queries against the data set, but also easy to pinpoint the component of the system that is performing poorly. We attempt to achieve this balance by using a data set that has a simple schema but carefully orchestrated structure. In addition, random number generators are used sparingly in generating the benchmark's data set. The Michigan benchmark uses random generators for only two attribute values, and derives all other data parameters from these two generated values. Furthermore, as in the Wisconsin benchmark, we use appropriate attribute names to reflect the domain and distribution of the attribute values.
+</P>
+
+<P>
+When designing benchmark data sets for relational systems, the primary data characteristics that are of interest are the distribution and domain of the attribute values and the cardinality of the relations. Moreover, there may be a few additional secondary characteristics, such as clustering and tuple/ attribute size. In XML databases, besides the distribution and domain of attribute values and cardinality, there are several other characteristics, such as tree fanout and tree depth, that are related to the structure of XML documents and contribute to the rich structure of XML data. An XML benchmark must incorporate these additional features into the benchmark data and query set design. The Michigan benchmark achieves this by using a data set that incorporates these characteristics without introducing unnecessary complexity into the data set generation, and by carefully designing the benchmark queries that test the impact of these characteristics on individual query operation!
+s.
+</P>
+
+<P>
+The main contributions of this paper are:
+<UL>
+	<LI>The identification of XML data characteristics that may impact the performance of XML query processing engines.</LI>
+	<LI>A single heterogeneous data set against which carefully specified queries can be used to evaluate system performance for XML data with various characteristics.</LI>
+	<LI>Insights from running this benchmark on two database systems: a native XML database system and a commercial object-relational database management system (ORDBMS).</LI>
+</UL>
+</P>
+
+<H2><A NAME="relatedWork" target="_blank">2. Related Work</A></H2>
+<P>
+Several proposals for generating synthetic XML data have been proposed [1, 5]. Aboulnaga et al. [1] proposed a data generator that accepts as many as 20 parameters to allow a user to control the properties of the generated data. Such a large number of parameters adds a level of complexity that may interfere with the ease of use of a data generator. Furthermore, this data generator does not make available the schema of the data which some systems could exploit. Most recently, Barbosa et al. [5] proposed a template-based data generator for XML, which can generate multiple tunable data sets. In contrast to these previous data generators, the data generator in this proposed benchmark produces an XML data set designed to test different XML data characteristics that may affect the performance of XML engines. In addition, the data generator requires only few parameters to vary the scalability of the data set. The schema of the data set is also available to exploit.
+</P>
+
+<P>
+Three benchmarks have been proposed for evaluating the performance of XML data management systems [6, 19,21]. XMach-1 [6] and XMark [21] generate XML data that models data from particular Internet applications. In XMach-1 [6], the data is based on a web application that consists of text documents, schemaless data, and structured data. In XMark [21], the data is based on an Internet auction application that consists of relatively structured and data-oriented parts. XOO7 [19] is an XML version of the OO7 Benchmark [17], which is a benchmark for OODBMSs. The OO7 schema and instances are mapped into a Document Type Definition (DTD), and the eight OO7 queries are translated into three respective languages for query processing engines: Lore [14, 18], Kweelt [20], and an ORDBMS. While each of these benchmarks provides an excellent measure of how a test system would perform against data and queries in their targeted XML application, it is difficult to extrapolate the results to data!
+ sets and queries that are different from ones in the targeted domain. Although the queries in these benchmarks are designed to test different performance aspects of XML engines, they cannot be used to perceive the system performance change as the XML data characteristics change. On the other hand, we have different queries to analyze the system performance with respect to different XML data characteristics, such as tree fanout and tree depth; and different query characteristics, such as predicate selectivity.
+</P>
+
+<P>
+Finally, we note that [2] presents desiderata for an XML database benchmark, identifies key components and operations, and enumerates ten challenges that the XML benchmark should address. The central focus of this work is application-level benchmarks, rather than micro-benchmarks of the sort we propose.
+</P>
+
+<H2><A NAME="dataSet" target="_blank">3. Benchmark Data Set</A></H2>
+In this section, we first discuss the characteristics of XML data sets that can have a significant impact on the performance of query operations. Then, we present the schema and the generation algorithm for the benchmark data.
+
+
+<H3>3.1 A Discussion of the Data Characteristics</H3>
+In a relational paradigm, the primary data characteristics are the selectivity of attributes (important for simple selection operations) and the join selectivity (important for join operations). In an XML paradigm, there are several complicating characteristics to consider as discussed in Section 3.1.1 and Section 3.1.2.
+
+
+<H4><A NAME="3.1.1" target="_blank">3.1.1 Depth and Fanout</A></H4>
+<P>
+Depth and fanout are two structural parameters important to tree-structured data. The depth of the data tree can have a significant performance impact, for instance, when computing indirect containment relationships between ancestor and descendant nodes in the tree. Similarly, the fanout of the tree node can affect the way in which the DBMS stores the data, and answers queries that are based on selecting children in a specific order (for example, selecting the last child).
+</P>
+
+<P>
+One potential way of evaluating the impact of fanout and depth is to generate a number of distinct data sets with different values for each of these parameters and then run queries against each data set. The drawback of this approach is that the large number of data sets makes the benchmark harder to run and understand. Instead, our approach is to fold these into a single data set.
+</P>
+
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TH>Level</TH> <TH>Fanout</TH>
+	<TH>Nodes</TH> <TH>% of Nodes</TH>
+</TR>
+<TR ALIGN="right">
+	<TD>1</TD><TD>2</TD>
+	<TD>1</TD><TD>0.0</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>2</TD><TD>2</TD>
+	<TD>2</TD><TD>0.0</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>3</TD><TD>2</TD>
+	<TD>4</TD><TD>0.0</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>4</TD><TD>2</TD>
+	<TD>8</TD><TD>0.0</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>5</TD><TD>13</TD>
+	<TD>16</TD><TD>0.0</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>6</TD><TD>13</TD>
+	<TD>208</TD><TD>0.0</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>7</TD><TD>13</TD>
+	<TD>2,704</TD><TD>0.4</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>8</TD><TD>1/13</TD>
+	<TD>35,152</TD><TD>4.8</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>9</TD><TD>2</TD>
+	<TD>2,704</TD><TD>0.4</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>10</TD><TD>2</TD>
+	<TD>5,408</TD><TD>0.7</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>11</TD><TD>2</TD>
+	<TD>10,816</TD><TD>1.5</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>12</TD><TD>2</TD>
+	<TD>21,632</TD><TD>3.0</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>13</TD><TD>2</TD>
+	<TD>43,264</TD><TD>6.0</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>14</TD><TD>2</TD>
+	<TD>86,528</TD><TD>11.9</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>15</TD><TD>2</TD>
+	<TD>173,056</TD><TD>23.8</TD>
+</TR>
+<TR ALIGN="right">
+	<TD>16</TD><TD>-</TD>
+	<TD>346,112</TD><TD>47.6</TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<CENTER>Figure 1: Distribution of the Nodes in the Base Data Set</CENTER>
+
+<H4><A NAME="3.1.2" target="_blank">3.1.2 Data Set Granularity</A></H4>
+<P>
+To keep the benchmark simple, we choose a single large document tree as the default data set. If it is important to understand the effect of document granularity, one can modify the benchmark data set to treat each node at a given level as the root of a distinct document. One can compare the performance of queries on this modified data set against queries on the original data set.
+</P>
+
+<H4><A NAME="3.1.3" target="_blank">3.1.3 Scaling</A></H4>
+<P>
+A good benchmark should scale so that appropriately scaled versions of the same benchmark can be run on platforms with widely varying capabilities. In the relational model, scaling a benchmark data set is easy ? we simply increase the number of tuples. In the XML world, there are many choices one could make, and these could have an effect on the structure of the data set. We would like to isolate the effect of the number of nodes from effects due to other structural changes, such as depth, fanout, etc. To minimize such cross-impacts, we propose to scale the Michigan benchmark in discrete steps, as discussed below.
+</P>
+
+<P>
+In the design of the benchmark data set, we deliberately keep the fanout of the bottom few levels of the tree constant. This design implies that the percentage of nodes in the lower levels of the tree (levels 9? 16) is nearly constant across all the data sets. This allows us to easily express queries that focus on a specified percentage of the total number of nodes in the database. For example, to select approximately 1/ 16. of all the nodes, irrespective of the scale factor, we use the predicate <em>aLevel = 13.</em>
+</P>
+
+<P>
+A good benchmark needs to be able to scale in order to measure the performance of databases on a variety of platforms. In the relational model, scaling a benchmark data set is easy -we simply increase the number of tuples. However, with XML, there are many scaling options, such as increasing number of nodes, depth, or fanout. We would like to isolate the effect of the number of nodes from the effects due to other structural changes, such as depth and fanout. We achieve this by keeping the tree depth constant for all scaled versions of the data set and changing the number of fanouts of nodes at only a few levels.
+</P>
+
+<P>
+The default data set, called DSx1, has 728K nodes, arranged in a tree of a depth of 16 and a fanout of 2 for all levels except levels 5, 6, 7 and 8, which have fanouts of 13, 13, 13, 1/ 13 respectively. From this data set we generate two additional "scaled-up" data sets, called DSx10 and DSx100 such that the numbers of nodes in these data sets are approximated 10 and 100 times the number of nodes in the base data set, respectively. We achieve this scaling factor by varying the fanout of the nodes at levels 5-8. For the data set DSx10 levels 5-7 have a fanout of 39, whereas level 8 has a fanout of 1/ 39. For the data set DSx100 levels 5-7 have a fanout of 111, whereas level 8 has a fanout of 1/ 111. The total number of nodes in the data sets DSx10 and DSx100 is 7,180K and 72,351K respectively (this translates into a scale factor of 9.9x and 99.4x.)
+</P>
+
+<H3><A NAME="3.2" target="_blank">3.2 Schema of Benchmark Data</A></H3>
+<P>
+The construction of the benchmark data is centered around
+the element type <B>BaseType</B>. Each <B>BaseType</B> element has
+the following attributes:
+</P>
+
+<OL>
+	<LI><B>aUnique1</B>: A unique integer generated by traversing
+the entire data tree in a breadth-first manner. This attribute
+also serves as the element identifier.</LI>
+	<LI><B>aUnique2</B>: A unique integer generated randomly.</LI>
+	<LI><B>aLevel</B>: An integer set to store the level of the node.</LI>
+	<LI><B>aFour</B>: An integer set to <B>aUnique2</B> mod 4.</LI>
+	<LI><B>aSixteen</B>: An integer set to <B>aUnique1</B> + <B>aUnique2</B>
+	mod 16. This attribute is generated using <I>both</I> the unique attributes
+	to avoid a correlation between the value of this attribute and other <I>derived</I>
+	attributes.
+	</LI>
+	<LI><B>aSixtyFour</B>: An integer set to <B>aUnique2</B> mod 64.</LI>
+	<LI><B>aString</B>: A string approximately 32 bytes in length.
+</OL>
+
+<P>
+The content of each <B>BaseType</B> element is a long string
+that is approximately 512 bytes in length. The generation
+of the element content and the string attribute <B>aString</B> is
+described in Section 3.3.
+</P>
+
+<P>
+In addition to the attributes listed above, each <B>BaseType</B> element has two sets of subelements. The first is of type <B>BaseType</B>. The number of repetitions of this subelement is determined by the fanout of the parent element, as described in Figure 1. The second subelement is an OccasionalType, and can occur either 0 or 1 time. The presence of the OccasionalType element is determined by the value of the attribute aSixtyFour of the parent element. A <B>BaseType</B> element has a nested (leaf) element of type OccasionalType if the aSixtyFour attribute has the value 0. An OccasionalType element has content that is identical to the content of the parent but has only one attribute, aRef. TheOccasionalType element refers to the <B>BaseType</B> node with aUnique1 value equal to the parent's aUnique1 (the reference is achieved by assigning this value to aRef attribute.) In the case where there is no <B>BaseType</B> element has the parent's aUnique1 value (e. g., top few no!
+des in the tree), the OccasionalType element refers to the root node of the tree. The XML Schema specification of the benchmark data is shown in Figure 2.
+</P>
+
+<PRE>
+&lt;?xml version="1.0"?&gt;
+&lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://www.eecs.umich.edu/db/mbench/bm.xsd"
+	 xmlns="http://www.eecs.umich.edu/db/mbench/bm.xsd"
+	 elementFormDefault="qualified"&gt;
+	&lt;xsd:complexType name="BaseType" mixed="true"&gt;
+		&lt;xsd:sequence&gt;
+			&lt;xsd:element name="eNest" type="BaseType" maxOccurs="unbounded"&gt;
+				&lt;xsd:key name="aU1PK"&gt;
+					&lt;xsd:selector xpath=".//eNest"/&gt;
+					&lt;xsd:field xpath="@ aUnique1"/&gt;
+				&lt;/xsd:key&gt;
+				&lt;xsd:unique name="aU2"&gt;
+					&lt;xsd:selector xpath=".//eNest"/&gt;
+					&lt;xsd:field xpath="@aUnique2"/&gt;
+				&lt;/xsd:unique&gt;
+			&lt;/xsd:element&gt;
+			&lt;xsd:element name="eOccasional" type="OccasionalType" minOccurs="0"&gt;
+				&lt;xsd:keyref name="aU1FK" refer="aU1PK"&gt;
+				&lt;xsd:selector xpath="../eOccasional"/&gt;
+				&lt;xsd:field xpath="@aRef"/&gt;
+				&lt;/xsd:keyref&gt;
+			&lt;/xsd:element&gt;
+		&lt;/xsd:sequence&gt;
+		&lt;xsd:attributeGroup ref="BaseTypeAttrs"/&gt;
+	&lt;/xsd:complexType&gt;
+	&lt;xsd:complexType name="OccassionalType"&gt;
+		&lt;xsd:simpleContent&gt;
+			&lt;xsd:extension base="xsd:string"&gt;
+				&lt;xsd:attribute name="aRef" type="xsd:integer" use="required"/&gt;
+			&lt;/xsd:extension&gt;
+		&lt;/xsd:simpleContent&gt;
+	&lt;/xsd:complexType&gt;
+	&lt;xsd:attributeGroup name="BaseTypeAttrs"&gt;
+		&lt;xsd:attribute name="aUnique1" type="xsd:integer" use="required"/&gt;
+		&lt;xsd:attribute name="aUnique2" type="xsd:integer" use="required"/&gt;
+		&lt;xsd:attribute name="aLevel" type="xsd:integer" use="required"/&gt;
+		&lt;xsd:attribute name="aFour" type="xsd:integer" use="required"/&gt;
+		&lt;xsd:attribute name="aSixteen" type="xsd:integer" use="required"/&gt;
+		&lt;xsd:attribute name="aSixtyFour" type="xsd:integer" use="required"/&gt;
+		&lt;xsd:attribute name="aString" type="xsd:string" use="required"/ &gt;
+	&lt;/xsd:attributeGroup&gt;
+&lt;/xsd:schema&gt;
+</PRE>
+
+<CENTER>Figure 2: Benchmark Specification in XML Schema</CENTER>
+
+
+<H3><A NAME="3.3" target="_blank">3.3 Generating the String Attributes and Element</A></H3>
+<P>
+The element content of each <B>BaseType</B> element is a long string. Since this string is meant to simulate a piece of text in a natural language, it is not appropriate to generate this string from a uniform distribution. Selecting pieces of text from real sources, however, involves many difficulties, such as how to maintain roughly constant size for each string, how to avoid idiosyncrasies associated with the specific source, and how to generate more strings as required for a scaled benchmark. Moreover, we would like to have benchmark results applicable to a wide variety of languages and domain vocabularies.
+</P>
+
+<P>
+To obtain the string value that has the distribution similar
+to the distribution of a natural language text, we generate
+these long strings synthetically, in a carefully stylized
+manner. We begin by creating a pool of 2 16 (over sixty
+thousands) 3 synthetic words. The words are divided into
+16 buckets, with exponentially growing bucket occupancy.
+Bucket i has 2 i words. For example, the first bucket
+has only one word, the second has two words, the third
+has four words, and so on. The words are not meaningful
+in any language, but simply contains information about
+the bucket from which it is drawn and the word number
+in the bucket. For example, "15twentynineB14" indicates
+that this is the 1, 529th word from the fourteenth bucket. To
+keep the size of the vocabulary in the last bucket at roughly
+30,000 words, words in the last bucket are derived from
+words in the other buckets by adding the suffix "ing" (to
+get exactly 2 15 words in the sixteenth bucket, we add the
+dummy word "oneB0ing").
+</P>
+
+<P>
+The value of the long string is generated from the template
+shown in Figure 3, where "PickWord" is actually
+a placeholder for a word picked from the word pool described
+above. To pick a word for "PickWord", a bucket
+is chosen, with each bucket equally likely, and then a word
+is picked from the chosen bucket, with each word equally
+likely. Thus, we obtain a discrete Zipf distribution of parameter
+roughly 1. We use the Zipf distribution since it
+seems to reflect word occurrence probabilities accurately in
+a wide variety of situations. The value of aString attribute
+is simply the first line of the long string that is stored as the
+element content.
+</P>
+
+<P ALIGN="left">
+<PRE>
+Sing a song of PickWord,
+A pocket full of PickWord
+Four and twenty PickWord
+All baked in a PickWord.
+
+
+When the PickWord was opened,
+The PickWord began to sing;
+Wasn't that a dainty PickWord
+To set before the PickWord?
+
+
+The King was in his PickWord,
+Counting out his PickWord;
+The Queen was in the PickWord
+Eating bread and PickWord.
+
+
+The maid was in the PickWord
+Hanging out the PickWord;
+When down came a PickWord,
+And snipped off her PickWord!
+</PRE>
+</P>
+
+Figure 3: Generation of the String Element Content
+</CENTER>
+
+<P>
+Through the above procedures, we now have the data
+set that has the structure that facilitates the study of the
+impact of data characteristics on system performance and
+the element/ attribute content that simulates a piece of text
+in a natural language.
+</P>
+<H2><A NAME="queries" target="_blank">4. Benchmark queries</A></H2>
+<P>
+In creating the data set above, we make it possible to tease apart data with different characteristics, and to issue queries with well-controlled yet vastly differing data access patterns. We are more interested in evaluating the cost of individual pieces of core query functionality than in evaluating the composite performance of queries that are of application-level. Knowing the costs of individual basic operations, we can estimate the cost of any complex query by just adding up relevant piecewise costs (keeping in mind the pipelined nature of evaluation, and the changes in sizes of intermediate results when operators are pipelined).
+</P>
+
+<P>
+One clean way to decompose complex queries is by means of an algebra. While the benchmark is not tied to any particular algebra, we find it useful to refer to queries as "selection queries", "join queries" and the like, to clearly indicate the functionality of each query. A complex query that involves many of these simple operations can take time that varies monotonically with the time required for these simple components.
+</P>
+
+<P>
+In the following subsections, we describe each of these different types of queries in detail. In these queries, the types of the nodes are assumed to be <B>BaseType</B> (eNest nodes) unless specified otherwise.
+</P>
+
+<H3><A NAME="4.1" target="_blank">4.1 Selection</A></H3>
+<P>
+Relational selection identifies the tuples that satisfy a given predicate over its attributes. XML selection is both more complex and more important because of the tree structure. Consider a query, against a popular bibliographic database, that seeks <B>book</B>s, published in the <B>year 2002</B>, by an <B>author</B> with name including the string <B>"Blake"</B>. This apparently straightforward selection query involves matches in the database to a 4-node "query pattern", with predicates associated with each of these four (namely <B>book</B>, <B>year</B>, <B>author</B>, and <B>name</B>). Once a match has been found for this pattern, we may be interested in returning only the <B>book</B> element, all the nodes that participated in the match, or various other possibilities. We attempt to organize the various sources of complexity in the following.
+</P>
+
+<H4><A NAME="4.1.1" target="_blank">4.1.1 Returned Structure</A></H4>
+<P>
+In a relation, once a tuple is selected, the tuple is returned. In XML, as we saw in the example above, once an element is selected, one may return the element, as well as some structure related to the element, such as the sub-tree rooted at the element. Query performance can be significantly affected by how the data is stored and when the returned result is materialized.
+</P>
+
+<P>
+To understand the role of returned structure in query performance, we use the query, "Select all elements with aSixtyFour = 2." The selectivity of this query is 1/ 64 (1.6%) (Notes that details about the computation of the selectivities of these queries can be found at <a href="selectivity.html">"Query Selectivity Computation" web page</a>). These queries have a selectivity of 1/ 64 since they are selected based on aSixtyFour attribute which has a probability of 1/ 64. This query is run in the following cases:
+
+</P>
+
+<UL>
+	<LI>QR1. Return only the elements in question, not including
+		any sub-elements.</LI>
+		<P>
+	<LI>QR2. Return the elements and all their immediate
+		children.</LI>
+		<P>
+	<LI>QR3. Return the entire sub-tree rooted at the elements.</LI>
+	<P>
+	<LI>QR4. Return the elements and their selected descendants
+	with <B>aFour =1</B>.</LI>
+</UL>
+
+The remaining queries in the benchmark simply return the unique identifier attributes of the selected nodes (<B>aUnique1</B> for <B>eNest</B> and <B>aRef</B> for <B>eOccasional</B>), except when explicitly specified otherwise. This design choice ensures that the cost of producing the final result is a small portion of the query execution cost.
+
+<H4><A NAME="4.1.2" target="_blank">4.1.2 Simple Selection</A></H4>
+<P>
+Even XML queries involving only one element and a single
+predicate can show considerable diversity. We examine the
+effect of this single selection predicate in this set of queries.
+</P>
+
+<UL>
+	<LI><B>Exact Match Attribute Value Selection</B>
+	<P>
+	<I><B>Selection based on the value of a string attribute.</B></I><BR>
+<B>QS1. Low selectivity.</B> Select nodes with aString = "Sing a song of oneB4". Selectivity is 0.8%.
+<P>
+<B>QS2. High selectivity.</B> Select nodes with aString = "Sing a song of oneB1". Selectivity is 6.3%.
+<P>
+
+<I><B>Selection based on the value of an integer attribute.</B></I><BR>
+These following attributes have almost the same selectivities as the above string attribute queries.<BR>
+<B>QS3. Low selectivity.</B> Select nodes with aLevel = 10. Selectivity is 0.7%.
+<P>
+<B>QS4. High selectivity.</B> Select nodes with aLevel = 13. Selectivity is 6.0%.</P>
+
+<P>
+<I><B>Selection on range values.</B></I><BR>
+<B>QS5.</B> Select nodes with aSixtyFour between 5 and 8.
+Selectivity is 6.3%.
+</P>
+
+<P>
+<I><B>Selection with sorting.</B></I><BR>
+<B>QS6.</B> Select nodes with aLevel = 13 and have the
+returned nodes sorted by aSixtyFour attribute. Selectivity
+is 6.0%.
+</P>
+
+<P>
+<I><B>Multiple-attribute selection.</B></I><BR>
+<B>QS7.</B> Select nodes with attributes aSixteen = 1 and
+aFour = 1. Selectivity is 1.6%.
+</P>
+</LI>
+
+<LI><B>Element Name Selection</B><BR>
+<B>QS8.</B> Select nodes with the element name eOccasional.  Selectivity is 1.6%.
+</LI>
+
+<P>
+<LI><B>Order-based Selection<BR>
+	QS9. High fanout. </B>Select the second child of every node with aLevel = 7. Selectivity is 0.4%.<BR>
+<P>
+<B>QS10. Low fanout. </B>Select the second child of every node with aLevel = 9. Selectivity is 0.4%.
+Since the fraction of nodes in these two queries are the same, the performance difference between them is
+likely to be on account of fanout.
+</P>
+</LI>
+<BR>
+
+<LI><B>Element Content Selection<BR>
+QS11. Low selectivity. </B>Select OccasionalType nodes that have "oneB4" in the element content. Selectivity
+is 0.2%.
+<P>
+<B>QS12. High selectivity. </B>Select nodes that have "oneB4" as a substring of element content. Selectivity is
+12.5%.
+<P>
+</LI>
+
+<LI><B>String Distance Selection<BR>
+QS13. Low selectivity. </B>Select all nodes with element content that the distance between keyword "oneB5"
+and keyword "twenty" is not more than four. Selectivity is 0.8%.
+<P>
+<B>QS14. High selectivity. </B>select all nodes with element content that the distance between keyword "oneB2"
+and keyword "twenty" is not more than four. Selectivity is 6.3%.
+<P>
+</LI>
+
+<H4><A NAME="4.1.3" target="_blank">4.1.3 Structural Selection</A></H4>
+<P>
+Selection in XML is often based on patterns. Queries should be constructed to consider multi-node patterns of various sorts and selectivities. These patterns often have "conditional selectivity." Consider a simple two node selection pattern. Given that one of the nodes has been identified, the selectivity of the second node in the pattern can differ from its selectivity in the database as a whole. Similar dependencies between different attributes in a relation could exist, thereby affecting the selectivity of a multi-attribute predicate. Conditional selectivity is complicated in XML because different attributes may not be in the same element, but rather in different elements that are structurally related.
+</P>
+
+<P>
+All queries listed in this section return only the root of the selection pattern, unless specified otherwise. In these queries, the selectivity of a predicate is noted following the predicate.
+</P>
+
+<LI><B>Order-Sensitive Parent-Child Selection<BR>
+QS15. Local ordering. </B>Select the second element below <I>each </I>element with aFour = 1 (sel= 1/ 4) if that
+second element also has aFour = 1 (sel= 1/ 4). Selectivity is 3.1%.
+<P>
+<B>QS16. Global ordering. </B>Select the second element with aFour = 1 (sel= 1/ 4) below <I>any </I>element with
+aSixtyFour = 1 (sel= 1/ 64). This query returns at most one element, whereas the previous query returns
+one for each parent.
+<P>
+<B>QS17. Reverse ordering. </B>Among the children with aSixteen = 1 (sel= 1/ 16) of the parent element with
+aLevel = 13 (sel= 6.0%), select the last child. Selectivity is 0.7%.
+<P>
+</LI>
+
+<LI><B>Parent-Child Selection<BR>
+QS18. Medium selectivity of both parent and child. </B>Select nodes with aLevel = 13 (sel= 6.0%) that
+have a child with aSixteen = 3 (sel= 1/ 16). Selectivity is approximately 0.7%.
+<P>
+<B>QS19. High selectivity of parent and low selectivity of child. </B>Select nodes with aLevel = 15 (sel= 23.8%)
+that have a child with aSixtyFour = 3 (sel= 1/ 64). Selectivity is approximately 0.7%.
+<P>
+<B>QS20. Low selectivity of parent and high selectivity of child. </B>Select nodes with aLevel = 11 (sel= 1.5%)
+that have a child with aFour = 3 (sel= 1/ 4). Selectivity is approximately 0.7%.
+</LI>
+
+<P>
+<LI>
+<B>Ancestor-Descendant Selection<BR>
+QS21. Mediumselectivity of both ancestor and descendant. </B>Select nodes with aLevel = 13 (sel= 6.0%,
+approx. 1/ 16) that have a descendant with aSixteen = 3 (sel= 1/ 16). Selectivity is 3.5%.
+<P>
+<B>QS22. High selectivity of ancestor and low selectivity of descendant. </B>Select nodes with aLevel = 15
+(sel= 23.8%, approx. 1/ 4) that have a descendant with aSixtyFour = 3 (sel= 1/ 64). Selectivity is 0.7%.
+<P>
+<B>QS23. Low selectivity of ancestor and high selectivity of descendant. </B>Select nodes with aLevel = 11
+(sel= 1.5%, approx. 1/ 64) that have a descendant with aFour = 3 (sel= 1/ 4). Selectivity is 1.5%.
+<P>
+</LI>
+
+<LI><B>Ancestor Nesting in Ancestor-Descendant Selection
+</B>In the ancestor-descendant queries above (QS21-QS23), ancestors are never nested below other ancestors.
+To test the performance of queries when ancestors are recursively nested below other ancestors, we have
+three other ancestor-descendant queries. These queries are variants of QS21-QS23.
+<P>
+<B>QS24. Mediumselectivity of both ancestor and descendant. </B>Select nodes with aSixteen = 3 (sel= 1/ 16)
+that have a descendant with aSixteen = 5 (sel= 1/ 16).
+<P>
+<B>QS25. High selectivity of ancestor and low selectivity of descendant. </B>Select nodes with aFour = 3
+(sel= 1/ 4) that have a descendant with aSixtyFour = 3 (sel= 1/ 64).
+<P>
+<B>QS26. Low selectivity of ancestor and high selectivity of descendant. </B>Select nodes with aSixtyFour =
+9 (sel= 1/ 64) that have a descendant with aFour = 3 (sel= 1/ 4).
+<P>
+The overall selectivities of these queries (QS24-QS26) cannot be the same as that of the "equivalent"
+unnested queries (QS21-QS23) for two situations: first, the same descendants can now have multiple
+ancestors they match, and second, the number of candidate descendants is different (fewer) since the
+ancestor predicate can be satisfied by nodes at any level (and will predominantly be satisfied by nodes at
+levels 15 and 16, due to their large numbers). These two effects may not necessary cancel each other out.
+We focus on the local predicate selectivities and keep these the same for all of these queries (as well as
+for the parent-child queries considered before).
+<P>
+<B>QS27. </B>Similar to query QS26, but return both the root node and the descendant node of the selection
+pattern. Thus, the returned structure is a pair of nodes with an inclusion relationship between them.
+<LI>
+<B>Complex Pattern Selection Queries:</B><BR/>
+omplex pattern matches are common in XML databases, and in this section, we introduce a number of
+<I>chain </I>and <I>twig</I>queries that we use in this benchmark. Figure 4 shows an example for these query types.
+In the figure, each node represents a predicate such as an element tag name predicate, or an attribute value
+predicate, or an element content match predicate. A structural parent-child relationship in the query is
+shown by a single line, and an ancestor-descendant relationship is represented by a double-edged line.
+The chain query shown in the Figure 4( i) finds all nodes matching condition A, such that there is a child
+matching condition B, such that there is a child matching condition C, such that there is a child matching
+<P>
+<BR>
+condition D. The twig query shown in the Figure 4( ii) matches all nodes that satisfy condition A, and have
+a child node that satisfies condition B, and also have a descendant node that satisfies condition C.
+<P>
+Figure 4: Samples of Chain and Twig Queries
+<BR>
+We use the following complex queries in our benchmark:
+
+<P>
+<LI><B>Parent-Child Complex Pattern Selection</B><BR>
+<B>QS28. One chain query with three parent-child joins with the selectivity pattern: high-low-low-high.
+</B>The query is to test the choice of join order in evaluating a complex query. To achieve the desired
+selectivities, we use the following predicates: aFour= 3 (sel= 1/ 4), aSixteen= 3 (sel= 1/ 16), aSixteen= 5
+(sel= 1/ 16) and aLevel= 16 (sel= 47.6%).
+<P>
+<B>QS29. One twig query with two parent-child joins with the selectivity pattern: low-high, low-low.
+</B>Select parent nodes with aLevel = 11 (sel= 1.5%) that have a child with aFour = 3 (sel= 1/ 4), and another
+child with aSixtyFour = 3 (sel= 1/ 64).
+<P>
+<B>QS30. One twig query with two parent-child joins with the selectivity pattern: high-low, high-low.
+</B>Select parent nodes with aFour = 1 (sel= 1/ 4) that have a child with aLevel = 11 (sel= 1.5%) and another
+child with aSixtyFour = 3 (sel= 1/ 64).
+<P>
+</LI>
+<LI><B>Ancestor-Descendant Complex Pattern Selection<BR>
+QS31-QS33. </B>Repeat queries QS28-QS30, but using ancestor-descendant in place of parent-child.
+<P>
+<B>QS34. One twig query with one parent-child join and one ancestor-descendant join. </B>Select nodes
+with aFour = 1 (sel= 1/ 4) that have a child of nodes with aLevel = 11 (sel= 1.5%) and a descendant with
+aSixtyFour = 3 (sel= 1/ 64).
+<P>
+<B>Negated Selection<BR>
+QS35. </B>Find all BaseType elements below which there is no OccasionalType element.
+<P>
+
+<H3><A NAME="4.2" target="_blank">4.2 Value-Based Join</A></H3>
+<P>
+A value-based join involves comparing values at two different nodes that need not be related structurally. In
+computing the value-based joins, one would naturally expect <I>both </I>nodes participating in the join to be returned.
+As such, the return structure is the pair of the aUnique1 attributes of nodes joined.
+<BR><BR>
+<B>QJ1. Low selectivity. </B>Select nodes with aSixtyFour = 2 (sel= 1/ 64) and join with themselves based on the
+equality of aUnique1 attribute. The selectivity of this query is approximately 1.6%.<BR><BR>
+<B>QJ2. High selectivity. </B>Select nodes based on aSixteen = 2 (sel= 1/ 16) and join with themselves based on
+the equality of aUnique1 attribute. The selectivity of this query is approximately 6.3%.
+<P>
+</P>
+
+
+<H3><A NAME="4.3" target="_blank">4.3 Pointer-based Join Queries</A></H3>
+These queries specify joins using references that are specified in the DTD or XML Schema, and the implemen-tation
+of references may be optimized with logical OIDs in some XML databases.
+<P>
+<B>QJ3. Low selectivity. </B>Select all OccasionalType nodes that point to a node with aSixtyFour = 3
+(sel= 1/ 64). Selectivity is 0.02%.
+<P>
+<B>QJ4. High selectivity. </B>Select all OccasionalType nodes that point to a node with aFour = 3 (sel= 1/ 4).
+Selectivity is 0.4%.
+<P>
+Both of these pointer-based joins are semi-join queries. The returned elements are only the eOccasional
+nodes, not the nodes pointed to.
+<P>
+<H3><A NAME="4.4" target="_blank">4.4 Aggregate Queries</A></H3>
+<P>
+Aggregate queries are very important for data warehousing applications. In XML, aggregation also has richer
+possibilities due to the structure. These are explored in the next set of queries.
+<P>
+<B>QA1. Value aggregation. </B>Compute the average value for the aSixtyFour attribute of all nodes at level 15
+(have aLevel = 15 (sel= 23.8%)). The number of returned nodes is 1.
+<P>
+<B>QA2. Value aggregation with groupby. </B>Compute the average value of the aSixtyFour attribute of all
+nodes at each level. The return structure is a tree, with a dummy root and a child for each group. Each leaf
+(child) node has one attribute for the level and one attribute for the average value. The number of returned trees
+is 16.
+<P>
+<B>QA3. Value aggregate selection. </B>Select elements that have at least two occurrences of keyword "oneB1"
+(sel= 1/ 16) in their content. Selectivity is 0.3%.
+<P>
+<B>QA4. Structural aggregation. </B>Amongst the nodes at level 11 (have aLevel = 11 (sel= 1.5%)), find the
+node( s) with the largest fanout. Selectivity is 0.02%.
+<P>
+<B>QA5. Structural aggregate selection. </B>Select elements that have at least two children that satisfy aFour =
+1 (sel= 1/ 4). Selectivity is 3.1%.
+<P>
+<B>QA6. Structural exploration. </B>For each node at level 7 (have aLevel = 7 (sel= 0.4%)), determine the height
+of the sub-tree rooted at this node. The returned structure is a tree with a dummy root that has a child for each
+node at level 7. This child leaf node has one attribute that references the node at level 7, and another attribute that
+records the height of the sub-tree. Under each of these nodes, the sub-tree goes to level 16, and so is exactly ten
+levels high, again irrespective of the scaling. However, determining this height may require exploring substantial
+parts of the database. Nodes at levels 5 and 7 are 0.4% of all nodes, thus the selectivity of this query is 0.4%.
+<P>
+There are also other functionalities, such as casting, which can be significant performance factors for engines
+that need to convert data types. However, in this benchmark, we focus on testing the core functionality of the
+XML engines.
+
+<H3><A NAME="4.5" target="_blank">4.5 Updates</A></H3>
+</B>The benchmark also contains seven update queries, which include point update and delete, bulk insert and delete,
+bulk load, bulk reconstruction, and bulk restructuring.
+<P>
+<B>QU1. Point Insert. </B>Insert a new node below the node with aUnique1 = 10102.
+<P>
+<B>QU2. Point Delete. </B>Delete the node with aUnique1 = 10102 and transfer all its children to its parent.
+<P>
+<B>QU3. Bulk Insert. </B>Insert a new node below each node with aSixtyFour = 1. Each new node has attributes
+identical to its parent, except for aUnique1, which is set to some new large, unique value, not necessarily
+contiguous with the values already assigned in the database.
+<P>
+<B>QU4. Bulk Delete. </B>Delete all leaf nodes with aSixteen = 3.
+<P>
+<B>QU5. Bulk Load. </B>Load the original data set from a (set of) document( s).
+<P>
+<B>QU6. Bulk Reconstruction. </B>Return a set of documents, one for each sub-tree rooted at level 11 (have
+aLevel = 11) and with a child of type eOccasional.
+<P>
+<B>QU7. Restructuring. </B>For a node u of type eOccasional, letv be the parent of u, andw be the parent of
+v in the database. For each such node u, makeu a direct child of w in the same position as v, and place v
+(along with the sub-tree rooted at v) under u.
+<P>
+
+<H2><A NAME="performance" target="_blank">5. The Benchmark in Action</H2>
+<P>
+In this section, we present and analyze the performance of different databases using the Michigan benchmark.
+We conducted experiments using one native XML database, and one leading commercial ORDBMS. The native
+XML database is TIMBER [26], and for the ORDBMS we used the Hybrid inlining algorithm to map the data
+into a relational schema [23]. To generate good SQL queries, we adopted the algorithm presented in [13]. The
+queries in the benchmark were converted into SQL queries which can be found in the <a href="sql.html">"SQL Queries in Mbench" web page</a>.
+</P>
+
+<P>
+We would have preferred to report results on a commercial XML database, but were not successful in loading
+the entire base data set into any of three products that we tried. We are currently working with the vendor of one
+of these products to load and benchmark an entire data set.
+</P>
+
+<H3><A NAME="5.1" target="_blank">5.1 Experimental Platform and Methodology</A></H3>
+<P>
+All experiments were run on a single-processor 550 MHz Pentium III machine with 256 MB of main memory.
+The benchmark machine was running the Windows operating system and was configured with a 20 GB Western
+Digital WDC WD200BB-00AUA1 IDE disk. Both TIMBER and the ORDBMS use a 64 MB buffer pool size.
+For the ORDBMS, we used the default settings that the ORDBMS chooses during the software installation. The
+only setting that we changed was to enable the use of hash joins, as we found that query response times generally
+improved with this option turned on. After loading the data we update all statistics to provide the optimizer with
+the most current statistical information.
+</P>
+
+<P>
+For this experiment we loaded the base data set (722K nodes, 510MB of raw data). Although we wanted
+to load larger scaled up data sets, we found that in many cases the parsers are fragile and break down with large
+documents. Consequently, for this study, we decided to load another <I>scaled down </I>version of the data. The scaled
+down data set, which we call <B>ds0.1x, </B>is produced by changing the fanouts of the nodes at levels 5, 6, 7 and 8
+to 4, 4, 4 and 1/ 4 respectively. This scaled down data set is approximately 1=10th the size of the <B>ds1x </B>data set.
+Note that because of the nature of the document tree, the percentage of nodes at the levels close to the leaves
+remains the same, hence the query selectivities stay roughly constant even in this scaled down data set.
+</P>
+
+<P>
+For the purpose of the experiment, we loaded and wrote queries against the scaled down set before using
+the base data set. The smaller data set size reduced the time to set up the queries and load the scripts, for both
+TIMBER and the commercial ORDBMS. The same queries and scripts could be reused for the base data set.
+Since we expect that this strategy may also be useful to other users of this benchmark, the data generator for this
+benchmark, which is available for free download from the benchmark's website [25], allows generation of this
+scaled down data set.
+</P>
+
+<P>
+In our experiments, each query was executed five times, and the execution times reported in this section is an
+average of the middle three runs, excluding the fastest and the slowest runs. Queries were always run in "cold"
+mode, so the query execution times do not include side-effects of cached buffer pages from a previous run of
+another query or a previous run of the same query.
+</P>
+
+<P>
+In our own use of the benchmark, we have found it useful to produce two kinds of tables: a <I>summary
+</I>table which presents a single number for a group of related queries, and a <I>detail </I>table that shows the query
+execution time for each individual query. The summary table presents a high-level view of the performance
+of the benchmark queries. It contains one entry for a <I>group </I>of related queries, and shows the geometric mean
+of the response times of the queries in that group. Figure 5 shows the summary table for the systems that we
+benchmarked. In the subsequent sections, we present the individual query execution times, and analyze the
+queries in each; Figure 5 also indicates the sections in which the detailed numbers are presented and analyzed.
+In the figures <I>N/ A </I>indicates that queries could not be run with the given configuration and system software.
+</P>
+
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TD ROWSPAN=3>Discussed Section</TD>
+	<TD ROWSPAN=3>Query Group (Queries in Group)</TD>
+	<TD COLSPAN=4>Geometric Mean Response Times (seconds)</TD>
+</TR>
+<TR>
+	<TD COLSPAN=2>ds0.1x</TD>
+	<TD COLSPAN=2>ds1x</TD>
+</TR>
+<TR>
+	<TD>TIMBER</TD><TD>ORDBMS</TD><TD>TIMBER</TD><TD>ORDBMS</TD>
+</TR>
+<TR>
+	<TD>5.2.1</TD><TD>Returned structure (QR1-QR4)</TD>
+	<TD>0.35</TD><TD>0.27</TD><TD>11.80</TD><TD>3.87</TD>
+</TR>
+<TR>
+	<TD>5.2.2</TD><TD>Exact match attribute value Selection (QS1-QS7)</TD>
+	<TD>0.06</TD><TD>0.04</TD><TD>1.30</TD><TD>0.28</TD>
+</TR>
+<TR>
+	<TD>5.2.3</TD><TD>Element name selection (QS8)</TD>
+	<TD>0.02</TD><TD>0.02</TD><TD>0.18</TD><TD>0.15</TD>
+</TR>
+<TR>
+	<TD>5.2.4</TD><TD>Order-based selection (QS9-QS10)</TD>
+	<TD>0.03</TD><TD>0.06</TD><TD>31.25</TD><TD>0.61</TD>
+</TR>
+<TR>
+	<TD>5.2.5</TD><TD>Element content selection (QS11-QS12)</TD>
+	<TD>N/A</TD><TD>0.12</TD><TD>N/A</TD><TD>2.75</TD>
+</TR>
+<TR>
+	<TD>5.2.5</TD><TD>String distance selection (QS13-QS14)</TD>
+	<TD>N/A</TD><TD>1.12</TD><TD>N/A</TD><TD>39.52</TD>
+</TR>
+<TR>
+	<TD>5.2.6</TD><TD>Order-sensitive selection (QS15-QS17)</TD>
+	<TD>0.14</TD><TD>0.08</TD><TD>0.18</TD><TD>0.26</TD>
+</TR>
+<TR>
+	<TD>5.2.7</TD><TD>Parent-child (P-C) selection (QS18-QS20)</TD>
+	<TD>0.23</TD><TD>0.04</TD><TD>2.49</TD><TD>0.34</TD>
+</TR>
+<TR>
+	<TD>5.2.7</TD><TD>Ancestor-descendant (A-D) selection (QS21-QS23)</TD>
+	<TD>0.23</TD><TD>2.14</TD><TD>2.50</TD><TD>17.92</TD>
+</TR>
+<TR>
+	<TD>5.2.7</TD><TD>Ancestor nesting in A-D selection (QS24-QS26)</TD>
+	<TD>0.24</TD><TD>1.16</TD><TD>2.70</TD><TD>12.65</TD>
+</TR>
+<TR>
+	<TD>5.2.8</TD><TD>P-C complex pattern selection (QS27-QS30)</TD>
+	<TD>0.47</TD><TD>0.03</TD><TD>5.28</TD><TD>0.50</TD>
+</TR>
+<TR>
+	<TD>5.2.8</TD><TD>A-D complex pattern selection (QS31-QS34)</TD>
+	<TD>0.44</TD><TD>2.49</TD><TD>4.91</TD><TD>24.74</TD>
+</TR>
+<TR>
+	<TD>5.2.9</TD><TD>Negated selection (QS35)</TD>
+	<TD>1.57</TD><TD>2.10</TD><TD>17.36</TD><TD>23.38</TD>
+</TR>
+<TR>
+	<TD>5.2.10</TD><TD>Value-based join (QJ1-QJ2)</TD>
+	<TD>8.90</TD><TD>0.05</TD><TD>N/A</TD><TD>0.42</TD>
+</TR>
+<TR>
+	<TD>5.2.10</TD><TD>Pointer-based join (QJ3-QJ4)</TD>
+	<TD>N/A</TD><TD>0.02</TD><TD>N/A</TD><TD>0.14</TD>
+</TR>
+<TR>
+	<TD>5.2.11</TD><TD>Value aggregation (QA1-QA3)</TD>
+	<TD>11.07</TD><TD>0.23</TD><TD>1184.69</TD><TD>2.31</TD>
+</TR>
+<TR>
+	<TD>5.2.11</TD><TD>Structural aggregation (QA4-QA6)</TD>
+	<TD>0.36</TD><TD>1.06</TD><TD>209.84</TD><TD>11.97</TD>
+</TR>
+<TR>
+	<TD>5.2.12</TD><TD>Update (QU1-QU7)</TD>
+	<TD>N/A</TD><TD>2.71</TD><TD>N/A</TD><TD>78.18</TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<P>
+<CENTER>Figure 5: Benchmark Numbers for Two DBMSs</CENTER>
+<P>
+
+<P>
+>From Figure 5, we observe that TIMBER is very efficient at processing XML structural queries. The im-plementation
+of "traditional" relational-style queries such as attribute value selection, value-based joins, and
+value-based aggregations is not highly tuned in TIMBER. This is primarily because TIMBER is a research
+prototype and most of the development attention has been paid to the XML query processing issues that are
+not covered by traditional relational techniques. However, these results show that there is room for substantial
+performance improvement for traditional relational query operations in the current implementation of TIMBER.
+Structural aggregate queries are also slow in the current implementation of TIMBER. We intend to address these performance issues in the near future.
+</P>
+
+<P>
+The ORDBMS can execute almost all queries well, except for the ancestor-descendant relationship queries.  The ORDBMS performs very well on the parent-child queries, which are evaluated using foreign key joins.
+</P>
+
+<B>5.2 Detailed Performance Analysis<BR>
+</B>In this section, we analyze the impact of various factors on the performance that was observed.
+<P>
+<B>5.2.1 Returned Structure (QR1-QR4)<BR>
+</B>
+<P>
+Figure 6 shows the performance of returned structure queries, QR1-QR4.
+</P>
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TD ROWSPAN=3>Query</TD>
+	<TD ROWSPAN=3>Brief Query Description</TD>
+	<TD ROWSPAN=3>Sel. (%)</TD>
+	<TD COLSPAN=4>Response Times (seconds)</TD>
+</TR>
+<TR>
+	<TD COLSPAN=2>ds0.1x</TD>
+	<TD COLSPAN=2>ds1x</TD>
+</TR>
+<TR>
+	<TD>TIMBER</TD><TD>ORDBMS</TD><TD>TIMBER</TD><TD>ORDBMS</TD>
+</TR>
+<TR>
+	<TD>QR1</TD><TD>Return result element</TD>
+	<TD>1.6</TD><TD>0.01</TD><TD>0.02</TD><TD>0.18</TD><TD>0.16</TD>
+</TR>
+<TR>
+	<TD>QR2</TD><TD>Return element and immediate children</TD>
+	<TD>1.6</TD><TD>0.34</TD><TD>0.31</TD><TD>65.00</TD><TD>2.59</TD>
+</TR>
+<TR>
+	<TD>QR3</TD><TD>Return entire sub-tree</TD>
+	<TD>1.6</TD><TD>10.73</TD><TD>1.09</TD><TD>387.23</TD><TD>26.09</TD>
+</TR>
+<TR>
+	<TD>QR4</TD><TD>Return element and selected descendants</TD>
+	<TD>1.6</TD><TD>0.32</TD><TD>0.97</TD><TD>4.27</TD><TD>20.57</TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<P>
+<CENTER>Figure 6: Benchmark Numbers for Two DBMSs on Returned Structure Queries</CENTER>
+<P>
+As shown in Figure 6, returned structure has an impact on both TIMBER and the ORDBMS. TIMBER
+performs the worst when the whole subtree is returned (QR3). This is surprising since TIMBER stores elements
+in depth-first order, so that retrieving a sub-tree should be a fast sequential scan. It turns out that TIMBER uses
+SHORE [7] for low level storage and memory management, and the initial implementation of the TIMBER
+data manager makes one SHORE call per element retrieved. The poor performance of QR3 helped TIMBER
+designers identify this implementation weakness, and the TIMBER data manager is currently being modified to
+support sequential scan-based retrievals.
+</P>
+<P>
+The ORDBMS takes more time in selecting and returning descendant nodes (QR3 and QR4), than returning
+children nodes (QR2). This is because the ORDBMS exploits the indices on the primary keys and the for-eign
+keys when it retrieves the children nodes. On the other hand, the ORDBMS needs to call recursive SQL
+statements in retrieving the descendant nodes.
+</P>
+
+<B>Simple Selection (QS1-QS10)<BR>
+</B>
+<P>
+Figure 7 shows the performance of simple selection queries, QS1-QS10.
+</P>
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TD ROWSPAN=3>Query</TD>
+	<TD ROWSPAN=3>Brief Query Description</TD>
+	<TD ROWSPAN=3>Sel. (%)</TD>
+	<TD COLSPAN=4>Response Times (seconds)</TD>
+</TR>
+<TR>
+	<TD COLSPAN=2>ds0.1x</TD>
+	<TD COLSPAN=2>ds1x</TD>
+</TR>
+<TR>
+	<TD>TIMBER</TD><TD>ORDBMS</TD><TD>TIMBER</TD><TD>ORDBMS</TD>
+</TR>
+<TR>
+	<TD>QS1</TD><TD>Selection on string attribute value (low sel.)</TD>
+	<TD>0.8</TD><TD>0.01</TD><TD>0.02</TD><TD>0.09</TD><TD>0.08</TD>
+</TR>
+<TR>
+	<TD>QS2</TD><TD>Selection on string attribute value (high sel.)</TD>
+	<TD>6.3</TD><TD>0.06</TD><TD>0.06</TD><TD>0.71</TD><TD>0.63</TD>
+</TR>
+<TR>
+	<TD>QS3</TD><TD>Selection on integer attribute value (low sel.)</TD>
+	<TD>0.7</TD><TD>0.01</TD><TD>0.02</TD><TD>0.09</TD><TD>0.08</TD>
+</TR>
+<TR>
+	<TD>QS4</TD><TD>Selection on integer attribute value (high sel.)</TD>
+	<TD>6.0</TD><TD>0.06</TD><TD>0.06</TD><TD>0.68</TD><TD>0.57</TD>
+</TR>
+<TR>
+	<TD>QS5</TD><TD>Selection on range values</TD>
+	<TD>6.3</TD><TD>0.07</TD><TD>0.06</TD><TD>0.72</TD><TD>0.60</TD>
+</TR>
+<TR>
+	<TD>QS6</TD><TD>Selection with sorting</TD>
+	<TD>6.0</TD><TD>0.44</TD><TD>0.06</TD><TD>578.55</TD><TD>0.58</TD>
+</TR>
+<TR>
+	<TD>QS7</TD><TD>Multiple-attribute selection</TD>
+	<TD>1.6</TD><TD>0.32</TD><TD>0.02</TD><TD>3.65</TD><TD>0.17</TD>
+</TR>
+<TR>
+	<TD>QS8</TD><TD>Element name selection</TD>
+	<TD>1.6</TD><TD>0.02</TD><TD>0.02</TD><TD>0.18</TD><TD>0.15</TD>
+</TR>
+<TR>
+	<TD>QS9</TD><TD>Order-based selection (high fanout)</TD>
+	<TD>0.4</TD><TD>0.02</TD><TD>0.06</TD><TD>30.72</TD><TD>0.61</TD>
+</TR>
+<TR>
+	<TD>QS10</TD><TD>Order-based selection (low fanout)</TD>
+	<TD>0.4</TD><TD>0.04</TD><TD>0.06</TD><TD>31.79</TD><TD>0.62</TD>
+</TR>
+</TABLE>
+<P>
+Figure 7: Benchmark Numbers for Two DBMSs on Simple Selection Queries
+</P>
+</CENTER>
+<P>
+<B>5.2.2 Exact Match Attribute Value Selection (QS1-QS7)</B>
+<BR>
+<B>Predicate Selectivity (QS1-QS4)</B><BR>
+Selectivity has an impact on both TIMBER and the ORDBMS. The re-sponse
+times of the high selectivity queries (QS2 and QS4) are more than those of the low selectivity queries
+(QS1 and QS3), with the response times growing linearly with the increasing selectivity for both systems. In
+both systems, selection on short strings is as efficient as selection on integers.
+<P>
+<B>Range Selection (QS5) </B><BR>
+Both systems handle a range predicate just as well as an equality predicate. In both
+systems, the performance of the range predicate query (QS5) is almost the same as that of the comparable
+equality selection queries (QS2 and QS4).
+<P>
+<B>Multiple-attribute Selection and Sorting (QS6-QS7) </B><BR>
+Currently, TIMBER does not support multiple-attribute
+indices. This is why it has high response times for QS6 and QS7 than for QS3. To evaluate QS6, TIMBER needs
+to use an unclustered index to access all nodes that satisfy the predicate aLevel = 13; then it has to retrieve the
+actual nodes and sort these nodes on the value of the aSixtyFour attribute. To evaluate QS7, TIMBER requires
+two index accesses (one for each predicate) and a set intersection between them. On the other hand, the
+ORDBMS performs well on QS6 and QS7, since it uses the appropriate multiple-attribute indices.
+<P>
+<B>5.2.3 Element Name Selection (QS8)
+</B><BR>
+Both TIMBER and ORDBMS resolve the query request for a given element name very well. This is because
+TIMBER uses an index on element names, and the ORDBMS simply requests all tuples from the table corre-sponding
+to the given element name.
+<P>
+<B>5.2.4 Fanout (QS9-QS10)
+</B><BR>
+The response times of QS9 and QS10 indicate that the small difference in fanout does not have an impact on the
+performance of either system. This is because TIMBER does not need to access all the children to determine
+the fanout; it just accesses the node in question. The ORDBMS exploits an index on the child order attribute in
+both cases.
+<P>
+<B>5.2.5 Text Processing (QS11-QS14)
+</B>
+<P>
+Figure 8 shows the performance of text processing queries, QS11-QS14.
+</P>
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TD ROWSPAN=3>Query</TD>
+	<TD ROWSPAN=3>Brief Query Description</TD>
+	<TD ROWSPAN=3>Sel. (%)</TD>
+	<TD COLSPAN=4>Response Times (seconds)</TD>
+</TR>
+<TR>
+	<TD COLSPAN=2>ds0.1x</TD>
+	<TD COLSPAN=2>ds1x</TD>
+</TR>
+<TR>
+	<TD>TIMBER</TD><TD>ORDBMS</TD><TD>TIMBER</TD><TD>ORDBMS</TD>
+</TR>
+<TR>
+	<TD>QS11</TD><TD>Element content selection (low sel.)</TD>
+	<TD>0.2</TD><TD>N/A</TD><TD>0.02</TD><TD>N/A</TD><TD>0.17</TD>
+</TR>
+<TR>
+	<TD>QS12</TD><TD>Element content selection (high sel.)</TD>
+	<TD>12.5</TD><TD>N/A</TD><TD>0.97</TD><TD>N/A</TD><TD>43.85</TD>
+</TR>
+<TR>
+	<TD>QS13</TD><TD>String distance selection (low sel.)</TD>
+	<TD>0.8</TD><TD>N/A</TD><TD>0.95</TD><TD>N/A</TD><TD>42.79</TD>
+</TR>
+<TR>
+	<TD>QS14</TD><TD>String distance selection (high sel.)</TD>
+	<TD>6.3</TD><TD>N/A</TD><TD>1.31</TD><TD>N/A</TD><TD>45.42</TD>
+</TR>
+</TABLE>
+<P>
+Figure 8: Benchmark Numbers for Two DBMSs on Text Processing Queries
+</P>
+</CENTER>
+<P>
+Currently, TIMBER does not support content-based queries. In the ORDBMS, processing long strings
+(QS11-QS12) is more expensive than processing short ones (QS1-QS2) because there is no index on the long
+strings. The large difference between the response times of QS11 and of QS12 is due to the large difference
+between the scan costs of two different tables. To measure the distance between words stored in a long string
+(QS13-QS14), we need to use a user-defined function, which cannot make use of an index; as a result, the
+efficiency of the query is the same regardless of the selectivity of the string distance selection predicate.
+<P>
+
+<B>Structural Selection (QS15-QS35)</B>
+<BR>
+<B>5.2.6 Order-Sensitive Parent-Child Selection (QS15-QS17)
+</B>
+<P>
+Figure 9 shows the performance of ordering queries, QS15-QS17.
+</P>
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TD ROWSPAN=3>Query</TD>
+	<TD ROWSPAN=3>Brief Query Description</TD>
+	<TD ROWSPAN=3>Sel. (%)</TD>
+	<TD COLSPAN=4>Response Times (seconds)</TD>
+</TR>
+<TR>
+	<TD COLSPAN=2>ds0.1x</TD>
+	<TD COLSPAN=2>ds1x</TD>
+</TR>
+<TR>
+	<TD>TIMBER</TD><TD>ORDBMS</TD><TD>TIMBER</TD><TD>ORDBMS</TD>
+</TR>
+<TR>
+	<TD>QS15</TD><TD>Local ordering</TD>
+	<TD>3.1</TD><TD>20.42</TD><TD>0.08</TD><TD>&gt; 1 hr</TD><TD>1.02</TD>
+</TR>
+<TR>
+	<TD>QS16</TD><TD>Global ordering</TD>
+	<TD>1 node</TD><TD>0.00</TD><TD>0.01</TD><TD>0.02</TD><TD>0.03</TD>
+</TR>
+<TR>
+	<TD>QS17</TD><TD>Reverse ordering</TD>
+	<TD>0.7</TD><TD>0.14</TD><TD>0.07</TD><TD>1.55</TD><TD>0.55</TD>
+</TR>
+</TABLE>
+<P>
+Figure 9: Benchmark Numbers for Two DBMSs on Ordering Queries
+</P>
+</CENTER>
+<P>
+In TIMBER, local ordering (QS15) results in considerably worse performance than global ordering (QS16)
+and reverse ordering (QS17) because it requires many random accesses. On the other hand, global ordering
+(QS16) performs well because it requires only one random access, and reverse ordering (QS17) requires a
+structural join and no random access.
+In the ORDBMS, local ordering (QS15) and reverse ordering (QS17) are more expensive than global or-dering
+(QS16). This is because local ordering (QS15) needs to access a number of nodes that satisfy the given
+order, and reverse ordering (QS17) needs to first find the order that is the largest and then retrieve the element
+that has that order. On the other hand, QS16 quickly returns as soon as it finds the first tuple that satisfies the
+given order and predicates.
+<P>
+Figure 10 shows the performance of the structural selection queries, QS18-QS35. In this figure, "P-C: low-high"
+refers to the join between a parent with low selectivity and a child with high selectivity, whereas, "A-D:
+high-low" refers to the join between an ancestor with high selectivity and a descendant with low selectivity.
+</P>
+<B>5.2.7 Simple Pattern Containment Selection (QS18-QS27)<BR>
+</B>
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TD ROWSPAN=3>Query</TD>
+	<TD ROWSPAN=3>Brief Query Description</TD>
+	<TD ROWSPAN=3>Sel. (%)</TD>
+	<TD COLSPAN=4>Response Times (seconds)</TD>
+</TR>
+<TR>
+	<TD COLSPAN=2>ds0.1x</TD>
+	<TD COLSPAN=2>ds1x</TD>
+</TR>
+<TR>
+	<TD>TIMBER</TD><TD>ORDBMS</TD><TD>TIMBER</TD><TD>ORDBMS</TD>
+</TR>
+<TR>
+	<TD>QS18</TD><TD>P-C: medium-medium</TD>
+	<TD>0.7</TD><TD>0.14</TD><TD>0.02</TD><TD>1.51</TD><TD>0.25</TD>
+</TR>
+<TR>
+	<TD>QS19</TD><TD>P-C: high-low</TD>
+	<TD>0.7</TD><TD>0.29</TD><TD>0.05</TD><TD>3.21</TD><TD>0.44</TD>
+</TR>
+<TR>
+	<TD>QS20</TD><TD>P-C: low-high</TD>
+	<TD>0.7</TD><TD>0.28</TD><TD>0.05</TD><TD>3.18</TD><TD>0.34</TD>
+</TR>
+<TR>
+	<TD>QS21</TD><TD>A-D: medium-medium</TD>
+	<TD>3.5</TD><TD>0.14</TD><TD>2.22</TD><TD>1.55</TD><TD>20.15</TD>
+</TR>
+<TR>
+	<TD>QS22</TD><TD>A-D: high-low</TD>
+	<TD>0.7</TD><TD>0.29</TD><TD>0.94</TD><TD>3.21</TD><TD>5.64</TD>
+</TR>
+<TR>
+	<TD>QS23</TD><TD>A-D: low-high</TD>
+	<TD>1.5</TD><TD>0.28</TD><TD>4.69</TD><TD>3.14</TD><TD>50.65</TD>
+</TR>
+<TR>
+	<TD>QS24</TD><TD>Ancestor nesting in A-D: medium-medium</TD>
+	<TD>1.0</TD><TD>0.13</TD><TD>2.16</TD><TD>1.56</TD><TD>20.03</TD>
+</TR>
+<TR>
+	<TD>QS25</TD><TD>Ancestor nesting in A-D: high-low</TD>
+	<TD>1.7</TD><TD>0.31</TD><TD>0.95</TD><TD>3.44</TD><TD>8.83</TD>
+</TR>
+<TR>
+	<TD>QS26</TD><TD>Ancestor nesting in A-D: low-high</TD>
+	<TD>0.5</TD><TD>0.28</TD><TD>0.92</TD><TD>3.12</TD><TD>11.73</TD>
+</TR>
+<TR>
+	<TD>QS27</TD><TD>Ancestor nesting in A-D: low-high</TD>
+	<TD>5.0</TD><TD>0.29</TD><TD>0.97</TD><TD>3.19</TD><TD>12.35</TD>
+</TR>
+<TR>
+	<TD>QS28</TD><TD>P-C chain: high-low-low-high</TD>
+	<TD>0.0</TD><TD>0.95</TD><TD>0.06</TD><TD>10.61</TD><TD>0.77</TD>
+</TR>
+<TR>
+	<TD>QS29</TD><TD>P-C twig: low-high, low-low</TD>
+	<TD>0.0</TD><TD>0.31</TD><TD>0.02</TD><TD>3.57</TD><TD>0.48</TD>
+</TR>
+<TR>
+	<TD>QS30</TD><TD>P-C twig: high-low, high-low</TD>
+	<TD>0.0</TD><TD>0.34</TD><TD>0.02</TD><TD>3.89</TD><TD>0.34</TD>
+</TR>
+<TR>
+	<TD>QS31</TD><TD>A-D chain: high-low-low-high</TD>
+	<TD>0.4</TD><TD>0.95</TD><TD>20.22</TD><TD>10.56</TD><TD>190.19</TD>
+</TR>
+<TR>
+	<TD>QS32</TD><TD>A-D twig: low-high, low-low</TD>
+	<TD>0.9</TD><TD>0.33</TD><TD>2.64</TD><TD>3.67</TD><TD>33.04</TD>
+</TR>
+<TR>
+	<TD>QS33</TD><TD>A-D twig: high-low, high-low</TD>
+	<TD>0.4</TD><TD>0.34</TD><TD>1.24</TD><TD>3.84</TD><TD>10.86</TD>
+</TR>
+<TR>
+	<TD>QS34</TD><TD>Twig with one P-C (high-low) and one A-D (high-low)</TD>
+	<TD>0.2</TD><TD>0.34</TD><TD>0.58</TD><TD>3.90</TD><TD>5.49</TD>
+</TR>
+<TR>
+	<TD>QS35</TD><TD>Negated selection</TD>
+	<TD>93.2</TD><TD>1.57</TD><TD>2.10</TD><TD>17.36</TD><TD>23.38</TD>
+</TR>
+</TABLE>
+<P>
+Figure 10: Benchmark Numbers for Two DBMSs on Containment Selection Queries
+</P>
+</CENTER>
+<P>The ORDBMS processes direct containment queries (QS18-QS20) better than TIMBER, but TIMBER handles
+indirect containment queries (QS21-QS27) better.
+In TIMBER, structural joins [4] are used to evaluate both types of containment queries. Each structural join
+reads both inputs (ancestor/ parent and descendant/ child) once from indices. It keeps potential ancestors in a stack
+and joins them with the descendants as the descendants arrive. Therefore, the cost of the ancestor-descendant
+queries is not necessarily higher than the parent-child queries. From the performance of these queries, we can
+deduce that the higher selectivity of ancestors, the greater the delay in the query performance (QS19 and QS22).
+Although the selectivities of ancestors in QS20 and QS23 are lower than those of QS18 and QS21, QS20 and
+QS23 perform worse because of the high selectivities of descendants.
+The ORDBMS is very efficient for processing parent-child queries (QS18-QS20), since these translate into
+foreign key joins, which the system can evaluate every efficiently using indices. On the other hand, the OR-DBMS
+has much longer response times for the ancestor-descendant queries (QS21-QS23). The only way to
+answer these queries is by using recursive SQL statements, which are expensive to evaluate.
+</P>
+<P>
+We also found that the performance of the ancestor-descendant queries was very sensitive to the SQL query
+that we wrote. To answer an ancestor-descendant query with predicates on both the ancestor and descendant
+nodes, the SQL query must perform the following three steps: 1) Start by selecting the ancestor nodes, which
+could be performed by using an index to quickly evaluate the ancestor predicate, 2) Use a recursive SQL to find
+all the descendants of the selected ancestor nodes, and 3) Finally, we need to check if the selected descendants
+match the descendant predicate specified in the query. Note that one cannot perform step 3 before step 2 since
+it is possible that a descendant in the result may be below another descendant that does not match the predicate
+on the descendant node in the query. Another alternative is to start step 1 by selecting the descendant nodes and
+following these steps to find the matching ancestors. In general, it is more effective to start from the descendants
+if the descendant predicate has a lower selectivity than the ancestor predicate. However, if the ancestor predicate
+has a lower selectivity, then one needs to pick the strategy that traverses fewer number of nodes. Traversing
+from the descendants, the number of visited nodes grows proportional to the distance between the descendants
+and the ancestors. 
+However, traversing from the ancestors, the number of visited nodes can grow exponentially
+at the rate of the fanout of the ancestors.
+</P>
+
+<P>
+The effect of the number of visited nodes in the ORDBMS is clearly seen by comparing queries QS23 and
+QS26. Both queries have similar selectivities on both ancestors and descendants, and are evaluated by starting
+from the ancestors. However, QS23 has a much higher response time. In QS23, starting from the ancestors, the
+number of visited nodes grow significantly since the ancestors are the nodes at level 11 - each node at this level,
+and its expanded non-leaf descendant nodes, has a fanout of 2. In contrast, in QS26, the ancestor set is the set of
+nodes that satisfy the predicate aSixtyFour = 9. Since half of these ancestors are at the leaf level, when finding
+the descendants, the number of visited nodes does not grow as quickly as it did in the case of query QS23.
+</P>
+<P>
+One may wonder whether QS23 would perform better if the query was coded to start from the descendants.
+We found that for the ds1x data set, using this option nearly doubles the response time to 126.01 seconds.
+Starting from the ancestors results in better performance since the selectivity of the descendants (sel= 1/ 4) is
+higher than the selectivity of the ancestors (sel= 1/ 64), which implies that the descendent candidate list is much
+larger than the ancestor candidate list. Consequently, starting from the descendants results in visiting more
+number of nodes.
+Both systems are immune to the recursive nesting of ancestor nodes below other ancestor nodes; the queries
+on recursively nested ancestor nodes (QS24-QS26) have the same response times as their non-recursive coun-terparts
+(QS21-QS23), except QS26 and QS23 that have different response times in the ORDBMS.
+<P>
+<B>5.2.8 Complex Pattern Containment Selection (QS28-QS34)
+</B><BR>
+Overall, TIMBER performs well on complex queries. It breaks the chain pattern queries (QS28 and QS31) or
+twig queries (QS29-QS30, QS32-QS34) into a series of binary containment joins. The performance of direct
+containment joins (QS28-QS30) is close to that of indirect containment joins (QS31-QS33). This is because all
+containment joins use efficient structural join algorithms as described in [4].
+The ORDBMS takes much more time to answer ancestor-descendant chain joins (QS31-QS33) than parent-child
+chain joins (QS28-QS30). Again, the high response times of ancestor-descendant queries are due to the
+recursive SQL, which is expensive to compute. In constructing the SQL queries for the ORDBMS, we followed
+the techniques described in [13] for choosing the order of the joins; as expected choosing a random join order
+resulted in a substantial reduction in performance in some case.
+As shown in the Figure 10, even though QS31 and QS33 have similar result selectivities, it is much more
+expensive to evaluate query QS31, in both systems. This is because QS31 has more joins than QS33. The
+increase in the number of joins has a greater negative effect on the ORDBMS than on TIMBER.
+<P>
+<B>5.2.9 Irregular Structure (QS35)
+</B><BR>
+Since some parts of an XML document may have irregular data structure, such as missing elements, queries
+such as QS35 are useful when looking for such irregularities. Query QS35 looks for all BaseType elements
+below which there is no OccasionalType element.
+In TIMBER, this operation is very fast because it uses a variation of the structural joins used in evaluating
+containment queries. This join outputs ancestors that <I>do not </I>have a matching descendant.
+In the ORDBMS, there are two ways to implement this query. A naive way is to use a set different operation
+which results in a very long response time (1517.4 seconds for the ds1x data set). This long response time is
+because the ORDBMS first needs to find a set of elements that contain the missing elements (using a recursive
+SQL query), and then find elements that are not in that set. The second alternative of implementing this query is
+to use a left outer join. That is first create a view that selects all BaseType elements have some OccasionalType
+descendants (this requires a recursive SQL statement). Then compute a left-outer join between the view and the
+relation that holds all BaseType elements, selecting only those BaseType elements that are not present in the
+view (this can be accomplished by checking for a null value). Compared to the response time of the first
+implementation (1517.4 seconds), this rewriting query results in much less response time (23.38 seconds) as
+reported in Figure 10.
+<P>
+<B>5.2.10 Value-Based and Pointer-Based Joins (QJ1-QJ4)
+</B>
+<P>
+Figure 11 shows the performance of value-based join queries, QJ1-QJ4.
+</P>
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TD ROWSPAN=3>Query</TD>
+	<TD ROWSPAN=3>Brief Query Description</TD>
+	<TD ROWSPAN=3>Sel. (%)</TD>
+	<TD COLSPAN=4>Response Times (seconds)</TD>
+</TR>
+<TR>
+	<TD COLSPAN=2>ds0.1x</TD>
+	<TD COLSPAN=2>ds1x</TD>
+</TR>
+<TR>
+	<TD>TIMBER</TD><TD>ORDBMS</TD><TD>TIMBER</TD><TD>ORDBMS</TD>
+</TR>
+<TR>
+	<TD>QJ1</TD><TD>Value-based join (low sel.)</TD>
+	<TD>1.6</TD><TD>1.73</TD><TD>0.03</TD><TD>&gt; 1 hr</TD><TD>0.21</TD>
+</TR>
+<TR>
+	<TD>QJ2</TD><TD>Value-based join (high sel.)</TD>
+	<TD>6.3</TD><TD>45.78</TD><TD>0.08</TD><TD>&gt; 1 hr</TD><TD>0.83</TD>
+</TR>
+<TR>
+	<TD>QJ3</TD><TD>Pointer-based join (low sel.)</TD>
+	<TD>0.02</TD><TD>N/A</TD><TD>0.01</TD><TD>N/A</TD><TD>0.05</TD>
+</TR>
+<TR>
+	<TD>QJ4</TD><TD>Pointer-based join (high sel.)</TD>
+	<TD>0.4</TD><TD>N/A</TD><TD>0.05</TD><TD>N/A</TD><TD>0.42</TD>
+</TR>
+</TABLE>
+<P>
+Figure 11: Benchmark Numbers for Two DBMSs on Traditional Join Queries
+</CENTER>
+<P>
+In TIMBER, a simple, unoptimized nested loop join algorithm is used to evaluate value-based joins. Both QJ1 and QJ2 perform poorly because of the high overhead in retrieving attribute values through random ac-cesses.  QJ3 and QJ4 require element content retrieval in joins which is not currently supported by TIMBER.  The ORDBMS performs well on this class of queries, which are evaluated using foreign-key joins which are very efficiently implemented in traditional commercial database systems.
+<P>
+<B>5.2.11 Structural Aggregation vs. Value Aggregation (QA1-QA6)
+</B>
+<P>
+Figure 12 shows the performance of aggregation queries, QA1-QA6.
+</P>
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TD ROWSPAN=3>Query</TD>
+	<TD ROWSPAN=3>Brief Query Description</TD>
+	<TD ROWSPAN=3>Sel. (%)</TD>
+	<TD COLSPAN=4>Response Times (seconds)</TD>
+</TR>
+<TR>
+	<TD COLSPAN=2>ds0.1x</TD>
+	<TD COLSPAN=2>ds1x</TD>
+</TR>
+<TR>
+	<TD>TIMBER</TD><TD>ORDBMS</TD><TD>TIMBER</TD><TD>ORDBMS</TD>
+</TR>
+<TR>
+	<TD>QA1</TD><TD>Value aggregation</TD>
+	<TD>1 node</TD><TD>12.12</TD><TD>0.01</TD><TD>1184.69</TD><TD>0.11</TD>
+</TR>
+<TR>
+	<TD>QA2</TD><TD>Value aggregation with groupby</TD>
+	<TD>16 nodes</TD><TD>10.11</TD><TD>0.06</TD><TD>N/A</TD><TD>0.54</TD>
+</TR>
+<TR>
+	<TD>QA3</TD><TD>Value aggregate selection</TD>
+	<TD>0.3</TD><TD>N/A</TD><TD>18.14</TD><TD>N/A</TD><TD>201.43</TD>
+</TR>
+<TR>
+	<TD>QA4</TD><TD>Structural aggregation</TD>
+	<TD>0.02</TD><TD>0.04</TD><TD>0.39</TD><TD>N/A</TD><TD>3.55</TD>
+</TR>
+<TR>
+	<TD>QA5</TD><TD>Structural aggregate selection</TD>
+	<TD>3.1</TD><TD>15.38</TD><TD>0.26</TD><TD>1288.67</TD><TD>3.65</TD>
+</TR>
+<TR>
+	<TD>QA6</TD><TD>Structural exploration</TD>
+	<TD>0.4</TD><TD>0.07</TD><TD>12.00</TD><TD>34.17</TD><TD>132.59</TD>
+</TR>
+</TABLE>
+<P>
+Figure 12: Benchmark Numbers for Two DBMSs on Aggregate Queries
+</P>
+</CENTER>
+In TIMBER, a native XML database, the structure of the XML data is maintained and reflected throughout
+the system. Therefore, a structural aggregation query, such as QA4, performs well. On the other hand, a value
+aggregation query, such as QA2, performs worse due to a large number of random accesses. To resolve QA2,
+TIMBER first retrieves the nodes sorted by level through accessing the level index, then retrieves the attributes
+of these nodes through random database accesses. The high response time of queries that request random
+accesses, such as QR3 and QA2, prompted the re-design of parts of the data manager in TIMBER to support
+sequential scan.
+In the ORDBMS, evaluating the structural aggregation is much more expensive than evaluating the value
+aggregation. This is because in the relational representation the structure of XML data has to be reconstructed
+using expensive join operations, whereas attribute values can be quickly accessed using indices.
+<P>
+<B>5.2.12 Updates (QU1-QU7)
+</B>
+<P>
+Figure 13 shows the performance of update queries, QU1-QU7.
+</P>
+<CENTER>
+<TABLE BORDER="1" CELLPADDING="6" CELLSPACING="0">
+<TR>
+	<TD ROWSPAN=3>Query</TD>
+	<TD ROWSPAN=3>Brief Query Description</TD>
+	<TD COLSPAN=4>Response Times (seconds)</TD>
+</TR>
+<TR>
+	<TD COLSPAN=2>ds0.1x</TD>
+	<TD COLSPAN=2>ds1x</TD>
+</TR>
+<TR>
+	<TD>TIMBER</TD><TD>ORDBMS</TD><TD>TIMBER</TD><TD>ORDBMS</TD>
+</TR>
+<TR>
+	<TD>QU1</TD><TD>Point insert</TD>
+	<TD>N/A</TD><TD>0.55</TD><TD>N/A</TD><TD>5.72</TD>
+</TR>
+<TR>
+	<TD>QU2</TD><TD>Point delete</TD>
+	<TD>N/A</TD><TD>2.31</TD><TD>N/A</TD><TD>163.94</TD>
+</TR>
+<TR>
+	<TD>QU3</TD><TD>Bulk insert</TD>
+	<TD>N/A</TD><TD>4.67</TD><TD>N/A</TD><TD>41.84</TD>
+</TR>
+<TR>
+	<TD>QU4</TD><TD>Bulk delete</TD>
+	<TD>N/A</TD><TD>0.79</TD><TD>N/A</TD><TD>43.76</TD>
+</TR>
+<TR>
+	<TD>QU5</TD><TD>Bulk load</TD>
+	<TD>N/A</TD><TD>60.00</TD><TD>N/A</TD><TD>807.33</TD>
+</TR>
+<TR>
+	<TD>QU6</TD><TD>Bulk reconstruction</TD>
+	<TD>N/A</TD><TD>0.83</TD><TD>N/A</TD><TD>2.48</TD>
+</TR>
+<TR>
+	<TD>QU7</TD><TD>Restructuring</TD>
+	<TD>N/A</TD><TD>13.81</TD><TD>N/A</TD><TD>728.61</TD>
+</TR>
+</TABLE>
+<P>
+Figure 13: Benchmark Numbers for Two DBMSs on Update Queries
+</P>
+</CENTER>
+<P>
+The query time for the point insert query (QU1) is less than the query time for the point delete query (QU2)
+because the children of the deleted node is needed to be update while there is no children of the newly inserted
+node. This is also true for the performance difference between the delete query (QU2) and the bulk delete query
+(QU4). In the bulk delete query (QU4), we simply delete all leaf nodes with aSixteen = 3. The bulk loading
+(QU5) takes a long time because each row corresponding to each element needs to be inserted. The time for
+the query QU6 does not entirely reflect the actual bulk reconstruction since the ORDBMS does not yet have a
+function available to group the content of elements together to reconstruct an XML document. The restructuring
+query (QU7) takes an excessive amount of time because finding and updating the descendants of the given
+element require nested loop joins and a large number of row scans.
+<P>
+<B>5.3 Performance Analysis on Scaling Databases
+</B>
+<P>
+In this Section, we discuss the performance scaling ability of TIMBER and ORDBMS as the data set changes
+from <B>ds0.1x </B>to <B>ds1x. </B>Please refer to Figure 5 for the performance comparisons between these two data sets.
+</P>
+<P>
+<B>5.3.1 Scaling Performance on TIMBER
+</B>
+<P>TIMBER is a University system still under development, and was not able to support some of the queries for <B>ds1x
+</B>data set, particularly those involving aggregation, join, and selection with sorting. Improving the performance
+of these types of queries is the focus of the TIMBER group. However, it scales well for most of the queries,
+particulary ancestor-descendant relationship queries and negated selection queries.
+</P>
+<B>5. 3. 2 Scaling Performance on the ORDBMS
+</B>
+<P>
+In most queries, the ratios of the response times when using <B>ds0.1x </B>over <B>ds1x </B>are approximately 10. Exceptions
+to this occur in two types of queries: a) the returned structure with descendants queries, b) the text processing
+queries, and c) the update queries.
+</P>
+<P>
+As shown in Figure 6, QR3 and QR4 have response times grow about 20 times as data size increases about
+10 times. This suggests that the ORDBMS needs to improve this type of queries in order to perform well on con-structing
+an XML document from relational data. Recently, Shanmugasundaram et al. [16, 22] have addressed
+this problem as they proposed techniques for efficiently publishing and querying XML view of relational data.
+However, we were unable to leverage these techniques as they were not implemented in the ORDBMS that we
+used.
+</P>
+<P>
+As shown in Figure 8, there are two types of text processing queries: element content selection (QS11-
+QS12), and string distance selection (QS13-QS14). Queries QS11 and QS12 are single table queries that use a
+<TT>LIKE </TT>predicate. The attribute being queried does not have an index in both data sets (the index wizard chose
+not to build an index on this attribute). Consequently, in both cases a full scan of the table is required.
+</P>
+<P>
+The same behavior is seen for queries QS13 and QS14, which also use table scans. However, instead of using
+a <TT>LIKE </TT>predicate (as QS12 did), they use a user-defined function. The costs of these queries also increases faster
+than the table size.
+Figure 13 indicates that the performance gets worse as data size increases for most of the update queries.
+This is because of the complexity of finding and updating the elements that are related to the deleted or inserted
+elements. Most of joins used in these update queries are nested loop joins which grow exponentially respective
+to the input sizes.
+</P>
+<H2><A NAME="conclusions" target="_blank">6. Conclusions</H2>
+We proposed a benchmark that can be used to identify individual data characteristics and operations that may
+affect the performance of XML query processing engines. With careful analysis of the benchmark queries,
+engineers can diagnose the strengths and weaknesses of their XML databases. In addition, engineers can try
+different query processing implementations and evaluate these alternatives with the benchmark. Thus, this
+benchmark is a simple and effective tool to help engineers improve system performance.
+</P>
+<P>
+We evaluated a native XML database, TIMBER, and a commercial Object-Relational DBMS using this
+benchmark and found places where each had substantial room for improvement. The benchmark has already
+become an invaluable tool in the development of the TIMBER native XML database, helping us to identify
+portions of the system that need performance tuning. The benchmarking also shows that the ORDBMS is
+sensitive to the method used to translate an XML query to SQL. While this has been shown to be true for some
+XML queries in the past [13, 16], we show that this is also true for simple indirect containment queries, and
+queries that search for irregular structures in the XML data. We also demonstrate that using recursive SQL one
+can evaluate any structural query in the benchmark, however, this is much more expensive in the ORDBMS than
+the implementations in TIMBER, which use efficient XML structural join algorithms.
+</P>
+<P>
+Finally, we note that the proposed benchmark meets the key criteria for a successful domain-specific bench-mark
+that have been proposed in [15]. These key criteria are: relevant, portable, scalable, and simple. The
+proposed Michigan benchmark is <I>relevant </I>to testing the performance of XML engines because proposed queries
+are the core basic components of typical application-level operations of XML application. Michigan benchmark
+is <I>portable </I>because it is easy to implement the benchmark on many different systems. In fact, the data generator
+for this benchmark data set is freely available for download from the Michigan benchmark's web site [25]. It
+is <I>scalable </I>through the use of a scaling parameter. It is <I>simple </I>since it comprises only one data set and a set of
+simple queries, each designed to test a distinct functionality.
+</P>
+<H2>References</H2>
+</B>[1] A. Aboulnaga and J. Naughton and C. Zhang. Generating Synthetic Complex-structured XML Data. In <I>International
+Workshop on the Web and Databases, </I>Santa Barbara, California, May 2001.
+<P>
+[2] A. Schmidt and F. Wass and M. Kersten and D. Florescu and M. J. Carey and I. Manolescu and R. Busse. Why And
+How To Benchmark XML Databases. <I>SIGMOD Record, </I>30( 3), September 2001.
+<P>
+[3] Software AG. Tamino -The XML Power Database, 2001. <TT>http:// www. softwareag. com/ tamino/.
+</TT>[4] S. Al-Khalifa, H. V. Jagadish, N. Koudas, J. Patel, D. Srivastava, and Y. Wu. Strucutral Joins: A Primitive for Efficient
+XML Query Processing Pattern Matching. In <I>ICDE, </I>San Jose, CA, 2002.
+<P>
+[5] D. Barbosa, A. Mendelzon, J. Keenleyside, and K. Lyons. ToXgene: An Extensible Templated-based Data Generator
+for XML. In <I>Fifth International Workshop on the Web and Databases, </I>pages 49– 54, Madison, WI, 2002.
+<P>
+[6] T. B¨ ohme and E. Rahm. XMach-1: A Benchmark for XML Data Management. In <I>Proceedings of German Database
+Conference BTW2001, </I>Oldenburg, Germany, March 2001.
+<P>
+[7] M. Carey, D. J. DeWitt, M. J. Franklin, N. E. Hall, M. McAuliffe, J. F. Naughton, D. T. Schuh, and M. H. Solomon.
+Shoring up Persistent Applications. In <I>Proceedings of the ACM SIGMOD International Conference on Management
+of Data, </I>pages 383– 394, Minneapolis, Minnesota, 1994.
+<P>
+[8] IBM Corporation. DB2 XML Extender, 2001. <TT>http:// www-4. ibm. com/ software/ data/ db2/
+extenders/ xmlext/.
+</TT><P>
+[9] Microsoft Corporation. Microsoft SQL Server, 2001. <TT>http:// www. microsoft. com/ sql/ techinfo/ xml.
+</TT>[10] Oracle Corporation. XML on the Oracle, 2001. <TT>http:// technet. oracle. com/ tech/ xml/ content.
+html.
+</TT><P>
+[11] D. J. DeWitt. The Wisconsin Benchmark: Past, Present, and Future. In J. Gray, editor, <I>The Benchmark Handbook for
+Database and Transaction Systems. </I>Morgan Kaufmann, second edition, 1993.
+<P>
+[12] eXcelon Corporation. eXcelon Corporation: Products, 2001. <TT>http:// www. exceloncorp. com/ platform/
+index. shtml.
+</TT><P>
+[13] M. F. Fernandez, A. Morishima, and D. Suciu. Efficient Evaluation of XML Middle-ware Queries. In <I>Proceedings
+of the ACM SIGMOD International Conference on Management of Data, </I>Philadelphia, Pennsylvania, May 2001.
+<P>
+[14] R. Goldman, J. McHugh, and J. Widom. From Seminstructured Data to XML: Migrating to the Lore Data Model and
+Query Language. In <I>International Workshop on the Web and Databases, </I>pages 25– 30, Philadelphia, Pennsylvania,
+June 1999.
+[15] J. Gray. Introduction. In J. Gray, editor, <I>The Benchmark Handbook for Database and Transaction Systems. </I>Morgan
+Kaufmann, second edition, 1993.
+<P>
+[16] J. shanmugasundaram and E. J. Shekita and R. Barr and M. J. Carey and B. G. Lindsay and H. Pirahesh and B. Rein-wald.
+Efficiently Publishing Relational Data as XML Documents. <I>The VLDB Journal, </I>10( 2-3): 133– 154, 2001.
+<P>
+[17] M. J. Carey and D. J. DeWitt and J. F. Naughton. The OO7 Benchmark. <I>SIGMOD Record (ACM Special Interest
+Group on Managment of Data), </I>22( 2): 12– 21, 1993.
+<P>
+[18] J. McHugh, S. Abiteboul, R. Goldman, D. Quass, and J. Wid om. Lore: A Database Management System for
+Semistructured Data. <I>SIGMOD Record, </I>26( 3): 54– 66, September 1997.
+<P>
+[19] S. Bressan and G. Dobbie and Z. Lacroix and M. L. Lee and Y. G. Li and U. Nambiar and B. Wadhwa . XOO7:
+Applying OO7 Benchmark to XML Query Processing Tools. In <I>Proceedings of the ACM International Conference
+on Information and Knowledge Management (CIKM), </I>Atlanta, Georgia, November 2001.
+<P>
+[20] A. Sahuguet, L. Dupont, and T. L. Nguyen. Querying XML in the New Millennium. <TT>http:// db. cis. upenn.
+edu/ KWEELT/.
+</TT><P>
+[21] A. R. Schmidt, F. Wass, M. L. Kersten, D. Florescu, I. Manolescu, M. J. Carey, and R. Busse. The XML Benchmark
+Project. Technical report, CWI, Amsterdam, The Netherlands, April 2001.
+<P>
+[22] J. Shanmugasundaram, J. Keirnan, E. J. Shekita, C. Fan, and J. Funderburk. Querying XML Views of Relational Data.
+In <I>Proceedings International Conference Very Large Data Bases, </I>pages 261– 270, Roma, Italy, September 2001.
+<P>
+[23] J. Shanmugasundaram, K. Tufte, G. He, C. Zhang, D. DeWitt, and J. Naughton. Relational Databases for Querying
+XML Documents: Limitations and Opportunities. In <I>Proceedings International Conference Very Large Data Bases,
+</I>Edinburgh, Scotland, September 1999.
+<P>
+[24] Poet Software. Fastobjects, 2001. <TT>http:// www. fastobjects. com/ FO_ Corporate_ Homepage_ a.
+html.
+</TT><P>
+[25] The Michigan Benchmark Team. The Michigan Benchmark: Towards XML Query Performance Diagnostics, June
+2002. <TT>http:// www. eecs. umich. edu/ db/ mbench.
+</TT><P>
+[26] The TIMBER Database Team. Tree-structured native XML Database Implemented at the University of Michigan
+</BODY>
+</HTML>
+
+
+

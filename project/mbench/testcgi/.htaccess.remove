@@ -1,0 +1,8 @@
+AuthUserFile /w/web/db/mbench/testcgi/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Michigan Benchmark Download page"
+AuthType Basic
+
+<Limit GET POST>
+require valid-user
+</Limit>

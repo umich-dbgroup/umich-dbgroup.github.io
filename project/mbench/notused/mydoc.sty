@@ -1,0 +1,80 @@
+\usepackage[dvips]{graphicx}
+\usepackage{epsfig}
+\usepackage{url}
+\usepackage{times}
+\usepackage{here}
+\usepackage{path}
+\usepackage{cite}
+\usepackage{subfigure}
+
+\newcommand{\SingleSpace}{\edef\baselinestretch{1.0}\Huge\normalsize}
+\newcommand{\DoubleSpace}{\edef\baselinestretch{1.4}\Huge\normalsize}
+\newcommand{\BigCrunch}{\vspace*{-2em}}
+\newcommand{\Crunch}{\vspace*{-1em}}
+\newcommand{\goodgap}{%
+   \hspace{\subfigcapskip}}
+
+\newcommand{\onefigure}[3]{
+\begin{figure}[htbp]
+\begin{center}
+\centerline{\epsfxsize=2in \epsfysize=1in \epsffile{#1}} 
+\centerline{\parbox{4in}{\caption{#2} \label{#3}}} 
+\end{center}
+\end{figure}}
+
+
+\newcommand{\qed}{\hfill \rule{2mm}{3mm}}
+\newcommand{\eat}[1]{}
+\newcommand{\lbok}{\linebreak[0]}
+%\newcommand{\old}[1]{{\bf #1}} 
+\newcommand{\old}[1]{} 
+\newcommand{\q}[1]{#1} 
+\newcommand{\append}[1]{} 
+\newcommand{\extrainfo}[1]{}
+%\newcommand{\new}[1]{{\em (#1)}}
+\newcommand{\new}[1]{#1}
+\newcommand{\reminder}[1]{ [[[ \marginpar{\mbox{$<==$}} #1 ]]] }
+\newcommand{\eatreminders}{\renewcommand{\reminder}[1]{}}
+\newcommand{\comment}[1]{ {\footnotesize {#1} } }
+\newcommand{\QED}{\qed}
+\newcommand{\ra}{\mbox {$\rightarrow$}}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Corollary}{Corollary}[section]
+\newtheorem{Lemma}{Lemma}[section]
+\newtheorem{Example}{Example}[section]
+\newenvironment{Proof}{\noindent{\bf Proof:}}{\QED}
+\newtheorem{defn}{Definition}
+\newtheorem{algo}{Algorithm}
+\newtheorem{observation}{Observation}
+\newtheorem{problem}{Problem}
+
+\newcommand{\cheatbaseline}{1.44}
+\renewcommand{\baselinestretch}{\cheatbaseline}
+
+%% Bring items closer together in list environments
+% Prevent infinite loops
+\let\orig@Itemize =\itemize
+\let\orig@Enumerate =\enumerate
+\let\orig@Description =\description
+% Zero the vertical spacing parameters
+\def\Nospacing{\itemsep=0pt\topsep=0pt\partopsep=0pt%
+\parskip=0pt\parsep=0pt}
+% Redefinition de art12.sty pour commencer a la marge de gauche
+%\leftmargini 1.2em      % 2.5em
+
+\def\noitemsep{
+% Redefine the environments in terms of the original values
+\renewenvironment{itemize}{\orig@Itemize\Nospacing}{\endlist}
+\renewenvironment{enumerate}{\orig@Enumerate\Nospacing}{\endlist}
+\renewenvironment{description}{\orig@Description\Nospacing}%
+{\endlist}
+}
+
+\def\doitemsep{
+% Redefine the environments to the original values
+\renewenvironment{itemize}{\orig@Itemize}{\endlist}
+\renewenvironment{enumerate}{\orig@Enumerate}{\endlist}
+\renewenvironment{description}{\orig@Description}{\endlist}
+}
+%%%% fin macro %%%%
+

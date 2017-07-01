@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Scaling</TITLE>
+<META NAME="description" CONTENT="Scaling">
+<META NAME="keywords" CONTENT="dataSet">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dataSet.css">
+
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html66"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html64"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html60"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html67"
+  HREF="node6.html">Schema of Benchmark Data</A>
+<B> Up:</B> <A NAME="tex2html65"
+  HREF="node1.html">A Discussion of the</A>
+<B> Previous:</B> <A NAME="tex2html61"
+  HREF="node4.html">Document size</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00001400000000000000">
+Scaling</A>
+</H3>
+A good benchmark should scale so that appropriately scaled versions of
+the same benchmark can be run on platforms with widely varying
+capabilities.  In the relational model, scaling a benchmark data set
+is easy - we simply increase the number of tuples.  In the XML world,
+there are many choices one could make, and these could have an effect
+on the structure of the data set.  We would like to isolate the effect
+of the number of nodes from effects due to other structural changes,
+such as depth, fanout, etc.  To minimize such cross-impacts, we
+propose to scale the Michigan benchmark in discrete steps, as
+discussed below.
+
+The default data set, called <B>DSx1</B>, has &nbsp;67K nodes, arranged in a
+tree of depth 16 and fanout 2 for all the levels except levels 5, 6, 7
+and 8, which have fanouts of 4, 4, 4, 1/4 respectively. From this data set we
+generate two additional ``scaled-up'' data sets, called <B>DSx10</B>
+and <B>DSx100</B> that contain approximately 10 and 100 times respective to the
+number of nodes in the base data set. We achieve this scaling factor
+by varying the fanout of the nodes at levels 5-8. For the data set
+<B>DSx10</B> levels 5-7 have a fanout of 13, whereas level 8 has a
+fanout of 1/13. For the data set <B>DSx100</B> levels 5-7 have a
+fanout of 38, whereas level 8 has a fanout of 1/38. The total number
+of nodes in the data sets <B>DSx10</B> and <B>DSx100</B> is 727K and
+6,800K respectively&nbsp;<A NAME="tex2html2"
+  HREF="footnode.html#foot36"><SUP><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="icons/footnote.png"></SUP></A>.
+
+In the design of the benchmark data set, we deliberately chose to keep
+the fanout of the bottom few levels of the tree constant.  This design
+implies that the percentage of nodes in the lower levels of the tree
+(levels 9-16) is nearly constant across all the data sets. This
+allows us to easily express queries that focus on a specified
+percentage of the total number of nodes in the database. For example,
+to select approximately 1/16. of all the nodes, irrespective of the
+scale factor, we use the predicate <I>aLevel = 13</I>.
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html66"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html64"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html60"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html67"
+  HREF="node6.html">Schema of Benchmark Data</A>
+<B> Up:</B> <A NAME="tex2html65"
+  HREF="node1.html">A Discussion of the</A>
+<B> Previous:</B> <A NAME="tex2html61"
+  HREF="node4.html">Document size</A>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

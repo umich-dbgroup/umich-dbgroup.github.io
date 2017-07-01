@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Scaling Performance on TIMBER</TITLE>
+<META NAME="description" CONTENT="Scaling Performance on TIMBER">
+<META NAME="keywords" CONTENT="performance">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="performance.css">
+
+<LINK REL="next" HREF="node17.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html194"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html192"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html186"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html195"
+  HREF="node17.html">Scaling Performance on the</A>
+<B> Up:</B> <A NAME="tex2html193"
+  HREF="node15.html">Performance Analysis on Scaling</A>
+<B> Previous:</B> <A NAME="tex2html187"
+  HREF="node15.html">Performance Analysis on Scaling</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00003100000000000000">
+Scaling Performance on TIMBER</A>
+</H3>
+TIMBER  is a University system still under development, and was not able to
+support some of the queries for <B>ds1x</B> data set, particularly those involving
+aggregation and join.  However, for the remaining
+queries, it scales very well, giving ratios of response times
+when using <B>ds1x</B> over when using <B>ds0.1x</B> data sets of 2-7.  
+Since the <B>ds1x</B> data set is ten times larger than the <B>ds0.1x</B> data set, this
+represents sub-linear scaling.  This is probably due to significant constant
+overhead that is independent of data set size, since asymptotic analysis
+suggests that most TIMBER  algorithms will scale linearly.  Locating and
+removing this overhead should be an engineering objective for TIMBER.
+
+<P>
+<BR><HR>
+</BODY>
+</HTML>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Returned structure</TITLE>
+<META NAME="description" CONTENT="Returned structure">
+<META NAME="keywords" CONTENT="performance">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="performance.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html64"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html62"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html56"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html65"
+  HREF="node4.html">Predicate Selectivity</A>
+<B> Up:</B> <A NAME="tex2html63"
+  HREF="node2.html">Performance Analysis Using the</A>
+<B> Previous:</B> <A NAME="tex2html57"
+  HREF="node2.html">Performance Analysis Using the</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00002100000000000000">
+Returned structure</A>
+</H3>
+Returned structure has an impact on both TIMBER and the ORDBMS.
+TIMBER performs the worst when the whole subtree is returned
+(QR3).
+This was a surprise since TIMBER stores elements in depth-first
+order, so that retrieving a sub-tree should be a fast sequential scan.
+It turned out that TIMBER uses Shore for low level storage
+and memory management, and the initial implementation of the TIMBER  data
+manager makes one Shore  call per element retrieved.
+The poor performance of QR3 helped TIMBER 
+designers identify this implementation weakness, and the TIMBER  data
+manager is currently being modified to support sequential scan-based
+retrievals. 
+The ORDBMS takes more time in selecting and returning descendant nodes without a
+predicate (QR2 and QR3) than in selecting the nodes themselves (QR1) or
+returning descendant nodes with a predicate (QR4).   The better execution
+times of QR2 and QR3  are due to the exploitation of indices in the ORDBMS.  
+<BR><HR>
+</BODY>
+</HTML>

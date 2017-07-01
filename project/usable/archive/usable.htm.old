@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Making Database Systems Usable</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#AFBED1">
+<table width="75%" border="0" align="center">
+  <tr> 
+    <td bgcolor="#003399"><div align="center"> 
+        <p><strong><font color="#FFFFFF" size="4" face="Verdana, Arial, Helvetica, sans-serif">
+          Making Database Systems Usable</font></strong></p>
+      </div></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#FFFFFF"> <blockquote>
+        <p align="justify"><font color="#000000" size="4" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Introduction</strong></font></p>
+	<p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+          Database researchers have striven to improve the capability of a database in terms of both performance and functionality.  We assert that the usability of a database is as important as its capability. However, modern database systems are very difficult to use. In this project, we address some of the challenges in making database systems more usable. </font></p>
+
+	<p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	For an overview of the issues, please download <a href = "http://www.eecs.umich.edu/db/usable/usability-sigmod.ppt">Prof. H.V. Jagadish's slides from keynote talk at SIGMOD 2007</a> and the <a href = "http://www.eecs.umich.edu/db/usable/usability.pdf">accompanying paper</a>. </font></p>
+
+<br>
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="4"> 
+          Publications (by topic)</font></strong></font></p>
+	<br>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Form-based Interfaces</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/db/files/icde06form.pdf">Automating the Design and Construction of Query Forms</a>. Magesh Jayapandian and H. V. Jagadish. In ICDE, 2006.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Natural Language Querying</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+               <a href="http://www-personal.umich.edu/~yunyaol/publication/sigmod07demo.pdf">
+              DaNaLIX: a Domain-adaptive Natural Language Interface for Querying XML</a>. Yunyao Li, Ishan Chaudhuri, Huahai Yang, Satinder Singh, H. V. Jagadish. In SIGMOD (demo), 2007</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/db/files/NaLIX_EDBT.pdf">Constructing a Generic Natural Language Interface for an XML Database</a>. Yunyao Li, Huahai Yang and H.V. Jagadish. In EDBT, 2006.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href ="http://www.eecs.umich.edu/db/files/130NaLIX.pdf">NaLIX: an Interactive Natural Language Interface for Querying XML</a>. Yunyao Li, Huahai Yang and H.V. Jagadish. In SIGMOD, 2005. (best demo)
+		</font></li>
+          </ul>
+          </div>
+
+	
+        <p align="justify"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Unknown Schema</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	    <a href="http://www.springerlink.com/content/7hh85l8314515n74/">Enabling Schema-Free XQuery with Meaningful Query Focus</a>. Yunyao Li, Cong Yu and H. V. Jagadish. In VLDB Journal, 2006.
+		</font></li>
+	 
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	    <a href="http://www.eecs.umich.edu/db/files/mlcas.pdf">Schema-Free XQuery</a>. Yunyao Li, Cong Yu and H. V. Jagadish. In VLDB, 2004.
+		</font></li>
+          </ul>
+        </div>
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong> 
+          Complex Schema</strong></font></p>
+        <div align="justify"> 
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	    <a href="http://www.eecs.umich.edu/db/files/vldb06a.pdf">Schema Summarization</a>. Cong Yu and H. V. Jagadish. In VLDB, 2006.
+		</font></li>
+          </ul>
+        </div>
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Auto-completion</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	    Assisted querying using instant-response interfaces. Arnab Nandi and H. V. Jagadish. In SIGMOD (demo), 2007.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Provenance </strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	Provenance Management in Curated Databases Peter Buneman, Adiane Chapman and James Cheney. In SIGMOD, 2006.
+		</font></li>
+          </ul>
+        </div>
+      </blockquote></td>
+  </tr>
+</table>
+</body>
+</html>

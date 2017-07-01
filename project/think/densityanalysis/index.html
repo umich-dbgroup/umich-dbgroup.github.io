@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>THINK Back :: KNowledge-based Interpretation of High Throughput data</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="../css/think.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18763305-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="http://www.eecs.umich.edu/db/think/">THINK Back</a></h1>
+		<h2>KNowledge-based Interpretation of High Throughput data</h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="http://eecs.umich.edu/db/think/">Home</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/research.html">Research</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/software.html">Software</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/people.html">People</a></li>
+			<li class="last"><a href="http://eecs.umich.edu/db/think/contact.php">Contact</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post">
+			<h1 class="title">Density Analysis for Gene Set Enrichment Testing</h1>
+			<div class="entry">
+				<h2 class="subtitle">Abstract:</h2>
+				<p>Use of biological knowledge has been shown to be of value in analyzing high throughput 
+				gene expression and other types of genomics data.  For instance, Gene Set Enrichment Analysis 
+				(GSEA) is widely used for analysis of data from gene expression microarrays. However, 
+				biological knowledge is typically introduced in a very simple way ---for example all genes in 
+				a biological pathway are defined to be in a gene set and considered equivalent for statistical purposes.</p>
+				
+				<p>We propose a more sophisticated analysis, called <em>Density Scoring (DS)</em>, that takes 
+				into account the topology of the pathway graph by considering the relative positions of differentially 
+				expressed genes over the pathway network. This score is then used to adjust any prior gene set 
+				enrichment testing scores. Our experiments over lung and breast cancer microarray data show that the 
+				DS-adjusted methods assigned a higher mean rank to cancer-related signaling pathways, compared to the 
+				original gene set enrichment testing methods. We also show that DS-adjusted methods can more robustly 
+				replicate analysis results across studies.</p>
+				
+				<h2 class="subtitle">Supplemental Material:</h2>
+				<p>Tables S1 - S4 can be found in the following Excel files:
+					<ul>
+						<li><a href="../files/DensityAnalysisSupplemental.xls">Excel 2003</a></li>
+						<li><a href="../files/DensityAnalysisSupplemental.xlsx">Excel 2010</a></li>
+					</ul>
+					
+				</p>
+				
+				<h2 class="subtitle">Java Implementation:</h2>
+				<p>A Java implementation of the described techniques is available for download here:
+				<ul>
+					<li><a href="../files/density_analysis_1.0.zip">density_analysis_1.0.zip</a> Contains the source code of our 
+				Density Analysis technique, along with all the necessary libraries.</li>
+				</ul>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- end content -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+</div>
+<!-- start footer -->
+<div id="footer">
+	<p id="legal">Copyright &copy; 2010. All Rights Reserved <a href="http://eecs.umich.edu">University of Michigan</a>.<br />
+	CSS template from <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div>
+<!-- end footer -->
+</body>
+</html>

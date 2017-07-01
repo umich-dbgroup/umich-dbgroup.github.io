@@ -1,0 +1,321 @@
+\documentclass[fleqn,11pt]{article}
+\usepackage{sty/fullpage}
+
+% to recognize url address 
+\usepackage{url}
+
+% to order references automatically
+\usepackage{sty/cite}
+
+% \usepackage{sty/psfig}
+% \usepackage{subfigure}
+%\usepackage{lib/tex/defpaper2e}
+
+\newcommand{\qed}{\hfill \rule{2mm}{3mm}}
+\newcommand{\eat}[1]{}
+\newcommand{\lbok}{\linebreak[0]}
+\newcommand{\reminder}[1]{ [[[ \marginpar{\mbox{$<==$}} #1 ]]] }
+\newcommand{\eatreminders}{\renewcommand{\reminder}[1]{}}
+\newcommand{\comment}[1]{ {\footnotesize {#1} } }
+\newcommand{\QED}{\qed}
+\newcommand{\ra}{\mbox {$\rightarrow$}}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Corollary}{Corollary}[section]
+\newtheorem{Lemma}{Lemma}[section]
+\newtheorem{Example}{Example}[section]
+\newenvironment{Proof}{\noindent{\bf Proof:}}{\QED}
+\newtheorem{defn}{Definition}
+\newtheorem{algo}{Algorithm}
+\newtheorem{observation}{Observation}
+\newtheorem{problem}{Problem}
+
+%\noBox
+
+\marginparwidth 0pt
+\oddsidemargin  0pt
+\evensidemargin  0pt
+\marginparsep 0pt
+\topmargin   0pt
+\textwidth   6.5in
+\textheight  8.5 in
+
+\newcommand{\cheatbaseline}{1.44}
+\renewcommand{\baselinestretch}{\cheatbaseline}
+
+\title{\bf The Michigan Benchmark: Towards XML Query Performance Diagnostics}
+
+\eat{
+\author{
+{\bf H. V. Jagadish} \\
+Univ of Michigan\\
+jag@eecs.umich.edu
+\and
+{\bf Jignesh M. Patel}\\
+Univ of Michigan\\
+jignesh@eecs.umich.edu
+\and
+{\bf Kanda Runapongsa}\\
+Univ of Michigan\\
+krunapon@eecs.umich.edu
+}
+}
+
+%\date{}
+
+\begin{document}
+
+\maketitle
+
+%\papernumber 215 raised 3.7in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+{\footnotesize
+We propose a {\em micro-benchmark} for XML data management.  Our benchmark is
+designed to help engineers design better XML query processing engines.  In
+consequence, it is different from application-level benchmarks designed to
+help users choose between alternative products.  In particular, we attempt to
+capture the rich variety of data structure and distribution possible
+in XML, and to isolate their effects, without any attempt to imitate any particular application.}
+\end{abstract}
+
+\vspace*{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+\label{sec:intro}
+\input intro
+
+\section{Related Work}
+\label{sec:rel}
+\input relatedWork
+
+\section{Benchmark Data Set}
+\input dataSet
+
+\section{Benchmark queries}
+\label{sec:queries}
+\input queries
+
+\section{Reporting Benchmark Numbers}
+Since the goal of this benchmark is to test individual operations that are
+likely to be important in XML query evaluation, we do not propose a single
+benchmark number that can be computed from the individual benchmark query
+execution times. While having a single benchmark number can be very effective
+in summarizing an application benchmark and comparing two or more systems,
+for a non-application specific benchmark, such as this benchmark, it may be
+meaningless.
+
+For the purposes of this benchmark, each of queries reported above must be
+run with each of the three scaling factors.
+
+\section{The Benchmark in Action}
+Some performance numbers here -- but which ones??
+
+\section{Conclusion}
+
+\bibliographystyle{plain}
+\renewcommand{\baselinestretch}{1.1}
+\begin{small}
+\bibliography{ref}
+%\bibliography{lib/bib/moredb,lib/bib/hier,lib/bib/dbimp,lib/bib/text,koudas}
+%\begin{thebibliography}{10}
+
+\eat{
+\bibitem{PMA}
+A.~Apostolico and Z.~Galil.
+\newblock Pattern matching algorithms.
+\newblock {\em Oxford University Press}, 1997.
+
+\bibitem{Bertino91}
+E.~Bertino.
+\newblock An indexing technique for object oriented databases.
+\newblock {\em ICDE}, pages 14--22, 1991.
+
+\bibitem{bertino}
+E.~Bertino and W.~Kim.
+\newblock Indexing techniques for queries on nested objects.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering 1(2)}, pages
+  196--214, 1989.
+
+
+\bibitem{bpsm98:xml}
+T.~Bray, J.~Paoli, and C.~M. Sperberg-McQueen.
+\newblock Extensible markup language ({XML}) 1.0.
+\newblock W3C Recommendation. Available at
+  http://www.w3.org/TR/1998/REC-xml-19980210, Feb. 1998.
+}
+\eat{
+\bibitem{Jay3}
+M.~Carey, J.~Kierman, J.~Shanmugasundaram, E.~Shekita, and S.~Subramanian.
+\newblock XPERANTO: Middleware for publishing object relational data as XML
+  documents.
+\newblock {\em Proceedings of VLDB}, pages 646--648, 2000.
+
+\bibitem{cd+94:shore}
+M.~J. Carey, D.~J. DeWitt, M.~J. Franklin, N.~E. Hall, M.~L. McAuliffe, J.~F.
+  Naughton, D.~T. Schuh, M.~H. Solomon, C.~K. Tan, O.~G. Tsatalos, S.~J. White,
+  and M.~J. Zwilling.
+\newblock Shoring up persistent applications.
+\newblock In {\em Proceedings of the ACM SIGMOD Conference on Management of
+  Data}, pages 383--394, 1994.
+
+\bibitem{crf00:quilt}
+D.~D. Chamberlin, J.~Robie, and D.~Florescu.
+\newblock Quilt: An {XML} query language for heterogeneous data sources.
+\newblock In {\em WebDB (Informal Proceedings)}, pages 53--62, 2000.
+
+\bibitem{dffls98:xmlql}
+A.~Deutsch, M.~Fernandez, D.~Florescu, A.~Levy, and D.~Suciu.
+\newblock {XML-QL}: A query language for {XML}.
+\newblock Submission to the World Wide Web Consortium 19-August-1998. Available
+  from http://www.w3.org/TR/NOTE-xml-ql., 1998.
+
+\bibitem{Dewitt91}
+D.~DeWitt, J.~Naughton, and D.~Schneider.
+\newblock An evaluation of non equijoin algorithms.
+\newblock {\em Proceedings of ACM SIGMOD}, pages 443--452, 1991.
+
+\bibitem{Fernandez}
+M.~Fernandez and D.~Suciu.
+\newblock SilkRoute: Trading between relations and XML.
+\newblock {\em WWW9}, 2000.
+
+\bibitem{Moerkotte}
+T.~Fiebig and G.~Moerkotte.
+\newblock Evaluating queries on structure with access support relations.
+\newblock {\em Proceedings of WebDB}, 2000.
+
+\bibitem{fk99:rdbxml}
+D.~Florescu and D.~Kossman.
+\newblock Storing and querying {XML} data using an {RDBMS}.
+\newblock {\em IEEE Data Engineering Bulletin}, 22(3):27--34, 1999.
+
+\bibitem{GraefeQueryEvaluation}
+G.~Graefe.
+\newblock Query evaluation techniques for large databases.
+\newblock {\em ACM Computing Surveys}, 25(2):73--170, 1993.
+
+\bibitem{jkss98:ds}
+G.~Jacobson, B.~Krishnamurthy, D.~Srivastava, and D.~Suciu.
+\newblock Focusing search in hierarchical structures with directory sets.
+\newblock In {\em Proceedings of the Seventh International Conference on
+  Information and Knowledge Management (CIKM)}, Washington, DC, Nov. 1998.
+
+\bibitem{jlmsv99:qnd}
+H.~V. Jagadish, L.~V.~S. Lakshmanan, T.~Milo, D.~Srivastava, and D.~Vista.
+\newblock Querying network directories.
+\newblock In {\em Proceedings of the ACM SIGMOD Conference on Management of
+  Data}, Philadelphia, PA, June 1999.
+
+\bibitem{kilger}
+C.~Kilger and G.~Moerkotte.
+\newblock Indexing multiple sets.
+\newblock {\em Proceedings of VLDB}, pages 180--191, Sept. 1994.
+
+\bibitem{koudas97}
+N.~Koudas and K.~C. Sevcik.
+\newblock Size separation spatial join.
+\newblock {\em Proceedings of ACM SIGMOD}, pages 324--335, May 1997.
+
+\bibitem{Lo96}
+M.-L. Lo and C.~V. Ravishankar.
+\newblock Spatial hash-joins.
+\newblock {\em Proceedings of ACM SIGMOD}, pages 247--258, June 1996.
+
+\bibitem{McHugh}
+J.~McHugh, S.~Abiteboul, R.~Goldman, D.~Quass, and J.~Widom.
+\newblock Lore: A database management systems for semistructured data.
+\newblock {\em SIGMOD Record 26(3)}, pages 54--66, 1997.
+
+
+\bibitem{mw99:xml-queryopt}
+J.~McHugh and J.~Widom.
+\newblock Query optimization for {XML}.
+\newblock In {\em Proceedings of the International Conference on Very Large
+  Databases}, pages 315--326, 1999.
+}
+\eat{
+\bibitem{tukwila}
+U.~of~Washington.
+\newblock The {Tukwila} system.
+\newblock Available from http://data.cs.washington.edu/integration/tukwila/.
+
+\bibitem{niagara}
+U.~of~Wisconsin.
+\newblock The {Niagara} system.
+\newblock Available from http://www.cs.wisc.edu/niagara/.
+
+\bibitem{Patel96}
+J.~M. Patel and D.~J. DeWitt.
+\newblock Partition based spatial-merge join.
+\newblock {\em Proceedings of ACM SIGMOD}, pages 259--270, June 1996.
+
+\bibitem{Quass96}
+D.~Quass, J.~Widom, R.~Goldman, H.~K, Q.~Luo, J.~McHugh, A.~Rajaraman,
+  H.~Rivero, S.~. Abiteboul, J.~Ullman, and J.~Wiener.
+\newblock Lore: A lightweight object repository for semistructured data.
+\newblock {\em Proceedings of ACM SIGMOD}, page 549, 1996.
+
+\bibitem{rls98:xql}
+J.~Robie, J.~Lapp, and D.~Schach.
+\newblock {XML} query language ({XQL}).
+\newblock Available from http://www.w3.org/TandS/QL/QL98/pp/xql.html.
+
+\bibitem{s:kweelt}
+A.~Sahuguet.
+\newblock Kweelt.
+\newblock Available from http://db.cis.upenn.edu/Kweelt/.
+
+\bibitem{sm83:ir}
+G.~Salton and M.~J. McGill.
+\newblock {\em Introduction to modern information retrieval}.
+\newblock McGraw-Hill, New York, 1983.
+
+\bibitem{ssb+2000:xmlpublish}
+J.~Shanmugasundaram, E.~J. Shekita, R.~Barr, M.~J. Carey, B.~G.~Lindsay,
+  H.~Pirahesh, and B.~Reinwald.
+\newblock Efficiently publishing relational data as {XML} documents.
+\newblock In {\em Proceedings of the International Conference on Very Large
+  Databases}, 2000.
+
+\bibitem{stz+99:rdbxml}
+J.~Shanmugasundaram, K.~Tufte, C.~Zhang, G.~He, D.~J. DeWitt, and J.~F.
+  Naughton.
+\newblock Relational databases for querying {XML} documents: Limitations and
+  opportunities.
+\newblock In {\em Proceedings of the International Conference on Very Large
+  Databases}, 1999.
+
+\bibitem{Shekita90}
+E.~Shekita and M.~Carey.
+\newblock A performance evaluation of pointer based joins.
+\newblock {\em Proceedings of ACM SIGMOD}, pages 300--311, 1990.
+
+\bibitem{sreenath}
+B.~Sreenath and S.~Seshadri.
+\newblock The hCtree: An efficient index structure for object oriented
+  databases.
+\newblock {\em Proceedings of VLDB}, pages 203--213, Sept. 1994.
+
+\bibitem{Stein}
+J.~Stein and D.~Maier.
+\newblock Associative access support in GemStone.
+\newblock {\em In K. Dittrich and A. Buchmann, On Object Oriented Database
+  systems, Springer,Verlag}, pages 323--339, 1991.
+
+\bibitem{znd+2001:contain}
+C.~Zhang, J.~Naughton, D.~Dewitt, Q.~Luo, and G.~Lohman.
+\newblock On supporting containment queries in relational database management
+  systems.
+\newblock In {\em Proceedings of the ACM SIGMOD Conference on Management of
+  Data}, 2001.
+}
+
+%\end{thebibliography}
+\end{small}
+\renewcommand{\baselinestretch}{\cheatbaseline}
+
+\end{document}
