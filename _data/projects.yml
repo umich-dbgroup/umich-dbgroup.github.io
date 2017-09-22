@@ -2,7 +2,7 @@ active:
   -
     name: Verdict
     url: "http://verdictdb.org"
-    description: ""
+    description: "A commercial-grade, AQP data analytics system that runs on top of existing SQL-engines."
   -
     name: Foofah
     url: "https://github.com/markjin1990/foofah"
