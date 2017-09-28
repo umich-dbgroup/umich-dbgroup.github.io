@@ -38,10 +38,6 @@ grad_students:
     url: https://web.eecs.umich.edu/~dol/
     photo: /images/people/dol.png
   -
-    name: Fei Li
-    url: https://web.eecs.umich.edu/~lifei/
-    photo: /images/people/lifei.jpg
-  -
     name: Chris Baik
     photo: /images/people/cjbaik.jpg
   -
@@ -60,6 +56,12 @@ grad_students:
     name: Boyu Tian
   -
     name: Remzi Can Aksoy
+  -
+    name: Changfeng Liu
+    photo: /images/people/changfel.jpg
+    url: https://stevenlcf.github.io/
+  -
+    name: Rui Liu
 
 recognized_alumni:
   -
@@ -106,6 +108,12 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Fei Li
+    degree: PhD'17
+    url: https://web.eecs.umich.edu/~lifei/
+    photo: /images/people/lifei.jpg
+    where: Zhong He Ying Tai (Shanghai)
   -
     name: Ahmad Shahab Tajik
     degree: MSE'17
