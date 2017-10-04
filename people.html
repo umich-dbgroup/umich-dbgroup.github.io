@@ -127,7 +127,8 @@ permalink: /people
         {% else %}
           {{ p.name }}
         {% endif %}
-        {% if p.degree %} ({{ p.degree }}){% endif %}
+        {% if p.degree %} ({{ p.degree }}
+        {% if p.where %} , {{ p.where }}{% endif %}){% endif %}
       </li>
     {% endfor %}
   </ul>
