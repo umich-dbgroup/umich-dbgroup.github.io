@@ -27,6 +27,10 @@ postdocs:
     name: Yongjoo Park
     url: http://yongjoopark.com
     photo: /images/people/pyongjoo.jpg
+  -
+    name: Abolfazl Asudeh
+    url: http://asudeh.github.io/
+    photo: /images/people/asudeh.jpg
 
 grad_students:
   -
