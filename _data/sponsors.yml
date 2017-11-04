@@ -1,0 +1,63 @@
+gov:
+  -
+    name: National Science Foundation
+    url: https://www.nsf.gov/
+    photo: /images/sponsors/NSF.png
+  -
+    name: National Institute of Health
+    url: https://www.nih.gov/
+    photo: /images/sponsors/nih.png
+  -
+    name: United States Department of Energy
+    url: https://www.energy.gov/
+    photo: /images/sponsors/energy.png
+  -
+    name: DARPA
+    url: https://www.darpa.mil/
+    photo: /images/sponsors/darpa.png
+  -
+    name: United States Census Bureau
+    url: https://www.census.gov/
+    photo: /images/sponsors/census.png
+org:
+  -
+    name: Alfred P. Sloan Foundation
+    url: https://www.sloan.org/
+    photo: /images/sponsors/sloan.png
+  -
+    name: Gates Foundation
+    url: https://www.gatesfoundation.org/
+    photo: /images/sponsors/gates.png
+  -
+    name: Michigan Economic Development Corporation
+    url: https://www.michiganbusiness.org/
+    photo: /images/sponsors/medc.png
+industry:
+  -
+    name: Google
+    url: https://www.google.com/
+    photo: /images/sponsors/google.png
+  -
+    name: Alibaba
+    url: https://www.alibaba.com/
+    photo: /images/sponsors/alibaba.png  
+  -
+    name: Toyota Research Institute
+    url: http://www.tri.global/
+    photo: /images/sponsors/toyota.png
+  -
+    name: Dow Chemical Co.
+    url: http://www.dow.com/
+    photo: /images/sponsors/dow.png
+  -
+    name: Yahoo!
+    url: https://www.yahoo.com/
+    photo: /images/sponsors/yahoo.jpg
+  -
+    name: IBM Research
+    url: http://www.research.ibm.com/
+    photo: /images/sponsors/ibm.jpg
+
+
+
+    

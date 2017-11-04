@@ -201,3 +201,11 @@ hover: 00274c bg, color=ffcb05
 #footer {
   padding-top: 20px;
 }
+
+
+.sponsor-photo img {
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  height: 60px;
+}
