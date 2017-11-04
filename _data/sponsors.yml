@@ -57,6 +57,10 @@ industry:
     name: IBM Research
     url: http://www.research.ibm.com/
     photo: /images/sponsors/ibm.jpg
+  -
+    name: General Electric
+    url: http://www.ge.com/
+    photo: /images/sponsors/ge.png
 
 
 
