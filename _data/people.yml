@@ -44,28 +44,30 @@ grad_students:
   -
     name: Chris Baik
     photo: /images/people/cjbaik.jpg
+    url: https://www.linkedin.com/in/chrisjbaik/
   -
     name: Zhongjun "Mark" Jin
     url: http://markjin1990.github.io/
     photo: /images/people/markjin.jpg
   -
     name: Nikita Bhutani
+    url: https://www.linkedin.com/in/nikita-bhutani-13a879108
   -
     name: Jie Song
+    url: https://www.linkedin.com/in/jiesongk
   -
     name: Jiamin Huang
+    url: https://www.linkedin.com/in/jiamin-huang-359344110
   -
     name: Dong Young Yoon
-  -
-    name: Boyu Tian
-  -
-    name: Remzi Can Aksoy
+    url: https://www.linkedin.com/in/dong-young-yoon-30b49243/
   -
     name: Changfeng Liu
     photo: /images/people/changfel.jpg
     url: https://stevenlcf.github.io/
   -
     name: Rui Liu
+    url: https://www.linkedin.com/in/rui-liu-81898a118/
 
 recognized_alumni:
   -
@@ -117,10 +119,16 @@ recent_alumni:
     degree: PhD'17
     url: https://web.eecs.umich.edu/~lifei/
     photo: /images/people/lifei.jpg
-    where: Zhong He Ying Tai, Shanghai
+    where: Beijing Integrity Financial Consulting Co., Ltd. (Shanghai) 中和应泰
+  -
+    name: Matthew Burgess
+    degree: PhD'17
+    url: http://web.eecs.umich.edu/~mattburg/
+    where: Google
   -
     name: Ahmad Shahab Tajik
     degree: MSE'17
+    where: Apple
   -
     name: Chun-Hung Hsiao
     degree: PhD'17
@@ -255,8 +263,8 @@ recent_alumni:
   -
     name: Yuqing Wu
     degree: PhD'04
-    where: Indiana University
-    url: http://www.cs.indiana.edu/%7Eyuqwu/
+    where: Indiana University, now at Ponoma College
+    url: https://www.pomona.edu/directory/people/yuqing-melanie-wu
   -
     name: Richard Hankins
     degree: PhD'04
