@@ -38,10 +38,6 @@ grad_students:
     url: https://web.eecs.umich.edu/~mrander/
     photo: /images/people/mrander.jpg
   -
-    name: Dolan Antenucci
-    url: https://web.eecs.umich.edu/~dol/
-    photo: /images/people/dol.png
-  -
     name: Chris Baik
     photo: /images/people/cjbaik.jpg
     url: https://www.linkedin.com/in/chrisjbaik/
@@ -62,12 +58,10 @@ grad_students:
     name: Dong Young Yoon
     url: https://www.linkedin.com/in/dong-young-yoon-30b49243/
   -
-    name: Changfeng Liu
-    photo: /images/people/changfel.jpg
-    url: https://stevenlcf.github.io/
-  -
     name: Rui Liu
     url: https://www.linkedin.com/in/rui-liu-81898a118/
+  -
+    name: Junghwan Kim
 
 recognized_alumni:
   -
@@ -115,11 +109,17 @@ recognized_alumni:
 
 recent_alumni:
   -
+    name: Dolan Antenucci
+    degree: PhD'18
+    url: https://web.eecs.umich.edu/~dol/
+    photo: /images/people/dol.png
+    where: Streamlio
+  -
     name: Fei Li
     degree: PhD'17
     url: https://web.eecs.umich.edu/~lifei/
     photo: /images/people/lifei.jpg
-    where: Beijing Integrity Financial Consulting Co., Ltd. (Shanghai) 中和应泰
+    where: tokenclub.com
   -
     name: Matthew Burgess
     degree: PhD'17
@@ -181,7 +181,7 @@ recent_alumni:
   -
     name: Bin Liu
     degree: PhD'11
-    where: NEC Laboratories America
+    where: Google, previously at NEC Laboratories America
     url: http://binliu.org/
   -
     name: Arnab Nandi
@@ -208,7 +208,7 @@ recent_alumni:
   -
     name: Adriane Chapman
     degree: PhD'08
-    where: MITRE, Arlington
+    where: University of Southampton, previously at MITRE
     url: http://www.ageworld.net/
   -
     name: Willis Lang
@@ -263,7 +263,7 @@ recent_alumni:
   -
     name: Yuqing Wu
     degree: PhD'04
-    where: Indiana University, now at Ponoma College
+    where: Ponoma College, previously at Indiana University 
     url: https://www.pomona.edu/directory/people/yuqing-melanie-wu
   -
     name: Richard Hankins
