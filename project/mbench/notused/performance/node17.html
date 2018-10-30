@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Scaling Performance on the ORDBMS</TITLE>
+<META NAME="description" CONTENT="Scaling Performance on the ORDBMS">
+<META NAME="keywords" CONTENT="performance">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="performance.css">
+
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html202"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html200"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html196"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html203"
+  HREF="node18.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html201"
+  HREF="node15.html">Performance Analysis on Scaling</A>
+<B> Previous:</B> <A NAME="tex2html197"
+  HREF="node16.html">Scaling Performance on TIMBER</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00003200000000000000">
+Scaling Performance on the ORDBMS</A>
+</H3>
+As shown in the Table in<a href="node1.html">this page</a>
+, in most queries, the ratios of 
+the response times when using <B>ds0.1x</B> over when using <B>ds1x</B> are 
+approximately 10-20.  
+Exceptions to this occur in five types of queries: 
+a) the complex returned structure query (QR3), 
+b) the element content selection queries (QS9 and QS10), 
+c) the string distance selection queries (QS13 and QS14), 
+d) the value join queries (QJ1-QJ2), and 
+e) the missing elements query (QS35). 
+
+<P>
+For QR3, when the 2 uses a different query plans for the two data sets. 
+The query plan in <B>ds0.1x</B> uses a hash join algorithm for one of its query, 
+however, with the <B>ds1x</B> data set the optimizer chooses to use nested loops
+join.
+Consequently, for QR3, the execution time increase 
+sharply in the <B>ds1x</B> case. Queries QS9 and QS10 are single table queries 
+that use a like predicate. The attribute being queried does not have an index 
+in either of the the queries or the data sets. Nevertheless, the cost of these
+queries increases rapidly in the <B>ds1x</B> data set. The same behavior is seen
+for queries QS13 and QS14, which too use table scans, but instead of using a 
+like predicate (as QS9 and QS10 did), use a user-defined function.  
+For the value join queries, the result 
+selectivity does not grow linearly, even though the input sizes do, which 
+leads to the high response times with the <B>ds1x</B> data set.
+Finally, the missing elements query QS35, uses a recursive SQL query and 
+a set difference query. The recursive part of this query finds all 
+<I>eNest</I> ancestors of the <I>eOccasional</I> nodes. The results of this 
+subquery is then used in a set-difference query to find all <I>eNest</I>
+elements that do not have any nested <I>eOccassional</I> descendant. The 
+evaluation time to compute the recursive part of this query rises very 
+sharply in the <B>ds1x</B> data set.   
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html202"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html200"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html196"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html203"
+  HREF="node18.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html201"
+  HREF="node15.html">Performance Analysis on Scaling</A>
+<B> Previous:</B> <A NAME="tex2html197"
+  HREF="node16.html">Scaling Performance on TIMBER</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

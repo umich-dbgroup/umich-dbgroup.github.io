@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Simple Selection Queries</TITLE>
+<META NAME="description" CONTENT="Simple Selection Queries">
+<META NAME="keywords" CONTENT="queries">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="queries.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html44"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html42"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html36"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html45"
+  HREF="node4.html">Structural Selection Queries</A>
+<B> Up:</B> <A NAME="tex2html43"
+  HREF="node1.html">Selection Queries</A>
+<B> Previous:</B> <A NAME="tex2html37"
+  HREF="node2.html">Returned Structure</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00001200000000000000">
+Simple Selection Queries</A>
+</H3>
+
+<P>
+Even XML queries involving only one element and a single predicate can show
+considerable diversity.  We examine the effect of this single selection
+predicate in this set of queries.
+
+<P>
+
+<UL>
+<LI><B>Exact Match Attribute Value Selection</B> 
+<BR><B>Selection based on the value of a string attribute.</B> 
+<B>QS1.</B> High selectivity: select nodes with <I>aString = ``Sing a song of oneB1''</I>. Since the probability of <I>``oneB1''</I> is 1/16, this query has 
+a selectivity of 1/16 (6.2%). 
+
+<P>
+<B>QS2.</B> Low selectivity: select nodes with <I>aString = ``Sing a song of oneB4''</I>. Since the probability of <I>``oneB4''</I> is 1/128, this query has
+a selectivity of 1/128 (0.8%).  
+<BR>
+<BR>
+<P>
+<B>Selection based on the value of an integer attribute.</B> 
+<BR>
+We reproduce
+the same selectivities as in the string attribute case.   
+
+<P>
+<B>QS3.</B> High selectivity: select nodes with 
+<I>aLevel = 13</I>.   Since the number of nodes at level 13 is 6.0% of all nodes in the document, the selectivity of this query is 6.0%. 
+
+<P>
+<B>QS4.</B> Low selectivity: select nodes with 
+<I>aLevel = 10</I>.  Since the number of nodes at level 10 is 0.7% of all nodes in the document, the selectivity of this query is 0.7%. 
+
+<P>
+<B>Selection on range values.</B> 
+<BR><B>QS5.</B> Select nodes with <I>aSixtyFour</I> between 5 and 8. Selectivity
+is <!-- MATH
+ $4 \times 1/64 = 1/16$
+ -->
+ (6.2%). 
+
+<P>
+<B>Selection with sorting.</B> 
+<BR><B>QS6.</B> Select nodes with <I>aLevel = 13</I> and have the returned nodes
+sorted by <I>aSixtyFour</I> attribute.  Selectivity is 6.0%. 
+
+<P>
+<B>Multiple-attribute selection.</B> 
+<BR><B>QS7.</B> Select nodes with
+attributes <I>aSixteen = 1</I> and <I>aFour = 1</I>. Selectivity is <!-- MATH
+ $1/16 \times 1/4 = 1/64$
+ -->
+ (1.6%).
+
+<P>
+<B>Element Name Selection</B> 
+<BR><B>QS8.</B> Select nodes with the element
+name  <I>eOccasional</I>. Selectivity is 1/64 (1.6%) since <I>eOccasional</I> appears nested under the element with <I>aSixtyFour = 0</I> and the probability of <I>aSixtyFour = 0</I> is 1/16. 
+
+<P>
+<B>Element Content Selection</B> 
+<BR><B>QS9.</B> Select nodes that have <I>``oneB4''</I> as a substring of element 
+content.
+The probability of <I>``oneB4"</I> being picked 1/128.
+Although this string can also arise in bucket
+16, the probability there is much smaller , and hence
+can be ignored. There are 16 ``PickWord''s in the content of
+each element, so 16 opportunities for this predicate to be satisfied at
+each element, giving an overall selectivity of 16/128 (12.5%).
+Selectivity is 12.5%. 
+
+<P>
+<B>QS10.</B> Select <I>OccasionalType</I> nodes that  have <I>``oneB4''</I> in the element content. 
+Since there is approximately one <I>OccasionalType</I> node in every 64 <I>BaseType</I> nodes, 
+the overall selectivity is <!-- MATH
+ $(16/128) \times (1/64) = 1/512$
+ -->
+ (0.2%).
+Selectivity is 0.2%.
+
+<P>
+<B>Order-based Selection</B> 
+<BR><B>QS11.</B> Select the second child of every node with <I>aLevel = 7</I>.
+At leve 7, each node has thirteen children.  These children are at level 8 which has the number of nodes = 4.8% of all nodes.  Thus, the selectivity of this query is <!-- MATH
+ $4.8 \times 1/13$
+ -->
+ = 0.4%.  
+
+<P>
+<B>QS12.</B> Select the second child of every node with <I>aLevel = 9</I>.
+At level 9, each node has two children.  These children are at level 10 which has the number of nodes = 0.7% of all nodes.  Thus, the selectivity of this query is 0.7%  = 0.4%.  
+
+<P>
+Since the fraction
+of nodes in these two queries are the same, 
+the performance difference between
+queries QS11 and QS12 is likely to be on account of fanout. 
+
+<P>
+<B>String Distance Selection</B> 
+<BR><B>QS13.</B> Select all nodes with element content that the distance between keyword <I>``oneB2''</I> and keyword <I>``twenty''</I> is not more than four. 
+There are two occurrences of ``PickWord'' within four words of <I>``twenty''</I> and
+14 occurrences that are further away.  The probability of any one
+occurrence of ``oneB2'' being selected is 1/32. 
+Thus, the overall selectivity is <!-- MATH
+ $(1/32) \times 2 = 1/16$
+ -->
+ (6.2%).
+Selectivity is 6.2%. 
+
+<P>
+<B>QS14.</B> Select all nodes with element content that the distance between keyword <I>``oneB5"</I> and keyword <I>``twenty"</I> is not more than four.
+The probability of any one occurrence of ``oneB5'' being selected 
+ is 1/256.
+Thus, the overall selectivity is <!-- MATH
+ $(1/256) \times 2 =  1/128$
+ -->
+ (0.8%).
+Selectivity is 0.8%.
+</LI>
+</UL><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html44"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html42"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html36"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html45"
+  HREF="node4.html">Structural Selection Queries</A>
+<B> Up:</B> <A NAME="tex2html43"
+  HREF="node1.html">Selection Queries</A>
+<B> Previous:</B> <A NAME="tex2html37"
+  HREF="node2.html">Returned Structure</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

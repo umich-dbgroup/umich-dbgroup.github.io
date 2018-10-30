@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+XML query processing has taken on considerable importance
+recently, and several XML databases (e.g., <a href="http://www.softwareag.com/tamino/">Tamino</a>,<a href="http://www.eecs.umich.edu/db/timber">TIMBER</a>,<a href="http://www-4.ibm.com/software/data/db2/extenders/xmlext/">IBM DB2</a>,<a href="http://www.microsoft.com/sql/techinfo/xml">Microsoft</a>,<a href="http://technet.oracle.com/tech/xml/content.html">Oracle</a>,<a href="http://www.exceloncorp.com/platform/index.shtml">excelon</a>,<a href="http://www.fastobjects.com/FO_Corporate_Homepage_a.html">Poet</a>) have been constructed on a
+variety of platforms. There has naturally been an interest in
+benchmarking the performance of these systems, and a number of
+benchmarks have been proposed&nbsp; (e.g., <a href="http://dbs.uni-leipzig.de/en/projekte/XML/XmlBenchmarking.html">X-Mach1</a>,<a href="http://monetdb.cwi.nl/xml/">XMark</a>,<a href="http://www.comp.nus.edu.sg/~ebh/XOO7.html">XOO7</a>). The focus
+of currently proposed benchmarks is to assess the performance of a
+given XML database in performing a variety of representative
+tasks. Such benchmarks are valuable to potential users of a
+database system in providing an indication of the performance that
+the user can expect on their specific application. The challenge
+is to devise benchmarks that are sufficiently representative of
+the requirements of ``most" users. The TPC series of benchmarks
+accomplished this, with reasonable success, for relational
+database systems. However, no benchmark has been successful in the
+realm of ORDBMS and OODBMS which have extensibility and user
+defined functions that lead to great heterogeneity in the nature
+of their use. It is too soon to say whether any of the current XML
+benchmarks will be successful in this respect - we certainly hope
+that they will.
+
+<P>
+One aspect that current XML benchmarks do not focus on is the
+performance of the basic query evaluation operations such as
+selections, joins, and aggregations. A ``micro-benchmark'' that
+highlights the performance of these basic operations can be very
+helpful to a database developer in understanding and evaluating
+alternatives for implementing these basic operations. A number of
+questions related to performance may need to be answered: What are
+the strengths and weaknesses of specific access methods? Which
+areas should the developer focus attention on? What is the basis
+to choose between two alternative implementations? Questions of
+this nature are central to well-engineered systems.
+Application-level benchmarks, by their nature, are unable to deal
+with these important issues in detail. For relational systems, the
+Wisconsin benchmark provided the database community
+with an invaluable engineering tool to assess the performance of
+individual operators and access methods. The work presented in this 
+paper is inspired by the simplicity and the effectiveness of the 
+Wisconsin benchmark for measuring and understanding the performance 
+of relational DBMSs. The goal of this paper is to 
+develop a comparable benchmarking tool for XML data management systems. 
+The benchmark that we propose to achieve this goal is called the 
+Michigan benchmark. 
+
+<P>
+Another issue in this regard is the nature of the data in the test database
+used for the benchmark.
+If the data is specified
+to represent a particular ``real application", it is likely to be quite
+uncharacteristic for other applications with different data
+distributions.  Thus, holistic benchmarks can succeed only if they are able
+to find a real application with data characteristics that are reasonably
+representative for a large class of different applications.
+
+<P>
+Our objective is to create a single heterogeneous data set with
+the necessary attributes to be able to specify queries that will
+access precisely the type of data we wish to test.  We then
+develop a suite of queries, each of which tests database
+performance with respect to a particular class of data and a
+particular operation.
+
+<P>
+To keep the benchmark simple, and query result sizes predictable, random number
+generators are used sparingly.  This benchmark uses random generators for
+only two attribute values, and derives all other data
+parameters from these two generated values.
+
+<P>
+In relational systems, selectivity
+(including join selectivity) and cardinality are the
+two characteristics of primary interest. In addition, there may be
+a few additional secondary characteristics, such as clustering
+and tuple/attribute size.  In XML databases, besides selectivity
+and cardinality, there are several other characteristics, such as
+tree fanout and tree depth, that are related to the structure of
+XML documents and contribute to the rich structure of XML data.
+The proposed benchmark in this paper tests various types of
+structural characteristics in XML data. The main contributions of
+this benchmark are:
+
+<UL>
+<LI>The identification of the characteristics of XML data
+that may impact the performance
+of XML query processing engines.
+</LI>
+<LI>A single heterogeneous data set against which carefully specified queries can be
+used to evaluate system performance for XML data with various characteristics.
+</LI>
+</UL>
+</BODY>
+</HTML>

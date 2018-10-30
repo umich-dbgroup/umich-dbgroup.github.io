@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Structural Selection Queries</TITLE>
+<META NAME="description" CONTENT="Structural Selection Queries">
+<META NAME="keywords" CONTENT="queries">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="queries.css">
+
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html52"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html50"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html46"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html53"
+  HREF="node5.html">Value-Based Join Queries</A>
+<B> Up:</B> <A NAME="tex2html51"
+  HREF="node1.html">Selection Queries</A>
+<B> Previous:</B> <A NAME="tex2html47"
+  HREF="node3.html">Simple Selection Queries</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00001300000000000000">
+Structural Selection Queries</A>
+</H3>
+Selection in XML is often based on patterns.  Queries should be
+constructed to consider multi-node patterns of various sorts and
+selectivities.  
+These patterns often have ``conditional selectivity.'' 
+Consider a simple two node selection pattern. Given
+that one of the nodes has been identified, 
+the selectivity of the second node in the pattern can differ from its
+selectivity in the database as a whole.  
+Similar dependencies between different attributes in a relation could exist,
+thereby affecting the selectivity of a multi-attribute predicate.
+Conditional selectivity is complicated in XML
+because different attributes may not be in the same element, but rather in
+different elements that are structurally related.
+
+<P>
+In this section, all queries return only the root of the selection pattern,
+unless otherwise specified.
+</I>
+<UL>
+<LI><B>Parent-child Selection</B> 
+<BR><B>QS15. Medium selectivity of both parent and child.</B> 
+Select nodes
+with <I>aLevel = 13</I> that have a child with <I>aSixteen
+= 3.</I>  Both the first predicate and the second predicate have  
+a selectivity of 1/16.  Since each node at
+level 13 has two children, there are two opportunities to satisfy the
+child predicate.  Therefore the overall selectivity of this query is
+ (1/16) * (1/16) * 2 = 1/128
+ (0.8%). 
+
+<P>
+<B>QS16. High selectivity of parent and low selectivity of child.</B>  
+Select
+nodes with <I>aLevel = 15</I> that have a child with <I>aSixtyFour = 3</I>.  The first predicate and the second predicate have a selectivity of 1/4 and 1/64 respectively.
+Following the
+same argument as above, the selectivity of the query as a whole is 
+still 1/128 (0.8%). Selectivity is 0.8%.  
+
+<P>
+<B>QS17. Low selectivity of parent and high selectivity of child.</B> 
+Select
+nodes with <I>aLevel = 11</I> that have a child with <I>aFour = 3</I>.  The first predicate and the second predicate have a selectivity of 
+1/64 and 1/4 respectively.  Following the
+same argument as above, the selectivity of the query as a whole is
+still 1/128 (0.8%). Selectivity is 0.8%. 
+
+<P>
+</LI>
+<LI><B>Order-sensitive Parent-child Selection</B>  
+<BR><B>QS18. Local Ordering.</B> 
+Select the second element 
+below <EM>each</EM> element with <I>aFour = 1</I> if that second element also has <I>aFour = 1</I>.  
+Let n_l  is the number of nodes at level  and f_l is the number of fanout at level.  
+Then, the number of the second element nodes is 
+ the sum of (n_l) * (1/f_{l-1}) from l=2 to l=16,  which is approximately 1/2.
+
+<P>
+Since the selectivity of the element with <I>aFour =1</I> is 1/4, the
+probability that the second element that has <I>aFour = 1</I> and that
+its parent has <I>aFour = 1</I> is 1/16.  Thus, the overall selectivity
+of this query is  
+ (1/2) * (1/16) = 1/32
+ (3.1%). 
+
+<P>
+<B>QS19. Global Ordering.</B> 
+Select the second element with <I>aFour = 1</I>
+below
+<EM>any</EM> element with <I>aSixtyFour = 1</I>.  This query returns at most one
+element, whereas the previous query returns one for each parent.  
+
+<P>
+<B>QS20. Reverse Ordering.</B>  
+Among the children with <I>aSixteen = 1</I> of 
+the parent element with <I>aLevel = 13</I>, select the last child.  Approximately 1/16 of the nodes are at
+level 13, and each has two children.  Almost 1/8 of these will have at least
+one child that satisfies the former predicate (from among whom the last one
+must be returned in this query).  Thus, the overall query selectivity is
+ 1/128 (0.8%). Selectivity is 0.8%. 
+</LI>
+<LI><B>Ancestor-Descendant Selection</B> 
+<BR><B>QS21. Medium selectivity of both ancestor and descendant.</B> 
+Select nodes with <I>aLevel = 13</I> that have a descendant with
+<I>aSixteen = 3</I>.
+The first predicate has selectivity
+of 0.06. 
+Since each node at level 13 has 14
+descendants, the probability that none of these 14 nodes satisfy the second
+predicate is 
+ 1 - (1/16)^{14}.
+ Thus, the probability that a given 
+selected ancestor node has any descendant that satisfies the second predicate 
+is 
+ 1 - (1 - (1/16)^{14})
+Therefore, the overall selectivity is 
+ 0.06 * (1 - (1 -
+(1/16))^{14})
+ = 3.6%.  
+
+<P>
+<B>QS22. High selectivity of ancestor and low selectivity of descendant.</B> 
+Select nodes with <I>aLevel = 15</I> that have a descendant with <I>aSixtyFour = 3</I>.
+The first predicate has a selectivity of 0.24.
+Since a node at level 15 only has no descendant other than
+its own two children, the probability that none of these two nodes satisfy the 
+second predicate is .    
+The overall selectivity is 
+ 0.24 * (1 - (1 - (1/64))^2)
+= 0.7%. 
+
+<P>
+<B>QS23. Low selectivity of ancestor and high selectivity of descendant.</B>
+Select nodes with <I>aLevel = 11</I> that have a descendant with  <I>aFour = 3</I>.
+The first predicate has selectivity of 1.5.
+Since each
+level 11 node has 62 descendants, the probability that none of these 62 nodes
+satisfy the second predicate is 
+ 1 - (1/4)^{62}.
+The selectivity of the query as a whole is 
+ 1.5 * (1 - (1 -
+(1/4))^{62})
+ = 1.5%. 
+</LI>
+<LI><B>Ancestor Nesting in Ancestor-Descendant Selection</B> 
+<BR>
+In the ancestor-descendant queries above (QS21-QS23), ancestors are never nested below
+other ancestors.  To test the performance of queries when ancestors are
+recursively nested below other ancestors,  we have three other
+ancestor-descendant queries.  These queries are variants of 
+QS21-QS23. 
+
+<P>
+<B>QS24. Medium selectivity of both ancestor and descendant.</B>
+Select nodes with <I>aSixteen = 3</I> that have a descendant with <I>aSixteen = 3</I>.  
+
+<P>
+<B>QS25. High selectivity of ancestor and low selectivity of descendant.</B>
+Select nodes with <I>aFour = 3</I> that have a descendant with <I>aSixtyFour = 3</I>.  
+
+<P>
+<B>QS26. Low selectivity of ancestor and high selectivity of descendant.</B>
+Select nodes with <I>aSixtyFour = 9</I> that have a descendant with 
+<I>aFour = 3</I>.  
+
+<P>
+The overall selectivities of these queries (QS24-QS26) cannot be the same as
+that of the ``equivalent'' unnested queries (QS21-QS23) for two situations -
+first, the same descendants can now have multiple ancestors they
+match, and second, the number of candidate descendants is
+different (fewer) since the ancestor predicate can be satisfied by
+nodes at any level.  
+These two situations may
+not necessary cancel each other out. We
+focus on the local predicate selectivities and keep
+these the same for all of these queries (as well as for the
+parent-child queries considered before).
+</LI>
+<LI><B>Return Structure in Structural Pattern Selection Query:</B>
+<BR><B>QS27.</B> Similar to query QS26, but return 
+both the root node and the descendant node of the selection pattern.  Thus, the returned structure is a pair of nodes
+with an inclusion relationship between them.
+</LI>
+<LI><B>Complex Pattern Selection Queries:</B> 
+<BR>
+Complex pattern matches are common in XML databases, and in this section, 
+we introduce a number of <EM>chain</EM> and <EM>twig</EM> queries that we use 
+in this benchmark.
+For complex pattern queries, we use a combination of chain and twig queries. 
+<a
+ href="icons/chainTwig.jpg">Figure</A> shows an example of each of these types of queries. 
+In the figure, each node represents a predicate such as an element tag name 
+predicate, or an attribute value predicate, or an element content match predicate.
+A structural parent-child relationship in the query is shown by a single 
+line, and an ancestor-descendant relationship is represented by a double-edged
+line. The chain query shown in the <a href="icons/chainTwig.jpg">Figure (i)</a> finds all nodes that match the condition
+A, such that there is a child node that matches the condition B, such that some 
+descendant of the child node matches the condition C. The twig query shown in the 
+<a href="icons/chainTwig.jpg">Figure(ii)</a> matches all nodes that satisfy the condition A, and have a child node 
+that satisfies the condition B, and also has a descendant node that satisfies 
+the condition C. 
+<BR>
+We use the following complex queries in our benchmark: 
+<BR><B>QS28. One chain query with three parent-child joins with the selectivity pattern: high-low-low-high.</B> 
+The query is to test the choice of join order in evaluating a complex query. To achieve the desired selectivities, we use the following predicates:  <I>aFour=3</I>, <I>aSixteen=3</I>, <I>aSixteen=5</I> and <I>aLevel=16</I>. The probability of <I>aFour = 3</I> is 1/4, and of <I>aSixteen = 3(5)</I> is 1/16, and the probability of <I>aLevel = 16</I> is 0.47.  Thus, the selectviity of this query is 
+ (1/4)  * (1/16) * (1/16) * 0.47
+ = 0.0%.
+
+<P>
+<B>QS29. One twig query with two parent-child selection (low-high, low-low).</B>
+Select parent nodes with <I>aLevel=11</I> (low selectivity) that have  a child with <I>aFour=3</I> (high selectivity), and another child with <I>aSixtyFour=3</I> (low selectivity). The probability of <I>aLevel = 11</I> is 0.015, that of <I>aFour =3</I> is 1/4, and that of <I>aSixtyFour=3</I> is 1/64.  Thus, the selectivity of this query is 
+ 0.015 * 1/4  * 1/64
+ = 0.0%.
+</I>
+<P>
+<B>QS30. One twig query with two parent-child selection (high-low, high-low).</B>
+Select parent nodes with 
+<I>aFour=1</I> (high selectivity) that have a child with <I>aLevel=11</I> (low selectivity) and 
+another child with <I>aSixtyFour=3</I> (low selectivity). The probability of <I>aFour=1</I> is 0.25, that of <I>aLevel=11</I> is 0.015, and that of <I>aSixtyFour=3</I> is 1/64.  Thus, the selectivity of this query is 
+ 0.25 * 0.015 * 1/64
+ = 0.0%. 
+<P>
+<B>QS31-QS33.</B> Repeat queries QS28-QS30, but using ancestor-descendant in place of
+parent-child. 
+<P>
+For QS32, the first predicate has selectivity of 0.015.
+Since a node at level 11 has 62 descendants.
+The probability that none of these descendants satisfy <I>aFour=3</I> and <I>aS
+ixtyFour = 3</I> are
+ (1 - (1 - 1/4))^{62} and
+ (1 - (1 - 1/64))^{62}
+), respectively.
+Thus, the overall selectivity is 
+ 0.015 * (1 - (1 - (1/4))^{62} * (1 -
+ (1 - 1/64))^{62}
+ = 0.9%.
+<P>
+<B>QS34. One twig query with one parent-child selection and one ancestor-descendant selection.</B> Select nodes with <I>aFour=1</I> that have a child of nodes with <I>aLevel=11</I>, and a descendant with <I>aSixtyFour = 3</I> 
+<P>
+</LI>
+<LI><B>Negated Selection Queries:</B> 
+<BR><B>QS35.</B>  Find all <I>BaseType</I> elements below which 
+there is no <I>OccasionalType</I> element.
+</LI>
+</UL><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html52"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html50"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html46"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html53"
+  HREF="node5.html">Value-Based Join Queries</A>
+<B> Up:</B> <A NAME="tex2html51"
+  HREF="node1.html">Selection Queries</A>
+<B> Previous:</B> <A NAME="tex2html47"
+  HREF="node3.html">Simple Selection Queries</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Kanda Runapongsa
+2002-02-22
+</ADDRESS>
+</BODY>
+</HTML>

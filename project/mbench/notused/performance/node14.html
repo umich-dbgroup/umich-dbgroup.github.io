@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Structural Aggregation vs. Value Aggregation</TITLE>
+<META NAME="description" CONTENT="Structural Aggregation vs. Value Aggregation">
+<META NAME="keywords" CONTENT="performance">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="performance.css">
+
+<LINK REL="previous" HREF="node13.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node15.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html172"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html170"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html166"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html173"
+  HREF="node15.html">Performance Analysis on Scaling</A>
+<B> Up:</B> <A NAME="tex2html171"
+  HREF="node2.html">Performance Analysis Using the</A>
+<B> Previous:</B> <A NAME="tex2html167"
+  HREF="node13.html">Join Selectivity</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000021200000000000000">
+Structural Aggregation vs. Value Aggregation</A>
+</H3>
+An example of structural aggregation query is QA3 which finds the nodes at level 11 with the
+largest fanouts.  An example of value aggregation query is QA2 which computes the average
+value of the <I>aSixtyFour</I> attribute of nodes at each level. The numbers of nodes returned 
+in QA2 and QA3 are about the same. 
+
+<P>
+In TIMBER, a native XML database, the structure of the XML is maintained and reflected throughout the system. Therefore, a structural aggregation query, such as QA3, performs . On the other hand, a value aggregation query, such as QA2, performs worse due to a large number of random accesses. To resolve QA2, TIMBER first retrieves the nodes sorted by level through accessing the level index, then retrieves the attributes of these nodes through random database accesses.  The high response time of queries that request random accesses, such as QR3 and QA2, prompted the re-design of parts of the data manager in TIMBER to support sequential scan. 
+
+<P>
+In the ORDBMS, the ratio of the response times of QA3 over QA2 is about ten 
+which reflects that evaluating the structural aggregation is much more 
+expensive than evaluating the value aggregation.  This is 
+because in the relational representation the structure of XML data 
+has to be reconstructed using expensive join operations, whereas attribute values
+can be quickly accessed using indices.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html172"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html170"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html166"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html173"
+  HREF="node15.html">Performance Analysis on Scaling</A>
+<B> Up:</B> <A NAME="tex2html171"
+  HREF="node2.html">Performance Analysis Using the</A>
+<B> Previous:</B> <A NAME="tex2html167"
+  HREF="node13.html">Join Selectivity</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

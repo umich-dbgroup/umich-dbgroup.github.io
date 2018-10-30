@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Containment Relationships</TITLE>
+<META NAME="description" CONTENT="Containment Relationships">
+<META NAME="keywords" CONTENT="performance">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="performance.css">
+
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html124"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html122"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html116"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html125"
+  HREF="node10.html">Ordering</A>
+<B> Up:</B> <A NAME="tex2html123"
+  HREF="node2.html">Performance Analysis Using the</A>
+<B> Previous:</B> <A NAME="tex2html117"
+  HREF="node8.html">Text Processing</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00002700000000000000">
+Containment Relationships</A>
+</H3>
+The ORDBMS processes a direct containment queries (QS15-QS17) better than TIMBER, but TIMBER handles an indirect containment queries (QS21-QS23) better than the the ORDBMS. 
+In TIMBER, structural joins  are used to evaluate both types of containment queries. Each structural join reads both inputs (ancestor/parent and descendant/child) once from indices. It keeps potential ancestors in a stack and joins them with the
+descendants as the descendants arrive. Therefore, the cost of the ancestor-descendant queries is not necessarily higher than the parent-child queries. From the performance of these queries, we can deduce that the higher selectivity of ancestors, the greater the delay in the query performance (QS16 and QS22). Although the selectivities of ancestors in QS17 and QS23 are lower than those of QS15 and QS21, QS17 and QS23 perform worse because of the high selectivities of descendants.
+
+<P>
+The ORDBMS is very efficient for processing parent-child containment
+queries (QS15-QS17), since the ORDBMS uses indices to evaluate these 
+queries. On the other hand, the ORDBMS has much longer response times
+for the ancestor-descendant containment queries (QS21-QS23). The only way 
+to answer these queries is by using recursive SQL statements, which is 
+expensive to evaluate.
+Interestingly, the response times for these queries is 
+ordered according to the order of the selectivities of the descendants. 
+
+<P>
+Both systems are immune to the recursive nesting of ancestor nodes below
+other ancestor nodes; the queries on recursively nested ancestor nodes (QS24-QS26)
+have the same response times as their non-recursive counterparts (QS21-QS23).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html124"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html122"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html116"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html125"
+  HREF="node10.html">Ordering</A>
+<B> Up:</B> <A NAME="tex2html123"
+  HREF="node2.html">Performance Analysis Using the</A>
+<B> Previous:</B> <A NAME="tex2html117"
+  HREF="node8.html">Text Processing</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

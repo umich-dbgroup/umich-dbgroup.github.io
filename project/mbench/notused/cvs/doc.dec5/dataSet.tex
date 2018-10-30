@@ -1,0 +1,365 @@
+In this section, we first discuss the data characteristics of XML data
+sets that can have a significant impact on the performance of query
+operations. Then, we present the benchmark data sets and explain our
+rationale for the data characteristic parameters that we use in the
+benchmark data. 
+
+\subsection{A Discussion of the Data Characteristics}
+\label{sec:data-char}
+
+In a relational situation, once a relational scheme is fixed, the
+tuple size is known, and the primary data characteristics are the
+selectivity of attributes (important for simple selection operations)
+and the join selectivity (important for join operations). In the XML
+case, there are several complicating characteristics to consider, and
+we address these in turn below.
+
+\eat{
+\subsubsection{Attribute versus Sub-element}
+In XML, in many cases, the same information can reasonably be
+represented as an attribute of a given node, or as a sub-element of
+it.  However, in terms of storage and processing, such a choice could
+potentially have an impact. The attributes of a node are typically
+part of the node and are retrieved when the node is retrieved, whereas
+sub-elements are stored separately, necessitating a possible
+additional access in some cases.  Selections are allowed both on
+attribute values and sub-element (either by the tag-names or element
+content), and alternative storage representations may have a
+significant performance impact on the selection operation.  To
+investigate the differences in accesses to attributes and elements,
+the benchmark data has both attributes and elements. The queries on
+the benchmark data set (to be discussed in Section~\ref{sec:queries})
+test selections on both attributes and elements.  }
+
+\subsubsection{Structural Selection}
+Selection in XML is often based on patterns.  Queries should be
+constructed to consider multi-node patterns of various sorts, and with
+various selectivities.  An issue that arises is that of ``conditional
+selectivity.'' Consider a simple two node selection pattern. Given
+that one of the nodes has been identified, conditioned upon this fact,
+the selectivity of the second node can be very different than its
+selectivity in the database as a whole.  (One could, of course, have
+similar dependencies between different attributes in a relation,
+thereby affecting the selectivity of a multi-attribute predicate.
+Matters are more complicated in XML because these different attributes
+may not be in the same tuple, but rather in different, but
+structurally related, elements.)  These dependencies can be modeled
+by having the ``cyclic numbering'' schemes with different moduli, as
+in the Wisconsin benchmark.
+
+Two other data structural parameters are important for tree-structured
+data, such as XML. These are fanout and depth. Let us look at the
+issue of depth first. The depth of the data tree can have a
+significant performance impact when we are computing
+ancestor-descendant (or containment) relationships.  It is possible
+that the containment is very distant (not an immediate child), and it
+is also possible to have multiple nodes at different levels satisfying
+the ancestor and the descendant predicates.  Similarly the fanout of
+the data tree can have an impact on the way in which the DBMS stores
+the data in the DBMS, and answers queries that are based on selecting
+children in a specific order (for example select the last child).
+
+One potential way of testing these parameters (fanout and depth) is to
+generate a number of distinct data sets with different values for each
+of these parameters and then run queries against each data set. The
+drawback of this approach is that we have to deal with a large number
+of data sets which makes the benchmark harder to run and to
+understand. Rather, the approach that we take in this proposal is to
+create a base benchmark data set of depth 16. Then, using a ``level''
+attribute, we can restrict the scope of the query to data sets of
+certain depth, thereby, quantifying the impact of the depth of the
+data tree.
+
+To study the impact of fanout, we generate the data set in the
+following way. Each level in the tree (recall there are 16 levels) has
+a fanout of 2, except for levels 5, 6, 7, and 8. The levels 5, 6, and
+7 have a fanout of 4, where as level 8 has a fanout of 1/4 (at level 8
+every fourth node has a single child). This variation in fanout is
+designed to permit queries that focus on this one factor in isolation.
+For instance, the number of nodes at levels 7 and 9 is 256. Nodes at
+level 7 have a fanout of 4, whereas the nodes at level 9 have a fanout
+of 2. Queries against these two levels can be used to measure the
+impact of fanout.
+
+\begin {figure}
+\begin {center}
+\renewcommand{\baselinestretch}{1.1}
+\begin{tabular}{|r|r|r|r|} \hline
+{\bf Level} & {\bf Fanout} & {\bf Nodes} & {\bf \% of Nodes} \\ \hline
+1 & 2 & 1 & 0.0 \\ 2 & 2 & 2 & 0.0 \\ 3 & 2 & 4 & 0.0 \\ 4 & 2 & 8 &
+0.0 \\ 5 & 4 & 16 & 0.0 \\ 6 & 4 & 64 & 0.1 \\ 7 & 4 & 256 & 0.4 \\ 8
+& 0.25 & 1,024 & 1.5 \\ 9 & 2 & 256 & 0.4 \\ 10 & 2 & 512 & 0.8 \\ 11
+& 2 & 1,024 & 1.5 \\ 12 & 2 & 2,048 & 3.1 \\ 13 & 2 & 4,096 & 6.1 \\
+14 & 2 & 8,192 & 12.3 \\ 15 & 2 & 16,384 & 24.6 \\ 16 & -- & 32,768 &
+49.2 \\ \hline
+\end {tabular}
+\caption{\label{table:dist}Distribution of the nodes in the base data
+set}
+\label{fig:fanout}
+\renewcommand{\baselinestretch}{\cheatbaseline}
+\end {center}
+\end {figure}
+
+\subsubsection{Document size}
+
+An XML document is tree-structured.  If this document is stored in a
+file system, XML documents themselves may exist in a tree-structured
+directory. The question is what constitutes an XML database?  At one
+extreme, it could be a single huge tree.  At the other, it could
+comprise many small documents.  \eat{ Some XML database
+implementations may be unaffected by document granularity -- for
+others, this may be a significant issue. We consider three
+possibilities for scaling data sets:
+\begin{itemize}
+\item
+All data is in a single tree.  Scaling increases the number of nodes
+in the tree linearly with the scaling factor.
+\item
+The size of each tree is kept fixed.  The number of documents is
+increased linearly with the scaling factor. \reminder{To permit a
+sufficiently rich tree structure, the minimum tree size will have to
+be kept fairly large -- imposes a lower bound on the scaling factor}
+\item
+Both the size of each document tree and the number of documents is
+increased with the scaling factor.  To keep this scaling consistent
+with the previous two cases, the increase in each is only proportional
+to the square root of the scaling factor.
+\end{itemize}
+} Once again, to keep the benchmark simple, we choose the most
+aggressive choice -- namely a single large document tree, as the
+default data set.  If it is important to understand the effect of
+document granularity, one can modify the benchmark data set to treat
+each level 13 node as the root of a distinct document.  One can
+compare the performance of queries on this modified data set against
+queries on the original data set.  We have chosen not to include this
+experiment in the benchmark due to our desire for simplicity, and our
+belief that the document granularity issue is not a critical one to
+study.
+
+\eat {We run a couple of queries after breaking up this large document
+into smaller documents at a specified depth in the tree just to
+highlight the document boundary effect, if any.}
+
+\subsubsection{Scaling}
+A good benchmark should scale so that appropriately scaled versions of
+the same benchmark can be run on platforms with widely varying
+capabilities.  In the relational model, scaling a benchmark data set
+is easy -- we simply increase the number of tuples.  In the XML world,
+there are many choices one could make, and these could have an effect
+on the structure of the data set.  We would like to isolate the effect
+of the number of nodes from effects due to other structural changes,
+such as depth, fanout, etc.  To minimize such cross-impacts, we
+propose to scale the Michigan benchmark in discrete steps, as
+discussed below.
+
+The default data set, called {\bf DSx1}, has ~67K nodes, arranged in a
+tree of depth 16 and fanout 2 for all the levels except levels 5, 6, 7
+and 8, which have fanouts of 4, 4, 4, 1/4 respectively. From this data set we
+generate two additional ``scaled-up'' data sets, called {\bf DSx10}
+and {\bf DSx100} that contain approximately 10 and 100 times respective to the
+number of nodes in the base data set. We achieve this scaling factor
+by varying the fanout of the nodes at levels 5-8. For the data set
+{\bf DSx10} levels 5--7 have a fanout of 13, whereas level 8 has a
+fanout of 1/13. For the data set {\bf DSx100} levels 5--7 have a
+fanout of 38, whereas level 8 has a fanout of 1/38. The total number
+of nodes in the data sets {\bf DSx10} and {\bf DSx100} is 727K and
+6,800K respectively~\footnote{this translates into a scale factor of 10.9x and
+101.9x.}.
+
+In the design of the benchmark data set, we deliberately chose to keep
+the fanout of the bottom few levels of the tree constant.  This design
+implies that the percentage of nodes in the lower levels of the tree
+(levels 9--16) is nearly constant across all the data sets. This
+allows us to easily express queries that focus on a specified
+percentage of the total number of nodes in the database. For example,
+to select approximately 1/16. of all the nodes, irrespective of the
+scale factor, we use the predicate {\sf aLevel = 13}.
+
+\subsection{Schema of Benchmark Data}
+\label{sec:bench-data}
+The construction of the benchmark data is centered around the element
+type {\sf BaseType}. Each {\sf BaseType} element has the following
+attributes:
+\begin {enumerate}
+\item {\sf aUnique1}: A unique integer generated by traversing
+the entire data tree in a breadth-first manner.  This attribute also
+serves as the element identifier.
+\item {\sf aUnique2}: A unique integer generated randomly.
+\item {\sf aLevel}: An integer set to store the level of the node.
+\item {\sf aFour}: An integer set to aUnique2 mod 4
+\item {\sf aSixteen}: An integer set to aUnique2 mod 16
+\item {\sf aSixtyFour}: An integer set to aUnique2 mod 64
+\item {\sf aString}: A string value approximately 32 bytes in length.
+\end {enumerate}
+
+The content of each {\sf BaseType} element is a large string that is
+approximately 512 bytes in length. The generation of the element
+content and the string attribute {\sf aString} is described in
+Section~\ref{sec:strings}.
+
+In addition to the attributes listed above, each {\sf BaseType}
+element has two sets of subelements. The first subelement is of type
+{\sf BaseType}. The number of repetitions of this element is used to
+control the fanout, as described in Fig.~\ref{fig:fanout}.  The second
+subelement is of type {\sf OccasionalType}, and can occur either 0 or 1
+times.  The presence or absence of the {\sf OccasionalType} element is
+determined by the value of the attribute {\sf aSixtyFour}.  A {\sf
+BaseType} element has a nested (leaf) element of type {\sf
+OccasionalType} if the {\sf aSixtyFour} attribute has the value 0.
+This leaf element has content that is identical to the content of its
+parent.  The attribute {\sf aRef} is a reference to the node with id
+value equal to the parent's {\sf aUnique1}$-11$. In case such an ID
+does not exist (for the top few nodes in the tree), the attribute
+points to the root of the tree.
+
+The XML Schema~\cite{xml-schema} specification of the benchmark data
+is shown in Figure~\ref{fig:bench-schema}:
+
+\renewcommand{\baselinestretch}{1.1}
+\begin {figure}
+\begin{small}
+\begin{verbatim}
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.eecs.umich.edu/db/mbench/bm.xsd"
+        xmlns="http://www.eecs.umich.edu/db/mbench/bm.xsd"
+        elementFormDefault="qualified">
+<xsd:complexType name="BaseType" mixed="true">
+  <xsd:sequence>
+    <xsd:element name="eNest" type="BaseType" minOccurs="0">
+      <xsd:key name="aU1PK">
+        <xsd:selector xpath=".//eNest"/>
+        <xsd:field xpath="@aUnique1"/>
+      </xsd:key>
+      <xsd:unique name="aU2">
+        <xsd:selector xpath=".//eNest"/>
+        <xsd:field xpath="@aUnique2"/>
+      </xsd:unique>
+    </xsd:element>
+    <xsd:element name="eOccasional" type="OccasionalType" minOccurs="0" maxOccurs="1">
+      <xsd:keyref name="aU1FK" refer="aU1PK">
+        <xsd:selector xpath="../eOccasional"/>
+        <xsd:field xpath="@aUnique1Ref"/>
+      </xsd:keyref>
+    </xsd:element>
+  </xsd:sequence>
+  <xsd:attributeGroup ref="BaseTypeAttrs"/>
+</xsd:complexType>
+<xsd:complexType name="OccassionalType">
+  <xsd:simpleContent>
+    <xsd:extension base="xsd:string">
+      <xsd:attribute name="aUnique1Ref" type="xsd:integer" use="required"/>
+    </xsd:extension>
+  </xsd:simpleContent>
+</xsd:complexType>
+<xsd:attributeGroup name="BaseTypeAttrs">
+  <xsd:attribute name="aUnique1" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aUnique2" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aLevel" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aFour" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aSixteen" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aSixtyFour" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aString" type="xsd:string" use="required"/>
+</xsd:attributeGroup>
+<xsd:element name="root" type="BaseType"/>
+</xsd:schema>
+\end{verbatim}
+\end{small}
+\caption{Benchmark Specification in XML Schema}
+\label{fig:bench-schema}
+\end {figure}
+\renewcommand{\baselinestretch}{\cheatbaseline}
+
+\eat{ To understand the structure of the benchmark data, let us view
+each document in the data set as a tree of nodes of type {\sf
+BaseType} (ignore the nodes of type {\sf OccasionalType} for now).  A
+parent-child relationship in the tree represents a nesting of a
+subelement (child) below another subelement (parent). The root of this
+tree is at level 0. For this benchmark, the root of the tree has
+exactly ten children. Each of these children (at level 1) is the root
+of a subtree, and each subtree has the same number of nodes
+(approximately a tenth of the number of nodes in the entire benchmark
+data). The fanout of the nodes in each of these subtrees is constant
+for that subtree. At level 1, we set the attribute {\sf aFanout} to
+the the value of the {\sf aTen} attribute for that node. Note that the
+{\sf aFanout} for the nodes below level 1 is determined by the value
+of the {\sf aFanout} attribute in the ancestor node at level 1.}
+
+\subsection{Generating the String Attributes and Element Content}
+\label{sec:strings}
+The content of the elements in the benchmark is a long string.  Since
+this long string is meant to simulate a piece of text in a natural
+language, it is not appropriate to generate this string from a uniform
+distribution.  Yet, selecting pieces of text from real sources
+introduces all manners of difficulty -- how to maintain roughly
+constant size for each string, how to avoid idiosyncrasies associated
+with the specific source, how to generate more strings as required for
+a scaled benchmark, and so on.  Moreover, we would like to have
+benchmark results applicable to a wide variety of languages and domain
+vocabularies.
+
+To address the above desiderata, we generate these long strings
+synthetically, in a carefully stylized manner.  We begin by creating a
+pool of $2^{16}-1$ (a little over sixty thousand)
+words\footnote{Roughly twice the number of entries in the second
+edition of the Oxford English Dictionary. However half the words that
+are used in the benchmark are ``derived'' words, produced by appending
+``ing'' to the end of a word.} synthetic words as follows. The words
+are divided into 16 buckets, with exponentially growing bucket
+occupancy.  The first bucket has only one word, the second has two
+words, the third has 4, and so on.  Bucket $i$ has $2^{i-1}$ words.
+The words are not words from the English (or any other) language.
+Rather, they are synthetically created, with each word containing
+information about the bucket from which it is drawn and the word
+number in the bucket.  For example, ``15twentynineB14'' indicates that
+this is the 1,529th word from the fourteenth bucket.  To keep the size
+of the vocabulary at roughly 30,000, words in the last bucket are
+derived from words in the other buckets by adding the suffix ``ing''
+(to get exactly $2^{15}$ words in the sixteenth bucket, we add the
+dummy word ``oneB0ing'').
+
+The value for the long string is generated from the following
+template, where ``PickWord'' is actually a placeholder for words
+picked from the word pool described above.  To pick a word for
+``PickWord'', a bucket is chosen, with each bucket equally likely, and
+then a word is chosen from within the bucket, with each word equally
+likely. Thus, we obtain a discrete Zipf distribution of parameter
+roughly 1.  We use the Zipf distribution since it seems to reflect
+word occurrence probabilities accurately in a wide variety of
+situations.
+
+\begin {center}
+\renewcommand{\baselinestretch}{1.1}
+\begin {figure}
+\begin{small}
+\begin{verbatim}
+                      Sing a song of PickWord,
+                      A pocket full of PickWord
+                      Four and twenty PickWord
+                      All baked in a PickWord.
+
+                      When the PickWord was opened,
+                      The PickWord began to sing;
+                      Wasn't that a dainty PickWord
+                      To set before the PickWord?
+
+                      The King was in his PickWord,
+                      Counting out his PickWord;
+                      The Queen was in the PickWord
+                      Eating bread and PickWord.
+
+                      The maid was in the PickWord
+                      Hanging out the PickWord;
+                      When down came a PickWord,
+                      And snipped off her PickWord!
+\end{verbatim}
+\end{small}
+\caption{Generation of the String Element Content}
+\label{fig:large-str-gen}
+\end {figure}
+\renewcommand{\baselinestretch}{\cheatbaseline}
+\end {center}
+
+
+The string attribute is simply the first line of the large string that
+is stored as the element content.

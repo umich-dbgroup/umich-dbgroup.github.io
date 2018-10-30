@@ -1,0 +1,228 @@
+This is TeX, Version 3.14159 (Web2C 7.3.7) (format=latex 2002.1.2)  21 FEB 2002 15:13
+**./images.tex
+(./images.tex
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/usr/share/texmf/tex/latex/latex2html/html.sty
+Package: html 1999/07/19 v1.38 hypertext commands for latex2html (nd, hws, rrm)
+
+\c@lpart=\count87
+\c@lchapter=\count88
+\c@chapter=\count89
+\c@lsection=\count90
+\c@lsubsection=\count91
+\c@lsubsubsection=\count92
+\c@lparagraph=\count93
+\c@lsubparagraph=\count94
+\c@lsubsubparagraph=\count95
+\ptrfile=\write3
+) (/usr/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+(/usr/share/texmf/tex/latex/config/color.cfg
+File: color.cfg 2001/08/31 v1.1 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 125.
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+) (/usr/share/texmf/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)) (/usr/share/texmf/tex/latex/base/inputenc.sty
+Package: inputenc 2001/07/10 v0.99a Input encoding file 
+)
+\sizebox=\box26
+\lthtmlwrite=\write4
+(./images.aux)
+\openout1 = `images.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+
+latex2htmlLength hsize=349.0pt
+
+latex2htmlLength vsize=633.0pt
+
+latex2htmlLength hoffset=0.0pt
+
+latex2htmlLength voffset=0.0pt
+
+latex2htmlLength topmargin=0.0pt
+
+latex2htmlLength topskip=0.00003pt
+
+latex2htmlLength headheight=0.0pt
+
+latex2htmlLength headsep=0.0pt
+
+latex2htmlLength parskip=0.0pt plus 1.0pt
+
+latex2htmlLength oddsidemargin=62.0pt
+
+latex2htmlLength evensidemargin=62.0pt
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 131.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 131.
+l2hSize :figure7:215.19998pt::0.0pt::349.0pt.
+[1
+
+
+
+]
+l2hSize :tex2html_wrap_inline131:6.95831pt::6.95831pt::18.27786pt.
+[2
+
+
+]
+! Undefined control sequence.
+<argument>  \par \SingleSpace 
+                              \small \begin {minipage}{3in} \par \begin {tab...
+l.280 \end{minipage}}
+                     %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 280.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 280.
+l2hSize :tex2html_nomath_inline445:325.15pt::325.15pt::274.56139pt.
+[3
+
+
+]
+Overfull \vbox (15.7001pt too high) has occurred while \output is active []
+
+[4]
+! Undefined control sequence.
+\baselinestretch ->\cheatbaseline 
+                                  
+l.288 \lthtmlinlinemathA{tex2html_wrap_inline295}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline295:8.64003pt::8.64003pt::31.19446pt.
+[5
+
+
+]
+! Undefined control sequence.
+\baselinestretch ->\cheatbaseline 
+                                  
+l.294 \lthtmlinlinemathA{tex2html_wrap_inline297}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline297:6.59525pt::0.0pt::3.94516pt.
+[6
+
+
+]
+! Undefined control sequence.
+\baselinestretch ->\cheatbaseline 
+                                  
+l.300 \lthtmlinlinemathA{tex2html_wrap_inline299}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline299:8.26085pt::0.0pt::19.06548pt.
+[7
+
+
+]
+! Undefined control sequence.
+\baselinestretch ->\cheatbaseline 
+                                  
+l.306 \lthtmlinlinemathA{tex2html_wrap_inline301}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline301:8.14003pt::0.0pt::13.9723pt.
+[8
+
+
+]
+! Undefined control sequence.
+\baselinestretch ->\cheatbaseline 
+                                  
+l.312 \lthtmlinlineA{tex2html_nomath_inline487}
+                                               %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument>  \SingleSpace 
+                         \small \begin {minipage}{3in} \begin {tabbing} A \=...
+l.339 }
+       %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_nomath_inline487:116.15pt::116.15pt::158.32811pt.
+[9
+
+
+] (./images.aux) ) 
+Here is how much of TeX's memory you used:
+ 825 strings out of 10847
+ 10341 string characters out of 70947
+ 57451 words of memory out of 263001
+ 3816 multiletter control sequences out of 10000+0
+ 5771 words of font info for 21 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 23i,10n,19p,162b,433s stack positions out of 300i,100n,500p,50000b,4000s
+
+Output written on images.dvi (9 pages, 7944 bytes).

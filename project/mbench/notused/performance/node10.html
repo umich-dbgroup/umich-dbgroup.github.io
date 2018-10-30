@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Ordering</TITLE>
+<META NAME="description" CONTENT="Ordering">
+<META NAME="keywords" CONTENT="performance">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="performance.css">
+
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node9.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html134"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html132"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html126"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html135"
+  HREF="node11.html">Complex Pattern Selectivity</A>
+<B> Up:</B> <A NAME="tex2html133"
+  HREF="node2.html">Performance Analysis Using the</A>
+<B> Previous:</B> <A NAME="tex2html127"
+  HREF="node9.html">Containment Relationships</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00002800000000000000">
+Ordering</A>
+</H3>
+In TIMBER, local ordering (QS18) performs considerably worse than global ordering (QS19) and reverse ordering (QS20) because it requires many random accesses.  On the other hand, global ordering (QS19) performs well because it requires only one random access, and reverse ordering (QS20) requires a structural join and no random access.
+
+<P>
+In the ORDBMS, local ordering (QS18) is about as expensive as reverse ordering (QS20) while global ordering (QS19) is the least expensive.
+This is because local ordering (QS18) needs to access a number of nodes
+that satisfy the given order, 
+and reverse ordering (QS20) needs to first 
+find the order that is the largest and then retrieve the element that has
+that order.   On the other hand, QS19 quickly returns as soon as it finds the first tuple that satisfies the
+given order and predicates.
+<BR><HR>
+</BODY>
+</HTML>

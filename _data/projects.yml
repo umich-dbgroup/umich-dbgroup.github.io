@@ -2,22 +2,52 @@ active:
   -
     name: Verdict
     url: "http://verdictdb.org"
-    description: ""
+    description: "A commercial-grade, AQP data analytics system that runs on top of existing SQL-engines."
   -
     name: Foofah
     url: "https://github.com/markjin1990/foofah"
-    description: "a programming-by-example data transformation (wrangling) program synthesizer"
+    description: "A programming-by-example data transformation (wrangling) program synthesizer"
   -
     name: Infiniswap
     url: "http://github.com/infiniswap/infiniswap"
+    description: "Efficient Memory Disaggregation with Infiniswap"
+  - 
+    name: Designing a Predictable Database
+    url: "http://web.eecs.umich.edu/~mozafari/php/projects.php#Designing%20a%20Predictable%20Database"
+    description: "Reducing Tail Latencies in Modern Data-Intensive Applications"
+  -
+    name: DBSeer
+    url: "http://dbseer.org/"
+    description: "A workload intelligence framework that exploits advanced machine learning and causality techniques to aid the DBA in his/her various responsibilities"
   -
     name: Raccoon
+    description: "A declarative query processing system for nowcasting"
+  - 
+    name: "EconPrediction"
+    description: "Economic Indicators from Social Media"
+    url: "http://econprediction.eecs.umich.edu/"
+  -
+    name: MUSIQ
+    description: Model-driven Usable System for Information Querying
+    url: "/project/usable"
 
 inactive:
   -
+    name: Senbazuru
+    description: A Prototype Spreadsheet Database Management System
+    url: "/project/sheets"
+  -
+    name: THINK Back
+    description: KNowledge-based Interpretation of High Throughput data.
+    url: "/project/think"
+  -
+    name: MiMI
+    description: Michigan Molecular Interaction Database
+    url: "/project/mimi"
+  -
     name: Timber
     url: "/project/timber"
-    description: ""
+    description: "A Native XML Store"
   -
     name: Intranet Transactional Search
     url: "/project/transactionalSearch"
@@ -34,3 +64,7 @@ inactive:
     name: Regular Expression Learning
     url: "/project/regexLearning"
     description: ""
+  -
+    name: MBench
+    url: "/project/mbench"
+    description: The Michigan XML Benchmark

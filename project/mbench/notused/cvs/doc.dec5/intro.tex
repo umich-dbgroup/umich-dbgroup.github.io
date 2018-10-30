@@ -1,0 +1,72 @@
+XML query processing has taken on considerable
+importance recently, and several XML databases \cite{tamino,
+timber, ibm, microsoft, oracle, excelon, poet} have been
+constructed, on a variety of platforms. There has naturally been
+an interest benchmarking the performance of these systems, and
+some benchmarks have been proposed \cite{xmach, xmark}.  The
+stated objective of these benchmarks is to assess the performance
+of a given XML database in performing a variety of representative
+tasks. Such benchmarks are valuable to potential users of a database
+system in providing an indication of the performance the user can
+expect on their specific application.  The challenge is to devise
+benchmarks that are sufficiently representative of the requirements of
+``most'' users.  The TPC series of benchmarks accomplished this, with
+more or less success, for relational database systems. However, no
+benchmarks have been successful in the realm of ORDBMS and OODBMS, we
+believe on account of the very nature of extensibility and user
+defined functions leading to great heterogeneity in the nature of
+use. It is too soon to say whether any of the current XML benchmarks
+will be successful in this respect -- we certainly hope that they
+will.  A lucid statement of desiderata for such benchmarks has
+recently been published~\cite{SIGMODRECORD01Bench} One thing that
+benchmarks of this nature do not typically focus on is the performance
+of the basic query evaluation operations such as selections, joins,
+aggregations etc.  A ``micro-benchmark'' that highlights the
+performance of these basic operations can be very helpful to a
+database developer in understanding and evaluating various
+alternatives for implementing these basic operations.  What are the
+algorithmic design choices in implementing these basic operations?
+What are the strengths and weaknesses of specific access methods?
+Which areas should the developer focus attention on? What is the basis
+to choose between two alternative implementations?  Questions of this
+nature are central to well-engineered systems.  Yet these are at too
+fine a granularity to be addressed effectively by the global
+system-level benchmarks. The Wisconsin benchmark~\cite{wiss} provided
+the database community with an invaluable tool in this regard, for
+relational systems. Our goal in this paper is to develop an equivalent
+tool for XML databases. Following in the footsteps of the Wisconsin
+benchmark, we call the benchmark proposed in this paper the Michigan
+benchmark.
+
+Another issue in this regard is the nature of the data in the test
+database used for the benchmark.  If the data is carefully specified
+to represent some ``real application'', it is likely to be quite
+uncharacteristic for other applications with different data
+distributions.  Thus, holistic benchmarks can succeed only if they are
+able to find a real application with data characteristics that are
+reasonably representative for a large class of different applications.
+
+Our objective is to create a single heterogeneous data set, along with
+a number of queries, each of which exercises carefully chosen portions
+of the data set, with specific data characteristics.  Thus, each query
+tests performance with respect to a particular class of data.
+
+Heterogeneity does not mean randomness, though.  Our attempt is to
+provide the necessary attributes to be able to specify queries that
+will access precisely the type of data we wish to test.  Random number
+generators should be used as sparingly as possible -- in the Wisconsin
+benchmark only to generate two attribute values -- and all other data
+parameters derived from these values.
+
+In relational systems, selectivity\footnote{Selectivity is really not
+a characteristic of the data alone, being dependent on the predicate
+as well.  For our purposes, it is helpful to think of a specified
+predicate and then considering the nature of the data w.r.t. it.}
+(including join selectivity) and cardinality are the two
+characteristics of primary interest.  (There may be a few additional
+secondary characteristics of interest, such as clustering, and size of
+tuple/attribute).  In XML databases, besides these characteristics,
+there are several others, having to do with the structure, such as
+tree fanout and tree depth. A major contribution of this paper is the
+identification of such characteristics, and the impact of these
+characteristics on query performance.

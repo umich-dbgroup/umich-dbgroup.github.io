@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>The Michigan Benchmark</title>
+</head>
+
+<body>
+
+<H1>Installing The Michigan Benchark Data Generator for Windows</H1>
+<H2>Unpacking the distribution</H2>
+You can unpack mbgen.zip using 'winzip' program.
+
+<H2>Building the data generator</H2>
+Perform the following steps in Microsoft Visual C++
+<ol>
+        <li>From 'File' menu, click 'Open workspace..'</li>
+        <li>From 'Open Workspace' window, click 'mbgen.dsw' file</li>
+        <li>From 'Build' menu, click 'Build mbgen.exe'</li>
+</ol>
+
+<H2>Running the data generator</H2>
+From 'Build' mneu, click 'Execute mbgen.exe'. <BR/>
+
+By now, 'mbgen.exe' should be in the Debug directory in the directory
+that the workspace is created.
+
+<pre>
+Program options:
+ -sf=scale_factor    Valid scale factors are {0.1, 1,10,100} [default=1]
+ -n=doc_name         Set document file name [default='doc']
+ -d | -D             Turn on/off DTD support [default='off']
+ -s | -S             Turn on/off schema support [default=on]
+ -c | -C	     Turn on/off element content printed out [default=on]
+ -h | -H             Print available options
+</pre>
+
+<pre>
+Examples:
+1) %mbgen -h
+This command prints help information about the available options
+
+2) %mbgen
+This command generates an XML document, "doc1.xml", with scale factor =1
+
+3) %mbgen -n="data"
+This command generates an XML document, "data1.xml"
+
+4) %mbgen -d -s 
+This command generates an XML document that conforms with mbench.dtd
+ 
+5) %mbgen -c
+This command generates an XML document that there is no element content printed out
+
+6) %mbgen -sf=10
+This command generates an XML document that has scale factor=10
+</pre>
+</body>
+</html>

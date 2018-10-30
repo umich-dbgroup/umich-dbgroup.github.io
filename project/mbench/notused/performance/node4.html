@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Predicate Selectivity</TITLE>
+<META NAME="description" CONTENT="Predicate Selectivity">
+<META NAME="keywords" CONTENT="performance">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="performance.css">
+
+<LINK REL="next" HREF="node5.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html74"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html72"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html66"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html75"
+  HREF="node5.html">Range Selection</A>
+<B> Up:</B> <A NAME="tex2html73"
+  HREF="node2.html">Performance Analysis Using the</A>
+<B> Previous:</B> <A NAME="tex2html67"
+  HREF="node3.html">Returned structure</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00002200000000000000">
+Predicate Selectivity</A>
+</H3>
+Selectivity has an impact on both TIMBER and the ORDBMS.
+The response times of high selectivity queries (QS1 and QS3) are
+more than the low selectivity queries (QS2 and QS4)
+by 3 times in the ORDBMS and 8-10 times in TIMBER.
+In TIMBER, a query with a string predicate (QS1/QS2) performs worse than
+an equivalent one with an integer predicate (QS3/QS4 resp.) because it
+accesses a string index which is slower than an integer index.
+This difference is not observed in the ORDBMS because the lengths of these
+attributes are short, and the integer index and the short string index are
+equally effective. 
+
+<P>
+<BR><HR>
+</BODY>
+</HTML>

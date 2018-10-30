@@ -1,0 +1,221 @@
+This is TeX, Version 3.14159 (Web2C 7.3.3) (format=latex 2000.10.18)  19 FEB 2002 16:51
+**paper
+(/usr/gnu/tex/texmf/tex/latex/utthesis/ICDE-11/paper.tex
+LaTeX2e <2000/06/01>
+Babel <v3.6Z> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(/usr/gnu/tex/texmf/tex/latex/base/article.cls
+Document Class: article 2000/05/19 v1.4b Standard LaTeX document class
+(/usr/gnu/tex/texmf/tex/latex/base/size10.clo
+File: size10.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/gnu/tex/texmf/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 1996/11/03 v2.2b
+
+(/usr/gnu/tex/texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 1997/09/17 v2.2e
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 133.
+))
+(/usr/gnu/tex/texmf/tex/latex/amslatex/amstext.sty
+Package: amstext 1996/10/28 v1.2b
+
+(/usr/gnu/tex/texmf/tex/latex/amslatex/amsgen.sty
+File: amsgen 1996/10/29 v1.2b
+\@emptytoks=\toks15
+\ex@=\dimen103
+))
+(/usr/gnu/tex/texmf/tex/latex/tools/array.sty
+Package: array 1996/06/14 v2.3i Tabular extension package (FMi)
+\col@sep=\dimen104
+\extrarowheight=\dimen105
+\NC@list=\toks16
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+(/usr/gnu/tex/texmf/tex/latex/local/boxedminipage.sty)
+(/usr/gnu/tex/texmf/tex/latex/calc/calc.sty
+Package: calc 1995/04/10 v4.0c (TEST)
+
+Package: `calc' v4.0c (TEST) <1995/04/10> (KKT and FJ)
+\calc@Acount=\count87
+\calc@Bcount=\count88
+\calc@Adimen=\dimen106
+\calc@Bdimen=\dimen107
+\calc@Askip=\skip45
+\calc@Bskip=\skip46
+LaTeX Info: Redefining \setlength on input line 47.
+LaTeX Info: Redefining \addtolength on input line 48.
+\calc@denominator=\count89
+)
+
+! LaTeX Error: File `citesort.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Interruption.
+<to be read again> 
+                   }
+l.26 \usepackage
+                [dvips]{epsfig}^^M
+? quit
+OK, entering \batchmode...
+ (/usr/gnu/tex/texmf/tex/latex/graphics/epsfig.sty
+Package: epsfig 1996/10/04 v1.7 (e)psfig emulation (SPQR)
+ (/usr/gnu/tex/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1996/10/31 v1.0c Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/gnu/tex/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1995/09/21 v1.09 key=value parser (DPC)
+) (/usr/gnu/tex/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 1996/10/31 v1.0c Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/gnu/tex/texmf/tex/latex/graphics/trig.sty
+Package: trig 1994/10/16 v1.08 sin cos tan (DPC)
+) (/usr/gnu/tex/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 82.
+ (/usr/gnu/tex/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1996/12/12 v3.0d Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen108
+\Gin@req@width=\dimen109
+)
+\epsfxsize=\dimen110
+\epsfysize=\dimen111
+)
+(/usr/gnu/tex/texmf/tex/latex/seminar/inputs/fancybox.sty
+Style option: `fancybox' v1.0 <93/02/10> (tvz)
+\@fancybox=\box26
+\shadowsize=\dimen112
+\@Sbox=\box27
+\do@VerbBox=\toks17
+\the@fancyput=\toks18
+\this@fancyput=\toks19
+\EndVerbatimTokens=\toks20
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read1
+) (/usr/gnu/tex/texmf/tex/latex/local/fancyheadings.sty
+\headrulewidth=\dimen113
+\footrulewidth=\dimen114
+\plainheadrulewidth=\dimen115
+\plainfootrulewidth=\dimen116
+\headwidth=\dimen117
+) (/usr/gnu/tex/texmf/tex/latex/base/fleqn.sty
+
+LaTeX Warning: inputting `fleqn.clo' instead of obsolete `fleqn.sty'.
+
+ (/usr/gnu/tex/texmf/tex/latex/base/fleqn.clo
+File: fleqn.clo 1998/08/17 v1.1c Standard LaTeX option (flush left equations)
+\mathindent=\dimen118
+)) (/usr/gnu/tex/texmf/tex/latex/tools/hhline.sty
+Package: hhline 1994/05/23 v2.03 Table rule package (DPC)
+) (/usr/gnu/tex/texmf/tex/latex/local/multirow.sty
+\bigstrutjot=\dimen119
+) (/usr/gnu/tex/texmf/tex/latex/local/psboxit.sty
+\gray@box=\box28
+\gray@space=\dimen120
+)
+(/usr/gnu/tex/texmf/tex/latex/pstricks/latex/pst-node.sty
+Package: pst-node 1997/03/25 package wrapper for PSTricks pst-node.tex
+
+(/usr/gnu/tex/texmf/tex/latex/pstricks/generic/pst-node.tex  v97 patch 9, 1999/
+04/14
+(/usr/gnu/tex/texmf/tex/latex/pstricks/generic/pstricks.tex
+`PSTricks' v97 patch 10  <1999/03/24> (tvz)
+\pst@dima=\dimen121
+\pst@dimb=\dimen122
+\pst@dimc=\dimen123
+\pst@dimd=\dimen124
+\pst@dimg=\dimen125
+\pst@dimh=\dimen126
+\pst@hbox=\box29
+\pst@boxg=\box30
+\pst@cnta=\count90
+\pst@cntb=\count91
+\pst@cntc=\count92
+\pst@cntd=\count93
+\pst@cntg=\count94
+\pst@cnth=\count95
+\pst@toks=\toks21
+
+(/usr/gnu/tex/texmf/tex/latex/pstricks/generic/pstricks.con)
+\psunit=\dimen127
+\psxunit=\dimen128
+\psyunit=\dimen129
+\pslinewidth=\dimen130
+\pst@customdefs=\toks22
+\pslinearc=\dimen131
+\everypsbox=\toks23
+\psframesep=\dimen132
+\pslabelsep=\dimen133
+\theoverlaybox=\box31
+)
+\psrow=\count96
+\pscol=\count97
+\psmatrixcnt=\count98
+\psrowsep=\skip47
+\pscolsep=\skip48
+))
+(/usr/gnu/tex/texmf/tex/latex/pstricks/latex/pstricks.sty
+Package: pstricks 1997/03/25 package wrapper for PSTricks pstricks.tex
+
+(/usr/gnu/tex/texmf/tex/latex/pstricks/generic/pstricks.tex))
+(/usr/gnu/tex/texmf/tex/latex/utthesis/ICDE-11/stretch.sty)
+(/n/soso/s/krunapon/research/xml/thesis/sty/subfigure.sty
+Package: subfigure 1998/01/27 v2.1 subfigure package
+Package: subfigure 1998/01/27 v2.1F (beta)
+\c@subfigure=\count99
+\c@lofdepth=\count100
+\c@subtable=\count101
+\c@lotdepth=\count102
+) (/usr/gnu/tex/texmf/tex/latex/tools/theorem.sty
+Package: theorem 1995/11/23 v2.2c Theorem extension package (FMi)
+\theorem@style=\toks24
+\theorem@bodyfont=\toks25
+\theorempreskipamount=\skip49
+\theorempostskipamount=\skip50
+ (/usr/gnu/tex/texmf/tex/latex/amslatex/other/thp.sty
+Style option: `theorem-plain' v2.1b  <89/10/28> (FMi)
+English documentation                <89/09/19> (FMi)
+)) (/usr/gnu/tex/texmf/tex/latex/psnfss/times.sty
+Package: times 2000/01/12 PSNFSS-v8.1 Times font as default roman (SPQR) 
+)
+
+! LaTeX Error: File `timestamp.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+ Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.40 \usepackage
+                {verbatim}^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 2554 strings out of 10917
+ 28379 string characters out of 72903
+ 87048 words of memory out of 263001
+ 5476 multiletter control sequences out of 10000+0
+ 3640 words of font info for 14 fonts, out of 200000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 32i,0n,24p,214b,47s stack positions out of 300i,100n,500p,50000b,4000s
+No pages of output.

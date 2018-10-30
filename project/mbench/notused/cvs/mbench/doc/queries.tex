@@ -1,0 +1,415 @@
+%\subsection{A Discussion of the Query Characteristics}
+In creating the data set above, we have taken care to make it possible
+to tease apart data with different characteristics, and to issue
+queries with well-controlled but vastly differing data access
+patterns.  \old{Our belief is that we should} \new{We} do the same with respect to
+queries.  Specifically, we are less interested in the composite
+performance of queries that are of application-level value.  Rather,
+our focus is on evaluating the cost of individual pieces of core query
+functionality.  Knowing these costs, we can estimate the cost of any
+complex query by just adding up relevant piecewise costs (keeping in
+mind the pipelined nature of evaluation, and the changes in sizes of
+intermediate results as operators are pipelined).
+
+One clean way to decompose complex queries is by means of an algebra.
+%such as TAX\cite{tax}.
+While the benchmark is not tied to any particular algebra, we find it
+useful to refer to queries as ``selection queries'', ``join queries''
+and the like, to clearly indicate the functionality being stressed by
+each benchmark query.  A complex query that involves many of these
+simple operations can be expected to take time that varies
+monotonically with the time required for these simple components.
+
+In the following subsections, we present different type of queries.  
+In these queries, the types of the nodes are assumed to be {\sf BaseType} 
+(\verb=eNest= nodes) unless specified otherwise.
+
+\eat{ In this algebra, XML data is manipulated using operators that
+are very much like relational operators, except that the unit of
+manipulation is a tree rather than a tuple.  The heterogeneity of
+structure in a tree is handled by means of a pattern tree supplied as
+parameter to each TAX operator.  Bindings of pattern tree nodes to
+database nodes permits selected database nodes to be named w.r.t. the
+known pattern tree structure, rather than with respect to the
+non-uniform database tree structure. \reminder{This para. is perhaps
+too much about TAX.  Should be softened, and even deleted entirely if
+we can otherwise justify considering the simple set of atomic
+operations that we would like to}. }
+
+\subsection{Selection Queries}
+Whereas relational selection identifies the tuples that satisfy a
+given predicate over its attributes, XML selection is considerably
+more complex\old{, as we have seen above} \new{}.  One is typically interested in
+identifying the portion of the tree that satisfies a specified
+predicate.  Furthermore, the predicate itself could involve conditions
+on the attributes (or content) of several structurally related
+elements. Thus simply understanding the performance of (complex)
+selection queries can be extremely valuable in the case of an XML
+database.
+
+\subsubsection{Returned Structure}
+In a relation, once a tuple is selected, the tuple is returned. In
+XML, once an element (node) is selected, one may return not just the
+element, but also some structure around the element, most commonly all
+or a part of the sub-tree rooted at the element.  How the data is
+stored and when the returned result is materialized can make a huge
+difference to query performance.
+
+We consider the following cases:
+\begin{enumerate}
+\item
+Return only the element in question.
+\item
+Return the entire sub-tree rooted at the element.
+\item
+Return the element and all its immediate children.
+\item
+Return the element and selected descendants.
+\end{enumerate}
+
+To understand the role of returned structure in query performance, we
+use the query: Select all elements with {\sf aSixtyFour = 2}. This
+query is run four times, corresponding to the four cases above.  For
+the fourth case, only the descendants with {\sf aFour = 1} are
+returned.  The remaining queries in the benchmark simply return the
+selected node (i.e. option 1 above), except when explicitly specified
+otherwise.
+%In the case of join queries, all nodes that satisfy
+%the predicates are returned (i.e. option 1 for all nodes in the join).
+\subsubsection{Simple Selection Queries}
+\begin {itemize}
+
+\item {\bf Exact Match Attribute Value Selection}
+\begin{itemize}
+\item
+Selection based on the value of a string attribute.
+\begin{itemize}
+\item {\bf QS1.} High Selectivity: {\sf aString = ``Sing a song of oneB1''}.
+Selectivity is approximately 1/16 (6.2\%).
+\item {\bf QS2.} Low Selectivity: {\sf aString = ``Sing a song of oneB4''}.
+Selectivity is approximately 1/128 (0.8\%).
+\end{itemize}
+\item
+Selection based on the value of an integer attribute.  We reproduce
+the same selectivities as in the string attribute case.  
+\begin{itemize}
+\item {\bf QS3.} The predicate
+{\sf aLevel = 13} has selectivity approximately 6.1\%
+\item {\bf QS4.} The 
+predicate {\sf aLevel = 10} has selectivity approximately 0.8\%.
+\end{itemize}
+\item
+{\bf QS5.} Multi-attribute selection based on the value of two integer
+attributes. {\sf aSixteen = 1 and aFour = 1}. Selectivity: $(1/16) \times (1/4) = 1/64$ (1.6\%).
+\end{itemize}
+
+\item {\bf Element Name Selection} \\
+{\bf QS6.} Selection based on the element
+name  {\sf eOccasional}. Selectivity: 1/64 (1.6\%).
+
+\item {\bf Element Content Selection}
+\begin{itemize}
+\item
+{\bf QS7.} Look for nodes that have {\sf ``oneB4''} as substring in element 
+content.
+The likelihood of a single ``oneB4'' being from bucket 4 is 1/16,
+and given bucket 4, of being this particular word is 1/8.  This gives
+a product probability of 1/128.  (This string can also arise in bucket
+16.  But the probability there is much smaller $2^{-19}$, and hence
+can be ignored). There are 16 ``PickWord''s in the content of
+each element, so 16 opportunities for this predicate to be satisfied at
+each element, giving an overall selectivity of 16/128 (12.5\%).
+\item
+{\bf QS8.} Look for {\sf OccasionalType} nodes that  ``oneB4'' in the element content. 
+Since there is approximately one {\sf OccasionalType} node in every {\sf BaseType} nodes, The selectivity of this query is identical to
+1/64 of the selectivity of query QS7.  The overall selectivity is $(16/128) \times (1/64) = 1/512$ (0.2\%).
+\end{itemize}
+
+\item {\bf Order-based Selection}
+\begin{itemize}
+\item
+{\bf QS9.} Select the second child of every node with {\sf aLevel = 7}.
+Selectivity is 0.4\%.  
+\item
+{\bf QS10.} Select the second child of every node with {\sf aLevel = 9}.
+Selectivity is again 0.4\%.  The difference in performance between
+this and the query above is likely to be on account of fanout. The fraction
+of nodes in this query is the same as one in QS9.
+\end{itemize}
+\item {\bf String Distance Selection}
+\begin{itemize}
+\item
+{\bf QS11.} Select all nodes with element content that the distance between keyword {\sf
+``oneB2''} and the keyword {\sf
+``twenty''} is not more than three. 
+There are two occurrences of ``PickWord'' within four words of {\sf ``twenty''} and
+14 occurrences that are further away.  The probability of any one
+occurrence of ``oneB2'' being selected is 1/32 (3.1\%).
+Thus, the overall selectivity approximately $1/32 \times 2 = 1/16$ (6.2\%).
+\item
+{\bf QS12.} Select all nodes with element content that the distance between keyword {\sf "oneB5"} and the keyword {\sf "twenty"} is not more than three.
+The probability of any one occurrence of ``oneB5'' being selected 
+ is 1/256 (0.4\%).
+Selectivity approximately 1/128 (0.8\%).
+\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Structural Selection Queries}
+All queries return the root of the selection pattern only, unless
+otherwise specified.
+\begin{itemize}
+\item
+{\bf Parent-Child Selection Queries:}
+\begin{itemize}
+\item {\bf QS13.} Moderate selectivity of both parent and child.  Select nodes
+with {\sf aLevel = 13} that have a child with attribute {\sf aSixteen
+= 3}.  The first predicate has selectivity of approximately 1/16. The
+child predicate also has a selectivity of 1/16.  Since each node at
+level 13 has two children, there are two opportunities to satisfy the
+child predicate.  Therefore the overall selectivity of this query is
+ $(1/16) \times (1/16) \times 2 ~=~ 1/128$ (0.8\%).
+
+\item {\bf QS14.} High selectivity of parent and low selectivity of child.  Select
+nodes with {\sf aLevel = 15} that have a child with attribute {\sf
+aSixtyFour = 3}.  The first predicate has selectivity of approximately
+1/4.  The child predicate has a selectivity of 1/64.  Following the
+same argument as above, the selectivity of the query as a whole is
+still 1/128 (0.8\%).
+
+\item {\bf QS15.} Low selectivity of parent and high selectivity of child.  Select
+nodes with {\sf aLevel = 11} that have a child with attribute {\sf
+aFour = 3}.  The first predicate has selectivity of approximately
+1/64.  The child predicate has a selectivity of 1/4.  Following the
+same argument as above, the selectivity of the query as a whole is
+still 1/128 (0.8\%).
+\end{itemize}
+
+\item
+{\bf Order-sensitive parent-child queries:}
+\begin{itemize}
+
+\item {\bf QS16.} Local Ordering.  Select the second element with {\sf aFour = 1}
+below {\em each} element with {\sf aFour = 1}. The number of the second element nodes are approximately $\sum_{l=2}^{l=16} (n_l) \times (1/f_{l-1})$ where $n_l$ is the number of nodes at level $l$ and $f_{l-1}$ is the number of fanout at level $l-1$.  This number is about 1/2 of the total number of elements.  Since the selectivity of the element with {\sf aFour =1} is 1/4, the probability that the second element that has {\sf aFour = 1} and that its parent has {\sf aFour = 1} is 1/16.  Thus, the overall selectivity of this query is approximately $(1/2) * (1/16) ~=~ 1/32$ (3.1\%).
+
+\item {\bf QS17.} Global Ordering.  Select the second element with {\sf aFour = 1}
+below
+{\em any} element with {\sf aSixtyFour = 1}.  This query returns at most one
+element, whereas the previous query returns one for each parent.
+
+\item {\bf QS18.} Reverse Ordering.  Select the last element with {\sf aSixteen = 1} below
+each element with {\sf aLevel = 13}.  Approximately 1/16 of the nodes are at
+level 13, and each has two children.  Almost 1/8 of these will have at least
+one child that satisfies the former predicate (from among whom the last one
+must be returned in this query).  Thus the overall query selectivity is
+approximately 1/128 (0.8\%).
+
+\end{itemize}
+\item
+{\bf Ancestor-Descendant Selection Queries:}
+\begin{itemize}
+\item {\bf QS19.} Moderate selectivity of both ancestor and descendant.
+Select nodes with {\sf aLevel = 13} that have a descendant with
+attribute {\sf aSixteen = 3}.  The first predicate has selectivity
+of approximately 1/16. The second (descendant) predicate also has
+a selectivity of 1/16.  Since each node at level 13 has 14
+descendants, there are 14 opportunities to satisfy the descendant
+predicate.
+Note that if an ancestor has multiple descendants that satisfy the predicate {\sf aSixteen = 3}, the ancestor is returned only once. Thus, the selectivity is approximately $(1/16) \times (1 - (15/16)^{14})$ = 3.7\%.
+
+\item {\bf QS20.} High selectivity of ancestor and low selectivity of descendant.
+Select nodes with {\sf aLevel = 15} that have a descendant with attribute {\sf
+aSixtyFour = 3}.  The first predicate has selectivity of approximately 1/4.
+The second predicate has a selectivity of 1/64.  The selectivity of the query
+as a whole is approximately 1/128.  Note that there are only sixteen levels
+in the data tree.  So a node at level 15 only has no descendants other than
+its own two children and this query result is identical to the corresponding
+parent-child query above.  The overall selectivity is approximately $(1/4 \times (1 - (63/64)^2)$ = 0.8\%.
+
+\item {\bf QS21.} Low selectivity of ancestor and high selectivity of descendant.
+Select nodes with {\sf aLevel = 11} that have a descendant with attribute {\sf
+aFour = 3}.  The first predicate has selectivity of approximately 1/64.
+The second predicate has a selectivity of 1/4 for one descendant.  Since each
+level 11 node has 62 descendants, finding such a descendant is virtually
+guaranteed, so that the selectivity of the query as a whole is about $(1/64 \times (1 - (3/4)^{62})$ = 1.6\%. 
+\end{itemize}
+
+\item {\bf Ancestor Nesting in Ancestor-Descendant Query:}
+In the ancestor-descendant queries above, ancestors are never nested below
+other ancestors.  To test the performance of queries when ancestors are
+recursively nested below other ancestors we have three other
+ancestor-descendant queries.  These queries are variants of the queries
+above.
+
+\begin{itemize}
+\item {\bf QS22.} Moderate selectivity of both ancestor and descendant.
+Select nodes with {\sf aSixteen = 3} that have a descendant with attribute {\sf
+aSixteen = 3}.  The first predicate has selectivity of approximately 1/16 (6.2\%).
+The second (descendant) predicate also has a selectivity of 1/16 (6.2\%).
+
+\item {\bf QS23.} High selectivity of ancestor and low selectivity of descendant.
+Select nodes with {\sf aFour = 3} that have a descendant with attribute {\sf
+aSixtyFour = 3}.  The first predicate has selectivity of approximately 1/4 (25\%).
+The second predicate has a selectivity of 1/64 (1.6\%).
+
+\item {\bf QS24.} Low selectivity of ancestor and high selectivity of descendant.
+Select nodes with {\sf aSixtyFour = 3} that have a descendant with attribute
+{\sf aFour = 3}.  The first predicate has selectivity of approximately 1/64 (1.6\%).
+The second predicate has a selectivity of 1/4 (25\%).
+\end{itemize}
+
+The overall selectivities of these queries cannot be the same as
+that of the ``equivalent'' unnested queries on two accounts --
+first, the same descendants can now have multiple ancestors they
+match, and second, the number of candidate descendants is
+different (fewer) since the ancestor predicate can be satisfied by
+nodes at any level.  These two forces work in opposite directions,
+but may not quite cancel each other out in any specific case.  We
+\old{have chosen to} \new{} focus on the local predicate selectivities and keep
+these the same for all of these queries (as well as for the
+parent-child queries considered before).
+
+\item {\bf Return Structure in Structural Pattern Selection Query:}\\
+{\bf QS25.} For the last query above, return not just the root of the selection pattern,
+but also the descendant node.  Thus the returned structure is a pair of nodes
+with an inclusion relationship between them.
+
+\item {\bf Complex Pattern Selection Queries:}
+\begin {itemize}
+\item {\bf QS26.} One chain query with three parent-child joins with the selectivity pattern: high-low-low-high, to test the choice of join order in evaluating a complex query. To achieve the desired selectivities, we use the following predicates:  {\sf aFour=3}, {\sf aSixteen=3}, {\sf aSixteen=5} and {\sf aLevel=16}.
+\item {\bf QS27.} One twig query with two parent child selection, low selectivity of parent {\sf aLevel=11}, high selectivity of one child {\sf aFour=3} and low selectivity of another child {\sf aSixtyFour=3}.
+\item {\bf QS28.} One twig query with two parent child selection, high selectivity of
+parent {\sf aFour=1}, low selectivity of one child {\sf aLevel=11} and low
+selectivity of another child {\sf aSixtyFour=3}.
+\item
+{\bf QS29-QS31.} Repeat the above three queries using ancestor-descendant in place of
+parent-child.
+\item
+{\bf QS32.} Repeat last query, but use parent-child for one child in the twig query, and use ancestor-descendant below another child.
+\end {itemize}
+\end {itemize}
+
+\subsection{Value Join Queries}
+\begin {itemize}
+\item {\bf QJ1.} Low selectivity join: select nodes based on {\sf aSixtyFour =3}
+and join with nodes with {\sf aSixtyFour = 4} based on equality of the {\sf
+aLevel} attribute.  1/64 of the nodes satisfy either selection condition,
+independent of node level.  Since the conditions are independent, the join
+selectivity is simply the product $(1/64) \times (1/64) ~=~ 1/4096$ (0.02\%).
+\item {\bf QJ2.} High selectivity join: select nodes based on {\sf aFour =2} and
+join with nodes with {\sf aFour = 3} based on equality of the {\sf aLevel}
+attribute.  1/4 of the nodes satisfy either selection condition,
+independent of node level.  The join selectivity is $1/16$ (6.2\%).
+\end {itemize}
+In computing the value-based joins above, one would naturally expect {\em
+both} nodes participating in the join to be returned.  As such, the return
+structure expected is a tree per join-pair.  Each tree has a join-node as
+root, and two children, one corresponding to each element participating in
+the join.
+
+\subsection{Pointer-based Join Query}
+\begin {itemize}
+\item {\bf QJ3.} Low selectivity join: select all {\sf OccasionalType} nodes that point to a node with {\sf
+aSixtyFour =3}.  Selects 1/64 (1.6\%) of all the {\sf OccasionalType} nodes.
+\item {\bf QJ4.} High selectivity join: select all {\sf OccasionalType} nodes that point to a node with {\sf aFour
+=3}.  Selects 1/4 (25\%) of all the {\sf eOccasional} nodes.
+\end{itemize}
+Both of these pointer-based joins are semi-join queries.  The returned
+elements are only the {\sf eOccasional} nodes, and not the nodes pointed to.
+
+\subsection{Aggregate Queries}
+
+\begin {itemize}
+\item {\bf QA1. Value Aggregation.} Over all nodes at level 15, compute the average
+value for the {\sf aSixtyFour} attribute.  Recall that about 1/4 of the nodes
+are at level 15 and will participate in this aggregation.
+
+\item {\bf QA2. Value Aggregation with Groupby.} Group nodes by level.  Over all
+nodes at each level, compute the average value of the {\sf aSixtyFour}
+attribute.  The return structure is a tree, with a dummy root and a child for
+each group.  Each lead (child) node has one attribute for the level and one
+attribute for the average value.
+
+\item {\bf QA3. Structural Aggregation.} Amongst the nodes at level 11,
+find the node(s) with the largest fanout.  1/64 of the nodes are at level
+11.  Most nodes at this level have exactly two children.  But 1/64 of these
+nodes also have a third child, of type {\sf eOccasional}.  These are the
+nodes that must be returned.
+
+\item {\bf QA4. Value Aggregate Selection.} Select elements that have at
+least two occurrences of the keyword {\sf oneB1} in their content.
+There are sixteen chances for this keyword to appear in the content of each
+element, and the probability of its being chosen is 1/16.  Solving the
+binomial probability distribution that results, there is about a 1/4 chance
+of its occurring at least twice.  So the selectivity of this query is 1/4.
+
+\item {\bf QA5. Structural Aggregate Selection.} Select elements that have at
+least two children that satisfy {\sf aFour = 1}.
+About 50\% of the database nodes are at level 16 and have no children.
+Except about 2\% of the remainder, all have exactly two children, and both
+must satisfy the predicate for the node to qualify.
+The selectivity of the predicate is 1/4.  So the overall
+selectivity of this query is obtained by multiplying these probabilities:
+$(1/2) \times (1/4) \times (1/4) ~=~ 1/32 (3.1\%)$.
+
+\item {\bf QA6. Structural Exploration.} For each node at level 7, determine
+the height of the sub-tree rooted at this node.  The returned structure is a
+tree with a dummy root, with a child for each node at level 7.  This child
+leaf node has one attribute that references the node at level 7, and another
+attribute that records the height of the sub-tree.
+There are only 256 nodes at
+level 7, irrespective of the database scaling.  Under each of these, the
+sub-tree goes to level 16, and so is exactly ten levels high, again
+irrespective of scaling.  However, determining this height may require
+exploring substantial parts of the database.
+\end {itemize}
+
+\subsection{Miscellaneous Queries}
+These are additional important queries to cover all performance
+critical aspects of XML Processing~\cite{SIGMODRECORD01Bench}.
+\begin {itemize}
+\item {\bf QM1. Missing Elements.} Find all {\sf BaseType} elements that
+there is no {\sf OccasionalType} elements below them.
+\item {\bf QM2. Casting.} Retrieve the integer values of {\sf aUnique2}
+attribute of elements that have {\sf aLevel = 13} which has selectivity
+approximately 6.1\%.
+\end{itemize}
+
+\subsection{Updates}
+\begin {itemize}
+\item {\bf QU1. Point Inserts.} Insert a new node below the node with
+{\sf aUnique1 = 10102}.
+
+\item {\bf QU2. Point Deletes.} Delete the node with
+{\sf aUnique1 = 10102} and transfer all its children to its parent.
+
+\item {\bf QU3. Bulk Inserts.} Insert a new node below each node with
+{\sf aSixtyFour = 1}.  Each new node has attributes identical to its parent,
+except for {\sf aUnique1}, which is set to some new large, unique value, not
+necessarily contiguous with the values already assigned in the database.
+
+\item {\bf QU4. Bulk Deletes.} Delete all leaf nodes with {\sf aSixteen = 3}.
+
+\item {\bf QU5. Bulk Load.} Load the original data set from a (set of) document(s).
+
+\item {\bf QU6. Bulk Reconstruction.} Return a set of documents, one for each
+sub-tree rooted at level 11 and with a child of type {\sf eOccasional}.
+
+\item {\bf QU7. Restructuring.}
+For a node $u$ of type {\sf eOccasional}, let $v$ be the parent of $u$, and
+$w$ be the parent of $v$ in the database.  For each such node $u$, make $u$ a
+direct child of $w$ in the same position as $v$, and place $v$ (along with
+the sub-tree rooted at $v$) under $u$.
+\end{itemize}
+
+\eat{
+\subsection{Other Queries of Interest}
+Projection by itself is not a particularly interesting operation from a performance perspective, though sometimes it can be used to improve the performance of a preceding operator, such as selection or join.
+}
+
+
+
+
+
+
+

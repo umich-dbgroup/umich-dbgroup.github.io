@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <title>Database Usability Research at University of Michigan</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+ <meta name="keywords" content="Database Usability, usable database, user interface"> 
+</head>
+<body bgcolor="#AFBED1">
+<table width="75%" border="0" align="center">
+  <tr> 
+    <td bgcolor="#003399"><div align="center"> 
+        <p><strong><font color="#FFFFFF" size="5" face="Verdana, Arial, Helvetica, sans-serif">
+          Model-driven Usable Systems for Information Querying</font></strong></p>
+      </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF"><blockquote>
+<p align="center"><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          <a href="http://www.eecs.umich.edu/db/usable#introduction">Introduction</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="http://www.eecs.umich.edu/db/usable#people">People</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <a href="http://www.eecs.umich.edu/db/usable#publication">Publications</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="http://www.eecs.umich.edu/db/usable#demo">Demonstrations</a>
+
+</strong></font></p>
+
+<hr>
+
+        <p align="justify"><font color="#000000" size="4" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          <A name=introduction>Introduction</A></strong></font></p>
+	<p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+          Database researchers have striven to improve the capability of a database in terms of both 
+        performance and functionality.  We believe that the usability of a database is as important as its 
+        capability.  However, modern database systems are very difficult to
+          use. In the MUSIQ (Model-driven Usable Systems for Information
+          Querying) project, we address some of the challenges in making
+          database systems more usable.  In particular, our focus is on
+          issues in the data modeal and database design, rather than in
+          issues of graphical user interface design.</font></p> 
+
+	<p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	  For an overview of the issues, please download Prof. Jagadish's 
+        <a href =
+	  "http://www.eecs.umich.edu/db/usable/usability-sigmod.ppt">keynote  
+        talk at SIGMOD 2007</a> and the <a href =
+	  "http://www.eecs.umich.edu/db/usable/usability.pdf">accompanying  
+        paper</a>, or watch the <a href =
+	  "http://portal.acm.org/ft_gateway.cfm?id=1247483&type=mov&coll=GUIDE&dl=GUIDE&CFID=33434379&CFTOKEN=46851263">video</a>.
+	  This work has been supported in part by NSF grant
+<a href="presentation.html">IIS 0741620</a></font></p>
+
+<hr>
+        
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="4"> 
+          <A name=people>People</A></font></strong></font></p>
+	<p></p>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><font color="#000000" size="2"> 
+          Faculty</font></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href = "http://www.eecs.umich.edu/~jag">Prof. H.V. Jagadish</a> 
+	        </font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><font color="#000000" size="2"> 
+          Graduate Students</font></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/~binliu">Bin Liu</a> 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.arnab.org/">Arnab Nandi</a> 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		Li Qian 
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		Anna Shaverdian 
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><font color="#000000" size="2"> 
+          Alumni</font></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/~mjayapan">Magesh Jayapandian</a> (Ph.D. '08, IBM Silicon Valley Laboratory)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.ageworld.net/">Adriane Chapman</a> (Ph.D. '08, 
+                <a href="http://www.mitre.org/">MITRE</a>)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.almaden.ibm.com/cs/people/yunyaoli/index.html">Yunyao Li</a> (Ph.D. '07, 
+                <a href="http://www.almaden.ibm.com/">IBM Almaden Research Center</a>, <a href="http://www.almaden.ibm.com/cs/projects/avatar/">Avatar Group</a>)
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/~congy">Cong Yu</a> (Ph.D. '07,
+                <a href="http://research.yahoo.com/">Yahoo! Research</a> <a href="http://research.yahoo.com/Community_Systems">Community Systems</a> <a href="Y!R.pdf">?</a>)
+		</font></li>
+          </ul>
+        </div>
+
+<hr>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="4"> 
+          <A name=publication>Publications (by topic)</A></font></strong></font></p>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Overview</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/db/usable/usability.pdf">Making Database Systems Usable</a>. H.V. Jagadish, Adriane Chapman, Aaron Elkiss, Magesh Jayapandian, Yunyao Li, Arnab Nandi, and Cong Yu. In SIGMOD, 2007.
+		</font></li>
+          </ul>
+        </div>
+
+<p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Direct Manipulation Querying of Database Systems</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/~binliu/pub/vldb10.pdf">Automatic Rule Refinement for Information Extraction</a>. Bin Liu, Laura Chiticariu, Vivian Chu, H. V. Jagadish, and Frederick R. Reiss. In VLDB, 2010.
+		</font></li>
+		            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+				    <a href="http://www.eecs.umich.edu/~binliu/pub/ieee-deb2010.pdf">Refining Information Extraction Rules Using Data Provenance</a>. Bin Liu, Laura Chiticariu, Vivian Chu, H. V. Jagadish, and Frederick R. Reiss. In IEEE Data Engineering Bulletin, 2010.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/~binliu/pub/vldb09.pdf">Using Trees to Depict a Forest</a>. Bin Liu, H. V. Jagadish. In VLDB, 2009.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/~binliu/pub/icde09.pdf">A Spreadsheet Algebra for a Direct Data Manipulation Query Interface</a>. Bin Liu, H. V. Jagadish. In ICDE, 2009.
+		</font></li>
+          </ul>
+        </div>
+
+
+
+        <p align="justify"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          NaLIX: Natural Language Interfaces</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.eecs.umich.edu/db/files/AAAI07LiY.pdf">Enabling Domain-Awareness for a Generic 
+                Natural Language Interface</a>. Yunyao Li, Ishan Chaudhuri, Huahai Yang, Satinder Singh and H. V. Jagadish. 
+                In AAAI, 2007.
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/files/NaLIX_TODS.pdf">NaLIX: A Generic Natural Language Search Environment for XML Data</a>. Yunyao Li, Huahai Yang and H.V. 
+                Jagadish. In ACM TODS, November, 2007.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/db/files/NaLIX_EDBT.pdf">Constructing a Generic Natural Language 
+                Interface for an XML Database</a>. Yunyao Li, Huahai Yang and H.V. Jagadish. In EDBT, 2006.
+                </font></li>
+          </ul>
+        </div>
+	
+        <p align="justify"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Addressing Unknown Schema</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.springerlink.com/content/7hh85l8314515n74/">Enabling Schema-Free XQuery with Meaningful 
+                Query Focus</a>. Yunyao Li, Cong Yu and H. V. Jagadish. In VLDB Journal, 2006.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/mlcas.pdf">Schema-Free XQuery</a>. Yunyao Li, Cong Yu and 
+                H. V. Jagadish. In VLDB, 2004.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/yu-sigmod03.pdf">Querying Structured Text in an XML 
+                Database</a>. Shurug Al-Khalifa, Cong Yu and H. V. Jagadish. In SIGMOD, 2003.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong> 
+          Addressing Complex Schema</strong></font></p>
+        <div align="justify"> 
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/yu-vldb07a.pdf">Querying Complex Structured Database</a>. Cong Yu and H. 
+V. Jagadish. In VLDB, 2007.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/yu-vldb06a.pdf">Schema Summarization</a>. 
+                Cong Yu and H. V. Jagadish. In VLDB, 2006.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+         Answering Imprecise Queries</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="http://www.eecs.umich.edu/db/files/fcpaper07.pdf">Effective Phrase Prediction</a>. Arnab Nandi and H. V. Jagadish. In VLDB, 2007.</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="http://www.eecs.umich.edu/~arnab/tmp/cidr09_nandi.pdf">Qunits: Queried Units for Database Search</a>. Arnab Nandi and H. V. Jagadish. In CIDR, 2009.</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+          Managing Provenance</strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/db/files/ChapmanSIGMOD09.pdf">Why NOT?</a> Adriane Chapman and H. V. Jagadish. In SIGMOD 2009 (to appear).
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/ipaw08.pdf">Provenance and the Price of Identity</a>. Adriane Chapman and H. V. Jagadish. In IPAW, 2008.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/chapman-efficient.pdf">Efficient Provenance Storage</a>. Adriane Chapman, H. V. Jagadish and Prakash Ramanan. In SIGMOD, 2008.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/chapman07.pdf">Issues in Building Practical Provenance Systems</a>. Adriane Chapman and H. V. Jagadish. In IEEE Data Engineering Bulletin, 2007.
+
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/ipaw06.pdf">A Provenance Model for Manually Curated Data</a>. Peter Buneman, Adriane Chapman, James Cheney and Stijn Vansummeren. In IPAW, 2006.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/copypaste.pdf">Provenance Management in Curated Databases</a>. Peter Buneman, Adriane Chapman and James Cheney. In SIGMOD, 2006.
+		</font></li>
+          </ul>
+        </div>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="2"> 
+          Musiq Form: Adaptive Form-Based Interfaces</font></strong></font></p>
+        <div align="justify">
+          <ul>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/db/files/p695-jayapandian.pdf">Automated Creation of a Forms-based Database Query Interface</a>. Magesh Jayapandian and H. V. Jagadish. In VLDB, 2008.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/db/files/edbt08.pdf">Expressive Query Specification through Form Customization</a>. Magesh Jayapandian and H. V. Jagadish. In EDBT, 2008.
+		</font></li>
+            <li><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href = "http://www.eecs.umich.edu/db/files/icde06form.pdf">Automating the Design and Construction of Query Forms</a>. Magesh Jayapandian and H. V. Jagadish. In ICDE, 2006.
+		</font></li>
+          </ul>
+        </div>
+<hr>
+
+        <p align="justify"><font face="Verdana, Arial, Helvetica, sans-serif"><strong><font color="#000000" size="4"> 
+          <A name=demo>System Demonstrations</A></font></strong></font></p>
+
+        <div align="justify">
+          <ul>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		    <a href="http://www.eecs.umich.edu/db/files/LiuSIGMOD09.pdf">DataLens: Making a Good First Impression</a>. Bin Liu and H. V. Jagadish. In SIGMOD (demo), 2009 (to appear).
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/prompt07.pdf">Assisted Querying using Instant-Response Interfaces</a>. Arnab Nandi and H. V. Jagadish. In SIGMOD (demo), 2007.
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                <a href="http://www.eecs.umich.edu/db/files/danalix.pdf">
+                DaNaLIX: a Domain-adaptive Natural Language Interface for Querying XML</a>. Yunyao Li, Ishan Chaudhuri, 
+                Huahai Yang, Satinder Singh, H. V. Jagadish. In SIGMOD (demo), 2007
+                </font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href ="http://www.eecs.umich.edu/db/files/130NaLIX.pdf">NaLIX: an Interactive Natural Language Interface 
+                for Querying XML</a>. Yunyao Li, Huahai Yang and H.V. Jagadish. In SIGMOD, 2005. (best demo)
+		</font></li>
+            <li><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+	        <a href="http://www.eecs.umich.edu/db/files/yu-si03demo.pdf">Querying XML Using Structures and Keywords 
+                in Timber</a>. Cong Yu, H. V. Jagadish, and Dragomir Radev. In SIGIR (demo), 2003.
+		</font></li>
+          </ul>
+        <div align="justify">
+<hr>
+	<p><center><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+		<a href="http://www.eecs.umich.edu/db/">Database Research Group</a> |
+		<a href="http://www.eecs.umich.edu/cse/">Computer Science and Engineering</a> |
+		<a href="http://www.umich.edu/">University of Michigan</a></center></p>
+        <p><center><font color="#000000" size="2" face="Verdana, Arial, Helvetica, sans-serif">
+          Last update: July, 2010. Web site built and maintained by Bin Liu. Feedback is welcome.</font></center></p>
+      </blockquote></td>
+  </tr>
+</table>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2263805-1";
+urchinTracker();
+</script>
+</body>
+</html>

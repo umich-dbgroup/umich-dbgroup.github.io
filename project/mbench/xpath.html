@@ -1,0 +1,547 @@
+<html>
+<head>
+	<title>XPath Queries for Mbench</title> 
+</head>
+<body>
+<H1>XPath Queries for Mbench</H1>
+<!-- QR1 -->
+<table><tr bgcolor="aqua"><td>
+-- QR1: Select all elements with aSixtyFour = 2  (Return only the element in question)
+</td></tr></table>
+<pre>
+//eNest[@aSixtyFour=2]/@aUnique1
+</pre>
+<br/>
+<pre>
+
+<!-- QR2 -->
+<table><tr bgcolor="aqua"><td>
+-- QR2: Select all elements with aSixtyFour = 2  (Return the element and all
+-- its immediate children)
+</td></tr></table>
+<pre>
+//eNest[@aSixtyFour=2]
+</pre>
+<br/>
+
+<!-- QR3 -->
+<table><tr bgcolor="aqua"><td>
+-- QR3: Select all elements with aSixtyFour = 2  (Return the entire subtree)
+</td></tr></table>
+
+<pre>
+//eNest[@aSixtyFour=2]/@aUnique1
+</pre>
+
+<!-- QR4 -->
+<table><tr bgcolor="aqua"><td>
+-- QR4: Select all elements with aSixtyFour = 2 and selected descendants
+with aFour = 1
+</td></tr></table>
+<pre>
+//eNest[@aSixtyFour=2]/@aUnique1|//eNest[@aSixtyFour=2]//eNest[@aFour=1]/@aUnique1
+</pre>
+
+<!-- QS1 -->
+<table><tr bgcolor="aqua"><td>
+-- QS1: Select elements with aString = 'Sing a song of oneB4' 
+</td></tr></table>
+<pre>
+//eNest[@aString = 'Sing a song of oneB4']/@aUnique1
+</pre>
+
+<!-- QS2 -->
+<table><tr bgcolor="aqua"><td>
+-- QS2: Select elements with aString = 'Sing a song of oneB1' 
+</td></tr></table>
+<pre>
+//eNest[@aString = 'Sing a song of oneB1']/@aUnique1
+</pre>
+
+
+<!-- QS3 -->
+<table><tr bgcolor="aqua"><td>
+-- QS3: Select elements with aLevel = 10 
+</td></tr></table>
+<pre>
+//eNest[@aLevel=10]/@aUnique1
+</pre>
+
+
+<!-- QS4 -->
+<table><tr bgcolor="aqua"><td>
+-- QS4: Select elements with aLevel = 13
+</td></tr></table>
+<pre>
+//eNest[@aLevel=13]/@aUnique1
+</pre>
+
+<!-- QS5 -->
+<table><tr bgcolor="aqua"><td>
+-- QS5: Select nodes that have aSixtyFour between 5 and 8.
+</td></tr></table>
+<pre>
+//eNest[@aSixtyFour>=5][@aSixtyFour<=8]/@aSixtyFour
+</pre>
+
+<!-- QS6 -->
+<table><tr bgcolor="aqua"><td>
+-- QS6: Select nodes with aLevel = a13 and have the returned
+nodes sorted by aSixtyFour attribute. 
+</td></tr></table>
+<pre>
+//eNest[@aLevel=13] sortby(./@aSixtyFour)/@aSixtyFour
+</pre>
+
+<!-- QS7 -->
+<table><tr bgcolor="aqua"><td>
+-- QS7: Select nodes with aSixteen = 1 and aFour = 1.
+</td></tr></table>
+<pre>
+//eNest[@aSixteen=1][@aFour=1]/@aUnique1
+</pre>
+
+
+<!-- QS8 -->
+<table><tr bgcolor="aqua"><td>
+-- QS8: Selection based on the element name, eOccasional
+</td></tr></table>
+<pre>
+//eNest//eOccasional/@aRef
+</pre>
+
+<!-- QS9 -->
+<table><tr bgcolor="aqua"><td>
+-- QS9: Select the second child of every node with aLevel = 7
+</td></tr></table>
+<pre>
+//eNest[@aLevel=7]/eNest[position()=2]/@aUnique1
+</pre>
+
+<!-- QS10 -->
+<table><tr bgcolor="aqua"><td>
+-- QS10: Select the second child of every node with aLevel = 9
+</td></tr></table>
+<pre>
+//eNest[@aLevel=9]/eNest[position()=2]/@aUnique1
+</pre>
+
+<!-- QS11 -->
+<table><tr bgcolor="aqua"><td>
+-- QS11: Get 'eOccasional' nodes that have element content 
+-- contains "oneB4"
+</td></tr></table>
+<pre>
+//eOccasional[text()~="oneB4"]/@aRef
+</pre>
+
+<!-- QS12 -->
+<table><tr bgcolor="aqua"><td>
+-- QS12: Get nodes that have element content contains "oneB4"
+</td></tr></table>
+<pre>
+//eNest[text()~="oneB4"]/@aUnique1
+</pre>
+
+
+<!-- QS13 -->
+<table><tr bgcolor="aqua"><td>
+-- QS13: select all nodes with element content that the distance
+<br/>
+-- between keyword "oneB5" and the keyword "twenty" is not more than four
+</td></tr></table>
+<pre>
+N/A
+</pre>
+
+
+<!-- QS14 -->
+<table><tr bgcolor="aqua"><td>
+-- QS14: select all nodes with element content that the distance between
+<br/>
+-- 	 keyword "oneB2" and the keyword "twenty" is not more than four
+</td></tr></table>
+<pre>
+N/A
+</pre>
+
+<!-- QS15 -->
+<table><tr bgcolor="aqua"><td>
+-- QS15: Local ordering.  Select the second element with aFour = 1 below
+<br/>
+-- 	 each element with aFour = 1 if that second element also has aFour = 1
+</td></tr></table>
+
+<pre>
+//eNest[@aFour=1]/eNest[@aFour=1][position()=2]/@aUnique1
+</pre>
+
+
+<!-- QS16 -->
+<table><tr bgcolor="aqua"><td>
+-- QS16: Global ordering.  Select the second element with aFour = 1 below
+<br/>
+--	 any element with aSixtyFour = 1
+<br/>
+</td></tr></table>
+//eNest[@aSixtyFour=1]/eNest[position()=2][@aFour=1]/@aUnique1
+</pre>
+
+<!-- QS17 -->
+<table><tr bgcolor="aqua"><td>
+-- QS17: Reverse ordering. Among the children with aSixteen = 1 of the
+<br/>
+-- parent element with aLevel = 13, select the last child<br/>
+</td></tr></table>
+<pre>
+//eNest[@aLevel=13]/eNest[@aSixteen=1][position()=last()]/@aUnique1
+</pre>
+
+
+<!-- QS18 -->
+<table><tr bgcolor="aqua"><td>
+-- QS18: Moderate selectivity of both parent and child.  Select nodes with
+<br/>
+-- 	 aLevel = 13 that have a child with attribute aSixteen = 3
+</td></tr></table>
+<pre>
+//eNest[@aLevel=13][./eNest[@aSixteen=3]]/@aUnique1
+</pre>
+
+
+<!-- QS19 -->
+<table><tr bgcolor="aqua"><td>
+-- QS19: High selectivity of parent and low selectivity of child.  
+<br/>
+--       Select nodes with  aLevel = 15 that have a child with 
+<br/>
+--	 attribute aSixtyFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aLevel=15][./eNest[@aSixtyFour=3]]/@aUnique1
+</pre>
+
+
+<!-- QS20 -->
+<table><tr bgcolor="aqua"><td>
+-- QS20: Low selectivity of parent and high selectivity of child.  
+<br/>
+--	 Select nodes with  aLevel = 11 that have a child with 
+<br/>
+-- 	 attribute aFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aLevel=11][./eNest[@aFour=3]]/@aUnique1
+</pre>
+
+
+<!-- QS21 -->
+<table><tr bgcolor="aqua"><td>
+-- QS21: Moderate selectivity of both ancestor and descendant.  Select
+<br/>
+-- 	 nodes with aLevel = 13 that have a descendant with aSixteen = 3
+</td></tr></table>
+<pre>
+//eNest[@aLevel=13][.//eNest[@aSixteen=3]]/@aUnique1
+</pre>
+
+<!-- QS22 -->
+<table><tr bgcolor="aqua"><td>
+-- QS22: High selectivity of ancestor and low selectivity of descendant 
+<br/>
+-- 	 Select nodes with aLevel = 15 that have a descendant with 
+<br/>
+-- 	 aSixtyFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aLevel=15][.//eNest[@aSixtyFour=3]]/@aUnique1
+</pre>
+
+
+<!-- QS23 -->
+<table><tr bgcolor="aqua"><td>
+-- QS23: Low selectivity of ancestor and high selectivity of descendant 
+<br/>
+-- 	 Select nodes with aLevel = 11 that have a descendant with 
+<br/>
+-- 	 aFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aLevel=11][.//eNest[@aFour=3]]/@aUnique1
+</pre>
+
+
+<!-- QS24 -->
+<table><tr bgcolor="aqua"><td>
+-- QS24: Moderate selectivity of both ancestor and descendant.
+<br/>
+-- 	 Select nodes with aSixteen = 3 that have a descendant with
+<br/>
+-- 	 aSixteen = 5
+</td></tr></table>
+
+<pre>
+//eNest[@aSixteen=3][.//eNest[@aSixteen=5]]/@aUnique1
+</pre>
+
+<!-- QS25 -->
+<table><tr bgcolor="aqua"><td>
+-- QS25: High selectivity of ancestor and low selectivity of descendant
+<br/>
+-- 	 Select nodes with aFour = 3 that have a descendant with
+<br/>
+-- 	 aSixtyFour= 3
+</td></tr></table>
+<pre>
+//eNest[@aFour=3][.//eNest[@aSixtyFour=3]]/@aUnique1
+</pre>
+
+<!-- QS26 -->
+<table><tr bgcolor="aqua"><td>
+-- QS26: Low selectivity of ancestor and high selectivity of descendant
+<br/>
+-- 	 Select nodes with aSixtyFour = 9 that have a descendant with
+<br/>
+-- 	 aFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aSixtyFour=9][.//eNest[@aFour=3]]/@aUnique1
+</pre>
+
+<!-- QS27 -->
+<table><tr bgcolor="aqua"><td>
+-- QS27: Low selectivity of ancestor and high selectivity of descendant
+<br/>
+-- 	 Select nodes with aSixtyFour = 9 that have a descendant with
+<br/>
+-- 	 aFour = 3. Return a pair of ancestor and descendant nodes.
+</td></tr></table>
+<pre>
+//eNest[@aSixtyFour=9][.//eNest[@aFour=3]]/@aUnique1|//eNest[@aSixtyFour=9]//eNest[@aFour=3]/@aUnique1
+ </pre>
+
+
+ <!-- QS28 -->
+ <table><tr bgcolor="aqua"><td>
+ -- QS28: One chain query with three parent-child joins with the selectivity
+ <br/>
+ -- 	 pattern: high-low-low-high, to test the choice of join order in
+ <br/>
+ --	 evaluating a complex query.  To achieve the desired selectivities,
+ <br/>
+ --	 we use the following predicates: aFour = 3, aSixteen = 3,
+ <br/>
+ --	 aSixteen = 5, and aLevel = 16
+ </td></tr></table>
+ <pre>
+//eNest[@aFour=3][./eNest[@aSixteen=3]/eNest[@aSixteen=5]/eNest[@aLevel=16]]/@aUnique1
+</pre>
+
+<!-- QS29 -->
+<table><tr bgcolor="aqua"><td>
+-- QS29: One twig query with two parent child selection, low seletivity of
+<br/>
+-- 	 parent aLevel = 11, high selectivity of left child aFour = 3, 
+<br/>
+--	 and low selectivity of right child aSixtyFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aLevel=11][./eNest[@aFour=3]][./eNest[@aSixtyFour=3]]/@aUnique1
+</pre>
+
+<!-- QS30 -->
+<table><tr bgcolor="aqua"><td>
+-- QS30: One twig query with two parent child selection, low seletivity of
+<br/>
+-- 	 parent aLevel = 11, high selectivity of left child aFour = 3, 
+<br/>
+--	 and low selectivity of right child aSixtyFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aFour=1][./eNest[@aLevel=11]][./eNest[@aSixtyFour=3]]/@aUnique1
+</pre>
+
+
+<!-- QS31 -->
+<table><tr bgcolor="aqua"><td>
+-- QS31: One chain query with three ancestor-descendant joins with the selectivity
+<br/>
+--       pattern: high-low-low-high, to test the choice of join order in
+<br/>
+--       evaluating a complex query.  To achieve the desired selectivities,
+<br/>
+--       we use the following predicates: aFour = 3, aSixteen = 3,
+<br/>
+--       aSixteen = 5, and aLevel = 16
+</td></tr></table>
+<pre>
+//eNest[@aFour=3][.//eNest[@aSixteen=3]//eNest[@aSixteen=5]//eNest[@aLevel=16]]/@aUnique1
+</pre>
+
+
+<!-- QS32 -->
+<table><tr bgcolor="aqua"><td>
+-- QS32: One twig query with two ancestor descendant selection, low selectivity 
+<br/>
+-- 	 of ancestor aLevel = 11, high selectivity of one descendant aFour = 3,
+<br/>
+--	 and low selectivity of another descendant aSixtyFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aLevel=11][.//eNest[@aFour=3]][.//eNest[@aSixtyFour=3]]/@aUnique1
+</pre>
+
+
+<!-- QS33 -->
+<table><tr bgcolor="aqua"><td>
+-- QS33: One twig query with two ancestor descendant selection, low selectivity 
+<br/>
+-- 	 of ancestor aFour = 1, low selectivity of one descendant aLevel = 11,
+<br/>
+--	 and low selectivity of another descendant aSixtyFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aFour=1][.//eNest[@aLevel=11]][.//eNest[@aSixtyFour=3]]/@aUnique1
+</pre>
+
+<!-- QS34 -->
+<table><tr bgcolor="aqua"><td>
+-- QS34: One twig query with two ancestor descendant selection, high selectivity 
+<br/>
+-- 	 of ancestor aFour = 1, low selectivity of a child with aLevel = 11,
+<br/>
+--	 and low selectivity of another descendant aSixtyFour = 3
+</td></tr></table>
+<pre>
+//eNest[@aFour=1][./eNest[@aLevel=11]][.//eNest[@aSixtyFour=3]]/@aUnique1
+</pre>
+
+<!-- QS35 -->
+<table><tr bgcolor="aqua"><td>
+-- QS35: Missing Elements.  Find all BaseType elements that there is
+<br/>
+-- 	no OccasionalType elements below them.
+<br/>
+-- 1) Find all BaseType elements that there is some OccasionalType
+<br/>
+--    elements below them.
+<br/>
+-- 2) Return elements that are not in 1)
+</td></tr></table>
+<pre>
+//eNest[count(./eOccasional)=0]/@aUnique1
+</pre>
+
+<!-- QJ1 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ1: Low selectivity join: select nodes with aSixtyFour = 2 and join
+<br/>
+-- with themselves based on the equality of aUnique1 attribute
+</td></tr></table>
+<pre>
+//eNest[@aSixtyFour=2][@aUnique1=//eNest[@aSixtyFour=2]/@aUnique1]/@aUnique1
+</pre>
+
+<!-- QJ2 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ2: High selectivity join: select nodes with aSixteen = 2 and join
+<br/>
+-- with themselves based on the equality of aUnique1 attribute.
+</td></tr></table>
+<pre>
+//eNest[@aSixteen=2][@aUnique1=//eNest[@aSixteen=2]/@aUnique1]/@aUnique1
+</pre>
+
+
+<!-- QJ3 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ3: Low selectivity join: select all OccasionalType nodes that point to
+<br/>
+-- 	a node with aSixtyFour = 3
+</td></tr></table>
+<pre>
+//eOccasional[@aRef=//eNest[@aSixtyFour=3]/@aUnique1]/@aRef
+</pre>
+
+<!-- QJ4 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ4: High selectivity join: select all OccasionalType nodes that point to
+<br/>
+-- 	a node with aFour = 3
+</td></tr></table>
+<pre>
+//eOccasional[@aRef=//eNest[@aFour=3]/@aUnique1]/@aRef
+</pre>
+
+<!-- QA1 -->
+<table><tr bgcolor="aqua"><td>
+-- QA1: Over all nodes at level 15, compute the average value for the
+<br/>
+-- 	aSixtyFour attribute
+</td></tr></table>
+<pre>
+avg(//eNest[@aLevel=15]/@aSixtyFour)
+</pre>
+
+
+<!-- QA2 -->
+<table><tr bgcolor="aqua"><td>
+-- QA2: Over all nodes at all levels, compute the average value for the
+<br/>
+-- 	aSixtyFour attribute
+</td></tr></table>
+<pre>
+avg(//eNest groupby(@aLevel)/@aSixtyFour)
+</pre>
+
+
+<!-- QA3 -->
+<table><tr bgcolor="aqua"><td>
+-- QA3: Select elements that have at least two occurrences of keyword "oneB1"
+<br/>
+in their content
+</td></tr></table>
+<pre>
+N/A
+</pre>
+
+
+<!-- QA4 -->
+<table><tr bgcolor="aqua"><td>
+-- QA3: Amongst the nodes at level 11, find the node(s) with the largest
+<br/>
+--      fanout.
+</td></tr></table>
+<pre>
+//eNest[@aLevel=11][count(./eNest)=max(count(//eNest[@aLevel=11]/eNest))]/@aUnique1
+</pre>
+
+
+
+
+<!-- QA5 -->
+<table><tr bgcolor="aqua"><td>
+-- QA5:  select elements that have at least two children that satisfy 
+<br/>
+--       aFour = 1
+</td></tr></table>
+<pre>
+//eNest[count(./eNest[@aFour=1])>=2]/@aUnique1
+</pre>
+
+<!-- QA6 -->
+<table><tr bgcolor="aqua"><td>
+-- QA6: For each node at level 7 (7,3), determine the height of the
+<br/>
+--      sub-tree rooted at this node
+</td></tr></table>
+<pre>
+N/A
+</pre>
+
+QU1-QU6
+<pre>
+N/A
+</pre>
+</body>
+</html>

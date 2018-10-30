@@ -1,0 +1,10 @@
+<!ELEMENT eNest (#PCDATA|eNest|eOccasional)*>
+<!ATTLIST eNest aUnique1 CDATA #REQUIRED>
+<!ATTLIST eNest aUnique2 CDATA #REQUIRED>
+<!ATTLIST eNest aLevel CDATA #REQUIRED>
+<!ATTLIST eNest aFour CDATA #REQUIRED>
+<!ATTLIST eNest aSixteen CDATA #REQUIRED>
+<!ATTLIST eNest aSixtyFour CDATA #REQUIRED>
+<!ATTLIST eNest aString CDATA #REQUIRED>
+<!ELEMENT eOccasional (#PCDATA)>
+<!ATTLIST eOccasional aRef CDATA #REQUIRED>  

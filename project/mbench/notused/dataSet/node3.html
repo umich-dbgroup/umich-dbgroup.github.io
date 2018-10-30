@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Data Set Granularity</TITLE>
+<META NAME="description" CONTENT="Data Set Granularity">
+<META NAME="keywords" CONTENT="dataSet">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dataSet.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html47"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html45"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html39"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html48"
+  HREF="node4.html">Scaling</A>
+<B> Up:</B> <A NAME="tex2html46"
+  HREF="node1.html">A Discussion of the</A>
+<B> Previous:</B> <A NAME="tex2html40"
+  HREF="node2.html">Depth and Fanout</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00001200000000000000"></A><A NAME="sec:granularity"></A>
+<BR>
+Data Set Granularity
+</H3>
+An XML document is tree-structured.  If this document is stored in a
+file system, XML documents themselves may exist in a tree-structured
+directory. The question is what constitutes an XML database?  At one
+extreme, it could be a single huge tree.  At the other, it could
+comprise many small documents.   Some XML database
+implementations may be unaffected by document granularity - for
+others, this may be a significant issue. We consider three
+possibilities for scaling data sets:
+
+<UL>
+<LI>All data is in a single tree.  Scaling increases the number of nodes
+in the tree linearly with the scaling factor.
+</LI>
+<LI>The size of each tree is kept fixed.  The number of documents is
+increased linearly with the scaling factor. To permit a
+sufficiently rich tree structure, the minimum tree size will have to
+be kept fairly large - imposes a lower bound on the scaling factor
+</LI>
+<LI>Both the size of each document tree and the number of documents is
+increased with the scaling factor.  To keep this scaling consistent
+with the previous two cases, the increase in each is only proportional
+to the square root of the scaling factor.
+</LI>
+</UL> Once again,
+To keep the benchmark simple, we choose the most
+aggressive choice - namely a single large document tree as the
+default data set.  If it is important to understand the effect of
+document granularity, one can modify the benchmark data set to treat
+each node at a given level as the root
+of a distinct document.  One can
+compare the performance of queries on this modified data set against
+queries on the original data set. We choose not to include this
+experiment in the benchmark due to our desire for simplicity.
+, and our
+belief that the document granularity issue is not a critical one to
+study.
+
+<P>
+We run a couple of queries after breaking up this large document
+into smaller documents at a specified depth in the tree just to
+highlight the document boundary effect, if any.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html47"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html45"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html39"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html48"
+  HREF="node4.html">Scaling</A>
+<B> Up:</B> <A NAME="tex2html46"
+  HREF="node1.html">A Discussion of the</A>
+<B> Previous:</B> <A NAME="tex2html40"
+  HREF="node2.html">Depth and Fanout</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

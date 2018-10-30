@@ -1,0 +1,492 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Experimental Platform and Methodology</TITLE>
+<META NAME="description" CONTENT="Experimental Platform and Methodology">
+<META NAME="keywords" CONTENT="performance">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="performance.css">
+
+<LINK REL="next" HREF="node2.html">
+<LINK REL="previous" HREF="performance.html">
+<LINK REL="up" HREF="performance.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html32"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html30"
+  HREF="performance.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html24"
+  HREF="performance.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html33"
+  HREF="node2.html">Performance Analysis Using the</A>
+<B> Up:</B> <A NAME="tex2html31"
+  HREF="performance.html">performance</A>
+<B> Previous:</B> <A NAME="tex2html25"
+  HREF="performance.html">performance</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00001000000000000000">
+Experimental Platform and Methodology</A>
+</H2>
+All experiments were run on a single-processor 550 MHz Pentium III
+machine with 256 MB of main memory running the Windows operating system.
+In TIMBER, the SHORE buffer pool size was set to 100 MB.
+For the ORDBMS, we use the default buffer pool size since it 
+resulted in the better execution times than when we explicitly set 
+the buffer pool size.  
+For ORDBMS, we used their index wizard to suggest appropriate indices, which 
+we then built. After loading the data we update all statistics,  
+thereby giving the optimizer the most up-to-date information.
+
+<P>
+For this experiment we loaded the base data set (740K
+nodes, 510MB). We also wanted to load larger scaled up data sets.
+Surprisingly, we found that in many cases the parsers that we
+use for reading in the data are fragile and break down with large
+documents. 
+
+<P>
+Consequently, for this study, we decided to load another <EM>scaled
+down</EM> version of the data. The scaled down data set, which we call
+<B>ds0.1x</B>, is produced by changing the fanouts of the nodes at levels 5,
+6, 7 and 8 to 4, 4, 4 and 1/4 respectively. Note that because of the
+nature of the document tree, the percentage of nodes at the levels close
+to the leaves remains the same, which implies that the query
+selectivities stay roughly constant even in this scaled down data sets.
+In fact, we loaded and wrote queries against the scaled down set before
+using the base data set. The smaller data set size reduced the time it
+took for us to set up queries and load scripts for both TIMBER  and the
+commercial ORDBMS, which we could then reuse for the base data set. We
+expect this strategy may be useful to other users of this benchmark too.
+
+<P>
+The results of running the benchmark on these two systems are shown in 
+ Table below. In this Table, the base data set is 
+labeled as <B>ds1x</B>. The execution times reported in this figure were 
+<I><B>cold</B></I> numbers. Each query was run 
+five times, and averaging the middle three, excluding the fastest and the
+slowest runs.  
+The returned results are the <I>aUnique1</I> (<I>aRef</I>)
+values of the selected <I>eNest</I> (<I>eOccasional</I>) nodes.  
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="fig:numbers"></A><A NAME="31"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+Benchmark Numbers for Two DBMSs</CAPTION>
+<TR><TD><TABLE  WIDTH="50%">
+<TR><TD>
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="RIGHT">Sel.</TD>
+<TD ALIGN="CENTER" COLSPAN=4>Response Times (seconds)</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="RIGHT">(%)</TD>
+<TD ALIGN="CENTER" COLSPAN=2>TIMBER</TD>
+<TD ALIGN="CENTER" COLSPAN=2>ORDBMS</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="RIGHT">ds0.1x</TD>
+<TD ALIGN="RIGHT">ds1x</TD>
+<TD ALIGN="RIGHT">ds0.1x</TD>
+<TD ALIGN="RIGHT">ds1x</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QR1</TD>
+<TD ALIGN="RIGHT">1.6</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+<TD ALIGN="RIGHT">0.11</TD>
+<TD ALIGN="RIGHT">0.03</TD>
+<TD ALIGN="RIGHT">0.20</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QR2</TD>
+<TD ALIGN="RIGHT">1.6</TD>
+<TD ALIGN="RIGHT">0.33</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.53</TD>
+<TD ALIGN="RIGHT">8.66</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QR3</TD>
+<TD ALIGN="RIGHT">1.6</TD>
+<TD ALIGN="RIGHT">17.10</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.98</TD>
+<TD ALIGN="RIGHT">50.93</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QR4</TD>
+<TD ALIGN="RIGHT">1.6</TD>
+<TD ALIGN="RIGHT">0.76</TD>
+<TD ALIGN="RIGHT">3.74</TD>
+<TD ALIGN="RIGHT">0.25</TD>
+<TD ALIGN="RIGHT">2.33</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS1</TD>
+<TD ALIGN="RIGHT">6.2</TD>
+<TD ALIGN="RIGHT">0.23</TD>
+<TD ALIGN="RIGHT">0.43</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">0.72</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS2</TD>
+<TD ALIGN="RIGHT">0.8</TD>
+<TD ALIGN="RIGHT">0.03</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+<TD ALIGN="RIGHT">0.13</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS3</TD>
+<TD ALIGN="RIGHT">6.1</TD>
+<TD ALIGN="RIGHT">0.10</TD>
+<TD ALIGN="RIGHT">0.50</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">0.62</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS4</TD>
+<TD ALIGN="RIGHT">0.8</TD>
+<TD ALIGN="RIGHT">0.01</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+<TD ALIGN="RIGHT">0.13</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS5</TD>
+<TD ALIGN="RIGHT">6.1</TD>
+<TD ALIGN="RIGHT">0.09</TD>
+<TD ALIGN="RIGHT">0.48</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">0.64</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS6</TD>
+<TD ALIGN="RIGHT">6.1</TD>
+<TD ALIGN="RIGHT">0.56</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">0.64</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS7</TD>
+<TD ALIGN="RIGHT">1.6</TD>
+<TD ALIGN="RIGHT">0.69</TD>
+<TD ALIGN="RIGHT">2.60</TD>
+<TD ALIGN="RIGHT">0.03</TD>
+<TD ALIGN="RIGHT">0.20</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS8</TD>
+<TD ALIGN="RIGHT">1.6</TD>
+<TD ALIGN="RIGHT">0.07</TD>
+<TD ALIGN="RIGHT">0.13</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS9</TD>
+<TD ALIGN="RIGHT">12.5</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">1.14</TD>
+<TD ALIGN="RIGHT">59.44</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS10</TD>
+<TD ALIGN="RIGHT">0.2</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+<TD ALIGN="RIGHT">0.92</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS11</TD>
+<TD ALIGN="RIGHT">0.4</TD>
+<TD ALIGN="RIGHT">0.04</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">1.16</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS12</TD>
+<TD ALIGN="RIGHT">0.4</TD>
+<TD ALIGN="RIGHT">0.04</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">0.64</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS13</TD>
+<TD ALIGN="RIGHT">6.3</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">1.35</TD>
+<TD ALIGN="RIGHT">60.01</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS14</TD>
+<TD ALIGN="RIGHT">0.8</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">1.06</TD>
+<TD ALIGN="RIGHT">59.00</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS15</TD>
+<TD ALIGN="RIGHT">0.8</TD>
+<TD ALIGN="RIGHT">0.29</TD>
+<TD ALIGN="RIGHT">1.82</TD>
+<TD ALIGN="RIGHT">0.03</TD>
+<TD ALIGN="RIGHT">0.46</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS16</TD>
+<TD ALIGN="RIGHT">0.8</TD>
+<TD ALIGN="RIGHT">0.72</TD>
+<TD ALIGN="RIGHT">4.98</TD>
+<TD ALIGN="RIGHT">0.05</TD>
+<TD ALIGN="RIGHT">0.69</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS17</TD>
+<TD ALIGN="RIGHT">0.8</TD>
+<TD ALIGN="RIGHT">0.50</TD>
+<TD ALIGN="RIGHT">2.53</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">0.70</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS18</TD>
+<TD ALIGN="RIGHT">3.1</TD>
+<TD ALIGN="RIGHT">23.74</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.09</TD>
+<TD ALIGN="RIGHT">1.66</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS19</TD>
+<TD ALIGN="RIGHT">1 node</TD>
+<TD ALIGN="RIGHT">0.00</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+<TD ALIGN="RIGHT">0.09</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS20</TD>
+<TD ALIGN="RIGHT">0.8</TD>
+<TD ALIGN="RIGHT">0.36</TD>
+<TD ALIGN="RIGHT">1.90</TD>
+<TD ALIGN="RIGHT">0.08</TD>
+<TD ALIGN="RIGHT">1.74</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS21</TD>
+<TD ALIGN="RIGHT">3.6</TD>
+<TD ALIGN="RIGHT">0.31</TD>
+<TD ALIGN="RIGHT">1.96</TD>
+<TD ALIGN="RIGHT">2.47</TD>
+<TD ALIGN="RIGHT">33.95</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS22</TD>
+<TD ALIGN="RIGHT">0.7</TD>
+<TD ALIGN="RIGHT">0.72</TD>
+<TD ALIGN="RIGHT">5.01</TD>
+<TD ALIGN="RIGHT">0.74</TD>
+<TD ALIGN="RIGHT">14.80</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS23</TD>
+<TD ALIGN="RIGHT">1.5</TD>
+<TD ALIGN="RIGHT">0.48</TD>
+<TD ALIGN="RIGHT">2.33</TD>
+<TD ALIGN="RIGHT">9.57</TD>
+<TD ALIGN="RIGHT">125.94</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS24</TD>
+<TD ALIGN="RIGHT">1.0</TD>
+<TD ALIGN="RIGHT">0.30</TD>
+<TD ALIGN="RIGHT">1.90</TD>
+<TD ALIGN="RIGHT">2.46</TD>
+<TD ALIGN="RIGHT">32.92</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS25</TD>
+<TD ALIGN="RIGHT">1.7</TD>
+<TD ALIGN="RIGHT">0.74</TD>
+<TD ALIGN="RIGHT">5.19</TD>
+<TD ALIGN="RIGHT">0.75</TD>
+<TD ALIGN="RIGHT">14.97</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS26</TD>
+<TD ALIGN="RIGHT">0.5</TD>
+<TD ALIGN="RIGHT">0.48</TD>
+<TD ALIGN="RIGHT">2.28</TD>
+<TD ALIGN="RIGHT">9.56</TD>
+<TD ALIGN="RIGHT">125.09</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS27</TD>
+<TD ALIGN="RIGHT">5.0</TD>
+<TD ALIGN="RIGHT">0.50</TD>
+<TD ALIGN="RIGHT">2.69</TD>
+<TD ALIGN="RIGHT">9.70</TD>
+<TD ALIGN="RIGHT">130.83</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS28</TD>
+<TD ALIGN="RIGHT">0.0</TD>
+<TD ALIGN="RIGHT">1.91</TD>
+<TD ALIGN="RIGHT">11.88</TD>
+<TD ALIGN="RIGHT">0.07</TD>
+<TD ALIGN="RIGHT">3.46</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS29</TD>
+<TD ALIGN="RIGHT">0.0</TD>
+<TD ALIGN="RIGHT">0.58</TD>
+<TD ALIGN="RIGHT">4.03</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">1.09</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS30</TD>
+<TD ALIGN="RIGHT">0.0</TD>
+<TD ALIGN="RIGHT">0.81</TD>
+<TD ALIGN="RIGHT">3.58</TD>
+<TD ALIGN="RIGHT">0.05</TD>
+<TD ALIGN="RIGHT">0.66</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS31</TD>
+<TD ALIGN="RIGHT">0.5</TD>
+<TD ALIGN="RIGHT">1.93</TD>
+<TD ALIGN="RIGHT">5.61</TD>
+<TD ALIGN="RIGHT">20.35</TD>
+<TD ALIGN="RIGHT">263.40</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS32</TD>
+<TD ALIGN="RIGHT">0.9</TD>
+<TD ALIGN="RIGHT">0.51</TD>
+<TD ALIGN="RIGHT">3.91</TD>
+<TD ALIGN="RIGHT">10.20</TD>
+<TD ALIGN="RIGHT">136.69</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS33</TD>
+<TD ALIGN="RIGHT">0.5</TD>
+<TD ALIGN="RIGHT">0.81</TD>
+<TD ALIGN="RIGHT">5.62</TD>
+<TD ALIGN="RIGHT">1.18</TD>
+<TD ALIGN="RIGHT">20.19</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS34</TD>
+<TD ALIGN="RIGHT">0.2</TD>
+<TD ALIGN="RIGHT">0.81</TD>
+<TD ALIGN="RIGHT">5.77</TD>
+<TD ALIGN="RIGHT">0.73</TD>
+<TD ALIGN="RIGHT">9.57</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QS35</TD>
+<TD ALIGN="RIGHT">0.9</TD>
+<TD ALIGN="RIGHT">6.03</TD>
+<TD ALIGN="RIGHT">26.58</TD>
+<TD ALIGN="RIGHT">1517.42</TD>
+<TD ALIGN="RIGHT"> 14 hrs</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QJ1</TD>
+<TD ALIGN="RIGHT">varies</TD>
+<TD ALIGN="RIGHT">5.29</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">4.62</TD>
+<TD ALIGN="RIGHT">516.40</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QJ2</TD>
+<TD ALIGN="RIGHT">varies</TD>
+<TD ALIGN="RIGHT">99.36</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">73.43</TD>
+<TD ALIGN="RIGHT">8258.53</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QJ3</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.01</TD>
+<TD ALIGN="RIGHT">0.17</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QJ4</TD>
+<TD ALIGN="RIGHT">0.4</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.05</TD>
+<TD ALIGN="RIGHT">0.71</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QA1</TD>
+<TD ALIGN="RIGHT">1 node</TD>
+<TD ALIGN="RIGHT">16.82</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+<TD ALIGN="RIGHT">0.22</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QA2</TD>
+<TD ALIGN="RIGHT">16 nodes</TD>
+<TD ALIGN="RIGHT">22.29</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.06</TD>
+<TD ALIGN="RIGHT">0.82</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QA3</TD>
+<TD ALIGN="RIGHT">0.02</TD>
+<TD ALIGN="RIGHT">0.17</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">1.57</TD>
+<TD ALIGN="RIGHT">8.93</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QA4</TD>
+<TD ALIGN="RIGHT">0.3</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">18.99</TD>
+<TD ALIGN="RIGHT">227.13</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QA5</TD>
+<TD ALIGN="RIGHT">3.1</TD>
+<TD ALIGN="RIGHT">19.37</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">0.28</TD>
+<TD ALIGN="RIGHT">11.6</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QA6</TD>
+<TD ALIGN="RIGHT">0.4</TD>
+<TD ALIGN="RIGHT">16.58</TD>
+<TD ALIGN="RIGHT">N/A</TD>
+<TD ALIGN="RIGHT">19.41</TD>
+<TD ALIGN="RIGHT">244.73</TD>
+</TR>
+</TABLE></TD></TR>
+</TABLE></TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html32"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html30"
+  HREF="performance.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html24"
+  HREF="performance.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html33"
+  HREF="node2.html">Performance Analysis Using the</A>
+<B> Up:</B> <A NAME="tex2html31"
+  HREF="performance.html">performance</A>
+<B> Previous:</B> <A NAME="tex2html25"
+  HREF="performance.html">performance</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

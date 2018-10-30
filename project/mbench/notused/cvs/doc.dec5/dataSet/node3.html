@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Structural Selection</TITLE>
+<META NAME="description" CONTENT="Structural Selection">
+<META NAME="keywords" CONTENT="dataSet">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dataSet.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html48"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html46"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html40"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html49"
+  HREF="node4.html">Document size</A>
+<B> Up:</B> <A NAME="tex2html47"
+  HREF="node1.html">A Discussion of the</A>
+<B> Previous:</B> <A NAME="tex2html41"
+  HREF="node2.html">Attribute versus Sub-element</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00001200000000000000">
+Structural Selection</A>
+</H3>
+Selection in XML is often based on patterns.  Queries should be
+constructed to consider multi-node patterns of various sorts, and with
+various selectivities.  An issue that arises is that of ``conditional
+selectivity.'' Consider a simple two node selection pattern. Given
+that one of the nodes has been identified, conditioned upon this fact,
+the selectivity of the second node can be very different than its
+selectivity in the database as a whole.  (One could, of course, have
+similar dependencies between different attributes in a relation,
+thereby affecting the selectivity of a multi-attribute predicate.
+Matters are more complicated in XML because these different attributes
+may not be in the same tuple, but rather in different, but
+structurally related, elements.)  These dependencies can be modeled
+by having the ``cyclic numbering'' schemes with different moduli, as
+in the Wisconsin benchmark.
+
+Two other data structural parameters are important for tree-structured
+data, such as XML. These are fanout and depth. Let us look at the
+issue of depth first. The depth of the data tree can have a
+significant performance impact when we are computing
+ancestor-descendant (or containment) relationships.  It is possible
+that the containment is very distant (not an immediate child), and it
+is also possible to have multiple nodes at different levels satisfying
+the ancestor and the descendant predicates.  Similarly the fanout of
+the data tree can have an impact on the way in which the DBMS stores
+the data in the DBMS, and answers queries that are based on selecting
+children in a specific order (for example select the last child).
+
+One potential way of testing these parameters (fanout and depth) is to
+generate a number of distinct data sets with different values for each
+of these parameters and then run queries against each data set. The
+drawback of this approach is that we have to deal with a large number
+of data sets which makes the benchmark harder to run and to
+understand. Rather, the approach that we take in this proposal is to
+create a base benchmark data set of depth 16. Then, using a ``level''
+attribute, we can restrict the scope of the query to data sets of
+certain depth, thereby, quantifying the impact of the depth of the
+data tree.
+
+To study the impact of fanout, we generate the data set in the
+following way. Each level in the tree (recall there are 16 levels) has
+a fanout of 2, except for levels 5, 6, 7, and 8. The levels 5, 6, and
+7 have a fanout of 4, where as level 8 has a fanout of 1/4 (at level 8
+every fourth node has a single child). This variation in fanout is
+designed to permit queries that focus on this one factor in isolation.
+For instance, the number of nodes at levels 7 and 9 is 256. Nodes at
+level 7 have a fanout of 4, whereas the nodes at level 9 have a fanout
+of 2. Queries against these two levels can be used to measure the
+impact of fanout.
+<BR/>
+<BR/>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="table:dist"></A><A NAME="fig:fanout"></A><A NAME="105"></A>
+<TABLE BORDER=1>
+<CAPTION ALIGN="BOTTOM">
+<STRONG>Distribution of the nodes in the base data</STRONG></CAPTION>
+<TR>
+        <TH>Level</TH>
+        <TH>Fanout</TH>
+        <TH>Nodes</TH>
+        <TH>% of Nodes</TH>
+</TR>
+<TR>
+        <TD>1</TD>
+        <TD>2</TD>
+        <TD>1</TD>
+        <TD>0.0</TD>
+</TR>
+<TR>
+        <TD>2</TD>
+        <TD>2</TD>
+        <TD>2</TD>
+        <TD>0.0</TD>
+</TR>
+<TR>
+        <TD>3</TD>
+        <TD>2</TD>
+        <TD>4</TD>
+        <TD>0.0</TD>
+</TR>
+<TR>
+        <TD>4</TD>
+        <TD>2</TD>
+        <TD>8</TD>
+        <TD>0.0</TD>
+</TR>
+<TR>
+        <TD>5</TD>
+        <TD>4</TD>
+        <TD>16</TD>
+        <TD>0.0</TD>
+</TR>
+<TR>
+        <TD>6</TD>
+        <TD>4</TD>
+        <TD>64</TD>
+        <TD>0.1</TD>
+</TR>
+<TR>
+        <TD>7</TD>
+        <TD>4</TD>
+        <TD>256</TD>
+        <TD>0.4</TD>
+</TR>
+<TR>
+        <TD>8</TD>
+        <TD>0.25</TD>
+        <TD>1024</TD>
+        <TD>0.4</TD>
+</TR>
+<TR>
+        <TD>9</TD>
+        <TD>2</TD>
+        <TD>256</TD>
+        <TD>0.4</TD>
+</TR>
+<TR>
+        <TD>9</TD>
+        <TD>2</TD>
+        <TD>256</TD>
+        <TD>0.4</TD>
+</TR>
+<TR>
+        <TD>10</TD>
+        <TD>2</TD>
+        <TD>512</TD>
+        <TD>0.8</TD>
+</TR>
+<TR>
+        <TD>11</TD>
+        <TD>2</TD>
+        <TD>1024</TD>
+        <TD>1.5</TD>
+</TR>
+<TR>
+        <TD>12</TD>
+        <TD>2</TD>
+        <TD>2048</TD>
+        <TD>3.1</TD>
+</TR>
+<TR>
+        <TD>13</TD>
+        <TD>2</TD>
+        <TD>4096</TD>
+        <TD>6.1</TD>
+</TR>
+<TR>
+        <TD>14</TD>
+        <TD>2</TD>
+        <TD>8192</TD>
+        <TD>12.3</TD>
+</TR>
+<TR>
+        <TD>15</TD>
+        <TD>2</TD>
+        <TD>16,384</TD>
+        <TD>24.6</TD>
+</TR>
+<TR>
+        <TD>16</TD>
+        <TD>-</TD>
+        <TD>32,768</TD>
+        <TD>49.2</TD>
+</TR>
+</TABLE>
+</DIV><P></P>
+
+<HR>
+
+<!--Navigation Panel-->
+<A NAME="tex2html48"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html46"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html40"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html49"
+  HREF="node4.html">Document size</A>
+<B> Up:</B> <A NAME="tex2html47"
+  HREF="node1.html">A Discussion of the</A>
+<B> Previous:</B> <A NAME="tex2html41"
+  HREF="node2.html">Attribute versus Sub-element</A>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

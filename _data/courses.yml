@@ -3,11 +3,14 @@ courses:
     code: EECS 484
     name: Database Management Systems
     desc: "Concepts and methods for the design, creation, query and management of large enterprise databases. Functions and characteristics of the leading database management systems. Query languages such as SQL, forms, embedded SQL, and application development tools. Database design, integrity, normalization, access methods, query optimization, transaction management and concurrency control and recovery."
+    url: http://web.eecs.umich.edu/~mozafari/eecs484/
   -
     code: EECS 485
     name: Web Systems
     desc: "Design and use of databases in the Web context; data models, database design, replication issues, client/server systems, information retrieval, web server design; substantial project involving the development of a database-backed web site."
+    url: https://eecs485staff.github.io/eecs485.org/
   -
     code: EECS 584
     name: Advanced Database Systems
     desc: "Survey of advanced topics in database systems. Distributed databases, query processing, transaction processing. Effects of data models: object-oriented and deductive databases; architectures: main-memory and parallel repositories; distributed organizations: client-server and heterogeneous systems. Basic data management for emerging areas: internet applications, OLAP, data mining. Case studies of existing systems. Group projects."
+    url: http://web.eecs.umich.edu/~mozafari/fall2015/eecs584/

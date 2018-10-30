@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>THINK Back :: KNowledge-based Interpretation of High Throughput data</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="css/think.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18763305-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="http://www.eecs.umich.edu/db/think/">THINK Back</a></h1>
+		<h2>KNowledge-based Interpretation of High Throughput data</h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="http://eecs.umich.edu/db/think/">Home</a></li>
+			<li class="current_page_item"><a href="http://eecs.umich.edu/db/think/research.html">Research</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/software.html">Software</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/people.html">People</a></li>
+			<li class="last"><a href="http://eecs.umich.edu/db/think/contact.php">Contact</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post">
+			<h1 class="title">THINK Back Research: Using prior biological knowledge to interpret high throughput data</h1>
+			<div class="entry">
+				<p>Microarray gene expression analyses are used widely in biomedical research today. Thousands of
+				genes can be assayed in a single experiment, and differences in their expression level observed across
+				some experimental condition variance of interest, such as diseased versus healthy tissue. The difficulty
+				is that there is natural variation in gene expression levels, and experimental differences in samples and
+				microarrays. In consequence, it is hard to know which observed differences are biologically significant
+				and which are just the result of random fluctuations. It is generally accepted that this problem is best
+				addressed by integrating other sources of biological knowledge, such as co-occurrence in the literature,
+				in the Gene Ontology, or in pre-defined gene sets. However, most techniques still produce only a
+				ranked list of genes or gene clusters, and these still require biological interpretation.</p>
+				
+				<p>A biomedical scientist knows well what to do if a single gene, or a set of genes on a known pathway, is
+				shown to be differentially expressed. The difficulty with interpreting the results of high throughput
+				experiments is that the human effort required does not scale to hundreds of genes and, even worse,
+				human expertise cannot be as deep across such a large set of genes as for a particular gene under
+				careful investigation. Most standard computational approaches use bulk manipulation of candidate
+				genes, performing analyses that no biomedical scientist would conduct if a single gene were at hand.</p>
+				
+				<p>The goal of this project is to emulate computationally, for thousands of candidate genes, what a
+				biomedical scientist would want to do for one gene. This involves bringing to bear biological
+				knowledge, as found in the literature and in public databases, to develop biologically sound hypotheses
+				that could explain the observed differential expression.</p>
+
+				<h2 class="subtitle">Publications</h2>
+				<ul>
+					<li>
+						F. Farf&aacute;n, J. Ma, M.A. Sartor, G. Michailidis, H.V. Jagadish. 
+						<strong><a href="http://www.biomedcentral.com/1471-2105/13/S2/S4">THINK Back: KNowledge-based Interpretation of High Throughput data</a></strong>.
+						BMC Bioinformatics 2012, 13(Suppl 2):S4 - <em>Proceedings of the Great Lakes Bioinformatics Conference GLBIO 2011</em>
+					</li>
+					<li>
+						J. Ma, M.A. Sartor, H.V. Jagadish. 
+						<strong><a href="http://www.biomedcentral.com/1471-2105/12/81/">Appearance frequency modulated gene set enrichment testing</a></strong>. 
+						BMC Bioinformatics 2011, 12:81.
+					</li>
+				</ul>
+								
+				<h2 class="subtitle">Summary of Techniques and Tools</h2>
+				<p>This is a brief description of the techniques that we utilize to integrate prior biological 
+				knowledge into the analysis of high throughput data:</p>
+				<ul>
+					<li>
+						<strong><a href="appearancefrequency/">Gene Appearance Frequency Analysis:</a></strong> Drawing inspiration from the field of 
+						Information Retrieval, we analyze the frequency in which genes appear in biological pathways, 
+						to discriminate critical genes from those with multiple roles that might appear in several 
+						biological processes.
+					</li>
+					<li>
+						<strong><a href="densityanalysis/">Density Analysis:</a></strong> This tool analyzes the relative positions of 
+						differentially expressed genes within a pathway, allowing us to identify the activation of 
+						portions of a pathway.
+					</li>
+				</ul>
+				
+				<h2 class="subtitle">Acknowledgements</h2>
+				<p>
+					This work was partially supported by:
+					<ul>
+						<li><a href="http://www.nlm.nih.gov/">National Library of Medicine</a> Grant 5-R01-LM-010138-02.</li>
+						<li><a href="http://www.nih.gov/">National Institute of Health</a> Grant 1U54DA021519.</li>
+					</ul>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- end content -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+</div>
+<!-- start footer -->
+<div id="footer">
+	<p id="legal">Copyright &copy; 2010. All Rights Reserved <a href="http://eecs.umich.edu">University of Michigan</a>.<br />
+	CSS template from <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div>
+<!-- end footer -->
+</body>
+</html>

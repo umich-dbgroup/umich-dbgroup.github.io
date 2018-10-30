@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Value-Based Join Queries</TITLE>
+<META NAME="description" CONTENT="Value-Based Join Queries">
+<META NAME="keywords" CONTENT="queries">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="queries.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="queries.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html62"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html60"
+  HREF="queries.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html54"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html63"
+  HREF="node6.html">Pointer-based Join Queries</A>
+<B> Up:</B> <A NAME="tex2html61"
+  HREF="queries.html">queries</A>
+<B> Previous:</B> <A NAME="tex2html55"
+  HREF="node4.html">Structural Selection Queries</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00002000000000000000">
+Value-Based Join Queries</A>
+</H2>
+A value-based join involves comparing values at two different nodes that need
+not be related structurally.  In computing the value-based joins, one would
+naturally expect <EM>both</EM> nodes participating in the join to be returned.  As such, the return
+structure is a tree per join-pair.  Each tree has a join-node as the
+root, and two children, one corresponding to each element participating in
+the join.  
+
+<P>
+<B>QJ1. Low selectivity value join.</B>  
+Select nodes with <I>aSixtyFour =2</I>
+and join with nodes with <I>aSixtyFour = 3</I> based on the equality of <I>aLevel</I> attribute.  
+The probability that a node satisfies either <I>aSixtyFour</I> predicate value is 1/64.
+Let  be the number of nodes at level , then the estimated
+number of nodes that satisfy the predicates of this query is
+. Thus, the estimated total number of nodes that satisfy
+this query is 
+<TABLE border=0><TR><TD align=center>l=16</TD></TR><TR><TD align=center><FONT FACE='SYMBOL' SIZE=6>S</FONT></TD><TD>N<sub>l</sub>/64)<sup>2</sup></TD></TR><TR><TD align=center>l=1</TD></TR></TABLE>
+
+
+<P>
+<B>QJ2. High selectivity value join.</B>
+Select nodes based on <I>aSixteen =2</I> and
+join with nodes with <I>aSixteen = 3</I> based on the equality of <I>aLevel</I>
+attribute.  
+The probability that a node satisfies either <I>aSixteen</I> predicate value is 1/16.
+Let  be the number of nodes at level , then the estimated
+number of nodes that satisfy the predicates of this query is
+. Thus, the number of nodes that satisfy
+this query is 
+<TABLE border=0><TR><TD align=center>l=16</TD></TR><TR><TD align=center><FONT FACE='SYMBOL' SIZE=6>S</FONT></TD><TD>N<sub>l</sub>/16)<sup>2</sup></TD></TR><TR><TD align=center> l=1</TD></TR></TABLE>
+
+<!--Navigation Panel-->
+<A NAME="tex2html62"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="icons/next.png"></A> 
+<A NAME="tex2html60"
+  HREF="queries.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="icons/up.png"></A> 
+<A NAME="tex2html54"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html63"
+  HREF="node6.html">Pointer-based Join Queries</A>
+<B> Up:</B> <A NAME="tex2html61"
+  HREF="queries.html">queries</A>
+<B> Previous:</B> <A NAME="tex2html55"
+  HREF="node4.html">Structural Selection Queries</A>
+<!--End of Navigation Panel-->
+</BODY>
+</HTML>

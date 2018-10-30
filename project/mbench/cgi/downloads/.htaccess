@@ -1,0 +1,7 @@
+AuthUserFile /net/www/w/web/db/mbench/cgi/downloads/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Michigan Benchmark Download Page"
+AuthType Basic
+
+require valid-user
+

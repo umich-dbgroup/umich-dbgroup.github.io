@@ -1,0 +1,38 @@
+The Michigan Benchark Data Generator 
+Copyright (c) 2001	EECS Department, University of Michigan
+----------------------------------------------------------------------
+INSTRUCTIONS TO BUILD THE DATA GENERATOR 
+===========================================
+Execute the following commands
+	> touch .depend
+	> make 
+
+After these commands executed, the generator is called 'mbgen' should 
+be created.
+
+INSTRUCTIONS TO RUN THE DATA GENERATOR
+=========================================
+Program options:
+ -sf=scale_factor    Valid scale factors are {1,10,100} [default=1]
+ -rl=root_level      Set the root level of the data set
+                     Valid root levels are {1-16} [default=1]
+ -dl=deepest_level   Set the deepest level of the data set
+                     Valid deepest levels are {1-16} [default=16]
+ -n=doc_name         Set document file name [default='doc']
+ -s | -S             Turn on/off Schema support [default=on]
+ -h | -H             Print available options
+
+Examples:
+%mbgen -h
+This command prints help information about the available options
+
+%mbgen
+This command generates an XML document, "doc1.xml", with scale factor =1
+
+%mbgen -n="data"
+This command generates an XML document, "data1.xml"
+
+%mbgen -s -rl=2 -dl=3 
+This command generates two XML documents, "doc1.xml" and "doc2.xml".
+These documents have nodes at level 2 as the root nodes and nodes at 
+level 3 as the leaf nodes

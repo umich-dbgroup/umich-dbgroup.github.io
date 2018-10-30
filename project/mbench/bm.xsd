@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	    targetNamespace="http://www.eecs.umich.edu/db/mbench/bm.xsd"
+	    xmlns="http://www.eecs.umich.edu/db/mbench/bm.xsd"
+	    elementFormDefault="qualified">
+
+<xsd:element name="eNest" type="BaseType"/>
+
+<xsd:complexType name="BaseType" mixed="true">
+  <xsd:sequence>
+    <xsd:element name="eNest" type="BaseType" minOccurs="0" maxOccurs="unbounded">
+      <xsd:key name="aU1PK">
+        <xsd:selector xpath=".//eNest"/>
+        <xsd:field xpath="@aUnique1"/>
+      </xsd:key>
+      <xsd:unique name="aU2">
+        <xsd:selector xpath=".//eNest"/>
+        <xsd:field xpath="@aUnique2"/>
+      </xsd:unique>
+    </xsd:element>
+    <xsd:element name="eOccasional" type="OccasionalType" minOccurs="0">
+      <xsd:keyref name="aU1FK" refer="aU1PK">
+        <xsd:selector xpath="."/>
+        <xsd:field xpath="@aUnique1Ref"/>
+      </xsd:keyref>
+    </xsd:element>
+  </xsd:sequence>
+  <xsd:attributeGroup ref="BaseTypeAttrs"/> 
+</xsd:complexType>
+
+<xsd:complexType name="OccasionalType">
+  <xsd:simpleContent>
+    <xsd:extension base="xsd:string">
+      <xsd:attribute name="aUnique1Ref" type="xsd:integer" use="required"/>
+    </xsd:extension>
+  </xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:attributeGroup name="BaseTypeAttrs">
+  <xsd:attribute name="aUnique1" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aUnique2" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aLevel" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aFour" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aSixteen" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aSixtyFour" type="xsd:integer" use="required"/>
+  <xsd:attribute name="aString" type="xsd:string" use="required"/>
+</xsd:attributeGroup>
+</xsd:schema>

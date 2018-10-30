@@ -27,6 +27,10 @@ postdocs:
     name: Yongjoo Park
     url: http://yongjoopark.com
     photo: /images/people/pyongjoo.jpg
+  -
+    name: Abolfazl Asudeh
+    url: http://asudeh.github.io/
+    photo: /images/people/asudeh.jpg
 
 grad_students:
   -
@@ -34,32 +38,31 @@ grad_students:
     url: https://web.eecs.umich.edu/~mrander/
     photo: /images/people/mrander.jpg
   -
-    name: Dolan Antenucci
-    url: https://web.eecs.umich.edu/~dol/
-    photo: /images/people/dol.png
-  -
-    name: Fei Li
-    url: https://web.eecs.umich.edu/~lifei/
-    photo: /images/people/lifei.jpg
-  -
     name: Chris Baik
     photo: /images/people/cjbaik.jpg
+    url: https://www.linkedin.com/in/chrisjbaik/
   -
     name: Zhongjun "Mark" Jin
     url: http://markjin1990.github.io/
     photo: /images/people/markjin.jpg
   -
     name: Nikita Bhutani
+    url: https://nikibhutani.github.io/
+    photo: /images/people/nikita.jpg
   -
     name: Jie Song
+    url: https://www.linkedin.com/in/jiesongk
   -
     name: Jiamin Huang
+    url: https://www.linkedin.com/in/jiamin-huang-359344110
   -
     name: Dong Young Yoon
+    url: https://www.linkedin.com/in/dong-young-yoon-30b49243/
   -
-    name: Boyu Tian
+    name: Rui Liu
+    url: https://www.linkedin.com/in/rui-liu-81898a118/
   -
-    name: Remzi Can Aksoy
+    name: Junghwan Kim
 
 recognized_alumni:
   -
@@ -107,8 +110,26 @@ recognized_alumni:
 
 recent_alumni:
   -
+    name: Dolan Antenucci
+    degree: PhD'18
+    url: https://web.eecs.umich.edu/~dol/
+    photo: /images/people/dol.png
+    where: Streamlio
+  -
+    name: Fei Li
+    degree: PhD'17
+    url: https://web.eecs.umich.edu/~lifei/
+    photo: /images/people/lifei.jpg
+    where: tokenclub.com
+  -
+    name: Matthew Burgess
+    degree: PhD'17
+    url: http://web.eecs.umich.edu/~mattburg/
+    where: Google
+  -
     name: Ahmad Shahab Tajik
     degree: MSE'17
+    where: Apple
   -
     name: Chun-Hung Hsiao
     degree: PhD'17
@@ -161,7 +182,7 @@ recent_alumni:
   -
     name: Bin Liu
     degree: PhD'11
-    where: NEC Laboratories America
+    where: Google, previously at NEC Laboratories America
     url: http://binliu.org/
   -
     name: Arnab Nandi
@@ -188,7 +209,7 @@ recent_alumni:
   -
     name: Adriane Chapman
     degree: PhD'08
-    where: MITRE, Arlington
+    where: University of Southampton, previously at MITRE
     url: http://www.ageworld.net/
   -
     name: Willis Lang
@@ -243,8 +264,8 @@ recent_alumni:
   -
     name: Yuqing Wu
     degree: PhD'04
-    where: Indiana University
-    url: http://www.cs.indiana.edu/%7Eyuqwu/
+    where: Ponoma College, previously at Indiana University 
+    url: https://www.pomona.edu/directory/people/yuqing-melanie-wu
   -
     name: Richard Hankins
     degree: PhD'04

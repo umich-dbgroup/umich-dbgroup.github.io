@@ -1,0 +1,833 @@
+<html>
+<head>
+	<title>XQuery Queries for Mbench</title> 
+</head>
+<body>
+<H1>XQuery Queries for Mbench</H1>
+<!-- QR1 -->
+<table><tr bgcolor="aqua"><td>
+-- QR1: Select all elements with aSixtyFour = 2  (Return only the element in question)
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aSixtyFour=2] return
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+</pre>
+<br/>
+<pre>
+
+<!-- QR2 -->
+<table><tr bgcolor="aqua"><td>
+-- QR2: Select all elements with aSixtyFour = 2  (Return the element and all
+-- its immediate children)
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aSixtyFour=2] return
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+    {
+      for $c in $e/eNest return
+      &lt;child aUnique1="{$c/@aUnique1}"&gt;
+      &lt;/child&gt;
+    }
+  &lt;/eNest&gt;
+</pre>
+<br/>
+
+<!-- QR3 -->
+<table><tr bgcolor="aqua"><td>
+-- QR3: Select all elements with aSixtyFour = 2  (Return the entire subtree)
+</td></tr></table>
+
+<pre>
+for $e in collection("mbench")//eNest[@aSixtyFour=2] return
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+    &lt;descedants&gt;
+    {
+      &lt;descedant aUnique1="{$c/@aUnique1}" aFour="{$c/@aFour}"&gt;
+      &lt;/descedant&gt;
+    }
+    &lt;/descedants&gt;
+  &lt;/eNest&gt;
+
+</pre>
+
+<!-- QR4 -->
+<table><tr bgcolor="aqua"><td>
+-- QR4: Select all elements with aSixtyFour = 2 and selected descendants
+with aFour = 1
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aSixtyFour=2] return
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+    &lt;descedants&gt;
+    {
+      for $c in $e//eNest[@aFour=1] return
+      &lt;descedant aUnique1="{$c/@aUnique1}" aFour="{$c/@aFour}"&gt;
+      &lt;/descedant&gt;
+    }
+    &lt;/descedants&gt;
+  &lt;/eNest&gt;
+
+</pre>
+
+<!-- QS1 -->
+<table><tr bgcolor="aqua"><td>
+-- QS1: Select elements with aString = 'Sing a song of oneB4' 
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aString = 'Sing a song of oneB4'] return
+  &lt;eNest aUnique1="{$e/@aUnique1}" aString="{$e/@aString}"&gt;
+  &lt;/eNest&gt;
+
+</pre>
+
+<!-- QS2 -->
+<table><tr bgcolor="aqua"><td>
+-- QS2: Select elements with aString = 'Sing a song of oneB1' 
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aString = 'Sing a song of oneB1'] return
+  &lt;eNest aUnique1="{$e/@aUnique1}" aString="{$e/@aString}"&gt;
+  &lt;/eNest&gt;
+
+</pre>
+
+
+<!-- QS3 -->
+<table><tr bgcolor="aqua"><td>
+-- QS3: Select elements with aLevel = 10 
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=10] return
+  &lt;eNest aUnique1="{$e/@aUnique1}" aString="{$e/@aLevel}"&gt;
+  &lt;/eNest&gt;
+</pre>
+
+
+<!-- QS4 -->
+<table><tr bgcolor="aqua"><td>
+-- QS4: Select elements with aLevel = 13
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=13] return
+  &lt;eNest aUnique1="{$e/@aUnique1}" aString="{$e/@aLevel}"&gt;
+  &lt;/eNest&gt;
+</pre>
+
+<!-- QS5 -->
+<table><tr bgcolor="aqua"><td>
+-- QS5: Select nodes that have aSixtyFour between 5 and 8.
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aSixtyFour>=5 and @aSixtyFour<=8] return
+  &lt;eNest aUnique1="{$e/@aUnique1}" aSixtyFour="{$e/@aSixtyFour}"&gt;
+  &lt;/eNest&gt;
+</pre>
+
+<!-- QS6 -->
+<table><tr bgcolor="aqua"><td>
+-- QS6: Select nodes with aLevel = a13 and have the returned
+nodes sorted by aSixtyFour attribute. 
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=13] 
+  order by (/@aSixtyFour)
+  return
+  &lt;eNest aUnique1="{$e/@aUnique1}" aString="{$e/@aLevel}" aSixtyFour="{$e/@aSixtyFour}"&gt;
+  &lt;/eNest&gt;
+</pre>
+
+<!-- QS7 -->
+<table><tr bgcolor="aqua"><td>
+-- QS7: Select nodes with aSixteen = 1 and aFour = 1.
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aSixteen=1 and @aFour=1] return
+  &lt;eNest aUnique1="{$e/@aUnique1}" aSixteen="{$e/@aSixtyFour}" aFour="{$e/@aFour}"&gt;
+  &lt;/eNest&gt;
+</pre>
+
+
+<!-- QS8 -->
+<table><tr bgcolor="aqua"><td>
+-- QS8: Selection based on the element name, eOccasional
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eOccasional return
+  &lt;eOccasional aRef="{$e/@aRef}"&gt;
+  &lt;/eOccasional&gt;
+</pre>
+
+<!-- QS9 -->
+<table><tr bgcolor="aqua"><td>
+-- QS9: Select the second child of every node with aLevel = 7
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=7] return
+  &lt;parent aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}"&gt;
+  {
+    for $c in $e/eNest[position()=2] return 
+    &lt;secondChild aUnique1="{$c/@aUnique1}" aLevel="{$c/@aLevel}"&gt;
+    &lt;/secondChild&gt;
+  }
+  &lt;/parent&gt;
+</pre>
+
+<!-- QS10 -->
+<table><tr bgcolor="aqua"><td>
+-- QS10: Select the second child of every node with aLevel = 9
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=9] return
+  &lt;parent aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}"&gt;
+  {
+    for $c in $e/eNest[position()=2] return 
+    &lt;secondChild aUnique1="{$c/@aUnique1}" aLevel="{$c/@aLevel}"&gt;
+    &lt;/secondChild&gt;
+  }
+  &lt;/parent&gt;
+</pre>
+
+<!-- QS11 -->
+<table><tr bgcolor="aqua"><td>
+-- QS11: Get 'eOccasional' nodes that have element content 
+-- contains "oneB4"
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eOccasional
+  where contains($e/text(), "oneB4") return
+  &lt;eOccasional aRef="{$e/@aRef}"&gt;
+  &lt;/eOccasional&gt;
+</pre>
+
+<!-- QS12 -->
+<table><tr bgcolor="aqua"><td>
+-- QS12: Get nodes that have element content contains "oneB4"
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest
+  where contains($e/text(), "oneB4") return
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+</pre>
+
+
+<!-- QS13 -->
+<table><tr bgcolor="aqua"><td>
+-- QS13: select all nodes with element content that the distance
+<br/>
+-- between keyword "oneB5" and the keyword "twenty" is not more than four
+</td></tr></table>
+<pre>
+N/A
+</pre>
+
+
+<!-- QS14 -->
+<table><tr bgcolor="aqua"><td>
+-- QS14: select all nodes with element content that the distance between
+<br/>
+-- 	 keyword "oneB2" and the keyword "twenty" is not more than four
+</td></tr></table>
+<pre>
+N/A
+</pre>
+
+<!-- QS15 -->
+<table><tr bgcolor="aqua"><td>
+-- QS15: Local ordering.  Select the second element with aFour = 1 below
+<br/>
+-- 	 each element with aFour = 1 if that second element also has aFour = 1
+</td></tr></table>
+
+<pre>
+for $e in collection("mbench")//eNest[@aFour=1] return
+  for $c in $e/eNest[position()=2 and @aFour=1] return 
+  &lt;parent aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}" aFour="{$e/@aFour}"&gt;
+    &lt;secondChild aUnique1="{$c/@aUnique1}" aLevel="{$c/@aLevel}" aFour="{$c/@aFour}"&gt;
+    &lt;/secondChild&gt;
+  &lt;/parent&gt;
+</pre>
+
+
+<!-- QS16 -->
+<table><tr bgcolor="aqua"><td>
+-- QS16: Global ordering.  Select the second element with aFour = 1 below
+<br/>
+--	 any element with aSixtyFour = 1
+<br/>
+</td></tr></table>
+for $e in collection("mbench")//eNest[@aSixtyFour=1] return
+  for $c in $e/eNest[position()=2 and @aFour=1] return 
+  &lt;parent aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}" aSixtyFour="{$e/@aFour}"&gt;
+    &lt;secondChild aUnique1="{$c/@aUnique1}" aLevel="{$c/@aLevel}" aFour="{$c/@aFour}"&gt;
+    &lt;/secondChild&gt;
+  &lt;/parent&gt;
+</pre>
+
+<!-- QS17 -->
+<table><tr bgcolor="aqua"><td>
+-- QS17: Reverse ordering. Among the children with aSixteen = 1 of the
+<br/>
+-- parent element with aLevel = 13, select the last child<br/>
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=13] return
+  for $c in $e/eNest[@aSixteen=1 and position()=last()-1] return  
+  &lt;parent aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}"&gt;
+    &lt;child aUnique1="{$c/@aUnique1}" aLevel="{$c/@aLevel}" aSixteen="{$c/@aSixteen}"&gt;
+    &lt;/child&gt;
+  &lt;/parent&gt;
+
+</pre>
+
+
+<!-- QS18 -->
+<table><tr bgcolor="aqua"><td>
+-- QS18: Moderate selectivity of both parent and child.  Select nodes with
+<br/>
+-- 	 aLevel = 13 that have a child with attribute aSixteen = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=13] return
+  if (exists($e/eNest[@aSixteen=3])) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+
+<!-- QS19 -->
+<table><tr bgcolor="aqua"><td>
+-- QS19: High selectivity of parent and low selectivity of child.  
+<br/>
+--       Select nodes with  aLevel = 15 that have a child with 
+<br/>
+--	 attribute aSixtyFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=15] return
+  if (exists($e/eNest[@aSixtyFour=3])) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+
+<!-- QS20 -->
+<table><tr bgcolor="aqua"><td>
+-- QS20: Low selectivity of parent and high selectivity of child.  
+<br/>
+--	 Select nodes with  aLevel = 11 that have a child with 
+<br/>
+-- 	 attribute aFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=11] return
+  if (exists($e/eNest[@aFour=3])) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+
+<!-- QS21 -->
+<table><tr bgcolor="aqua"><td>
+-- QS21: Moderate selectivity of both ancestor and descendant.  Select
+<br/>
+-- 	 nodes with aLevel = 13 that have a descendant with aSixteen = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=13] return
+  if (exists($e//eNest[@aSixteen=3])) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+<!-- QS22 -->
+<table><tr bgcolor="aqua"><td>
+-- QS22: High selectivity of ancestor and low selectivity of descendant 
+<br/>
+-- 	 Select nodes with aLevel = 15 that have a descendant with 
+<br/>
+-- 	 aSixtyFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=15] return
+  if (exists($e//eNest[@aSixtyFour=3])) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+
+<!-- QS23 -->
+<table><tr bgcolor="aqua"><td>
+-- QS23: Low selectivity of ancestor and high selectivity of descendant 
+<br/>
+-- 	 Select nodes with aLevel = 11 that have a descendant with 
+<br/>
+-- 	 aFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=11] return
+  if (exists($e//eNest[@aFour=3])) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+
+<!-- QS24 -->
+<table><tr bgcolor="aqua"><td>
+-- QS24: Moderate selectivity of both ancestor and descendant.
+<br/>
+-- 	 Select nodes with aSixteen = 3 that have a descendant with
+<br/>
+-- 	 aSixteen = 5
+</td></tr></table>
+
+<pre>
+for $e in collection("mbench")//eNest[@aSixteen=3] return
+  if (exists($e//eNest[@aSixteen=5])) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+<!-- QS25 -->
+<table><tr bgcolor="aqua"><td>
+-- QS25: High selectivity of ancestor and low selectivity of descendant
+<br/>
+-- 	 Select nodes with aFour = 3 that have a descendant with
+<br/>
+-- 	 aSixtyFour= 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aFour=3] return
+  if (exists($e//eNest[@aSixtyFour=3])) then
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+<!-- QS26 -->
+<table><tr bgcolor="aqua"><td>
+-- QS26: Low selectivity of ancestor and high selectivity of descendant
+<br/>
+-- 	 Select nodes with aSixtyFour = 9 that have a descendant with
+<br/>
+-- 	 aFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aSixtyFour=9] return
+  if (exists($e//eNest[@aFour=3])) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+<!-- QS27 -->
+<table><tr bgcolor="aqua"><td>
+-- QS27: Low selectivity of ancestor and high selectivity of descendant
+<br/>
+-- 	 Select nodes with aSixtyFour = 9 that have a descendant with
+<br/>
+-- 	 aFour = 3. Return a pair of ancestor and descendant nodes.
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aSixtyFour=9] return
+  if (exists($e//eNest[@aFour=3])) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+   {
+     for $d in $e//eNest[@aFour=3] return
+     &lt;descendant aUnique1="{$d/@aUnique1}"&gt;
+     &lt;/descendant&gt;
+   }
+   &lt;/eNest&gt;
+   else()
+ </pre>
+
+
+ <!-- QS28 -->
+ <table><tr bgcolor="aqua"><td>
+ -- QS28: One chain query with three parent-child joins with the selectivity
+ <br/>
+ -- 	 pattern: high-low-low-high, to test the choice of join order in
+ <br/>
+ --	 evaluating a complex query.  To achieve the desired selectivities,
+ <br/>
+ --	 we use the following predicates: aFour = 3, aSixteen = 3,
+ <br/>
+ --	 aSixteen = 5, and aLevel = 16
+ </td></tr></table>
+ <pre>
+for $e in collection("mbench")//eNest[@aFour=3] return
+  if (exists($e/eNest[@aSixteen=3]/eNest[@aSixteen=5]/eNest[@aLevel=16])) then 
+  &lt;firstLevel aUnique1="{$e/@aUnique1}"&gt;
+  {
+    for $c1 in $e/eNest[@aSixteen=3] return
+    &lt;secondLevel aUnique1="{$c1/@aUnique1}"&gt;
+    {
+      for $c2 in $c1/eNest[@aSixteen=5] return
+      &lt;thirdLevel aUnique1="{$c2/@aUnique1}"&gt;
+      {
+        for $c3 in $c2/eNest[@aLevel=16] return
+        &lt;fourthLevel aUnique1="{$c2/@aUnique1}"&gt;
+        &lt;/fourthLevel&gt;
+      }
+      &lt;/thirdLevel&gt;
+    }
+    &lt;/secondLevel&gt;
+  }
+  &lt;/firstLevel&gt;
+else()
+</pre>
+
+<!-- QS29 -->
+<table><tr bgcolor="aqua"><td>
+-- QS29: One twig query with two parent child selection, low seletivity of
+<br/>
+-- 	 parent aLevel = 11, high selectivity of left child aFour = 3, 
+<br/>
+--	 and low selectivity of right child aSixtyFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=11] return
+  if (exists($e/eNest[@aFour=3]) and exists($e/eNest[@aSixtyFour=3])) then 
+  &lt;parent aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}"&gt;
+{   for $c1 in $e/eNest[@aFour=3] where $c1/position()=1 return
+
+    &lt;child1 aUnique1="{$c1/@aUnique1}" aFour="{$c1/@aFour}"&gt;
+    &lt;/child1&gt;
+}
+{         for $c2 in $e/eNest[@aSixtyFour=3] where $c2/position()=1 return
+    &lt;child2 aUnique1="{$c2/@aUnique1}" aSixtyFour="{$c2/@aSixtyFour}"&gt;
+    &lt;/child2&gt;
+}
+
+  &lt;/parent&gt;
+else()
+
+</pre>
+
+<!-- QS30 -->
+<table><tr bgcolor="aqua"><td>
+-- QS30: One twig query with two parent child selection, low seletivity of
+<br/>
+-- 	 parent aLevel = 11, high selectivity of left child aFour = 3, 
+<br/>
+--	 and low selectivity of right child aSixtyFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aFour=1] return
+  if (exists($e/eNest[@aLevel=11]) and exists($e/eNest[@aSixtyFour=3])) then 
+  &lt;parent aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}"&gt;
+{   for $c1 in $e/eNest[@aLevel=11 and position()=1] return
+
+    &lt;child1 aUnique1="{$c1/@aUnique1}" aLevel="{$c1/@aLevel}"&gt;
+    &lt;/child1&gt;
+}
+{         for $c2 in $e/eNest[@aSixtyFour=3 and position()=1] return
+    &lt;child2 aUnique1="{$c2/@aUnique1}" aSixtyFour="{$c2/@aSixtyFour}"&gt;
+    &lt;/child2&gt;
+}
+
+  &lt;/parent&gt;
+else()
+</pre>
+
+
+<!-- QS31 -->
+<table><tr bgcolor="aqua"><td>
+-- QS31: One chain query with three ancestor-descendant joins with the selectivity
+<br/>
+--       pattern: high-low-low-high, to test the choice of join order in
+<br/>
+--       evaluating a complex query.  To achieve the desired selectivities,
+<br/>
+--       we use the following predicates: aFour = 3, aSixteen = 3,
+<br/>
+--       aSixteen = 5, and aLevel = 16
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aFour=3] return
+  if (exists($e//eNest[@aSixteen=3]//eNest[@aSixteen=5]//eNest[@aLevel=16])) then 
+  &lt;firstLevel aUnique1="{$e/@aUnique1}"&gt;
+  {
+    for $c1 in $e//eNest[@aSixteen=3] where exists($c1//eNest[@aSixteen=5]//eNest[@aLevel=16]) return
+    &lt;secondLevel aUnique1="{$c1/@aUnique1}"&gt;
+    {
+      for $c2 in $c1//eNest[@aSixteen=5] where exists($c2//eNest[@aLevel=16]) return
+      &lt;thirdLevel aUnique1="{$c2/@aUnique1}"&gt;
+      {
+        for $c3 in $c2//eNest[@aLevel=16  return
+        &lt;fourthLevel aUnique1="{$c3/@aUnique1}"&gt;
+        &lt;/fourthLevel&gt;
+      }
+      &lt;/thirdLevel&gt;
+    }
+    &lt;/secondLevel&gt;
+  }
+  &lt;/firstLevel&gt;
+else()
+
+</pre>
+
+
+<!-- QS32 -->
+<table><tr bgcolor="aqua"><td>
+-- QS32: One twig query with two ancestor descendant selection, low selectivity 
+<br/>
+-- 	 of ancestor aLevel = 11, high selectivity of one descendant aFour = 3,
+<br/>
+--	 and low selectivity of another descendant aSixtyFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aLevel=11] return
+  if (exists($e//eNest[@aFour=3]) and exists($e//eNest[@aSixtyFour=3])) then 
+  &lt;ancester aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}"&gt;
+{   for $c1 in $e//eNest[@aFour=3 and position()=1] return
+
+    &lt;descendant1 aUnique1="{$c1/@aUnique1}" aFour="{$c1/@aFour}"&gt;
+    &lt;/descendant1&gt;
+}
+{         for $c2 in $e//eNest[@aSixtyFour=3] and position()=1] return
+    &lt;descendant2 aUnique1="{$c2/@aUnique1}" aSixtyFour="{$c2/@aSixtyFour}"&gt;
+    &lt;/descendant2&gt;
+}
+
+  &lt;/ancester&gt;
+else()
+
+</pre>
+
+
+<!-- QS33 -->
+<table><tr bgcolor="aqua"><td>
+-- QS33: One twig query with two ancestor descendant selection, low selectivity 
+<br/>
+-- 	 of ancestor aFour = 1, low selectivity of one descendant aLevel = 11,
+<br/>
+--	 and low selectivity of another descendant aSixtyFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aFour=1] return
+  if (exists($e//eNest[@aLevel=11]) and exists($e//eNest[@aSixtyFour=3])) then 
+  &lt;ancester aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}"&gt;
+{   for $c1 in $e//eNest[@aLevel=11 and position()=1] return
+
+    &lt;descendant1 aUnique1="{$c1/@aUnique1}" aLevel="{$c1/@aLevel}"&gt;
+    &lt;/descendant1&gt;
+}
+{         for $c2 in $e//eNest[@aSixtyFour=3 and position()=1] return
+    &lt;descendant2 aUnique1="{$c2/@aUnique1}" aSixtyFour="{$c2/@aSixtyFour}"&gt;
+    &lt;/descendant2&gt;
+}
+
+  &lt;/ancester&gt;
+else()
+</pre>
+
+<!-- QS34 -->
+<table><tr bgcolor="aqua"><td>
+-- QS34: One twig query with two ancestor descendant selection, high selectivity 
+<br/>
+-- 	 of ancestor aFour = 1, low selectivity of a child with aLevel = 11,
+<br/>
+--	 and low selectivity of another descendant aSixtyFour = 3
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest[@aFour=1] return
+  if (exists($e/eNest[@aLevel=11]) and exists($e//eNest[@aSixtyFour=3])) then 
+  &lt;ancester aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}">
+{   for $c1 in $e/eNest[@aLevel=11 and position()=1] return
+
+    &lt;child aUnique1="{$c1/@aUnique1}" aLevel="{$c1/@aLevel}"&gt;
+    &lt;/child&gt;
+}
+{         for $c2 in $e//eNest[@aSixtyFour=3 and position()=1] return
+    &lt;descendant aUnique1="{$c2/@aUnique1}" aSixtyFour="{$c2/@aSixtyFour}"&gt;
+    &lt;/descendant&gt;
+}
+  &lt;/ancester&gt;
+else()
+</pre>
+
+<!-- QS35 -->
+<table><tr bgcolor="aqua"><td>
+-- QS35: Missing Elements.  Find all BaseType elements that there is
+<br/>
+-- 	no OccasionalType elements below them.
+<br/>
+-- 1) Find all BaseType elements that there is some OccasionalType
+<br/>
+--    elements below them.
+<br/>
+-- 2) Return elements that are not in 1)
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest return
+  if (not(exists($e/eOccasional))) then 
+  &lt;eNest aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}"&gt;
+  &lt;/eNest&gt;
+  else()
+</pre>
+
+<!-- QJ1 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ1: Low selectivity join: select nodes based on aSixtyFour = 2 and join
+<br/>
+-- with nodes with aSixtyFour = 3
+</td></tr></table>
+<pre>
+for $e1 in collection("mbench")//eNest[@aSixtyFour=2] return
+for $e2 in collection("mbench")//eNest[@aSixtyFour=2]  where $e2/@aUnique1=$e1/@aUnique1 return
+  &lt;eNest1 aUnique1="{$e1/@aUnique1}" aSixtyFour="{$e1/@aSixtyFour}" aLevel="{$e1/@aLevel}"&gt;
+  &lt;eNest2 aUnique1="{$e2/@aUnique1}" aSixtyFour="{$e2/@aSixtyFour}" aLevel="{$e2/@aLevel}"&gt;
+  &lt;/eNest2&gt;
+  &lt;/eNest1&gt;
+</pre>
+
+<!-- QJ2 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ2: High selectivity join: select nodes based on aSixteen = 2 and join
+<br/>
+-- with nodes with aSixteen = 3
+</td></tr></table>
+<pre>
+for $e1 in collection("mbench")//eNest[@aSixteen=2] return
+for $e2 in collection("mbench")//eNest[@aSixteen=2]  where $e2/@aUnique1=$e1/@aUnique1 return
+  &lt;eNest1 aUnique1="{$e1/@aUnique1}" aSixteen="{$e1/@aSixteen}" aLevel="{$e1/@aLevel}"&gt;
+  &lt;eNest2 aUnique1="{$e2/@aUnique1}" aSixteen="{$e2/@aSixteen}" aLevel="{$e2/@aLevel}"&gt;
+  &lt;/eNest2&gt;
+  &lt;/eNest1&gt;
+</pre>
+
+
+<!-- QJ3 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ3: Low selectivity join: select all OccasionalType nodes that point to
+<br/>
+-- 	a node with aSixtyFour = 3
+</td></tr></table>
+<pre>
+for $e1 in collection("mbench")//eOccasional return
+for $e2 in collection("mbench")//eNest[@aSixtyFour=3] return
+  if ($e2/@aUnique1=$e1/@aRef) then 
+  &lt;eOccasional aRef="{$e1/@aRef}"&gt;
+  &lt;eNest aUnique1="{$e2/@aUnique1}" aSixtyFour="{$e2/@aSixtyFour}"&gt;
+  &lt;/eNest&gt;
+  &lt;/eOccasional&gt;
+  else()
+</pre>
+
+<!-- QJ4 -->
+<table><tr bgcolor="aqua"><td>
+-- QJ4: High selectivity join: select all OccasionalType nodes that point to
+<br/>
+-- 	a node with aFour = 3
+</td></tr></table>
+<pre>
+for $e1 in collection("mbench")//eOccasional return
+for $e2 in collection("mbench")//eNest[@aFour=3] return
+  if ($e2/@aUnique1=$e1/@aRef) then 
+  &lt;eOccasional aRef="{$e1/@aRef}"&gt;
+  &lt;eNest aUnique1="{$e2/@aUnique1}" aSixtyFour="{$e2/@aSixtyFour}"&gt;
+  &lt;/eNest&gt;
+  &lt;/eOccasional&gt;
+  else()
+</pre>
+
+<!-- QA1 -->
+<table><tr bgcolor="aqua"><td>
+-- QA1: Over all nodes at level 15, compute the average value for the
+<br/>
+-- 	aSixtyFour attribute
+</td></tr></table>
+<pre>
+&lt;avgaSixtyFour average="{avg(for $e1 in collection("mbench")//eNest[@aLevel=15] return $e1/@aSixtyFour)}"&gt;
+  &lt;/avgaSixtyFour&gt;
+</pre>
+
+
+<!-- QA2 -->
+<table><tr bgcolor="aqua"><td>
+-- QA2: Over all nodes at all levels, compute the average value for the
+<br/>
+-- 	aSixtyFour attribute
+</td></tr></table>
+<pre>
+define function one_level(eNest $e)
+{
+  &lt;average avgaSixtyFour="{avg(for $a in $e/eNest return $a/@aSixtyFour)}" aLevel="{$e/@aLevel+1}"&gt;
+    {one_level($e/eNest)}
+  &lt;/average&gt;
+}
+one_level(collection("mbench")/eNest)
+</pre>
+
+
+<!-- QA3 -->
+<table><tr bgcolor="aqua"><td>
+-- QA3: Select elements that have at least two occurrences of keyword "oneB1"
+<br/>
+in their content
+</td></tr></table>
+<pre>
+N/A
+</pre>
+
+
+<!-- QA4 -->
+<table><tr bgcolor="aqua"><td>
+-- QA3: Amongst the nodes at level 11, find the node(s) with the largest
+<br/>
+--      fanout.
+</td></tr></table>
+<pre>
+&lt;maxFanout aUnique1="{
+  for $e in collection("mbench")//eNest[@aLevel=11] return
+    for $p in collection("mbench")//eNest[@aLevel=11] where count($e/eNest)=max(count($p/eNest)) return
+    $e/@aUnique1
+  }"&gt;
+&lt;/maxFanout&gt;
+</pre>
+
+
+
+
+<!-- QA5 -->
+<table><tr bgcolor="aqua"><td>
+-- QA5:  select elements that have at least two children that satisfy 
+<br/>
+--       aFour = 1
+</td></tr></table>
+<pre>
+for $e in collection("mbench")//eNest where count($e/eNest[@aFour=1])>=2 return
+&lt;eNest aUnique1="{$e/@aUnique1}"&gt;
+&lt;/eNest&gt;
+</pre>
+
+<!-- QA6 -->
+<table><tr bgcolor="aqua"><td>
+-- QA6: For each node at level 7 (7,3), determine the height of the
+<br/>
+--      sub-tree rooted at this node
+</td></tr></table>
+<pre>
+DEFINE FUNCTION depth($e) RETURNS xsd:integer
+{  IF (empty($e/eNest)) THEN 1 ELSE max(depth($e/eNest)) + 1 }
+
+for $e in collection("mbench")//eNest[@aLevel=7] return
+&lt;eNest aUnique1="{$e/@aUnique1}" aLevel="{$e/@aLevel}" depth="{depth($e)}"&gt;
+&lt;/eNest&gt;
+</pre>
+
+QU1-QU6
+<pre>
+N/A
+</pre>
+</body>
+</html>

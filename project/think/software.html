@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>THINK Back :: KNowledge-based Interpretation of High Throughput data</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="css/think.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18763305-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="http://www.eecs.umich.edu/db/think/">THINK Back</a></h1>
+		<h2>KNowledge-based Interpretation of High Throughput data</h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="http://eecs.umich.edu/db/think/">Home</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/research.html">Research</a></li>
+			<li class="current_page_item"><a href="http://eecs.umich.edu/db/think/software.html">Software</a></li>
+			<li><a href="http://eecs.umich.edu/db/think/people.html">People</a></li>
+			<li class="last"><a href="http://eecs.umich.edu/db/think/contact.php">Contact</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post">
+			<h1 class="title">THINK Back Web Services</h1>
+			<div class="entry">
+				<p>We have made available the THINK Back toolkit as a set of web services that can be programatically accessed by your applications. 
+				These web services have been developed and integrated as part of our <a href="http://portal.ncibi.org/gateway/">NCIBI</a> <a href="http://ws.ncibi.org/longrunning.html">Long Running Services</a> and are available through a client side Java API.</p>
+				
+				<h2 class="subtitle">Java client example</h2>
+				<p>The following example shows how to access NCIBI long running services in Java.</p>
+				<ul>
+					<li><strong>Sample 1: Calling THINK BACK GSEA-DS: </strong><a href="files/THINK_Back_Client.java">THINK_Back_Client.java</a></li>
+					<li><strong>Sample 2: POM.xml</strong> for example Java code <a href="files/ncibi_longrunning_pom.xml">POM.xml</a></li>
+                    <li><strong>Dataset file: </strong><a href="files/expns3494_2.gct">expns3494_2.gct</a></li>
+                    <li><strong>Class file: </strong><a href="files/3494.cls">3494.cls</a></li>
+                    <li><strong>Template file: </strong><a href="files/keggdata.txt">keggdata.txt</a></li>
+                    <li><strong>Chipset file: </strong><a href="files/HG_U133A.chip">HG_U133A.chip</a></li> 				
+				</ul>
+			</div>
+		</div>
+		
+		<div class="post">
+			<h1 class="title">THINK Back Java Stand-alone Implementation</h1>
+			<div class="entry">
+				<p>A Java implementation of our techniques is available for download here. This version may be run as a stand-alone application.
+				Notice that every individual technique can be downloaded separately, and in addition, we provide a complete suite
+				with all the current tools and techniques that we have developed.</p>
+				
+				<ul>
+					<li>
+						<strong>Appearance Frequency Analysis:</strong> This technique analyzes the frequency in which genes appear in biological pathways.
+						<ul>
+							<li><a href="files/appearance_frequency_1.0.zip">Download</a> the latest version of our Java implementation.</li>
+							<li><a href="appearancefrequency/">Learn more</a> about our technique.</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Density Analysis:</strong> With our Density Scoring technique, the relative positions 
+						in a pathway of differentially expressed genes is taken into account. Thereby, we can identify 
+						the activation of portions of a pathway.
+						<ul>
+							<li><a href="files/density_analysis_1.0.zip">Download</a> the latest version of our Java implementation.</li>
+							<li><a href="densityanalysis/">Learn more</a> about our technique.</li>
+						</ul>
+					</li>
+					<!-- li><strong>Authority Flow Analysis:</strong></li -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- end content -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+</div>
+<!-- start footer -->
+<div id="footer">
+	<p id="legal">Copyright &copy; 2010. All Rights Reserved <a href="http://eecs.umich.edu">University of Michigan</a>.<br />
+	CSS template from <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div>
+<!-- end footer -->
+</body>
+</html>
