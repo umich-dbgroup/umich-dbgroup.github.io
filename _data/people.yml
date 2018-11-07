@@ -118,9 +118,9 @@ recent_alumni:
   -
     name: Fei Li
     degree: PhD'17
-    url: https://web.eecs.umich.edu/~lifei/
+    url: http://www-personal.umich.edu/~lifei/
     photo: /images/people/lifei.jpg
-    where: tokenclub.com
+    where: TokenClub
   -
     name: Matthew Burgess
     degree: PhD'17
