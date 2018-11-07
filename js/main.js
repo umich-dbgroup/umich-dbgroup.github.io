@@ -73,6 +73,9 @@ function sortPubsByYear(hits) {
 
 
     var venue = hit.info.venue;
+    if (Array.isArray(venue)) {
+        venue = venue.join(', ');
+    }
     if (!venue.endsWith('.')) {
       venue += '.';
     }
