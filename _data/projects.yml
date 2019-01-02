@@ -1,5 +1,9 @@
 active:
   -
+    name: Mithra
+    description: The projects on Responsible Data Management and Data Ethics.
+    url: http://mithra.eecs.umich.edu/
+  -
     name: Verdict
     url: "http://verdictdb.org"
     description: "A commercial-grade, AQP data analytics system that runs on top of existing SQL-engines."
@@ -30,10 +34,6 @@ active:
     name: MUSIQ
     description: Model-driven Usable System for Information Querying
     url: "/project/usable"
-  -
-    name: Mithra
-    description: The projects on Responsible Data Management and Data Ethics.
-    url: http://mithra.eecs.umich.edu/
 
 inactive:
   -
