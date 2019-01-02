@@ -63,6 +63,9 @@ grad_students:
     url: https://www.linkedin.com/in/rui-liu-81898a118/
   -
     name: Junghwan Kim
+  -
+    name: Wenjia He
+    photo: /images/people/wenjia.jpg
 
 recognized_alumni:
   -
@@ -236,8 +239,8 @@ recent_alumni:
   -
     name: Sandeep Tata
     degree: PhD'07
-    where: IBM Almaden Research Center
-    url: https://researcher.ibm.com/researcher/view.php?person=us-stata
+    where: Google Research, previously at IBM Almaden Research Center
+    url: https://ai.google/research/people/SandeepTata
   -
     name: Nuwee Wiwatwattana
     degree: PhD'07
@@ -250,8 +253,8 @@ recent_alumni:
   -
     name: Stelios Paparizos
     degree: PhD'06
-    where: Microsoft Research
-    url: http://research.microsoft.com/~steliosp/
+    where: Google Research, previously at Microsoft Research
+    url: http://www.paparizos.gr
   -
     name: Shurug Al-Khalifa
     degree: PhD'05
@@ -259,7 +262,8 @@ recent_alumni:
     url: http://faculty.ksu.edu.sa/shurug/
   -
     name: Andrew Nierman
-    where: University of Puget Sound
+    degree: MS'99
+    where: Porch, previously at University of Puget Sound
     url: http://math.ups.edu/%7Eanierman/
   -
     name: Yuqing Wu

@@ -30,6 +30,10 @@ active:
     name: MUSIQ
     description: Model-driven Usable System for Information Querying
     url: "/project/usable"
+  -
+    name: Mithra
+    description: The projects on Responsible Data Management and Data Ethics.
+    url: http://mithra.eecs.umich.edu/
 
 inactive:
   -
