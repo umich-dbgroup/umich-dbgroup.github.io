@@ -96,6 +96,7 @@ recognized_alumni:
 recent_alumni:
   -
     name: Nikita Bhutani
+    degree: PhD'19
     url: https://nikibhutani.github.io/
     photo: /images/people/nikita.jpg
     where: Megagon Labs
@@ -106,12 +107,13 @@ recent_alumni:
     where: TBD
   -
     name: Yongjoo Park
-    degree: PhD'17
+    degree: PhD'17, PostDoc'19
     url: http://yongjoopark.com
     photo: /images/people/pyongjoo.jpg
     where: TBD
   -
     name: Abolfazl Asudeh
+    where: PostDoc'19
     url: http://asudeh.github.io/
     photo: /images/people/asudeh.jpg
     where: University of Illinois at Chicago
@@ -146,6 +148,10 @@ recent_alumni:
     name: Chun-Hung Hsiao
     degree: PhD'17
     where: Mesosphere
+  -
+    name: Bernardo Gonçalves 
+    degree: PostDoc'16
+    where: IBM Research, Brazil
   -
     name: Shirley Zhe Chen
     degree: PhD'16
