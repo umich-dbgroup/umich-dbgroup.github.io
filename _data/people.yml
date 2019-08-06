@@ -23,38 +23,20 @@ affiliated:
     photo: /images/people/dkoutra.jpg
 
 postdocs:
-  -
-    name: Yongjoo Park
-    url: http://yongjoopark.com
-    photo: /images/people/pyongjoo.jpg
-  -
-    name: Abolfazl Asudeh
-    url: http://asudeh.github.io/
-    photo: /images/people/asudeh.jpg
+
 
 grad_students:
   -
-    name: Mike Anderson
-    url: https://web.eecs.umich.edu/~mrander/
-    photo: /images/people/mrander.jpg
-  -
     name: Chris Baik
     photo: /images/people/cjbaik.jpg
-    url: https://www.linkedin.com/in/chrisjbaik/
+    url: https://www.chrisbaik.com
   -
     name: Zhongjun "Mark" Jin
     url: http://markjin1990.github.io/
     photo: /images/people/markjin.jpg
   -
-    name: Nikita Bhutani
-    url: https://nikibhutani.github.io/
-    photo: /images/people/nikita.jpg
-  -
     name: Jie Song
     url: https://www.linkedin.com/in/jiesongk
-  -
-    name: Jiamin Huang
-    url: https://www.linkedin.com/in/jiamin-huang-359344110
   -
     name: Dong Young Yoon
     url: https://www.linkedin.com/in/dong-young-yoon-30b49243/
@@ -112,6 +94,33 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Nikita Bhutani
+    url: https://nikibhutani.github.io/
+    photo: /images/people/nikita.jpg
+    where: Megagon Labs
+  -
+    name: Jiamin Huang
+    degree: PhD'19
+    url: https://www.linkedin.com/in/jiamin-huang-359344110
+    where: TBD
+  -
+    name: Yongjoo Park
+    degree: PhD'17
+    url: http://yongjoopark.com
+    photo: /images/people/pyongjoo.jpg
+    where: TBD
+  -
+    name: Abolfazl Asudeh
+    url: http://asudeh.github.io/
+    photo: /images/people/asudeh.jpg
+    where: University of Illinois at Chicago
+  -
+    name: Mike Anderson
+    degree: PhD'19
+    url: https://web.eecs.umich.edu/~mrander/
+    photo: /images/people/mrander.jpg
+    where: TBD
   -
     name: Dolan Antenucci
     degree: PhD'18
