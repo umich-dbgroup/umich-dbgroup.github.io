@@ -110,7 +110,7 @@ recent_alumni:
     degree: PhD'17, PostDoc'19
     url: http://yongjoopark.com
     photo: /images/people/pyongjoo.jpg
-    where: TBD
+    where: University of Illinois at Urbana-Champaign
   -
     name: Abolfazl Asudeh
     degree: PostDoc'19
@@ -128,7 +128,7 @@ recent_alumni:
     degree: PhD'18
     url: https://web.eecs.umich.edu/~dol/
     photo: /images/people/dol.png
-    where: Streamlio
+    where: Maize Analytics
   -
     name: Fei Li
     degree: PhD'17
@@ -155,7 +155,7 @@ recent_alumni:
   -
     name: Shirley Zhe Chen
     degree: PhD'16
-    where: Two Sigma Investments
+    where: Google Brain, previously at Two Sigma Investments
     url: http://chenzheruc.github.io/
   -
     name: Manish Singh
