@@ -23,6 +23,9 @@ affiliated:
     photo: /images/people/dkoutra.jpg
 
 postdocs:
+  -
+    name: Yuval Moskovitch
+    photo: /images/people/yuval.jpg
 
 
 grad_students:
@@ -37,9 +40,7 @@ grad_students:
   -
     name: Jie Song
     url: https://www.linkedin.com/in/jiesongk
-  -
-    name: Dong Young Yoon
-    url: https://www.linkedin.com/in/dong-young-yoon-30b49243/
+    photo: /images/people/jiesong.jpg
   -
     name: Rui Liu
     url: https://www.linkedin.com/in/rui-liu-81898a118/
@@ -48,6 +49,16 @@ grad_students:
   -
     name: Wenjia He
     photo: /images/people/wenjia.jpg
+  -
+    name: Yin Lin
+    photo: /images/people/yinlin.jpg
+  -
+    name: Yuze Lou
+    photo: /images/people/yuze.jpg
+  -
+    name: Junjie Xing
+    photo: /images/people/junjie.jpg
+    url: https://xingjunjie.me/blog/
 
 recognized_alumni:
   -
@@ -94,6 +105,10 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Dong Young Yoon
+    url: https://www.linkedin.com/in/dong-young-yoon-30b49243/
+    where: TBD
   -
     name: Nikita Bhutani
     degree: PhD'19
