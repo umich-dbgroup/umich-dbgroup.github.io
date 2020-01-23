@@ -52,6 +52,7 @@ grad_students:
   -
     name: Yin Lin
     photo: /images/people/yinlin.jpg
+    url: https://niceirene.github.io/
   -
     name: Yuze Lou
     photo: /images/people/yuze.jpg
@@ -108,7 +109,7 @@ recent_alumni:
   -
     name: Dong Young Yoon
     url: https://www.linkedin.com/in/dong-young-yoon-30b49243/
-    where: TBD
+    where: Facebook Research
   -
     name: Nikita Bhutani
     degree: PhD'19
@@ -119,7 +120,7 @@ recent_alumni:
     name: Jiamin Huang
     degree: PhD'19
     url: https://www.linkedin.com/in/jiamin-huang-359344110
-    where: TBD
+    where: Google
   -
     name: Yongjoo Park
     degree: PhD'17, PostDoc'19
@@ -137,7 +138,7 @@ recent_alumni:
     degree: PhD'19
     url: https://web.eecs.umich.edu/~mrander/
     photo: /images/people/mrander.jpg
-    where: TBD
+    where: Armoire
   -
     name: Dolan Antenucci
     degree: PhD'18
