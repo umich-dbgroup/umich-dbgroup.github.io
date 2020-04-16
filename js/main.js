@@ -66,7 +66,7 @@ function sortPubsByYear(hits) {
     if (hit.info.authors.author.constructor === Array) {
       var authors = hit.info.authors.author.map((a) => a.text).join(', ');
     } else {
-      var authors = hit.info.authors.author;
+      var authors = hit.info.authors.author.text;
     }
     // Replace all "0001" disambiguations for authors
     authors = authors.replace(/ [0-9]+/g, '');
