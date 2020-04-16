@@ -64,7 +64,7 @@ function sortPubsByYear(hits) {
     var url = hit.info.url;
     var title = hit.info.title;
     if (hit.info.authors.author.constructor === Array) {
-      var authors = hit.info.authors.author.join(', ');
+      var authors = hit.info.authors.author.map((a) => a.text).join(', ');
     } else {
       var authors = hit.info.authors.author;
     }
