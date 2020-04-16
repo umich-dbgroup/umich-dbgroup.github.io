@@ -31,10 +31,6 @@ postdocs:
 
 grad_students:
   -
-    name: Chris Baik
-    photo: /images/people/cjbaik.jpg
-    url: https://chrisbaik.com
-  -
     name: Zhongjun "Mark" Jin
     url: http://markjin1990.github.io/
     photo: /images/people/markjin.jpg
@@ -107,6 +103,11 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Chris Baik
+    degree: PhD'20
+    url: https://chrisbaik.com
+    where: Postdoc, University of Washington
   -
     name: Dong Young Yoon
     degree: PhD'19
