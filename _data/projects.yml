@@ -1,5 +1,9 @@
 active:
   -
+    name: Duoquest
+    description: A dual-specification interface with natural language and programming-by-example for expressive SQL
+    url: "https://github.com/umich-dbgroup/duoquest"
+  -
     name: Mithra
     description: The projects on Responsible Data Management and Data Ethics.
     url: http://mithra.eecs.umich.edu/
@@ -36,6 +40,14 @@ active:
     url: "/project/usable"
 
 inactive:
+  -
+    name: Templar
+    description: Augmenting natural language interfaces to databases with SQL query logs
+    url: "https://github.com/umich-dbgroup/templar"
+  -
+    name: NaLIR
+    description: A natural language interface for relational databases
+    url: "https://github.com/umich-dbgroup/nalir"
   -
     name: Senbazuru
     description: A Prototype Spreadsheet Database Management System
