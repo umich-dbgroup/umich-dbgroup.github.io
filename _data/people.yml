@@ -31,10 +31,6 @@ postdocs:
 
 grad_students:
   -
-    name: Zhongjun "Mark" Jin
-    url: http://markjin1990.github.io/
-    photo: /images/people/markjin.jpg
-  -
     name: Jie Song
     url: https://www.linkedin.com/in/jiesongk
     photo: /images/people/jiesong.jpg
@@ -58,6 +54,18 @@ grad_students:
     name: Junjie Xing
     photo: /images/people/junjie.jpg
     url: https://xingjunjie.me/blog/
+   -
+    name: Jinyang Li
+    photo: /images/people/jinyang.jpeg
+    url: https://jinyangli01.github.io/
+   -
+    name: Jie Liu
+    photo: /images/people/jiezzliu.jpg
+    url: https://jerry-liujie.github.io/
+    -
+    name: Farima Fatahi Bayat
+    photo: /images/people/farima.jpg
+    url: https://www.linkedin.com/in/farimafatahibayat/
 
 recognized_alumni:
   -
@@ -104,6 +112,11 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Zhongjun "Mark" Jin
+    degree: PhD'20
+    url: http://markjin1990.github.io/
+    where: TikTok Data Platform team
   -
     name: Chris Baik
     degree: PhD'20
