@@ -11,6 +11,10 @@ faculty:
     name: Barzan Mozafari
     url: https://web.eecs.umich.edu/~mozafari/
     photo: /images/people/mozafari.jpg
+   -
+    name: Lin Ma
+    url: https://linmagit.github.io/
+    photo: /images/people/Lin.jpg
 
 affiliated:
   -
@@ -30,13 +34,6 @@ postdocs:
 
 
 grad_students:
-  -
-    name: Jie Song
-    url: https://www.linkedin.com/in/jiesongk
-    photo: /images/people/jiesong.jpg
-  -
-    name: Rui Liu
-    url: https://www.linkedin.com/in/rui-liu-81898a118/
   -
     name: Junghwan Kim
   -
@@ -112,6 +109,18 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Rui Liu
+    degree: PhD'21
+    url: https://www.linkedin.com/in/rui-liu-81898a118/
+    where: Meta
+
+  -
+    name: Jie Song
+    degree: PhD'21
+    url: https://www.linkedin.com/in/jiesongk
+    where: TikTok Data Platform team
+
   -
     name: Zhongjun "Mark" Jin
     degree: PhD'20
