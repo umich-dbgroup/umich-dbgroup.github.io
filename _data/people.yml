@@ -1,9 +1,5 @@
 faculty:
   -
-    name: Michael J. Cafarella
-    url: https://web.eecs.umich.edu/~michjc/
-    photo: /images/people/cafarella.jpg
-  -
     name: H. V. Jagadish
     url: https://web.eecs.umich.edu/~jag/
     photo: /images/people/jag.jpg
@@ -13,7 +9,7 @@ faculty:
     photo: /images/people/mozafari.jpg
   -
     name: Lin Ma
-    url: https://linmagit.github.io/
+    url: https://web.eecs.umich.edu/~linmacse/
     photo: /images/people/Lin.jpg
 
 affiliated:
@@ -28,10 +24,6 @@ affiliated:
 
 postdocs:
   -
-    name: Yuval Moskovitch
-    url: https://web.eecs.umich.edu/~yuvalm/
-    photo: /images/people/yuval.jpg
-
 
 grad_students:
   -
@@ -109,6 +101,15 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Yuval Moskovitch
+    degree: Postdoc'22
+    url: https://www.cs.bgu.ac.il/~yuvalmos/
+    where: Ben-Gurion University
+  -
+    name: Prof. Michael Cafarella
+    where: Massachusetts Institute of Technology
+    url: http://people.csail.mit.edu/michjc/
   -
     name: Rui Liu
     degree: PhD'21
