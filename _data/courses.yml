@@ -12,5 +12,5 @@ courses:
   -
     code: EECS 584
     name: Advanced Database Systems
-    desc: "Survey of advanced topics in database systems. Distributed databases, query processing, transaction processing. Effects of data models: object-oriented and deductive databases; architectures: main-memory and parallel repositories; distributed organizations: client-server and heterogeneous systems. Basic data management for emerging areas: internet applications, OLAP, data mining. Case studies of existing systems. Group projects."
-    url: http://web.eecs.umich.edu/~mozafari/fall2015/eecs584/
+    desc: "Advanced concurrency control mechanisms; Database automation; Columnar databases; Modern query processing; Database-as-a-service (cloud transaction and analytical databases); Big data processing; Open data formats and Lakehouse; Stream processing; Vector databases"
+    url: https://www.eecs.umich.edu/courses/eecs584/
