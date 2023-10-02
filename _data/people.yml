@@ -55,6 +55,10 @@ grad_students:
     name: Farima Fatahi Bayat
     photo: /images/people/farima.jpg
     url: https://web.eecs.umich.edu/~farimaf/
+  -
+    name: Samika Gupta
+    photo: /images/people/samika.jpg
+    url: https://samikagupta.github.io/ 
 
 recognized_alumni:
   -
