@@ -56,6 +56,10 @@ grad_students:
     photo: /images/people/farima.jpg
     url: https://web.eecs.umich.edu/~farimaf/
   -
+    name: Tianji Cong
+    photo: /images/people/tianjicong.jpg
+    url: https://superctj.github.io/
+  -
     name: Samika Gupta
     photo: /images/people/samika.jpeg
     url: https://samikagupta.github.io/ 
