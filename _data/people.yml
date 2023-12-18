@@ -63,6 +63,10 @@ grad_students:
     name: Samika Gupta
     photo: /images/people/samika.jpeg
     url: https://samikagupta.github.io/ 
+  -
+    name: Houming Chen
+    photo: /images/people/houming.jpg
+    url: https://houmingchen.github.io/
 
 recognized_alumni:
   -
