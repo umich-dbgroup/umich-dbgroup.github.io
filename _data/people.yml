@@ -29,14 +29,6 @@ grad_students:
   -
     name: Junghwan Kim
   -
-    name: Wenjia He
-    photo: /images/people/wenjia.jpg
-    url: https://web.eecs.umich.edu/~wenjiah/
-  -
-    name: Yin Lin
-    photo: /images/people/yinlin.jpg
-    url: https://niceirene.github.io/
-  -
     name: Yuze Lou
     photo: /images/people/yuze.jpg
   -
@@ -113,6 +105,16 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Yin Lin
+    degree: PhD'24
+    url: https://niceirene.github.io/
+    where: Alibaba Group
+  -
+    name: Wenjia He
+    degree: PhD'24
+    url: https://web.eecs.umich.edu/~wenjiah/
+    where: Meta
   -
     name: Yuval Moskovitch
     degree: Postdoc'22
