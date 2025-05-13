@@ -29,17 +29,6 @@ grad_students:
   -
     name: Junghwan Kim
   -
-    name: Yuze Lou
-    photo: /images/people/yuze.jpg
-  -
-    name: Junjie Xing
-    photo: /images/people/junjie.jpg
-    url: https://xingjunjie.me/blog/
-  -
-    name: Jinyang Li
-    photo: /images/people/jinyang.jpeg
-    url: https://jinyangli01.github.io/
-  -
     name: Jie Liu
     photo: /images/people/jiezzliu.jpg
     url: https://jerry-liujie.github.io/
@@ -59,6 +48,18 @@ grad_students:
     name: Houming Chen
     photo: /images/people/houming.jpg
     url: https://houmingchen.github.io/
+  -
+    name: Doug Dong
+    photo: /images/people/dougdong.jpg
+    url: https://siyuan-dong.github.io/
+  -
+    name: Zhongwei Xu
+    photo: /images/people/zhongwei.jpg
+    url: https://xzwdavid.github.io/
+  -
+    name: Jack Gong
+    photo: /images/people/jack.jpg
+    url: https://ht-gong.github.io/
 
 recognized_alumni:
   -
@@ -105,6 +106,19 @@ recognized_alumni:
     url: http://www.google.com/corporate/execs.html#larry
 
 recent_alumni:
+  -
+    name: Junjie Xing
+    degree: PhD'25
+    url: https://xingjunjie.me/blog/
+    where: MSR - data systems group
+  -
+    name: Jinyang Li
+    degree: PhD'25
+    url: https://jinyangli01.github.io/
+    where: Amazon
+  -
+    name: Yuze Lou
+    photo: /images/people/yuze.jpg
   -
     name: Yin Lin
     degree: PhD'24
